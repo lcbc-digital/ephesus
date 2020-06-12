@@ -1,0 +1,89 @@
+{
+  "name": "apollos-church-api",
+  "version": "1.3.1",
+  "private": true,
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "./scripts/generateLocalSchema.sh & yarn start:dev",
+    "start:dev": "linkemon ./src/index.js --exec babel-node --delay 2",
+    "start:prod": "NODE_ENV=production node ./lib/index.js",
+    "postinstall": "yarn build",
+    "link-packages": "node ./scripts/link-packages",
+    "unlink-packages": "node ./scripts/link-packages remove",
+    "build": "NODE_ENV=production rm -rf ./lib && mkdir -p lib && babel ./src -d ./lib",
+    "test": "echo \"No tests in apollos-church-api, all tested code is located in @apollosproject npm modules\"",
+    "lint": "eslint ./src --ext .js",
+    "fixlint": "eslint ./src --ext .js --fix",
+    "codecov": "cat ./coverage/lcov.info | codecov",
+    "version": "node ../../scripts/update-apollos-version.js && git add apollos.json",
+    "schema-diff": "./scripts/schemaDiff.sh",
+    "schema-lint": "graphql-schema-linter local.graphql",
+    "upgrade": "npx @apollosproject/upgrade-tools upgrade"
+  },
+  "engines": {
+    "node": ">=8.11.x"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
+      "<rootDir>/src/**/?(*.)(spec|test|tests).{js,jsx,mjs}"
+    ],
+    "testEnvironment": "node",
+    "reporters": [
+      "<rootDir>/../../scripts/fingers-crossed-reporter.js"
+    ]
+  },
+  "dependencies": {
+    "@apollosproject/config": "1.4.2",
+    "@apollosproject/data-connector-algolia-search": "1.4.2",
+    "@apollosproject/data-connector-analytics": "1.4.2",
+    "@apollosproject/data-connector-bible": "1.4.2",
+    "@apollosproject/data-connector-church-online": "1.4.2",
+    "@apollosproject/data-connector-cloudinary": "1.4.2",
+    "@apollosproject/data-connector-onesignal": "1.4.2",
+    "@apollosproject/data-connector-passes": "1.4.2",
+    "@apollosproject/data-connector-redis-cache": "1.4.2",
+    "@apollosproject/data-connector-rock": "1.4.2",
+    "@apollosproject/data-connector-twilio": "1.4.2",
+    "@apollosproject/data-schema": "1.4.2",
+    "@apollosproject/rock-apollo-data-source": "1.4.2",
+    "@apollosproject/server-core": "1.4.2",
+    "apollo-server": "^2.11.0",
+    "apollo-server-express": "2.11.0",
+    "color": "3.0.0",
+    "dotenv": "6.0.0",
+    "express": "^4.17.0",
+    "graphql": "14.6.0",
+    "prettier": "1.12.1",
+    "randomcolor": "0.5.3"
+  },
+  "devDependencies": {
+    "@apollosproject/apollo-server-env-mock": "1.4.2",
+    "@apollosproject/babel-preset-apollos": "1.4.2",
+    "@apollosproject/eslint-config": "1.4.2",
+    "@babel/cli": "^7.4.5",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.7.4",
+    "@entria/graphql-findbreakingchanges": "^1.0.1",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "codecov": "3.6.5",
+    "get-graphql-schema": "^2.1.2",
+    "graphql-schema-linter": "^0.2.0",
+    "nodemon": "^2.0.2",
+    "linkemon": "^0.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-import-resolver-babel-module": "^5.0.0-beta.0",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jest": "^21.15.2",
+    "eslint-plugin-prettier": "^2.6.0"
+  }
+}
