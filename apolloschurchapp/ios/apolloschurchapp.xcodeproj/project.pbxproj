@@ -65,7 +65,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* apolloschurchappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = apolloschurchappTests.m; sourceTree = "<group>"; };
 		0D480D95FC7F4569B8B934E3 /* libRCTOneSignal.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTOneSignal.a; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* apolloschurchapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = apolloschurchapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* LCBC Church.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LCBC Church.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = apolloschurchapp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = apolloschurchapp/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = apolloschurchapp/Images.xcassets; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* apolloschurchapp.app */,
+				13B07F961A680F5B00A75B9A /* LCBC Church.app */,
 				00E356EE1AD99517003FC87E /* apolloschurchappTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* apolloschurchapp-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* apolloschurchapp-tvOSTests.xctest */,
@@ -305,7 +305,7 @@
 			);
 			name = apolloschurchapp;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* apolloschurchapp.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* LCBC Church.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* apolloschurchapp-tvOS */ = {
@@ -705,13 +705,14 @@
 				);
 				INFOPLIST_FILE = apolloschurchapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 16.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.apolloschurchapp;
-				PRODUCT_NAME = apolloschurchapp;
+				PRODUCT_BUNDLE_IDENTIFIER = lcbcchurchcom;
+				PRODUCT_NAME = "LCBC Church";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -733,13 +734,14 @@
 				);
 				INFOPLIST_FILE = apolloschurchapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 16.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.apolloschurchapp;
-				PRODUCT_NAME = apolloschurchapp;
+				PRODUCT_BUNDLE_IDENTIFIER = lcbcchurchcom;
+				PRODUCT_NAME = "LCBC Church";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
