@@ -31,7 +31,7 @@ const cacheOptions = isDev
       },
     };
 
-const { ENGINE } = ApollosConfig;
+// const { ENGINE } = ApollosConfig;
 
 const apolloServer = new ApolloServer({
   typeDefs: schema,
@@ -50,10 +50,10 @@ const apolloServer = new ApolloServer({
     },
   },
   ...cacheOptions,
-  engine: {
-    apiKey: ENGINE.API_KEY,
-    schemaTag: ENGINE.SCHEMA_TAG,
-  },
+  // engine: {
+  //   apiKey: ENGINE.API_KEY,
+  //   schemaTag: ENGINE.SCHEMA_TAG,
+  // },
 });
 
 const app = express();
