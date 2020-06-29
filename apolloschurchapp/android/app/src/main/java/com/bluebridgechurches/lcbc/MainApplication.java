@@ -1,4 +1,4 @@
-package com.apolloschurchapp;
+package com.bluebridgechurches.lcbc;
 
 import android.app.Application;
 import android.util.Log;

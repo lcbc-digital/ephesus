@@ -17,4 +17,4 @@ YellowBox.ignoreWarnings([
   'Module RCTImageLoader',
 ]);
 
-AppRegistry.registerComponent('apolloschurchapp', () => App);
+AppRegistry.registerComponent('LCBCChurch', () => App);

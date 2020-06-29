@@ -1,10 +1,10 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'apolloschurchapp' do
+target 'LCBCChurch' do
   permissions_path = '../node_modules/react-native-permissions/ios'
 
-  # Pods for apolloschurchapp
+  # Pods for LCBCChurch
   pod 'React', :path => '../node_modules/react-native/'
   pod 'React-Core', :path => '../node_modules/react-native/React'
   pod 'React-DevSupport', :path => '../node_modules/react-native/React'
@@ -32,7 +32,7 @@ target 'apolloschurchapp' do
   pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications.podspec"
   pod 'react-native-google-cast/NoBluetooth', path: '../node_modules/react-native-google-cast/ios/'
 
-  target 'apolloschurchappTests' do
+  target 'LCBCChurchTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -40,10 +40,10 @@ target 'apolloschurchapp' do
   use_native_modules!
 end
 
-target 'apolloschurchapp-tvOS' do
-  # Pods for apolloschurchapp-tvOS
+target 'LCBCChurch-tvOS' do
+  # Pods for LCBCChurch-tvOS
 
-  target 'apolloschurchapp-tvOSTests' do
+  target 'LCBCChurch-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
