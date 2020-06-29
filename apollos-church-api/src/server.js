@@ -1,5 +1,5 @@
 import { ApolloServer } from 'apollo-server-express';
-import ApollosConfig from '@apollosproject/config';
+// import ApollosConfig from '@apollosproject/config';
 import express from 'express';
 import { RockLoggingExtension } from '@apollosproject/rock-apollo-data-source';
 import { get } from 'lodash';
