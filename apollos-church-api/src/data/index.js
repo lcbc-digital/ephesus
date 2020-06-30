@@ -36,7 +36,10 @@ import * as Theme from './theme';
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
 import * as OneSignalWithRock from './oneSignalWithRock';
 
+import * as CraftData from './craft';
+
 const data = {
+  ...CraftData,
   Followings,
   ContentChannel,
   ContentItem,
