@@ -207,11 +207,6 @@ type DevotionalContentItem implements ContentItem & Node {
   sharing: SharableContentItem
 }
 
-type Entry {
-  id: ID
-  title: String
-}
-
 type Event implements Node {
   id: ID!
   name: String
@@ -453,7 +448,6 @@ input PushSettingsInput {
 type Query {
   _placeholder: Boolean
   node(id: ID!): Node
-  entries: [Entry]
   likedContent(first: Int, after: String): ContentItemsConnection
   contentChannels: [ContentChannel]
   campaigns: ContentItemsConnection
