@@ -37,11 +37,7 @@ function Onboarding({ navigation }) {
       <OnboardingSwiper>
         {({ swipeForward }) => (
           <>
-            <AskNameConnected onPressPrimary={swipeForward} />
             <FeaturesConnected
-              onPressPrimary={swipeForward}
-            />
-            <AboutYouConnected
               onPressPrimary={swipeForward}
             />
             <LocationFinderConnected

@@ -1,5 +1,6 @@
 // import styleOverrides from './styleOverrides';
 // import propOverrides from './propOverrides';
+import fontStack from './fontStack';
 
 /* Add your custom theme definitions below. Anything that is supported in UI-Kit Theme can be
  overridden and/or customized here! */
@@ -80,4 +81,30 @@ const colors = {
 //   ...propOverrides,
 // };
 
-export default { colors };
+export const typography = {
+  ...fontStack,
+};
+
+const overrides = {
+  H1: {
+    fontFamily: typography.sans.black.default,
+  },
+  H2: {
+    fontFamily: typography.sans.black.default,
+  },
+  H3: {
+    fontFamily: typography.sans.black.default,
+    textTransform: 'uppercase',
+  },
+  H4: {
+    fontFamily: typography.sans.black.default,
+  },
+  H5: {
+    fontFamily: typography.sans.bold.default,
+  },
+  H6: {
+    fontFamily: typography.sans.black.default,
+  },
+};
+
+export default { colors, typography, overrides };

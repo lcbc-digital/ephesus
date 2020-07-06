@@ -81,6 +81,17 @@
 		<string>Inter-UI-Medium.otf</string>
 		<string>Inter-UI-MediumItalic.otf</string>
 		<string>Inter-UI-Regular.otf</string>
+		<string>Avenir-BlackOblique.otf</string>
+		<string>Avenir-Book.otf</string>
+		<string>Avenir-BookOblique.otf</string>
+		<string>Avenir-Heavy.otf</string>
+		<string>Avenir-HeavyOblique.otf</string>
+		<string>Avenir-Light.otf</string>
+		<string>Avenir-LightOblique.otf</string>
+		<string>Avenir-Medium.otf</string>
+		<string>Avenir-MediumOblique.otf</string>
+		<string>Avenir-Oblique.otf</string>
+		<string>Avenir-Roman.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>BootSplash</string>
