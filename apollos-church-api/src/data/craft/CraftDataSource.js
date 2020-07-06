@@ -103,64 +103,77 @@ export default class Craft extends RESTDataSource {
     }
   }`;
 
+  categoryFragment = `{
+    id
+    title
+  }`;
+
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L6
   // eslint-disable-next-line
   getRootChannels() {
     return [
       {
-        id: 7, // Matches Entry.typeId, craft doesn't expose a query for this
+        id: 'entries:7', // Matches Entry.typeId, craft doesn't expose a query for this
         name: 'Sermons', // Is actually series
       },
       {
-        id: 40,
+        id: 'entries:40',
         name: 'Bible Reading', // Is actually bible reading plan
       },
       {
-        id: 41,
+        id: 'categories:1', // Made up internal ID for top level categories used at byContentChannelId
+        name: 'Categories',
+      },
+      {
+        id: 'entries:41',
         name: 'News',
       },
-      // {
-      //   id: 11,
-      //   name: 'Sermons',
-      // },
-      // {
-      //   id: 29,
-      //   name: 'Stories',
-      // },
-      // {
-      //   id: 43,
-      //   name: 'Studies',
-      // },
-      // {
-      //   id: 15,
-      //   name: 'Articles',
-      // },
     ];
   }
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L13
   // eslint-disable-next-line
-  byContentChannelId(typeId) {
-    return { typeId };
+  byContentChannelId(channelId) {
+    const [__querySource, id] = channelId.split(':');
+    if (__querySource === 'categories') {
+      return {
+        __querySource,
+        groupId: 9,
+        ...(id === 1 ? { hasDescendants: true } : {}),
+      };
+    }
+    if (__querySource === 'entries') {
+      return { __querySource, typeId: id };
+    }
+    return { __querySource };
   }
 
   // Override: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/data-source.js#L46
-  async getFromId(id) {
-    const result = await this.query(
-      `query ($id: [QueryArgument]) {
-        entry(id: $id) ${this.entryFragment}
-      }`,
-      { id }
-    );
+  async getFromId(channelMemberId) {
+    const [qs, id] = channelMemberId.split(':');
+
+    let query;
+    if (qs === 'entries') {
+      query = `query ($id: [QueryArgument]) {
+        node: entry(id: $id) ${this.entryFragment}
+      }`;
+    } else if (qs === 'categories') {
+      query = `query ($id: [QueryArgument]) {
+        node: category(id: $id) ${this.categoryFragment}
+      }`;
+    }
+
+    const result = await this.query(query, { id });
     if (result?.error)
       throw new ApolloError(result?.error?.message, result?.error?.code);
-    return result?.data?.entry;
+    return result?.data?.node;
   }
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L12
   async paginate(props) {
-    const { cursor: filter, args: { after, first = 20 } = {} } = props;
+    const { cursor: __filter, args: { after, first = 20 } = {} } = props;
 
+    const { __querySource: qs, ...filter } = __filter;
     let cursor = {};
     if (after) {
       cursor = parseCursor(after);
@@ -178,18 +191,31 @@ export default class Craft extends RESTDataSource {
       ...filter,
     };
 
-    const result = await this.query(
-      `query ($limit: Int, $offset: Int, $orderBy: String, $inReverse: Boolean, $typeId: [QueryArgument]) {
-        entries(
+    let query;
+    if (qs === 'entries') {
+      query = `query ($limit: Int, $offset: Int, $orderBy: String, $inReverse: Boolean, $typeId: [QueryArgument]) {
+        nodes: entries(
           limit: $limit
           offset: $offset
           orderBy: $orderBy
           inReverse: $inReverse
           typeId: $typeId
         ) ${this.entryFragment}
-      }`,
-      variables
-    );
+      }`;
+    } else if (qs === 'categories') {
+      query = `query ($limit: Int, $offset: Int, $orderBy: String, $inReverse: Boolean, $groupId: [QueryArgument], $hasDescendants: Boolean) {
+        nodes: categories(
+          limit: $limit
+          offset: $offset
+          orderBy: $orderBy
+          inReverse: $inReverse
+          groupId: $groupId
+          hasDescendants: $hasDescendants
+        ) ${this.categoryFragment}
+      }`;
+    }
+
+    const result = await this.query(query, variables);
     console.log(result);
 
     if (!result || result.error)
@@ -199,8 +225,11 @@ export default class Craft extends RESTDataSource {
     const getTotalCount = () => 100;
 
     // build the edges - translate series to { edges: [{ node, cursor }] } format
-    const edges = (result?.data?.entries || []).map((node, i) => ({
-      node,
+    const edges = (result?.data?.nodes || []).map((node, i) => ({
+      node: {
+        ...node,
+        id: `${qs}:${node.id}`,
+      },
       cursor: createCursor({
         ...variables,
         offset: variables.offset + i + 1,
