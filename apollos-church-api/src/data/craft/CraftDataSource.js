@@ -2,6 +2,7 @@ import { RESTDataSource } from 'apollo-datasource-rest';
 import ApollosConfig from '@apollosproject/config';
 import { ApolloError } from 'apollo-server';
 import { createCursor, parseCursor } from '@apollosproject/server-core';
+import { get } from 'lodash';
 
 export default class Craft extends RESTDataSource {
   baseURL = ApollosConfig.CRAFT.URL;
@@ -24,6 +25,15 @@ export default class Craft extends RESTDataSource {
   entryFragment = `{
     id
     title
+    typeId
+    # series
+    seriesDescription
+    # stories
+    subtitle
+    # studies
+    studySummary
+    # articles
+    excerpt
   }`;
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L6
@@ -136,5 +146,105 @@ export default class Craft extends RESTDataSource {
   attributeIsAudio = ({ key, attributeValues }) =>
     attributeValues?.[key]?.value?.endsWith?.('.mp3');
 
-  // NOTE: Left off here
+  hasMedia = ({ attributeValues, attributes }) =>
+    Object.keys(attributes).filter((key) =>
+      this.attributeIsVideo({
+        key,
+        attributeValues,
+        attributes,
+      })
+    ).length ||
+    Object.keys(attributes).filter((key) =>
+      this.attributeIsAudio({
+        key,
+        attributeValues,
+        attributes,
+      })
+    ).length;
+
+  getImages = ({ attributeValues, attributes }) => {
+    const imageKeys = Object.keys(attributes).filter((key) =>
+      this.attributeIsImage({
+        key,
+        attributeValues,
+        attributes,
+      })
+    );
+    return imageKeys.map((key) => ({
+      __typename: 'ImageMedia',
+      key,
+      name: attributes[key].name,
+      sources: attributeValues[key].value
+        ? [{ uri: attributeValues[key].value }]
+        : [],
+    }));
+  };
+
+  getVideos = ({ attributeValues, attributes }) => {
+    const videoKeys = Object.keys(attributes).filter((key) =>
+      this.attributeIsVideo({
+        key,
+        attributeValues,
+        attributes,
+      })
+    );
+    return videoKeys.map((key) => ({
+      __typename: 'VideoMedia',
+      key,
+      name: attributes[key].name,
+      embedHtml: get(attributeValues, 'videoEmbed.value', null), // TODO: this assumes that the key `VideoEmbed` is always used on Rock
+      sources: attributeValues[key].value
+        ? [{ uri: attributeValues[key].value }]
+        : [],
+    }));
+  };
+
+  getAudios = ({ attributeValues, attributes }) => {
+    const audioKeys = Object.keys(attributes).filter((key) =>
+      this.attributeIsAudio({
+        key,
+        attributeValues,
+        attributes,
+      })
+    );
+    return audioKeys.map((key) => ({
+      __typename: 'AudioMedia',
+      key,
+      name: attributes[key].name,
+      sources: attributeValues[key].value
+        ? [{ uri: attributeValues[key].value }]
+        : [],
+    }));
+  };
+
+  resolveType = () => 'UniversalContentItem';
+
+  createSummary = (entry) => {
+    switch (entry.typeId) {
+      case 7: {
+        // series
+        return entry.seriesDescription; // HTML!
+      }
+      case 29: {
+        // stories
+        return entry.subtitle;
+      }
+      case 43: {
+        // studies
+        return entry.studySummary; // HTML!
+      }
+      case 15: {
+        // articles
+        return entry.excerpt;
+      }
+      default: {
+        return '';
+      }
+    }
+  };
+
+  getCoverImage = (entry) => {
+    console.log(entry);
+    return '';
+  };
 }
