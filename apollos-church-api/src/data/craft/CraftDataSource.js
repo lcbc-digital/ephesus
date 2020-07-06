@@ -216,7 +216,6 @@ export default class Craft extends RESTDataSource {
     }
 
     const result = await this.query(query, variables);
-    console.log(result);
 
     if (!result || result.error)
       throw new ApolloError(result?.error?.message, result?.error?.code);
