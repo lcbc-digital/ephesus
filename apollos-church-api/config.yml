@@ -86,11 +86,11 @@ BIBLE_API:
   BIBLE_ID:
     WEB: '9879dbb7cfe39e4d-01'
     KJV: 'de4e12af7f28f599-02'
-CLOUDINARY:
+# CLOUDINARY:
   # Cloudinary is used to improve image loading
   # value should look something like
   # cloudinary://123123123:adkfnla_adASDv_adAS@test
-  URL: ${CLOUDINARY_URL}
+  # URL: ${CLOUDINARY_URL}
 ENGINE:
   API_KEY: ${ENGINE_API_KEY}
   SCHEMA_TAG: ${ENGINE_SCHEMA_TAG}
