@@ -27,13 +27,45 @@ export default class Craft extends RESTDataSource {
     title
     typeId
     # series
-    seriesDescription
+    ... on series_series_Entry {
+      seriesDescription
+      hero {
+        ... on hero_photoHero_BlockType {
+          image {
+            id
+            url
+          }
+        }
+      }
+    }
+
     # stories
-    subtitle
+    ... on stories_stories_Entry {
+      subtitle
+      storyPortrait {
+        url
+      }
+    }
+
     # studies
-    studySummary
+    ... on studies_curriculum_Entry {
+      studySummary
+      image {
+        url
+      }
+    }
+
     # articles
-    excerpt
+    ... on articles_article_Entry {
+      excerpt
+      hero {
+        ... on hero_photoHero_BlockType {
+          image {
+            url
+          }
+        }
+      }
+    }
   }`;
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L6
@@ -244,7 +276,26 @@ export default class Craft extends RESTDataSource {
   };
 
   getCoverImage = (entry) => {
-    console.log(entry);
-    return '';
+    switch (entry.typeId) {
+      case 7: {
+        // series
+        return entry.hero?.image?.url;
+      }
+      case 29: {
+        // stories
+        return entry.storyPortrait?.url;
+      }
+      case 43: {
+        // studies
+        return entry.image?.url;
+      }
+      case 15: {
+        // articles
+        return entry.hero?.image?.url;
+      }
+      default: {
+        return '';
+      }
+    }
   };
 }
