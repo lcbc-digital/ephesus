@@ -2,7 +2,6 @@ import { RESTDataSource } from 'apollo-datasource-rest';
 import ApollosConfig from '@apollosproject/config';
 import { ApolloError } from 'apollo-server';
 import { createCursor, parseCursor } from '@apollosproject/server-core';
-import { get } from 'lodash';
 import Hypher from 'hypher';
 import english from 'hyphenation.en-us';
 
@@ -203,7 +202,6 @@ export default class Craft extends RESTDataSource {
   };
 
   getCoverImage = (entry) => {
-    console.log(JSON.stringify(entry));
     switch (entry.typeId) {
       case 7: {
         // series
