@@ -1,4 +1,5 @@
 import React from 'react';
+import { Image } from 'react-native';
 import {
   checkNotifications,
   openSettings,
@@ -8,7 +9,6 @@ import {
 import {
   GradientOverlayImage,
   styled,
-  BackgroundView,
   NavigationService,
 } from '@apollosproject/ui-kit';
 import {
@@ -24,7 +24,7 @@ const FullscreenBackgroundView = styled({
   position: 'absolute',
   width: '100%',
   height: '100%',
-})(BackgroundView);
+})((props) => <Image {...props} src={'./background.png'} />);
 
 const StyledGradient = styled({
   maxHeight: '40%',
@@ -40,30 +40,16 @@ function Onboarding({ navigation }) {
             <AskNameConnected onPressPrimary={swipeForward} />
             <FeaturesConnected
               onPressPrimary={swipeForward}
-              BackgroundComponent={
-                <StyledGradient
-                  source={'https://picsum.photos/640/640/?random'}
-                />
-              }
             />
             <AboutYouConnected
               onPressPrimary={swipeForward}
-              BackgroundComponent={
-                <StyledGradient
-                  source={'https://picsum.photos/640/640/?random'}
-                />
-              }
             />
             <LocationFinderConnected
               onPressPrimary={swipeForward}
               onNavigate={() => {
                 navigation.navigate('Location');
               }}
-              BackgroundComponent={
-                <StyledGradient
-                  source={'https://picsum.photos/640/640/?random'}
-                />
-              }
+              
             />
             <AskNotificationsConnected
               onRequestPushPermissions={(update) => {
