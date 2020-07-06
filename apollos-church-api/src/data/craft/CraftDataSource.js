@@ -4,6 +4,7 @@ import { ApolloError } from 'apollo-server';
 import { createCursor, parseCursor } from '@apollosproject/server-core';
 import Hypher from 'hypher';
 import english from 'hyphenation.en-us';
+import sanitize from 'sanitize-html';
 
 export default class Craft extends RESTDataSource {
   baseURL = ApollosConfig.CRAFT.URL;
@@ -181,7 +182,14 @@ export default class Craft extends RESTDataSource {
     switch (entry.typeId) {
       case 7: {
         // series
-        return entry.seriesDescription; // HTML!
+        return sanitize(entry.seriesDescription, {
+          allowedTags: ['p'],
+          transformTags: {
+            p() {
+              return {};
+            },
+          },
+        });
       }
       case 29: {
         // stories
@@ -189,7 +197,14 @@ export default class Craft extends RESTDataSource {
       }
       case 43: {
         // studies
-        return entry.studySummary; // HTML!
+        return sanitize(entry.studySummary, {
+          allowedTags: ['p'],
+          transformTags: {
+            p() {
+              return {};
+            },
+          },
+        });
       }
       case 15: {
         // articles
