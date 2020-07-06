@@ -58,6 +58,16 @@ export default class Craft extends RESTDataSource {
       }
     }
 
+    # news
+    ... on news_news_Entry {
+      description: body
+      image {
+        id
+        title
+        url
+      }
+    }
+
     # stories
     ... on stories_stories_Entry {
       subtitle
@@ -97,10 +107,6 @@ export default class Craft extends RESTDataSource {
   // eslint-disable-next-line
   getRootChannels() {
     return [
-      // {
-      //   id: 11,
-      //   name: 'Sermons',
-      // },
       {
         id: 7, // Matches Entry.typeId, craft doesn't expose a query for this
         name: 'Sermons', // Is actually series
@@ -109,6 +115,14 @@ export default class Craft extends RESTDataSource {
         id: 40,
         name: 'Bible Reading', // Is actually bible reading plan
       },
+      {
+        id: 41,
+        name: 'News',
+      },
+      // {
+      //   id: 11,
+      //   name: 'Sermons',
+      // },
       // {
       //   id: 29,
       //   name: 'Stories',
@@ -206,6 +220,7 @@ export default class Craft extends RESTDataSource {
       case 11: // sermons
       case 43: // studies
       case 40: // bible reading plan
+      case 41: // news
       case 7: {
         // series
         return sanitize(entry.description, {
@@ -243,6 +258,7 @@ export default class Craft extends RESTDataSource {
           sources: [{ uri: entry.hero?.[0]?.image?.[0]?.url }],
         };
       }
+      case 41: // news
       case 40: // bible reading plan
       case 29: // stories
       case 43: {
