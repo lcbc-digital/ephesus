@@ -13,12 +13,12 @@ import {
 } from '@apollosproject/ui-kit';
 import {
   AskNotificationsConnected,
-  AskNameConnected,
   FeaturesConnected,
-  AboutYouConnected,
   LocationFinderConnected,
   OnboardingSwiper,
 } from '@apollosproject/ui-onboarding';
+import WelcomeSlide from './WelcomeSlide';
+import AskLocation from './AskLocation';
 
 const FullscreenBackgroundView = styled({
   position: 'absolute',
@@ -39,13 +39,14 @@ function Onboarding({ navigation }) {
           <>
             <FeaturesConnected
               onPressPrimary={swipeForward}
+              Component={WelcomeSlide}
             />
             <LocationFinderConnected
               onPressPrimary={swipeForward}
+              Component={AskLocation}
               onNavigate={() => {
                 navigation.navigate('Location');
               }}
-              
             />
             <AskNotificationsConnected
               onRequestPushPermissions={(update) => {
