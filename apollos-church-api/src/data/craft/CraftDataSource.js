@@ -31,7 +31,7 @@ export default class Craft extends RESTDataSource {
 
     # series
     ... on series_series_Entry {
-      seriesDescription
+      description: seriesDescription
       hero {
         ... on hero_photoHero_BlockType {
           image {
@@ -43,10 +43,25 @@ export default class Craft extends RESTDataSource {
       }
     }
 
+    # sermons
+    ... on series_sermon_Entry {
+      description: sermonDescription
+    }
+
+    # bible reading plans
+    ... on bibleReading_bibleReadingPlan_Entry {
+      description: planDescription
+      image {
+        id
+        title
+        url
+      }
+    }
+
     # stories
     ... on stories_stories_Entry {
       subtitle
-      storyPortrait {
+      image: storyPortrait {
         id
         title
         url
@@ -55,7 +70,7 @@ export default class Craft extends RESTDataSource {
 
     # studies
     ... on studies_curriculum_Entry {
-      studySummary
+      description: studySummary
       image {
         id
         title
@@ -82,22 +97,30 @@ export default class Craft extends RESTDataSource {
   // eslint-disable-next-line
   getRootChannels() {
     return [
+      // {
+      //   id: 11,
+      //   name: 'Sermons',
+      // },
       {
         id: 7, // Matches Entry.typeId, craft doesn't expose a query for this
-        name: 'Series',
+        name: 'Sermons', // Is actually series
       },
       {
-        id: 29,
-        name: 'Stories',
+        id: 40,
+        name: 'Bible Reading', // Is actually bible reading plan
       },
-      {
-        id: 43,
-        name: 'Studies',
-      },
-      {
-        id: 15,
-        name: 'Articles',
-      },
+      // {
+      //   id: 29,
+      //   name: 'Stories',
+      // },
+      // {
+      //   id: 43,
+      //   name: 'Studies',
+      // },
+      // {
+      //   id: 15,
+      //   name: 'Articles',
+      // },
     ];
   }
 
@@ -180,9 +203,12 @@ export default class Craft extends RESTDataSource {
 
   createSummary = (entry) => {
     switch (entry.typeId) {
+      case 11: // sermons
+      case 43: // studies
+      case 40: // bible reading plan
       case 7: {
         // series
-        return sanitize(entry.seriesDescription, {
+        return sanitize(entry.description, {
           allowedTags: ['p'],
           transformTags: {
             p() {
@@ -194,17 +220,6 @@ export default class Craft extends RESTDataSource {
       case 29: {
         // stories
         return entry.subtitle;
-      }
-      case 43: {
-        // studies
-        return sanitize(entry.studySummary, {
-          allowedTags: ['p'],
-          transformTags: {
-            p() {
-              return {};
-            },
-          },
-        });
       }
       case 15: {
         // articles
@@ -218,33 +233,7 @@ export default class Craft extends RESTDataSource {
 
   getCoverImage = (entry) => {
     switch (entry.typeId) {
-      case 7: {
-        // series
-        return {
-          __typename: 'ImageMedia',
-          key: entry.hero?.[0]?.image?.[0]?.id,
-          name: entry.hero?.[0]?.image?.[0]?.title,
-          sources: [{ uri: entry.hero?.[0]?.image?.[0]?.url }],
-        };
-      }
-      case 29: {
-        // stories
-        return {
-          __typename: 'ImageMedia',
-          key: entry.storyPortrait?.[0]?.id,
-          name: entry.storyPortrait?.[0]?.title,
-          sources: [{ uri: entry.storyPortrait?.[0]?.url }],
-        };
-      }
-      case 43: {
-        // studies
-        return {
-          __typename: 'ImageMedia',
-          key: entry.image?.[0]?.id,
-          name: entry.image?.[0]?.title,
-          sources: [{ uri: entry.image?.[0]?.url }],
-        };
-      }
+      case 7: // series
       case 15: {
         // articles
         return {
@@ -252,6 +241,17 @@ export default class Craft extends RESTDataSource {
           key: entry.hero?.[0]?.image?.[0]?.id,
           name: entry.hero?.[0]?.image?.[0]?.title,
           sources: [{ uri: entry.hero?.[0]?.image?.[0]?.url }],
+        };
+      }
+      case 40: // bible reading plan
+      case 29: // stories
+      case 43: {
+        // studies
+        return {
+          __typename: 'ImageMedia',
+          key: entry.image?.[0]?.id,
+          name: entry.image?.[0]?.title,
+          sources: [{ uri: entry.image?.[0]?.url }],
         };
       }
       default: {
