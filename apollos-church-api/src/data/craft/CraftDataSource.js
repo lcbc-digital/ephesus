@@ -28,6 +28,7 @@ export default class Craft extends RESTDataSource {
     id
     title
     typeId
+
     # series
     ... on series_series_Entry {
       seriesDescription
@@ -35,6 +36,7 @@ export default class Craft extends RESTDataSource {
         ... on hero_photoHero_BlockType {
           image {
             id
+            title
             url
           }
         }
@@ -45,6 +47,8 @@ export default class Craft extends RESTDataSource {
     ... on stories_stories_Entry {
       subtitle
       storyPortrait {
+        id
+        title
         url
       }
     }
@@ -53,6 +57,8 @@ export default class Craft extends RESTDataSource {
     ... on studies_curriculum_Entry {
       studySummary
       image {
+        id
+        title
         url
       }
     }
@@ -63,6 +69,8 @@ export default class Craft extends RESTDataSource {
       hero {
         ... on hero_photoHero_BlockType {
           image {
+            id
+            title
             url
           }
         }
@@ -150,7 +158,7 @@ export default class Craft extends RESTDataSource {
     if (!result || result.error)
       throw new ApolloError(result?.error?.message, result?.error?.code);
 
-    // Might need REST API to get count
+    // TODO: Might need REST API to get count but not necessary for UI
     const getTotalCount = () => 100;
 
     // build the edges - translate series to { edges: [{ node, cursor }] } format
@@ -195,25 +203,46 @@ export default class Craft extends RESTDataSource {
   };
 
   getCoverImage = (entry) => {
+    console.log(JSON.stringify(entry));
     switch (entry.typeId) {
       case 7: {
         // series
-        return entry.hero?.image?.url;
+        return {
+          __typename: 'ImageMedia',
+          key: entry.hero?.[0]?.image?.[0]?.id,
+          name: entry.hero?.[0]?.image?.[0]?.title,
+          sources: [{ uri: entry.hero?.[0]?.image?.[0]?.url }],
+        };
       }
       case 29: {
         // stories
-        return entry.storyPortrait?.url;
+        return {
+          __typename: 'ImageMedia',
+          key: entry.storyPortrait?.[0]?.id,
+          name: entry.storyPortrait?.[0]?.title,
+          sources: [{ uri: entry.storyPortrait?.[0]?.url }],
+        };
       }
       case 43: {
         // studies
-        return entry.image?.url;
+        return {
+          __typename: 'ImageMedia',
+          key: entry.image?.[0]?.id,
+          name: entry.image?.[0]?.title,
+          sources: [{ uri: entry.image?.[0]?.url }],
+        };
       }
       case 15: {
         // articles
-        return entry.hero?.image?.url;
+        return {
+          __typename: 'ImageMedia',
+          key: entry.hero?.[0]?.image?.[0]?.id,
+          name: entry.hero?.[0]?.image?.[0]?.title,
+          sources: [{ uri: entry.hero?.[0]?.image?.[0]?.url }],
+        };
       }
       default: {
-        return '';
+        return null;
       }
     }
   };
