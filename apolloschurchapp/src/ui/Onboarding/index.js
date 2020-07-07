@@ -6,11 +6,7 @@ import {
   requestNotifications,
   RESULTS,
 } from 'react-native-permissions';
-import {
-  GradientOverlayImage,
-  styled,
-  NavigationService,
-} from '@apollosproject/ui-kit';
+import { styled, NavigationService } from '@apollosproject/ui-kit';
 import {
   AskNotificationsConnected,
   FeaturesConnected,
@@ -19,16 +15,13 @@ import {
 } from '@apollosproject/ui-onboarding';
 import WelcomeSlide from './WelcomeSlide';
 import AskLocation from './AskLocation';
+import AskNotifications from './AskNotifications';
 
 const FullscreenBackgroundView = styled({
   position: 'absolute',
   width: '100%',
   height: '100%',
 })((props) => <Image {...props} src={'./background.png'} />);
-
-const StyledGradient = styled({
-  maxHeight: '40%',
-})(GradientOverlayImage);
 
 function Onboarding({ navigation }) {
   return (
@@ -49,6 +42,7 @@ function Onboarding({ navigation }) {
               }}
             />
             <AskNotificationsConnected
+              Component={AskNotifications}
               onRequestPushPermissions={(update) => {
                 checkNotifications().then((checkRes) => {
                   if (checkRes.status === RESULTS.DENIED) {
@@ -71,11 +65,6 @@ function Onboarding({ navigation }) {
                 )
               }
               primaryNavText={'Finish'}
-              BackgroundComponent={
-                <StyledGradient
-                  source={'https://picsum.photos/640/640/?random'}
-                />
-              }
             />
           </>
         )}

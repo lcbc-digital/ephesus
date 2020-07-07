@@ -12,7 +12,7 @@ import {
 } from '@apollosproject/ui-kit';
 
 import { Slide } from '@apollosproject/ui-onboarding';
-import { Wrapper, Underline, Intro } from './Components';
+import { Wrapper, Underline, Intro, UnderlinedWord } from './Components';
 
 const TitleWrapper = styled({ flexDirection: 'row', flexWrap: 'wrap' })(View);
 
@@ -22,10 +22,6 @@ const getCampusAddress = (campus) =>
 const StyledCampusCard = styled(({ theme }) => ({
   marginBottom: theme.sizing.baseUnit,
 }))(CampusCard);
-
-const UnderlinedWord = styled(({ theme }) => ({
-  marginRight: theme.sizing.baseUnit,
-}))(View);
 
 // memo = sfc PureComponent 💥
 const LocationFinder = memo(
@@ -39,7 +35,7 @@ const LocationFinder = memo(
     onPressPrimary,
     ...props
   }) => (
-    <Slide onPressPrimary={onPressPrimary} {...props}>
+    <Slide onPressPrimary={onPressPrimary} {...props} alwaysBounceVertical={false}>
       {BackgroundComponent}
       <Wrapper>
         <View style={{ flex: 1 }}>
@@ -49,10 +45,12 @@ const LocationFinder = memo(
               <Underline />
               <H1>{`local`}</H1>
             </UnderlinedWord>
+            <H1>{` `}</H1>
             <UnderlinedWord>
               <Underline />
               <H1>{`LCBC`}</H1>
             </UnderlinedWord>
+            <H1>{` `}</H1>
             <UnderlinedWord>
               <Underline />
               <H1>{`location`}</H1>

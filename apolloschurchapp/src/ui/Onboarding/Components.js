@@ -16,8 +16,12 @@ const Underline = styled(({ theme }) => ({
   height: theme.sizing.baseUnit * 0.5,
   position: 'absolute',
   bottom: theme.sizing.baseUnit * 0.75,
-  left: -theme.sizing.baseUnit * 0.33,
-  right: -theme.sizing.baseUnit * 0.33,
+  left: -theme.sizing.baseUnit * 0.2,
+  right: -theme.sizing.baseUnit * 0.2,
 }))(View);
 
-export { Underline, Intro, Wrapper };
+const UnderlinedWord = styled(({ theme }) => ({
+  // marginRight: theme.sizing.baseUnit * 0.5,
+}))(View);
+
+export { Underline, Intro, Wrapper, UnderlinedWord };

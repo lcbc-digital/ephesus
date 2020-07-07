@@ -10,7 +10,7 @@ const WelcomeWrapper = styled(() => ({ flexDirection: 'row' }))(View);
 
 const Features = memo(
   ({ firstName, description, BackgroundComponent, ...props }) => (
-    <Slide {...props}>
+    <Slide {...props} alwaysBounceVertical={false}>
       {BackgroundComponent}
       <Wrapper>
         <WelcomeWrapper>

@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { View } from 'react-native';
 
 import {
   styled,
   withTheme,
   Icon,
   H1,
-  H4,
+  H5,
   PaddedView,
   BackgroundView,
 } from '@apollosproject/ui-kit';
 
 import { Slide } from '@apollosproject/ui-onboarding';
+import { Underline, UnderlinedWord } from '../Onboarding/Components';
 
 const Content = styled({
   flex: 1,
@@ -20,8 +22,8 @@ const Content = styled({
 
 const BrandIcon = withTheme(({ theme, color }) => ({
   name: 'brand-icon',
-  size: theme.sizing.baseUnit * 3,
-  ...(color ? { fill: color } : {}),
+  size: theme.sizing.baseUnit * 7,
+  fill: theme.colors.primary,
   style: {
     marginBottom: theme.sizing.baseUnit,
   },
@@ -32,9 +34,7 @@ const Title = styled(({ theme, color }) => ({
   ...(color ? { color } : {}),
 }))(H1);
 
-const StyledH4 = styled(({ color }) => ({
-  ...(color ? { color } : {}),
-}))(H4);
+const TitleWrapper = styled({ flexDirection: 'row', flexWrap: 'wrap' })(View);
 
 const LandingScreen = ({
   slideTitle,
@@ -47,9 +47,30 @@ const LandingScreen = ({
     <Slide {...props} scrollEnabled={false}>
       {BackgroundComponent}
       <Content>
-        <BrandIcon color={textColor} />
-        <Title color={textColor}>{slideTitle}</Title>
-        <StyledH4 color={textColor}>{description}</StyledH4>
+        <BrandIcon />
+        <TitleWrapper>
+          <H1>{'We are '}</H1>
+          <UnderlinedWord>
+            <Underline />
+            <H1>{`Lives`}</H1>
+          </UnderlinedWord>
+          <H1>{` `}</H1>
+          <UnderlinedWord>
+            <Underline />
+            <H1>{`Changed`}</H1>
+          </UnderlinedWord>
+          <H1>{` `}</H1>
+          <UnderlinedWord>
+            <Underline />
+            <H1>{`By`}</H1>
+          </UnderlinedWord>
+          <H1>{` `}</H1>
+          <UnderlinedWord>
+            <Underline />
+            <H1>{`Christ`}</H1>
+          </UnderlinedWord>
+        </TitleWrapper>
+        <PaddedView horizontal={false}><H5>{'Welcome to LCBC—we’re so glad you’re here! No matter who you are, what you believe, or  what experiences you’ve had with church,  you’re welcome.'}</H5></PaddedView>
       </Content>
     </Slide>
   </BackgroundView>
