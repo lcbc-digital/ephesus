@@ -113,7 +113,9 @@ ROCK_MAPPINGS:
     MediaContentItem:
       EntityType: ContentChannelItem
     UniversalContentItem:
-      EntityType: ContentChannelItem
+      EntityType: Craft
+    CategoryContentItem:
+      EntityType: Craft      
     WeekendContentItem:
       ContentChannelId: [5]
       EntityType: ContentChannelItem
