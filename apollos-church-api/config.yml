@@ -108,21 +108,21 @@ ROCK_MAPPINGS:
   CONTENT_ITEM:
     ContentSeriesContentItem:
       # When resolving "ContentSeriesContentItem" look in rock for a "ContentChannelItem"
-      EntityType: ContentChannelItem
+      EntityType: Craft
       # Used to define the subset of content channels types that use this specific type.
       ContentChannelTypeId: [6, 7]
     DevotionalContentItem:
-      EntityType: ContentChannelItem
+      EntityType: Craft
       ContentChannelTypeId: [1]
     MediaContentItem:
-      EntityType: ContentChannelItem
+      EntityType: Craft
     UniversalContentItem:
-      EntityType: ContentChannelItem
+      EntityType: Craft
     WeekendContentItem:
       ContentChannelId: [5]
-      EntityType: ContentChannelItem
+      EntityType: Craft
     ContentItem:
-      EntityType: ContentChannelItem
+      EntityType: Craft
 
   DATAVIEW_CATEGORIES:
     # Id of the category used to store all persona dataviews

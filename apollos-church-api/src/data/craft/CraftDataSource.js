@@ -6,6 +6,8 @@ import Hypher from 'hypher';
 import english from 'hyphenation.en-us';
 import sanitize from 'sanitize-html';
 
+const mapToEdgeNode = (nodes) => ({ edges: nodes.map((node) => ({ node })) });
+
 export default class Craft extends RESTDataSource {
   baseURL = ApollosConfig.CRAFT.URL;
 
@@ -24,7 +26,7 @@ export default class Craft extends RESTDataSource {
       })
     );
 
-  entryFragment = `{
+  entryFragment = `
     id
     title
     typeId
@@ -101,7 +103,7 @@ export default class Craft extends RESTDataSource {
         }
       }
     }
-  }`;
+  `;
 
   categoryFragment = `{
     id
@@ -149,25 +151,72 @@ export default class Craft extends RESTDataSource {
   }
 
   // Override: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/data-source.js#L46
-  async getFromId(channelMemberId) {
-    const [qs, id] = channelMemberId.split(':');
+  async getFromId(id, typename) {
+    const query = `query ($id: [QueryArgument]) {
+     node: entry(id: $id) { ${this.entryFragment} }
+    }`;
+    // if (typename === '???') { // Example of using a different query for a different type.
+    //   query = `query ($id: [QueryArgument]) {
+    //     node: entry(id: $id) ${this.entryFragment}
+    //   }`;
+    // } else if (typename === '???') {
+    //   query = `query ($id: [QueryArgument]) {
+    //     node: category(id: $id) ${this.categoryFragment}
+    //   }`;
+    // } else {
+    //   query = `query ($id: [QueryArgument]) {
+    //     node: entry(id: $id) ${this.entryFragment}
+    //   }`;
+    // }
 
-    let query;
-    if (qs === 'entries') {
-      query = `query ($id: [QueryArgument]) {
-        node: entry(id: $id) ${this.entryFragment}
-      }`;
-    } else if (qs === 'categories') {
-      query = `query ($id: [QueryArgument]) {
-        node: category(id: $id) ${this.categoryFragment}
-      }`;
-    }
-
-    const result = await this.query(query, { id });
+    const result = await this.query(query, { id: [id] });
     if (result?.error)
       throw new ApolloError(result?.error?.message, result?.error?.code);
+
     return result?.data?.node;
   }
+
+  getVideos = () => [];
+
+  getChildren = async (id) => {
+    const query = `query ($id: [QueryArgument]) {
+     node: entry(id: $id) {
+       children {
+        ${this.entryFragment}
+       }
+     }
+    }`;
+
+    const result = await this.query(query, { id: [id] });
+    console.log(result);
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    const results = result?.data?.node?.children || [];
+    return mapToEdgeNode(results);
+  };
+
+  getSiblings = async (id) => {
+    const query = `query ($id: [QueryArgument]) {
+     node: entry(id: $id) {
+       parent {
+         children {
+           ${this.entryFragment}
+         }
+       }
+     }
+    }`;
+
+    const result = await this.query(query, { id: [id] });
+    console.log(result);
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    const results = result?.data?.node?.parent?.children || [];
+    return mapToEdgeNode(results);
+  };
+
+  getCursorBySiblingContentItemId = () => {};
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L12
   async paginate(props) {
@@ -200,7 +249,7 @@ export default class Craft extends RESTDataSource {
           orderBy: $orderBy
           inReverse: $inReverse
           typeId: $typeId
-        ) ${this.entryFragment}
+        ) { ${this.entryFragment} }
       }`;
     } else if (qs === 'categories') {
       query = `query ($limit: Int, $offset: Int, $orderBy: String, $inReverse: Boolean, $groupId: [QueryArgument], $hasDescendants: Boolean) {
@@ -227,7 +276,6 @@ export default class Craft extends RESTDataSource {
     const edges = (result?.data?.nodes || []).map((node, i) => ({
       node: {
         ...node,
-        id: `${qs}:${node.id}`,
       },
       cursor: createCursor({
         ...variables,
