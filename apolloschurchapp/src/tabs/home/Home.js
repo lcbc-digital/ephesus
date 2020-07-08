@@ -10,7 +10,7 @@ import {
 } from '@apollosproject/ui-connected';
 
 const LogoTitle = styled(({ theme }) => ({
-  height: theme.sizing.baseUnit,
+  height: theme.sizing.baseUnit * 2.6,
   margin: theme.sizing.baseUnit,
   alignSelf: 'center',
   resizeMode: 'contain',

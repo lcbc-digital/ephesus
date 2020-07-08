@@ -1,34 +1,27 @@
 import React from 'react';
+import { Image } from 'react-native';
 import {
   checkNotifications,
   openSettings,
   requestNotifications,
   RESULTS,
 } from 'react-native-permissions';
-import {
-  GradientOverlayImage,
-  styled,
-  BackgroundView,
-  NavigationService,
-} from '@apollosproject/ui-kit';
+import { styled, NavigationService } from '@apollosproject/ui-kit';
 import {
   AskNotificationsConnected,
-  AskNameConnected,
   FeaturesConnected,
-  AboutYouConnected,
   LocationFinderConnected,
   OnboardingSwiper,
 } from '@apollosproject/ui-onboarding';
+import WelcomeSlide from './WelcomeSlide';
+import AskLocation from './AskLocation';
+import AskNotifications from './AskNotifications';
 
 const FullscreenBackgroundView = styled({
   position: 'absolute',
   width: '100%',
   height: '100%',
-})(BackgroundView);
-
-const StyledGradient = styled({
-  maxHeight: '40%',
-})(GradientOverlayImage);
+})((props) => <Image {...props} src={'./background.png'} />);
 
 function Onboarding({ navigation }) {
   return (
@@ -37,35 +30,19 @@ function Onboarding({ navigation }) {
       <OnboardingSwiper>
         {({ swipeForward }) => (
           <>
-            <AskNameConnected onPressPrimary={swipeForward} />
             <FeaturesConnected
               onPressPrimary={swipeForward}
-              BackgroundComponent={
-                <StyledGradient
-                  source={'https://picsum.photos/640/640/?random'}
-                />
-              }
-            />
-            <AboutYouConnected
-              onPressPrimary={swipeForward}
-              BackgroundComponent={
-                <StyledGradient
-                  source={'https://picsum.photos/640/640/?random'}
-                />
-              }
+              Component={WelcomeSlide}
             />
             <LocationFinderConnected
               onPressPrimary={swipeForward}
+              Component={AskLocation}
               onNavigate={() => {
                 navigation.navigate('Location');
               }}
-              BackgroundComponent={
-                <StyledGradient
-                  source={'https://picsum.photos/640/640/?random'}
-                />
-              }
             />
             <AskNotificationsConnected
+              Component={AskNotifications}
               onRequestPushPermissions={(update) => {
                 checkNotifications().then((checkRes) => {
                   if (checkRes.status === RESULTS.DENIED) {
@@ -88,11 +65,6 @@ function Onboarding({ navigation }) {
                 )
               }
               primaryNavText={'Finish'}
-              BackgroundComponent={
-                <StyledGradient
-                  source={'https://picsum.photos/640/640/?random'}
-                />
-              }
             />
           </>
         )}
