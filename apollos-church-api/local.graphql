@@ -145,8 +145,6 @@ interface ContentItem {
   siblingContentItemsConnection(first: Int, after: String): ContentItemsConnection
   parentChannel: ContentChannel
   theme: Theme
-  isLiked: Boolean
-  likedCount: Int
   sharing: SharableContentItem
 }
 
@@ -182,8 +180,6 @@ type ContentSeriesContentItem implements ContentItem & Node {
   percentComplete: Float
   upNext: ContentItem
   scriptures: [Scripture]
-  isLiked: Boolean
-  likedCount: Int
   sharing: SharableContentItem
   features: [Feature]
 }
@@ -202,8 +198,6 @@ type DevotionalContentItem implements ContentItem & Node {
   parentChannel: ContentChannel
   theme: Theme
   scriptures: [Scripture]
-  isLiked: Boolean
-  likedCount: Int
   sharing: SharableContentItem
 }
 
@@ -294,16 +288,6 @@ type InteractionResult {
 
 scalar InteractionValue
 
-enum LIKE_OPERATION {
-  Like
-  Unlike
-}
-
-input LikeEntityInput {
-  nodeId: ID!
-  operation: LIKE_OPERATION!
-}
-
 type LiveStream {
   isLive: Boolean
   eventStartTime: String
@@ -332,8 +316,6 @@ type MediaContentItem implements ContentItem & Node {
   parentChannel: ContentChannel
   theme: Theme
   scriptures: [Scripture]
-  isLiked: Boolean
-  likedCount: Int
   sharing: SharableContentItem
 }
 
@@ -349,7 +331,6 @@ interface MediaSource {
 
 type Mutation {
   _placeholder: Boolean
-  updateLikeEntity(input: LikeEntityInput!): ContentItem
   updateProfileField(input: UpdateProfileInput!): Person
   updateProfileFields(input: [UpdateProfileInput]!): Person
   uploadProfileImage(file: Upload!, size: Int!): Person
@@ -448,7 +429,6 @@ input PushSettingsInput {
 type Query {
   _placeholder: Boolean
   node(id: ID!): Node
-  likedContent(first: Int, after: String): ContentItemsConnection
   contentChannels: [ContentChannel]
   campaigns: ContentItemsConnection
   userFeed(first: Int, after: String): ContentItemsConnection
@@ -559,8 +539,6 @@ type UniversalContentItem implements ContentItem & Node {
   siblingContentItemsConnection(first: Int, after: String): ContentItemsConnection
   parentChannel: ContentChannel
   theme: Theme
-  isLiked: Boolean
-  likedCount: Int
   sharing: SharableContentItem
 }
 
@@ -638,8 +616,6 @@ type WeekendContentItem implements ContentItem & Node {
   siblingContentItemsConnection(first: Int, after: String): ContentItemsConnection
   parentChannel: ContentChannel
   theme: Theme
-  isLiked: Boolean
-  likedCount: Int
   liveStream: LiveStream
   sharing: SharableContentItem
   features: [Feature]
