@@ -16,8 +16,8 @@ import {
   Interactions,
   RockConstants,
   Person,
-  ContentItem,
-  ContentChannel,
+  // ContentItem,
+  // ContentChannel,
   Sharable,
   Auth,
   PersonalDevice,
@@ -36,8 +36,10 @@ import * as Theme from './theme';
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
 import * as OneSignalWithRock from './oneSignalWithRock';
 
+import { ContentChannel, ContentItem } from './craft';
+
 const data = {
-  Followings,
+  // Followings,
   ContentChannel,
   ContentItem,
   Person,

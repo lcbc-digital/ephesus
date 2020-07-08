@@ -14,8 +14,12 @@ APP:
   ROOT_API_URL: ${ROOT_URL}
   JOBS_USERNAME: ${JOBS_USERNAME}
   JOBS_PASSWORD: ${JOBS_PASSWORD}
+CRAFT:
+  URL: ${CRAFT_URL}
+  GRAPH_TOKEN: ${CRAFT_GRAPH_TOKEN}
+
 ROCK:
-  API_URL: https://apollosrock.newspring.cc/api
+  API_URL: https://rock.lcbcchurch.com/api
   API_TOKEN: ${ROCK_TOKEN}
   IMAGE_URL: https://apollosrock.newspring.cc/GetImage.ashx
   SHARE_URL: https://apollosrock.newspring.cc
@@ -82,11 +86,11 @@ BIBLE_API:
   BIBLE_ID:
     WEB: '9879dbb7cfe39e4d-01'
     KJV: 'de4e12af7f28f599-02'
-CLOUDINARY:
+# CLOUDINARY:
   # Cloudinary is used to improve image loading
   # value should look something like
   # cloudinary://123123123:adkfnla_adASDv_adAS@test
-  URL: ${CLOUDINARY_URL}
+  # URL: ${CLOUDINARY_URL}
 ENGINE:
   API_KEY: ${ENGINE_API_KEY}
   SCHEMA_TAG: ${ENGINE_SCHEMA_TAG}
@@ -104,21 +108,21 @@ ROCK_MAPPINGS:
   CONTENT_ITEM:
     ContentSeriesContentItem:
       # When resolving "ContentSeriesContentItem" look in rock for a "ContentChannelItem"
-      EntityType: ContentChannelItem
+      EntityType: Craft
       # Used to define the subset of content channels types that use this specific type.
       ContentChannelTypeId: [6, 7]
     DevotionalContentItem:
-      EntityType: ContentChannelItem
+      EntityType: Craft
       ContentChannelTypeId: [1]
     MediaContentItem:
-      EntityType: ContentChannelItem
+      EntityType: Craft
     UniversalContentItem:
-      EntityType: ContentChannelItem
+      EntityType: Craft
     WeekendContentItem:
       ContentChannelId: [5]
-      EntityType: ContentChannelItem
+      EntityType: Craft
     ContentItem:
-      EntityType: ContentChannelItem
+      EntityType: Craft
 
   DATAVIEW_CATEGORIES:
     # Id of the category used to store all persona dataviews
