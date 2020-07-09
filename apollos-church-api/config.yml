@@ -17,7 +17,8 @@ APP:
 CRAFT:
   URL: ${CRAFT_URL}
   GRAPH_TOKEN: ${CRAFT_GRAPH_TOKEN}
-
+VIMEO:
+  TOKEN: ${VIMEO_TOKEN}
 ROCK:
   API_URL: https://rock.lcbcchurch.com/api
   API_TOKEN: ${ROCK_TOKEN}
