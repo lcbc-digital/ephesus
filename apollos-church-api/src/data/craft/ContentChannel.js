@@ -34,6 +34,7 @@ export class dataSource extends CraftDataSource {
         args
       );
     }
+    return [];
   }
 
   async getRootChannels() {
