@@ -72,34 +72,11 @@ export class dataSource extends CraftDataSource {
   }
 
   async getFromId(id) {
-    const query = `query ($id: [QueryArgument]) {
-     node: entry(id: $id) { ${this.entryFragment} }
-    }`;
-    // if (typename === '???') { // Example of using a different query for a different type.
-    //   query = `query ($id: [QueryArgument]) {
-    //     node: entry(id: $id) ${this.entryFragment}
-    //   }`;
-    // } else if (typename === '???') {
-    //   query = `query ($id: [QueryArgument]) {
-    //     node: category(id: $id) ${this.categoryFragment}
-    //   }`;
-    // } else {
-    //   query = `query ($id: [QueryArgument]) {
-    //     node: entry(id: $id) ${this.entryFragment}
-    //   }`;
-    // }
-
-    const result = await this.query(query, { id: [id] });
-    if (result?.error)
-      throw new ApolloError(result?.error?.message, result?.error?.code);
-
-    const node = result?.data?.node;
-
-    if (!node) {
+    try {
+      const parsedId = JSON.parse(id);
+      return { id: parsedId };
+    } catch (e) {
       return null;
     }
-
-    const __typename = this.resolveType(node);
-    return { ...node, __typename };
   }
 }
