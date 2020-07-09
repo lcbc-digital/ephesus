@@ -39,7 +39,7 @@ import * as OneSignalWithRock from './oneSignalWithRock';
 import { ContentChannel, ContentItem } from './craft';
 
 const data = {
-  Followings,
+  // Followings,
   ContentChannel,
   ContentItem,
   Person,
