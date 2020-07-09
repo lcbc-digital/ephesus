@@ -1,12 +1,15 @@
 import { ContentChannel } from '@apollosproject/data-connector-rock';
+import { createGlobalId } from '@apollosproject/server-core';
 import CraftDataSource from './CraftDataSource';
 
 export const resolver = {
   ...ContentChannel.resolver,
   ContentChannel: {
     ...ContentChannel.resolver.ContentChannel,
-    childContentItemsConnection: ({ id }, args, { dataSources }) =>
-      dataSources.ContentItem.byContentChannelId(id, args),
+    id: ({ id }, args, context, { parentType }) =>
+      createGlobalId(JSON.stringify(id), parentType.name),
+    childContentItemsConnection: async ({ id }, args, { dataSources }) =>
+      dataSources.ContentChannel.byChildren(id, args),
   },
 };
 
@@ -20,7 +23,20 @@ export class dataSource extends CraftDataSource {
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L6
   // eslint-disable-next-line
-  getRootChannels() {
+
+  async byChildren(id, args) {
+    if (id.source === 'EntryList') {
+      return this.context.dataSources.ContentItem.byTypeId(id.typeId, args);
+    }
+    if (id.source === 'CategoryChildren') {
+      return this.context.dataSources.ContentItem.byCategoryId(
+        id.categoryId,
+        args
+      );
+    }
+  }
+
+  async getRootChannels() {
     return [
       {
         name: 'Sermons', // Is actually series
@@ -36,10 +52,15 @@ export class dataSource extends CraftDataSource {
           source: 'EntryList',
         },
       },
-      {
-        id: { source: 'CategoriesRoot' }, // Made up internal ID for top level categories used at byContentChannelId
-        name: 'Categories',
-      },
+      ...(await this.context.dataSources.Category.getRootCategories()).map(
+        (c) => ({
+          name: c.title,
+          id: {
+            source: 'CategoryChildren',
+            categoryId: c.id,
+          },
+        })
+      ),
       {
         id: {
           typeId: '41',
@@ -49,8 +70,6 @@ export class dataSource extends CraftDataSource {
       },
     ];
   }
-
-  async getCategories({ after }) {}
 
   async getFromId(id) {
     const query = `query ($id: [QueryArgument]) {
