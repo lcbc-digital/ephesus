@@ -118,6 +118,8 @@ ROCK_MAPPINGS:
       EntityType: Craft
     UniversalContentItem:
       EntityType: Craft
+    # CategoryContentItem:
+    #   EntityType: Craft      
     WeekendContentItem:
       ContentChannelId: [5]
       EntityType: Craft

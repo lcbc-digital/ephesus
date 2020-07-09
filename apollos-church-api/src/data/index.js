@@ -12,7 +12,7 @@ import * as Pass from '@apollosproject/data-connector-passes';
 import * as Cache from '@apollosproject/data-connector-redis-cache';
 import * as Sms from '@apollosproject/data-connector-twilio';
 import {
-  Followings,
+  // Followings,
   Interactions,
   RockConstants,
   Person,
@@ -36,12 +36,13 @@ import * as Theme from './theme';
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
 import * as OneSignalWithRock from './oneSignalWithRock';
 
-import { ContentChannel, ContentItem } from './craft';
+import { ContentChannel, ContentItem, Category } from './craft';
 
 const data = {
   // Followings,
   ContentChannel,
   ContentItem,
+  Category,
   Person,
   Cloudinary,
   Auth,

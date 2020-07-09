@@ -147,23 +147,72 @@ export class dataSource extends CraftDataSource {
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L13
   // eslint-disable-next-line
-  byContentChannelId(channelId) {
-    const [__querySource, id] = channelId.split(':');
-    if (__querySource === 'categories') {
-      return {
-        __querySource,
-        groupId: 9,
-        ...(id === 1 ? { hasDescendants: true } : {}),
-      };
+  byContentChannelId({ source }, { after }) {
+    if (source === 'CategoriesRoot') {
+      return this.context.dataSources.Category.getCategories({ after });
     }
-    if (__querySource === 'entries') {
-      return { __querySource, typeId: id };
+    if (source === 'EntryList') {
+      return;
     }
-    return { __querySource };
+    return [];
   }
 
   byContentChannelIds(contentChannelIds) {
     console.log(byContentChannelIds);
+  }
+
+  async byTypeId(id, { after: cursor, first }) {
+    let after = 0;
+    if (cursor) {
+      after = parseCursor(cursor);
+    }
+
+    const query = `query ($first: Int, $after: Int, $typeId: [QueryArgument]) {
+        nodes: entries(
+          limit: $first
+          offset: $after
+          typeId: $typeId
+        ) { ${this.entryFragment} }
+      }`;
+
+    const result = await this.query(query, {
+      typeId: [id],
+      first: first || 20,
+      after,
+    });
+
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    const results = result?.data?.nodes || [];
+    return mapToEdgeNode(results, after + 1);
+  }
+
+  async byCategoryId(id, { after: cursor, first }) {
+    let after = 0;
+    if (cursor) {
+      after = parseCursor(cursor);
+    }
+
+    const query = `query ($first: Int, $after: Int, $categories: [Int]) {
+        nodes: entries(
+          limit: $first
+          offset: $after
+          relatedTo: $categories
+        ) { ${this.entryFragment} }
+      }`;
+
+    const result = await this.query(query, {
+      categories: [id],
+      first: first || 20,
+      after,
+    });
+
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    const results = result?.data?.nodes || [];
+    return mapToEdgeNode(results, after + 1);
   }
 
   // Override: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/data-source.js#L46
