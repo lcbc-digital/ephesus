@@ -26,7 +26,6 @@ import {
   Campus,
   Group,
   BinaryFiles,
-  Feature,
   Event,
   PrayerRequest,
 } from '@apollosproject/data-connector-rock';
@@ -37,6 +36,7 @@ import * as Theme from './theme';
 import * as OneSignalWithRock from './oneSignalWithRock';
 
 import { ContentChannel, ContentItem, Category } from './craft';
+import * as Feature from './Feature';
 
 const data = {
   // Followings,

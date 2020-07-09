@@ -4,6 +4,7 @@ import sanitizeHtml from '@apollosproject/data-connector-rock/lib/sanitize-html'
 import { parseCursor } from '@apollosproject/server-core';
 import sanitize from 'sanitize-html';
 import { ApolloError } from 'apollo-server';
+import { get } from 'lodash';
 import CraftDataSource, { mapToEdgeNode } from './CraftDataSource';
 
 export const { schema } = ContentItem;
@@ -98,6 +99,7 @@ export class dataSource extends CraftDataSource {
           url
         }
       }
+      id
     }
 
     # news
@@ -306,6 +308,47 @@ export class dataSource extends CraftDataSource {
     return mapToEdgeNode(results, after + 1);
   };
 
+  getMostRecentSermon = async () => {
+    const query = `query {
+      entries(section:"series", hasDescendants:true, limit:1) {
+        children(orderBy:"postDate desc", limit:1) {
+          ${this.entryFragment}
+          parent {
+            title
+          }
+        }
+      }
+    }`;
+
+    const result = await this.query(query);
+
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    return get(result, 'data.entries[0].children[0]');
+  };
+
+  getParentHeroImage = async ({ parentId }) => {
+    const query = `query ($id: [QueryArgument]) {
+      entry(id: $id) {
+        ... on series_series_Entry {
+          hero {
+            ... on hero_photoHero_BlockType {
+              image { url, title, id }
+            }
+          }
+        }
+      }
+    }`;
+
+    const result = await this.query(query, { id: parentId });
+
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    return get(result, 'data.entry.hero[0].image[0]');
+  };
+
   createSummary = ({ craftType, ...entry }) => {
     switch (craftType) {
       case 'series_series_Entry': // sermons
@@ -337,7 +380,7 @@ export class dataSource extends CraftDataSource {
     }
   };
 
-  getCoverImage = ({ craftType, ...entry }) => {
+  getCoverImage = async ({ craftType, ...entry }) => {
     switch (craftType) {
       case 'series_series_Entry':
       case 'articles_article_Entry': {
@@ -349,8 +392,28 @@ export class dataSource extends CraftDataSource {
           sources: [{ uri: entry.hero?.[0]?.image?.[0]?.url }],
         };
       }
+      case 'series_sermon_Entry': {
+        const { url, id, title } = await this.getParentHeroImage({
+          parentId: entry.parent.id,
+        });
+
+        return {
+          __typename: 'ImageMedia',
+          key: id,
+          name: title,
+          sources: [{ uri: url }],
+        };
+      }
+      case 'bibleReading_bibleReading_Entry': {
+        return {
+          __typename: 'ImageMedia',
+          key: entry.parent?.image?.[0]?.id,
+          name: entry.parent?.image?.[0]?.title,
+          sources: [{ uri: entry.parent?.image?.[0]?.url }],
+        };
+      }
       case 'news_news_Entry': // news
-      case 'bibleReading_bibleReadingPlan_Entry': // bible reading plan
+      case 'bibleReading_bibleReadingPlan_Entry':
       case 'stories_stories_Entry': // stories
       case 'studies_curriculum_Entry': {
         // studies
