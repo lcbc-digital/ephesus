@@ -12,11 +12,13 @@ export const { schema } = ContentItem;
 const newResolvers = {
   htmlContent: ({ description }) => sanitizeHtml(description),
   childContentItemsConnection: ({ id }, args, context) =>
-    console.log(args) || context.dataSources.ContentItem.getChildren(id, args),
+    context.dataSources.ContentItem.getChildren(id, args),
   siblingContentItemsConnection: ({ id }, args, context) =>
-    console.log(args) || context.dataSources.ContentItem.getSiblings(id, args),
+    context.dataSources.ContentItem.getSiblings(id, args),
   __resolveType: (root, { dataSources: { ContentItem } }) =>
     ContentItem.resolveType(root),
+  parentChannel: ({ parent }, args, { dataSources }) =>
+    dataSources.ContentItem.getFromId(parent.id),
 };
 
 const contentItemTypes = Object.keys(ApollosConfig.ROCK_MAPPINGS.CONTENT_ITEM);
@@ -131,6 +133,10 @@ export class dataSource extends CraftDataSource {
         url
       }
     }
+
+  ... on series_sermon_Entry {
+    videoEmbed
+  }
 
     # articles
     ... on articles_article_Entry {
@@ -250,7 +256,19 @@ export class dataSource extends CraftDataSource {
     return { ...node, __typename };
   }
 
-  getVideos = () => [];
+  getVideos = ({ videoEmbed, title }) => {
+    if (videoEmbed) {
+      return [
+        {
+          __typename: 'VideoMedia',
+          name: title,
+          embedHtml: null,
+          sources: [{ uri: videoEmbed }],
+        },
+      ];
+    }
+    return [];
+  };
 
   getChildren = async (id, { after: cursor }) => {
     let after = 0;
@@ -437,6 +455,9 @@ export class dataSource extends CraftDataSource {
     switch (craftType) {
       case 'bibleReading_bibleReading_Entry': {
         return 'DevotionalContentItem';
+      }
+      case 'series_sermon_Entry': {
+        return 'MediaContentItem';
       }
       case 'series_series_Entry':
       case 'articles_article_Entry':

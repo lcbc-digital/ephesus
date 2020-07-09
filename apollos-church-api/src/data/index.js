@@ -37,6 +37,7 @@ import * as OneSignalWithRock from './oneSignalWithRock';
 
 import { ContentChannel, ContentItem, Category } from './craft';
 import * as Feature from './Feature';
+import * as Vimeo from './Vimeo';
 
 const data = {
   // Followings,
@@ -68,6 +69,7 @@ const data = {
   Event,
   Cache,
   PrayerRequest,
+  Vimeo,
 };
 
 const {
