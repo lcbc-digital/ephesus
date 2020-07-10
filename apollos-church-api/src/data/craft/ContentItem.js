@@ -138,19 +138,45 @@ export class dataSource extends CraftDataSource {
     videoEmbed
   }
 
-    # articles
-    ... on articles_article_Entry {
-      excerpt
-      hero {
-        ... on hero_photoHero_BlockType {
-          image {
-            id
-            title
-            url
-          }
+  # articles
+  ... on articles_article_Entry {
+    excerpt
+    hero {
+      ... on hero_photoHero_BlockType {
+        image {
+          id
+          title
+          url
         }
       }
     }
+  }
+
+  ... on events_hasContentBuilder_Entry {
+    hero {
+      ... on hero_photoHero_BlockType {
+        image {
+          id
+          title
+          url
+        }
+      }
+    }
+    description:mobileAppContent
+  }
+
+  ... on pages_pages_Entry {
+    hero {
+      ... on hero_photoHero_BlockType {
+        image {
+          id
+          title
+          url
+        }
+      }
+    }
+    description:mobileAppContent
+  }
   `;
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L13
@@ -221,6 +247,38 @@ export class dataSource extends CraftDataSource {
 
     const results = result?.data?.nodes || [];
     return mapToEdgeNode(results, after + 1);
+  }
+
+  async getBySection(section) {
+    const query = `query ($section: [String]) {
+        nodes: entries(
+          section: $section
+        ) {
+        ... on appGrowingInFaith_appGrowingInFaith_Entry {
+          children: growingInFaithEntries {
+            ${this.entryFragment}
+          }
+        }
+        ... on appChurchEvents_appChurchEvents_Entry {
+          id 
+          children: churchEventEntries {
+            ${this.entryFragment}
+          }
+        }
+      }
+    }`;
+
+    const result = await this.query(query, {
+      section: [section],
+    });
+
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    const results = (result?.data?.nodes || []).flatMap(
+      (node) => node.children
+    );
+    return results;
   }
 
   // Override: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/data-source.js#L46
@@ -401,6 +459,8 @@ export class dataSource extends CraftDataSource {
   getCoverImage = async ({ craftType, ...entry }) => {
     switch (craftType) {
       case 'series_series_Entry':
+      case 'events_hasContentBuilder_Entry':
+      case 'pages_pages_Entry':
       case 'articles_article_Entry': {
         // articles
         return {

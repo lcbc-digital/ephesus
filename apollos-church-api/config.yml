@@ -165,10 +165,25 @@ HOME_FEATURES:
   - algorithms: [MOST_RECENT_SERMON]
     type: VerticalCardList
     isFeatured: true
-  # - algorithms: [DAILY_PRAYER]
-  #   isCard: false
-  #   type: PrayerList
-  #   title: Daily Prayer
+  - algorithms: [DAILY_PRAYER]
+    isCard: false
+    type: PrayerList
+    title: Daily Prayer
+    subtitle: Join us in prayer
+  - algorithms:
+    - type: SECTION_FEATURE
+      arguments:
+        section: appGrowingInFaith
+    type: VerticalCardList
+    title:
+    subtitle: Growing in faith
+  - algorithms:
+    - type: SECTION_FEATURE
+      arguments:
+        section: appChurchEvents
+    type: VerticalCardList
+    title: Upcoming
+    subtitle: Events
   # - algorithms: [CAMPAIGN_ITEMS]
   #   type: HeroList
   #   isFeatured: true
