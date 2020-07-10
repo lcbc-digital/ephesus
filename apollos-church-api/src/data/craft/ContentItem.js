@@ -10,7 +10,12 @@ import CraftDataSource, { mapToEdgeNode } from './CraftDataSource';
 export const { schema } = ContentItem;
 
 const newResolvers = {
-  htmlContent: ({ description }) => sanitizeHtml(description),
+  htmlContent: ({ description, articlePost }) => {
+    if (articlePost && articlePost?.length > 0) {
+      return sanitizeHtml(articlePost.map(({ body }) => body).join('\n'));
+    }
+    return sanitizeHtml(description);
+  },
   childContentItemsConnection: ({ id }, args, context) =>
     context.dataSources.ContentItem.getChildren(id, args),
   siblingContentItemsConnection: ({ id }, args, context) =>
@@ -140,6 +145,11 @@ export class dataSource extends CraftDataSource {
 
   # articles
   ... on articles_article_Entry {
+    articlePost {
+      ... on articlePost_textBlock_BlockType {
+        body
+      }
+    }
     excerpt
     hero {
       ... on hero_photoHero_BlockType {
