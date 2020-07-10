@@ -18,8 +18,10 @@ const newResolvers = {
   },
   childContentItemsConnection: ({ id }, args, context) =>
     context.dataSources.ContentItem.getChildren(id, args),
-  siblingContentItemsConnection: ({ id }, args, context) =>
-    context.dataSources.ContentItem.getSiblings(id, args),
+  siblingContentItemsConnection: ({ parent }, args, context) =>
+    parent
+      ? context.dataSources.ContentItem.getChildren(parent.id, args)
+      : null,
   __resolveType: (root, { dataSources: { ContentItem } }) =>
     ContentItem.resolveType(root),
   parentChannel: ({ parent }, args, { dataSources }) =>
@@ -187,6 +189,20 @@ export class dataSource extends CraftDataSource {
     }
     description:mobileAppContent
   }
+
+  ... on nextSteps_nextStepDefault_Entry {
+    description: mobileAppContent
+    excerpt
+    hero {
+      ... on hero_photoHero_BlockType {
+        image {
+          url
+          id
+          title
+        }
+      }
+    }
+  }
   `;
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L13
@@ -270,9 +286,13 @@ export class dataSource extends CraftDataSource {
           }
         }
         ... on appChurchEvents_appChurchEvents_Entry {
-          id 
           children: churchEventEntries {
             ${this.entryFragment}
+          }
+        }
+        ... on appNextSteps_appNextSteps_Entry {
+          children: nextStepsEntries {
+           ${this.entryFragment}
           }
         }
       }
@@ -324,6 +344,10 @@ export class dataSource extends CraftDataSource {
     return { ...node, __typename };
   }
 
+  getUpNext = () => {};
+
+  getFeatures = () => {};
+
   getVideos = ({ videoEmbed, title }) => {
     if (videoEmbed) {
       return [
@@ -361,38 +385,42 @@ export class dataSource extends CraftDataSource {
     if (result?.error)
       throw new ApolloError(result?.error?.message, result?.error?.code);
 
-    const results = result?.data?.node?.children || [];
-    return mapToEdgeNode(results, after + 1);
-  };
-
-  getSiblings = async (id, { after: cursor }) => {
-    let after = 0;
-    if (cursor) {
-      after = parseCursor(cursor);
+    const results = result?.data?.node?.children;
+    if (!results) {
+      return null;
     }
-
-    const query = `query ($id: [QueryArgument], $first: Int, $after: Int) {
-     node: entry(id: $id) {
-       parent {
-         children(limit: $first, offset: $after) {
-           ${this.entryFragment}
-         }
-       }
-     }
-    }`;
-
-    const result = await this.query(query, {
-      id: [id],
-      first: 20,
-      after,
-    });
-
-    if (result?.error)
-      throw new ApolloError(result?.error?.message, result?.error?.code);
-
-    const results = result?.data?.node?.parent?.children || [];
     return mapToEdgeNode(results, after + 1);
   };
+
+  // Broken right now due to a craft bug!
+  //   getSiblings = async (id, { after: cursor }) => {
+  //     let after = 0;
+  //     if (cursor) {
+  //       after = parseCursor(cursor);
+  //     }
+  //
+  //     const query = `query ($id: [QueryArgument], $first: Int, $after: Int) {
+  //      node: entry(id: $id) {
+  //        parent {
+  //          children(limit: $first, offset: $after) {
+  //            ${this.entryFragment}
+  //          }
+  //        }
+  //      }
+  //     }`;
+  //
+  //     const result = await this.query(query, {
+  //       id: [id],
+  //       first: 20,
+  //       after,
+  //     });
+  //
+  //     if (result?.error)
+  //       throw new ApolloError(result?.error?.message, result?.error?.code);
+  //
+  //     const results = result?.data?.node?.parent?.children || [];
+  //     return mapToEdgeNode(results, after + 1);
+  //   };
 
   getMostRecentSermon = async () => {
     const query = `query {
@@ -456,6 +484,7 @@ export class dataSource extends CraftDataSource {
         // stories
         return entry.subtitle;
       }
+      case 'nextSteps_nextStepDefault_Entry':
       case 'articles_article_Entry': {
         // articles
         return entry.excerpt;
@@ -471,6 +500,7 @@ export class dataSource extends CraftDataSource {
       case 'series_series_Entry':
       case 'events_hasContentBuilder_Entry':
       case 'pages_pages_Entry':
+      case 'nextSteps_nextStepDefault_Entry':
       case 'articles_article_Entry': {
         // articles
         return {
@@ -529,10 +559,12 @@ export class dataSource extends CraftDataSource {
       case 'series_sermon_Entry': {
         return 'MediaContentItem';
       }
-      case 'series_series_Entry':
+      case 'bibleReading_bibleReadingPlan_Entry': // bible reading plan
+      case 'series_series_Entry': {
+        return 'ContentSeriesContentItem';
+      }
       case 'articles_article_Entry':
       case 'news_news_Entry': // news
-      case 'bibleReading_bibleReadingPlan_Entry': // bible reading plan
       case 'stories_stories_Entry': // stories
       case 'studies_curriculum_Entry':
       default: {

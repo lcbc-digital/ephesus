@@ -180,6 +180,13 @@ HOME_FEATURES:
   - algorithms:
     - type: SECTION_FEATURE
       arguments:
+        section: appNextSteps
+    type: HeroList
+    title: Your next steps
+    subtitle: Growing with God
+  - algorithms:
+    - type: SECTION_FEATURE
+      arguments:
         section: appChurchEvents
     type: VerticalCardList
     title: Upcoming
