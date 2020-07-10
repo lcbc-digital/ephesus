@@ -144,4 +144,4 @@ project.xcworkspace
 # CocoaPods
 /ios/Pods/
 
-*.keystore
+.certs
