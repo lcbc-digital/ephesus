@@ -2,7 +2,15 @@ import { Feature } from '@apollosproject/data-connector-rock';
 import { createGlobalId } from '@apollosproject/server-core';
 import { get } from 'lodash';
 
-const { resolver, schema } = Feature;
+const { resolver: baseResolver, schema } = Feature;
+
+const resolver = {
+  ...baseResolver,
+  ActionListAction: {
+    ...baseResolver.ActionListAction,
+    subtitle: ({ subtitle, summary }) => subtitle || summary,
+  },
+};
 
 class dataSource extends Feature.dataSource {
   ACTION_ALGORITHIMS = {
