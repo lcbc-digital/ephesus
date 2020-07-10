@@ -4,6 +4,7 @@ import sanitizeHtml from '@apollosproject/data-connector-rock/lib/sanitize-html'
 import { parseCursor } from '@apollosproject/server-core';
 import sanitize from 'sanitize-html';
 import { ApolloError } from 'apollo-server';
+import { get } from 'lodash';
 import CraftDataSource, { mapToEdgeNode } from './CraftDataSource';
 
 export const { schema } = ContentItem;
@@ -11,11 +12,13 @@ export const { schema } = ContentItem;
 const newResolvers = {
   htmlContent: ({ description }) => sanitizeHtml(description),
   childContentItemsConnection: ({ id }, args, context) =>
-    console.log(args) || context.dataSources.ContentItem.getChildren(id, args),
+    context.dataSources.ContentItem.getChildren(id, args),
   siblingContentItemsConnection: ({ id }, args, context) =>
-    console.log(args) || context.dataSources.ContentItem.getSiblings(id, args),
+    context.dataSources.ContentItem.getSiblings(id, args),
   __resolveType: (root, { dataSources: { ContentItem } }) =>
     ContentItem.resolveType(root),
+  parentChannel: ({ parent }, args, { dataSources }) =>
+    dataSources.ContentItem.getFromId(parent.id),
 };
 
 const contentItemTypes = Object.keys(ApollosConfig.ROCK_MAPPINGS.CONTENT_ITEM);
@@ -98,6 +101,7 @@ export class dataSource extends CraftDataSource {
           url
         }
       }
+      id
     }
 
     # news
@@ -130,40 +134,151 @@ export class dataSource extends CraftDataSource {
       }
     }
 
-    # articles
-    ... on articles_article_Entry {
-      excerpt
-      hero {
-        ... on hero_photoHero_BlockType {
-          image {
-            id
-            title
-            url
-          }
+  ... on series_sermon_Entry {
+    videoEmbed
+  }
+
+  # articles
+  ... on articles_article_Entry {
+    excerpt
+    hero {
+      ... on hero_photoHero_BlockType {
+        image {
+          id
+          title
+          url
         }
       }
     }
+  }
+
+  ... on events_hasContentBuilder_Entry {
+    hero {
+      ... on hero_photoHero_BlockType {
+        image {
+          id
+          title
+          url
+        }
+      }
+    }
+    description:mobileAppContent
+  }
+
+  ... on pages_pages_Entry {
+    hero {
+      ... on hero_photoHero_BlockType {
+        image {
+          id
+          title
+          url
+        }
+      }
+    }
+    description:mobileAppContent
+  }
   `;
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L13
   // eslint-disable-next-line
-  byContentChannelId(channelId) {
-    const [__querySource, id] = channelId.split(':');
-    if (__querySource === 'categories') {
-      return {
-        __querySource,
-        groupId: 9,
-        ...(id === 1 ? { hasDescendants: true } : {}),
-      };
+  byContentChannelId({ source }, { after }) {
+    if (source === 'CategoriesRoot') {
+      return this.context.dataSources.Category.getCategories({ after });
     }
-    if (__querySource === 'entries') {
-      return { __querySource, typeId: id };
+    if (source === 'EntryList') {
+      return;
     }
-    return { __querySource };
+    return [];
   }
 
   byContentChannelIds(contentChannelIds) {
     console.log(byContentChannelIds);
+  }
+
+  async byTypeId(id, { after: cursor, first }) {
+    let after = 0;
+    if (cursor) {
+      after = parseCursor(cursor);
+    }
+
+    const query = `query ($first: Int, $after: Int, $typeId: [QueryArgument]) {
+        nodes: entries(
+          limit: $first
+          offset: $after
+          typeId: $typeId
+        ) { ${this.entryFragment} }
+      }`;
+
+    const result = await this.query(query, {
+      typeId: [id],
+      first: first || 20,
+      after,
+    });
+
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    const results = result?.data?.nodes || [];
+    return mapToEdgeNode(results, after + 1);
+  }
+
+  async byCategoryId(id, { after: cursor, first }) {
+    let after = 0;
+    if (cursor) {
+      after = parseCursor(cursor);
+    }
+
+    const query = `query ($first: Int, $after: Int, $categories: [Int]) {
+        nodes: entries(
+          limit: $first
+          offset: $after
+          relatedTo: $categories
+        ) { ${this.entryFragment} }
+      }`;
+
+    const result = await this.query(query, {
+      categories: [id],
+      first: first || 20,
+      after,
+    });
+
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    const results = result?.data?.nodes || [];
+    return mapToEdgeNode(results, after + 1);
+  }
+
+  async getBySection(section) {
+    const query = `query ($section: [String]) {
+        nodes: entries(
+          section: $section
+        ) {
+        ... on appGrowingInFaith_appGrowingInFaith_Entry {
+          children: growingInFaithEntries {
+            ${this.entryFragment}
+          }
+        }
+        ... on appChurchEvents_appChurchEvents_Entry {
+          id 
+          children: churchEventEntries {
+            ${this.entryFragment}
+          }
+        }
+      }
+    }`;
+
+    const result = await this.query(query, {
+      section: [section],
+    });
+
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    const results = (result?.data?.nodes || []).flatMap(
+      (node) => node.children
+    );
+    return results;
   }
 
   // Override: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/data-source.js#L46
@@ -199,7 +314,19 @@ export class dataSource extends CraftDataSource {
     return { ...node, __typename };
   }
 
-  getVideos = () => [];
+  getVideos = ({ videoEmbed, title }) => {
+    if (videoEmbed) {
+      return [
+        {
+          __typename: 'VideoMedia',
+          name: title,
+          embedHtml: null,
+          sources: [{ uri: videoEmbed }],
+        },
+      ];
+    }
+    return [];
+  };
 
   getChildren = async (id, { after: cursor }) => {
     let after = 0;
@@ -257,6 +384,47 @@ export class dataSource extends CraftDataSource {
     return mapToEdgeNode(results, after + 1);
   };
 
+  getMostRecentSermon = async () => {
+    const query = `query {
+      entries(section:"series", hasDescendants:true, limit:1) {
+        children(orderBy:"postDate desc", limit:1) {
+          ${this.entryFragment}
+          parent {
+            title
+          }
+        }
+      }
+    }`;
+
+    const result = await this.query(query);
+
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    return get(result, 'data.entries[0].children[0]');
+  };
+
+  getParentHeroImage = async ({ parentId }) => {
+    const query = `query ($id: [QueryArgument]) {
+      entry(id: $id) {
+        ... on series_series_Entry {
+          hero {
+            ... on hero_photoHero_BlockType {
+              image { url, title, id }
+            }
+          }
+        }
+      }
+    }`;
+
+    const result = await this.query(query, { id: parentId });
+
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    return get(result, 'data.entry.hero[0].image[0]');
+  };
+
   createSummary = ({ craftType, ...entry }) => {
     switch (craftType) {
       case 'series_series_Entry': // sermons
@@ -288,9 +456,11 @@ export class dataSource extends CraftDataSource {
     }
   };
 
-  getCoverImage = ({ craftType, ...entry }) => {
+  getCoverImage = async ({ craftType, ...entry }) => {
     switch (craftType) {
       case 'series_series_Entry':
+      case 'events_hasContentBuilder_Entry':
+      case 'pages_pages_Entry':
       case 'articles_article_Entry': {
         // articles
         return {
@@ -300,8 +470,28 @@ export class dataSource extends CraftDataSource {
           sources: [{ uri: entry.hero?.[0]?.image?.[0]?.url }],
         };
       }
+      case 'series_sermon_Entry': {
+        const { url, id, title } = await this.getParentHeroImage({
+          parentId: entry.parent.id,
+        });
+
+        return {
+          __typename: 'ImageMedia',
+          key: id,
+          name: title,
+          sources: [{ uri: url }],
+        };
+      }
+      case 'bibleReading_bibleReading_Entry': {
+        return {
+          __typename: 'ImageMedia',
+          key: entry.parent?.image?.[0]?.id,
+          name: entry.parent?.image?.[0]?.title,
+          sources: [{ uri: entry.parent?.image?.[0]?.url }],
+        };
+      }
       case 'news_news_Entry': // news
-      case 'bibleReading_bibleReadingPlan_Entry': // bible reading plan
+      case 'bibleReading_bibleReadingPlan_Entry':
       case 'stories_stories_Entry': // stories
       case 'studies_curriculum_Entry': {
         // studies
@@ -325,6 +515,9 @@ export class dataSource extends CraftDataSource {
     switch (craftType) {
       case 'bibleReading_bibleReading_Entry': {
         return 'DevotionalContentItem';
+      }
+      case 'series_sermon_Entry': {
+        return 'MediaContentItem';
       }
       case 'series_series_Entry':
       case 'articles_article_Entry':

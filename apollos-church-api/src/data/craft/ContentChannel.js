@@ -1,7 +1,19 @@
 import { ContentChannel } from '@apollosproject/data-connector-rock';
+import { createGlobalId } from '@apollosproject/server-core';
 import CraftDataSource from './CraftDataSource';
 
-export const { schema, resolver } = ContentChannel;
+export const resolver = {
+  ...ContentChannel.resolver,
+  ContentChannel: {
+    ...ContentChannel.resolver.ContentChannel,
+    id: ({ id }, args, context, { parentType }) =>
+      createGlobalId(JSON.stringify(id), parentType.name),
+    childContentItemsConnection: async ({ id }, args, { dataSources }) =>
+      dataSources.ContentChannel.byChildren(id, args),
+  },
+};
+
+export const { schema } = ContentChannel;
 
 export class dataSource extends CraftDataSource {
   categoryFragment = `{
@@ -11,57 +23,61 @@ export class dataSource extends CraftDataSource {
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L6
   // eslint-disable-next-line
-  getRootChannels() {
+
+  async byChildren(id, args) {
+    if (id.source === 'EntryList') {
+      return this.context.dataSources.ContentItem.byTypeId(id.typeId, args);
+    }
+    if (id.source === 'CategoryChildren') {
+      return this.context.dataSources.ContentItem.byCategoryId(
+        id.categoryId,
+        args
+      );
+    }
+    return [];
+  }
+
+  async getRootChannels() {
     return [
       {
-        id: 'entries:7', // Matches Entry.typeId, craft doesn't expose a query for this
         name: 'Sermons', // Is actually series
+        id: {
+          typeId: '7',
+          source: 'EntryList',
+        },
       },
       {
-        id: 'entries:40',
         name: 'Bible Reading', // Is actually bible reading plan
+        id: {
+          typeId: '40',
+          source: 'EntryList',
+        },
       },
+      ...(await this.context.dataSources.Category.getRootCategories()).map(
+        (c) => ({
+          name: c.title,
+          id: {
+            source: 'CategoryChildren',
+            categoryId: c.id,
+          },
+        })
+      ),
       {
-        id: 'categories:1', // Made up internal ID for top level categories used at byContentChannelId
-        name: 'Categories',
-      },
-      {
-        id: 'entries:41',
+        id: {
+          typeId: '41',
+          source: 'EntryList',
+        },
         name: 'News',
       },
     ];
   }
 
   async getFromId(id) {
-    const query = `query ($id: [QueryArgument]) {
-     node: entry(id: $id) { ${this.entryFragment} }
-    }`;
-    // if (typename === '???') { // Example of using a different query for a different type.
-    //   query = `query ($id: [QueryArgument]) {
-    //     node: entry(id: $id) ${this.entryFragment}
-    //   }`;
-    // } else if (typename === '???') {
-    //   query = `query ($id: [QueryArgument]) {
-    //     node: category(id: $id) ${this.categoryFragment}
-    //   }`;
-    // } else {
-    //   query = `query ($id: [QueryArgument]) {
-    //     node: entry(id: $id) ${this.entryFragment}
-    //   }`;
-    // }
-
-    const result = await this.query(query, { id: [id] });
-    if (result?.error)
-      throw new ApolloError(result?.error?.message, result?.error?.code);
-
-    const node = result?.data?.node;
-
-    console.log(node, id);
-    if (!node) {
+    try {
+      const parsedId = JSON.parse(id);
+      return { id: parsedId };
+    } catch (e) {
       return null;
     }
-
-    const __typename = this.resolveType(node);
-    return { ...node, __typename };
   }
 }
