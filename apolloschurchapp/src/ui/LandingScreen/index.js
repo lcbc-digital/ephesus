@@ -70,7 +70,13 @@ const LandingScreen = ({
             <H1>{`Christ`}</H1>
           </UnderlinedWord>
         </TitleWrapper>
-        <PaddedView horizontal={false}><H5>{'Welcome to LCBC—we’re so glad you’re here! No matter who you are, what you believe, or  what experiences you’ve had with church,  you’re welcome.'}</H5></PaddedView>
+        <PaddedView horizontal={false}>
+          <H5>
+            {`Welcome to LCBC—we’re so glad you're here! No matter who you are, what you believe, or 
+what experiences you've had with church, 
+you're welcome.`}
+          </H5>
+        </PaddedView>
       </Content>
     </Slide>
   </BackgroundView>

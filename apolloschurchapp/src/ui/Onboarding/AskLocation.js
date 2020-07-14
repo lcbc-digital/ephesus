@@ -35,7 +35,11 @@ const LocationFinder = memo(
     onPressPrimary,
     ...props
   }) => (
-    <Slide onPressPrimary={onPressPrimary} {...props} alwaysBounceVertical={false}>
+    <Slide
+      onPressPrimary={onPressPrimary}
+      {...props}
+      alwaysBounceVertical={false}
+    >
       {BackgroundComponent}
       <Wrapper>
         <View style={{ flex: 1 }}>
