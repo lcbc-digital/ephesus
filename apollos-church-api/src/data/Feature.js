@@ -1,24 +1,10 @@
 import { Feature } from '@apollosproject/data-connector-rock';
 import { createGlobalId, parseGlobalId } from '@apollosproject/server-core';
 import { get } from 'lodash';
-<<<<<<< Updated upstream
-import gql from 'graphql-tag';
-
-const { resolver: baseResolver, schema: baseSchema } = Feature;
-
-const schema = gql`
-  ${baseSchema}
-
-  extend type Query {
-    userFeedFeaturesWithCampus(campusId: ID): [Feature]
-  }
-`;
-=======
 import ApollosConfig from '@apollosproject/config';
 import gql from 'graphql-tag';
 
 const { resolver: baseResolver, schema: baseSchema } = Feature;
->>>>>>> Stashed changes
 
 const resolver = {
   ...baseResolver,
@@ -37,6 +23,10 @@ const resolver = {
 
 const schema = gql`
   ${baseSchema}
+
+  extend type Query {
+    userFeedFeaturesWithCampus(campusId: ID): [Feature]
+  }
 
   type ActionBarAction {
     id: ID
@@ -61,7 +51,6 @@ class dataSource extends Feature.dataSource {
     CAMPUS: this.campusFeature.bind(this),
   };
 
-<<<<<<< Updated upstream
   getFromId(args, id) {
     const type = id.split(':')[0];
     const funcArgs = JSON.parse(args);
@@ -77,7 +66,8 @@ class dataSource extends Feature.dataSource {
       JSON.stringify({ campusId: this.context.campusId, ...args }),
       type
     );
-=======
+  }
+
   async getHomeFeedFeatures() {
     return Promise.all(
       get(ApollosConfig, 'HOME_FEATURES', []).map((featureConfig) => {
@@ -124,7 +114,6 @@ class dataSource extends Feature.dataSource {
       // Typename is required so GQL knows specifically what Feature is being created
       __typename: 'ActionBarFeature',
     };
->>>>>>> Stashed changes
   }
 
   async sectionFeature({ section }) {
