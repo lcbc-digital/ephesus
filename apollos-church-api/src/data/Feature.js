@@ -1,6 +1,7 @@
 import { Feature } from '@apollosproject/data-connector-rock';
 import { createGlobalId, parseGlobalId } from '@apollosproject/server-core';
 import { get } from 'lodash';
+<<<<<<< Updated upstream
 import gql from 'graphql-tag';
 
 const { resolver: baseResolver, schema: baseSchema } = Feature;
@@ -12,6 +13,12 @@ const schema = gql`
     userFeedFeaturesWithCampus(campusId: ID): [Feature]
   }
 `;
+=======
+import ApollosConfig from '@apollosproject/config';
+import gql from 'graphql-tag';
+
+const { resolver: baseResolver, schema: baseSchema } = Feature;
+>>>>>>> Stashed changes
 
 const resolver = {
   ...baseResolver,
@@ -28,6 +35,23 @@ const resolver = {
   },
 };
 
+const schema = gql`
+  ${baseSchema}
+
+  type ActionBarAction {
+    id: ID
+    url: String
+  }
+
+  type ActionBarFeature implements Feature & Node {
+    id: ID!
+    order: Int
+
+    title: String
+    actions: [ActionBarAction]
+  }
+`;
+
 class dataSource extends Feature.dataSource {
   ACTION_ALGORITHIMS = {
     // We need to make sure `this` refers to the class, not the `ACTION_ALGORITHIMS` object.
@@ -37,6 +61,7 @@ class dataSource extends Feature.dataSource {
     CAMPUS: this.campusFeature.bind(this),
   };
 
+<<<<<<< Updated upstream
   getFromId(args, id) {
     const type = id.split(':')[0];
     const funcArgs = JSON.parse(args);
@@ -52,6 +77,54 @@ class dataSource extends Feature.dataSource {
       JSON.stringify({ campusId: this.context.campusId, ...args }),
       type
     );
+=======
+  async getHomeFeedFeatures() {
+    return Promise.all(
+      get(ApollosConfig, 'HOME_FEATURES', []).map((featureConfig) => {
+        switch (featureConfig.type) {
+          case 'ActionBar':
+            return this.createActionBarFeature(featureConfig);
+          case 'VerticalCardList':
+            return this.createVerticalCardListFeature(featureConfig);
+          case 'HorizontalCardList':
+            return this.createHorizontalCardListFeature(featureConfig);
+          case 'HeroListFeature':
+            console.warn(
+              'Deprecated: Please use the name "HeroList" instead. You used "HeroListFeature"'
+            );
+            return this.createHeroListFeature(featureConfig);
+          case 'HeroList':
+            return this.createHeroListFeature(featureConfig);
+          case 'PrayerList':
+            return this.createPrayerListFeature(featureConfig);
+          case 'ActionList':
+          default:
+            // Action list was the default in 1.3.0 and prior.
+            return this.createActionListFeature(featureConfig);
+        }
+      })
+    );
+  }
+
+  async createActionBarFeature({ actions = [], title }) {
+    // Generate a list of horizontal cards.
+    // const cards = () => this.runAlgorithms({ algorithms });
+    return {
+      // The Feature ID is based on all of the action ids, added together.
+      // This is naive, and could be improved.
+      id: this.createFeatureId({
+        type: 'ActionBarFeature',
+        args: {
+          actions,
+          title,
+        },
+      }),
+      actions,
+      title,
+      // Typename is required so GQL knows specifically what Feature is being created
+      __typename: 'ActionBarFeature',
+    };
+>>>>>>> Stashed changes
   }
 
   async sectionFeature({ section }) {
