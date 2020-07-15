@@ -392,6 +392,32 @@ export class dataSource extends CraftDataSource {
     return mapToEdgeNode(results, after + 1);
   };
 
+  async getAppBarActions() {
+    const query = `
+      {
+        entries(section: "appActionBar") {
+          id
+          title
+          ... on appActionBar_appActionBar_Entry {
+            actionBarIcon
+            actionBarURL
+            actionBarLabel
+          }
+        }
+      }
+    `;
+
+    const result = await this.query(query);
+    const results = result?.data?.entries;
+
+    return results.map((r) => ({
+      id: r.id,
+      label: r.actionBarLabel,
+      url: r.actionBarURL,
+      icon: r.actionBarIcon,
+    }));
+  }
+
   // Broken right now due to a craft bug!
   //   getSiblings = async (id, { after: cursor }) => {
   //     let after = 0;

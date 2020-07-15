@@ -31,6 +31,8 @@ const schema = gql`
   type ActionBarAction {
     id: ID
     url: String
+    icon: String
+    label: String
   }
 
   type ActionBarFeature implements Feature & Node {
@@ -96,16 +98,16 @@ class dataSource extends Feature.dataSource {
     );
   }
 
-  async createActionBarFeature({ actions = [], title }) {
+  async createActionBarFeature({ title }) {
     // Generate a list of horizontal cards.
     // const cards = () => this.runAlgorithms({ algorithms });
+    const actions = await this.context.dataSources.ContentItem.getAppBarActions();
     return {
       // The Feature ID is based on all of the action ids, added together.
       // This is naive, and could be improved.
       id: this.createFeatureId({
         type: 'ActionBarFeature',
         args: {
-          actions,
           title,
         },
       }),

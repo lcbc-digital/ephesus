@@ -163,6 +163,7 @@ ROCK_MAPPINGS:
 
 HOME_FEATURES:
   - type: ActionBar
+    title: Welcome to LCBC!
   - algorithms: [MOST_RECENT_SERMON]
     type: VerticalCardList
     isFeatured: true
