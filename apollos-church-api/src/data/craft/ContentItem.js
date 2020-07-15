@@ -442,6 +442,28 @@ export class dataSource extends CraftDataSource {
     return get(result, 'data.entries[0].children[0]');
   };
 
+  getByCampusId = async (campusId) => {
+    const query = `query($campusRockId: [QueryArgument]){
+    entries(section:"appCampusContent", hasDescendants:true, campusRockId: $campusRockId){
+        children {
+          __typename
+          ... on appCampusContent_campusSchedule_Entry {
+            campusContentEvents {
+              ${this.entryFragment}
+            }
+          }
+        }
+      }
+    }`;
+
+    const result = await this.query(query, { campusId });
+
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    return get(result, 'data.entries[0].children[0].campusContentEvents');
+  };
+
   getParentHeroImage = async ({ parentId }) => {
     const query = `query ($id: [QueryArgument]) {
       entry(id: $id) {

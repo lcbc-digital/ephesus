@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 
 import { styled, BackgroundView } from '@apollosproject/ui-kit';
 import {
-  FeaturesFeedConnected,
   RockAuthedWebBrowser,
 } from '@apollosproject/ui-connected';
+import FeaturesFeedWithCampus from './FeaturesFeedWithCampus';
 
 const LogoTitle = styled(({ theme }) => ({
   height: theme.sizing.baseUnit * 2.6,
@@ -53,7 +53,7 @@ class Home extends PureComponent {
         {(openUrl) => (
           <BackgroundView>
             <SafeAreaView>
-              <FeaturesFeedConnected
+              <FeaturesFeedWithCampus
                 onPressActionItem={this.handleOnPress({ openUrl })}
                 ListHeaderComponent={
                   <LogoTitle source={require('./wordmark.png')} />

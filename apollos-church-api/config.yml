@@ -22,8 +22,8 @@ VIMEO:
 ROCK:
   API_URL: https://rock.lcbcchurch.com/api
   API_TOKEN: ${ROCK_TOKEN}
-  IMAGE_URL: https://apollosrock.newspring.cc/GetImage.ashx
-  SHARE_URL: https://apollosrock.newspring.cc
+  IMAGE_URL: https://rock.lcbcchurch.com/GetImage.ashx
+  SHARE_URL: https://lcbcchurch.com
   # This should match the timezone of the Rock server
   TIMEZONE: 'America/New_York'
   USE_PLUGIN: true
@@ -171,21 +171,26 @@ HOME_FEATURES:
     title: Daily Prayer
     subtitle: Join us in prayer
   - algorithms:
-    - type: SECTION_FEATURE
+    - type: SECTION
       arguments:
         section: appGrowingInFaith
     type: VerticalCardList
     title:
     subtitle: Growing in faith
   - algorithms:
-    - type: SECTION_FEATURE
+    - type: SECTION
       arguments:
         section: appNextSteps
     type: HeroList
     title: Your next steps
     subtitle: Growing with God
   - algorithms:
-    - type: SECTION_FEATURE
+    - type: CAMPUS
+    type: VerticalCardList
+    title:
+    subtitle: Your campus
+  - algorithms:
+    - type: SECTION
       arguments:
         section: appChurchEvents
     type: VerticalCardList

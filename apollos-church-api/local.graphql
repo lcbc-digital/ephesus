@@ -443,6 +443,7 @@ type Query {
   search(query: String!, first: Int, after: String): SearchResultsConnection
   campuses(location: CampusLocationInput): [Campus]
   userFeedFeatures: [Feature]
+  userFeedFeaturesWithCampus(campusId: ID): [Feature]
 }
 
 type RockPersonDetails {
