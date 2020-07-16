@@ -9,6 +9,8 @@ enum ACTION_FEATURE_ACTION {
 type ActionBarAction {
   id: ID
   url: String
+  icon: String
+  label: String
 }
 
 type ActionBarFeature implements Feature & Node {

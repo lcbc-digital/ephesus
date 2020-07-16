@@ -27,14 +27,17 @@ const ActionsBar = ({ navigation, actions, title }) => (
           </ActionBarHeader>
         )}
         <ActionBar>
-          {actions.map(({ icon, label, url }) => (
-            <ActionBarItem
-              key={url}
-              onPress={() => openUrl(url)}
-              // icon={icon}
-              label={label}
-            />
-          ))}
+          {actions.map(
+            ({ icon, label, url }) =>
+              console.warn(icon) || (
+                <ActionBarItem
+                  key={url}
+                  onPress={() => openUrl(url)}
+                  icon={icon}
+                  label={label}
+                />
+              )
+          )}
         </ActionBar>
       </>
     )}

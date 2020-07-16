@@ -4,7 +4,7 @@ import sanitizeHtml from '@apollosproject/data-connector-rock/lib/sanitize-html'
 import { parseCursor } from '@apollosproject/server-core';
 import sanitize from 'sanitize-html';
 import { ApolloError } from 'apollo-server';
-import { get } from 'lodash';
+import { get, kebabCase } from 'lodash';
 import CraftDataSource, { mapToEdgeNode } from './CraftDataSource';
 
 export const { schema } = ContentItem;
@@ -414,7 +414,7 @@ export class dataSource extends CraftDataSource {
       id: r.id,
       label: r.actionBarLabel,
       url: r.actionBarURL,
-      icon: r.actionBarIcon,
+      icon: kebabCase(r.actionBarIcon),
     }));
   }
 
