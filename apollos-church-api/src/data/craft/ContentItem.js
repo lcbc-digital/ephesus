@@ -4,7 +4,7 @@ import sanitizeHtml from '@apollosproject/data-connector-rock/lib/sanitize-html'
 import { parseCursor } from '@apollosproject/server-core';
 import sanitize from 'sanitize-html';
 import { ApolloError } from 'apollo-server';
-import { get } from 'lodash';
+import { get, kebabCase } from 'lodash';
 import CraftDataSource, { mapToEdgeNode } from './CraftDataSource';
 
 export const { schema } = ContentItem;
@@ -391,6 +391,32 @@ export class dataSource extends CraftDataSource {
     }
     return mapToEdgeNode(results, after + 1);
   };
+
+  async getAppBarActions() {
+    const query = `
+      {
+        entries(section: "appActionBar") {
+          id
+          title
+          ... on appActionBar_appActionBar_Entry {
+            actionBarIcon
+            actionBarURL
+            actionBarLabel
+          }
+        }
+      }
+    `;
+
+    const result = await this.query(query);
+    const results = result?.data?.entries;
+
+    return results.map((r) => ({
+      id: r.id,
+      label: r.actionBarLabel,
+      url: r.actionBarURL,
+      icon: kebabCase(r.actionBarIcon),
+    }));
+  }
 
   // Broken right now due to a craft bug!
   //   getSiblings = async (id, { after: cursor }) => {

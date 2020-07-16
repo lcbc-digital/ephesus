@@ -6,6 +6,20 @@ enum ACTION_FEATURE_ACTION {
   OPEN_URL
 }
 
+type ActionBarAction {
+  id: ID
+  url: String
+  icon: String
+  label: String
+}
+
+type ActionBarFeature implements Feature & Node {
+  id: ID!
+  order: Int
+  title: String
+  actions: [ActionBarAction]
+}
+
 type ActionListAction {
   id: ID!
   title: String

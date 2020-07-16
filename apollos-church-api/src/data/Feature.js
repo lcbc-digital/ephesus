@@ -1,17 +1,10 @@
 import { Feature } from '@apollosproject/data-connector-rock';
 import { createGlobalId, parseGlobalId } from '@apollosproject/server-core';
 import { get } from 'lodash';
+import ApollosConfig from '@apollosproject/config';
 import gql from 'graphql-tag';
 
 const { resolver: baseResolver, schema: baseSchema } = Feature;
-
-const schema = gql`
-  ${baseSchema}
-
-  extend type Query {
-    userFeedFeaturesWithCampus(campusId: ID): [Feature]
-  }
-`;
 
 const resolver = {
   ...baseResolver,
@@ -27,6 +20,29 @@ const resolver = {
     subtitle: ({ subtitle, summary }) => subtitle || summary,
   },
 };
+
+const schema = gql`
+  ${baseSchema}
+
+  extend type Query {
+    userFeedFeaturesWithCampus(campusId: ID): [Feature]
+  }
+
+  type ActionBarAction {
+    id: ID
+    url: String
+    icon: String
+    label: String
+  }
+
+  type ActionBarFeature implements Feature & Node {
+    id: ID!
+    order: Int
+
+    title: String
+    actions: [ActionBarAction]
+  }
+`;
 
 class dataSource extends Feature.dataSource {
   ACTION_ALGORITHIMS = {
@@ -52,6 +68,54 @@ class dataSource extends Feature.dataSource {
       JSON.stringify({ campusId: this.context.campusId, ...args }),
       type
     );
+  }
+
+  async getHomeFeedFeatures() {
+    return Promise.all(
+      get(ApollosConfig, 'HOME_FEATURES', []).map((featureConfig) => {
+        switch (featureConfig.type) {
+          case 'ActionBar':
+            return this.createActionBarFeature(featureConfig);
+          case 'VerticalCardList':
+            return this.createVerticalCardListFeature(featureConfig);
+          case 'HorizontalCardList':
+            return this.createHorizontalCardListFeature(featureConfig);
+          case 'HeroListFeature':
+            console.warn(
+              'Deprecated: Please use the name "HeroList" instead. You used "HeroListFeature"'
+            );
+            return this.createHeroListFeature(featureConfig);
+          case 'HeroList':
+            return this.createHeroListFeature(featureConfig);
+          case 'PrayerList':
+            return this.createPrayerListFeature(featureConfig);
+          case 'ActionList':
+          default:
+            // Action list was the default in 1.3.0 and prior.
+            return this.createActionListFeature(featureConfig);
+        }
+      })
+    );
+  }
+
+  async createActionBarFeature({ title }) {
+    // Generate a list of horizontal cards.
+    // const cards = () => this.runAlgorithms({ algorithms });
+    const actions = await this.context.dataSources.ContentItem.getAppBarActions();
+    return {
+      // The Feature ID is based on all of the action ids, added together.
+      // This is naive, and could be improved.
+      id: this.createFeatureId({
+        type: 'ActionBarFeature',
+        args: {
+          title,
+        },
+      }),
+      actions,
+      title,
+      // Typename is required so GQL knows specifically what Feature is being created
+      __typename: 'ActionBarFeature',
+    };
   }
 
   async sectionFeature({ section }) {

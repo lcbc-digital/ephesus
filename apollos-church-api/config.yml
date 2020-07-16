@@ -120,7 +120,7 @@ ROCK_MAPPINGS:
     UniversalContentItem:
       EntityType: Craft
     # CategoryContentItem:
-    #   EntityType: Craft      
+    #   EntityType: Craft   
     WeekendContentItem:
       ContentChannelId: [5]
       EntityType: Craft
@@ -162,6 +162,8 @@ ROCK_MAPPINGS:
   MOBILE_DEVICE_TYPE_ID: 671
 
 HOME_FEATURES:
+  - type: ActionBar
+    title: Welcome to LCBC!
   - algorithms: [MOST_RECENT_SERMON]
     type: VerticalCardList
     isFeatured: true

@@ -4,9 +4,8 @@ import SafeAreaView from 'react-native-safe-area-view';
 import PropTypes from 'prop-types';
 
 import { styled, BackgroundView } from '@apollosproject/ui-kit';
-import {
-  RockAuthedWebBrowser,
-} from '@apollosproject/ui-connected';
+import { RockAuthedWebBrowser } from '@apollosproject/ui-connected';
+import ActionBarConnected from './ActionBarConnected';
 import FeaturesFeedWithCampus from './FeaturesFeedWithCampus';
 
 const LogoTitle = styled(({ theme }) => ({
@@ -55,6 +54,7 @@ class Home extends PureComponent {
             <SafeAreaView>
               <FeaturesFeedWithCampus
                 onPressActionItem={this.handleOnPress({ openUrl })}
+                additionalFeatures={{ ActionBarFeature: ActionBarConnected }}
                 ListHeaderComponent={
                   <LogoTitle source={require('./wordmark.png')} />
                 }
