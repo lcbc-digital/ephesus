@@ -483,6 +483,16 @@ export class dataSource extends CraftDataSource {
     return get(result, 'data.entries[0].children[0]');
   };
 
+  getActiveLiveStreamContent = async () => {
+    const { LiveStream } = this.context.dataSources;
+    const { isLive } = await LiveStream.getLiveStream();
+    // if there is no live stream, then there is no live content. Easy enough!
+    if (!isLive) return [];
+
+    const mostRecentSermon = await this.getMostRecentSermon();
+    return [mostRecentSermon];
+  };
+
   getByCampusId = async (campusId) => {
     const query = `query($campusRockId: [QueryArgument]){
     entries(section:"appCampusContent", hasDescendants:true, campusRockId: $campusRockId){

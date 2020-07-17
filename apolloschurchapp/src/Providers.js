@@ -22,7 +22,7 @@ const AppProviders = (props) => (
         closeAuth={() => NavigationService.navigate('Onboarding')}
       >
         <MediaPlayerProvider>
-          <AnalyticsProvider>
+          <AnalyticsProvider useServerAnalytics={false}>
             <LiveProvider>
               <Providers
                 themeInput={customTheme}
