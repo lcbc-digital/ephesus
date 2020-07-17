@@ -402,6 +402,7 @@ export class dataSource extends CraftDataSource {
             actionBarIcon
             actionBarURL
             actionBarLabel
+            usePersonId
           }
         }
       }
@@ -410,12 +411,26 @@ export class dataSource extends CraftDataSource {
     const result = await this.query(query);
     const results = result?.data?.entries;
 
-    return results.map((r) => ({
-      id: r.id,
-      label: r.actionBarLabel,
-      url: r.actionBarURL,
-      icon: kebabCase(r.actionBarIcon),
-    }));
+    return results.map(async (r) => {
+      let url = r.actionBarURL;
+      try {
+        if (r.usePersonId) {
+          const token = await this.context.dataSources.Auth.getAuthToken();
+          url = new URL(r.actionBarURL);
+          url.searchParams.append('rckipid', token);
+          url = url.toString();
+        }
+      } catch (e) {
+        console.log(e);
+        // move on...
+      }
+      return {
+        id: r.id,
+        label: r.actionBarLabel,
+        url,
+        icon: kebabCase(r.actionBarIcon),
+      };
+    });
   }
 
   // Broken right now due to a craft bug!
