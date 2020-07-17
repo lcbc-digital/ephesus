@@ -13,7 +13,7 @@ import * as Cache from '@apollosproject/data-connector-redis-cache';
 import * as Sms from '@apollosproject/data-connector-twilio';
 import {
   // Followings,
-  Interactions,
+  // Interactions,
   RockConstants,
   Person,
   // ContentItem,
@@ -38,6 +38,7 @@ import * as LiveStream from './ChurchOnline';
 import { ContentChannel, ContentItem, Category } from './craft';
 import * as Feature from './Feature';
 import * as Vimeo from './Vimeo';
+import * as Interactions from './Interaction';
 
 const data = {
   // Followings,

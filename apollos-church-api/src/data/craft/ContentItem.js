@@ -1,7 +1,7 @@
 import { ContentItem } from '@apollosproject/data-connector-rock';
 import ApollosConfig from '@apollosproject/config';
 import sanitizeHtml from '@apollosproject/data-connector-rock/lib/sanitize-html';
-import { parseCursor } from '@apollosproject/server-core';
+import { parseCursor, createGlobalId } from '@apollosproject/server-core';
 import sanitize from 'sanitize-html';
 import { ApolloError } from 'apollo-server';
 import { get, kebabCase } from 'lodash';
@@ -344,7 +344,55 @@ export class dataSource extends CraftDataSource {
     return { ...node, __typename };
   }
 
-  getUpNext = () => {};
+  async getUpNext({ id }) {
+    const { Auth, Interactions } = this.context.dataSources;
+
+    // Safely exit if we don't have a current user.
+    try {
+      await Auth.getCurrentPerson();
+    } catch (e) {
+      return null;
+    }
+
+    const childItemsOldestFirst = await this.getChildren(id, {
+      after: null,
+      first: null,
+    });
+
+    const childItems = childItemsOldestFirst.edges
+      .map(({ node }) => node)
+      .reverse();
+    const childItemsWithApollosIds = childItems.map((childItem) => ({
+      ...childItem,
+      apollosId: createGlobalId(childItem.id, this.resolveType(childItem)),
+    }));
+
+    const interactions = await Interactions.getInteractionsForCurrentUserAndNodes(
+      {
+        nodeIds: childItemsWithApollosIds.map(({ apollosId }) => apollosId),
+        actions: ['COMPLETE'],
+      }
+    );
+
+    const apollosIdsWithInteractions = interactions.map(
+      ({ foreignKey }) => foreignKey
+    );
+
+    const firstInteractedIndex = childItemsWithApollosIds.findIndex(
+      ({ apollosId }) => apollosIdsWithInteractions.includes(apollosId)
+    );
+
+    if (firstInteractedIndex === -1) {
+      // If you haven't completede anything, return the first (last in reversed array) item;
+      return childItemsWithApollosIds[childItemsWithApollosIds.length - 1];
+    }
+    if (firstInteractedIndex === 0) {
+      // If you have completed the last item, return null (no items left to read)
+      return null;
+    }
+    // otherwise, return the item immediately following (before) the item you have already read
+    return childItemsWithApollosIds[firstInteractedIndex - 1];
+  }
 
   getFeatures = () => {};
 
@@ -362,7 +410,7 @@ export class dataSource extends CraftDataSource {
     return [];
   };
 
-  getChildren = async (id, { after: cursor }) => {
+  getChildren = async (id, { after: cursor, first = 20 }) => {
     let after = 0;
     if (cursor) {
       after = parseCursor(cursor);
@@ -378,7 +426,7 @@ export class dataSource extends CraftDataSource {
 
     const result = await this.query(query, {
       id: [id],
-      first: 20,
+      first,
       after,
     });
 
@@ -390,6 +438,29 @@ export class dataSource extends CraftDataSource {
       return null;
     }
     return mapToEdgeNode(results, after + 1);
+  };
+
+  getParent = async (id) => {
+    const query = `query ($id: [QueryArgument]) {
+     node: entry(id: $id) {
+       parent {
+        ${this.entryFragment}
+       }
+     }
+    }`;
+
+    const result = await this.query(query, {
+      id: [id],
+    });
+
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    const parent = result?.data?.node?.parent;
+    if (!parent) {
+      return null;
+    }
+    return parent;
   };
 
   async getAppBarActions() {
