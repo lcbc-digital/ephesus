@@ -56,6 +56,41 @@ export const resolver = contentItemTypes.reduce(
   }
 );
 
+class CraftCursor {
+  constructor({ query, variables = {}, connector }) {
+    this.query = query;
+    this.variables = variables;
+    this.transformFuncs = (docs) => docs;
+    this.connector = connector;
+  }
+
+  top = (first) => {
+    this.variables.first = first;
+    return this;
+  };
+
+  skip = (after) => {
+    this.variables.after = after;
+    return this;
+  };
+
+  transform = (func) => {
+    this.transformFuncs = func;
+    return this;
+  };
+
+  get = async () => {
+    const result = await this.connector.query(this.query, {
+      ...this.variables,
+    });
+
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    return this.transformFuncs(result?.data?.nodes || []);
+  };
+}
+
 export class dataSource extends CraftDataSource {
   entryFragment = `
     id
@@ -319,6 +354,35 @@ export class dataSource extends CraftDataSource {
 
     const results = result?.data?.nodes || [];
     return mapToEdgeNode(results, after + 1);
+  }
+
+  byActive() {
+    const cursor = new CraftCursor({
+      connector: this,
+      query: `query ($first: Int, $after: Int) {
+        nodes: entries(
+          limit: $first
+          offset: $after
+        ) { ${this.entryFragment} }
+      }`,
+    });
+
+    return cursor;
+  }
+
+  byDateAndActive({ datetime }) {
+    const cursor = new CraftCursor({
+      connector: this,
+      variables: { postDate: `>= ${datetime}` },
+      query: `query ($first: Int, $after: Int, $postDate: [String]) {
+        nodes: entries(
+          limit: $first
+          offset: $after
+          postDate: $postDate
+        ) { ${this.entryFragment} }
+      }`,
+    });
+    return cursor;
   }
 
   async byCategoryId(id, { after: cursor, first }) {
