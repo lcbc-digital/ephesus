@@ -38,6 +38,7 @@ import * as LiveStream from './ChurchOnline';
 import { ContentChannel, ContentItem, Category } from './craft';
 import * as Feature from './Feature';
 import * as Vimeo from './Vimeo';
+import * as Wistia from './Wistia';
 import * as Interactions from './Interaction';
 import * as Person from './Person';
 
@@ -72,6 +73,7 @@ const data = {
   Cache,
   PrayerRequest,
   Vimeo,
+  Wistia,
 };
 
 const {

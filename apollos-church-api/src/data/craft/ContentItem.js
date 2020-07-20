@@ -25,7 +25,9 @@ const newResolvers = {
   __resolveType: (root, { dataSources: { ContentItem } }) =>
     ContentItem.resolveType(root),
   parentChannel: ({ parent }, args, { dataSources }) =>
-    dataSources.ContentItem.getFromId(parent.id),
+    parent ? dataSources.ContentItem.getFromId(parent.id) : {},
+  videos: (root, args, { dataSources: { ContentItem } }) =>
+    ContentItem.getVideos(root),
 };
 
 const contentItemTypes = Object.keys(ApollosConfig.ROCK_MAPPINGS.CONTENT_ITEM);
@@ -164,6 +166,15 @@ export class dataSource extends CraftDataSource {
         title
         url
       }
+      articlePost {
+        ... on articlePost_textBlock_BlockType {
+          body
+        }
+        ... on articlePost_blockquote_BlockType {
+          body
+        }
+      }
+      storyVideo
     }
 
     # studies
@@ -553,14 +564,19 @@ export class dataSource extends CraftDataSource {
 
   getFeatures = () => {};
 
-  getVideos = ({ videoEmbed, title }) => {
-    if (videoEmbed) {
+  getVideos = ({ videoEmbed, title, storyVideo, ...args }) => {
+    const uri = videoEmbed || storyVideo;
+    const { Vimeo, Wistia } = this.context.dataSources;
+    if (uri) {
+      const finalUri = uri.includes('vimeo')
+        ? Vimeo.getHLSForVideo(uri)
+        : Wistia.getHLSForVideo(uri);
       return [
         {
           __typename: 'VideoMedia',
           name: title,
           embedHtml: null,
-          sources: [{ uri: videoEmbed }],
+          sources: [{ uri: finalUri }],
         },
       ];
     }
@@ -857,7 +873,9 @@ export class dataSource extends CraftDataSource {
       case 'bibleReading_bibleReading_Entry': {
         return 'DevotionalContentItem';
       }
-      case 'series_sermon_Entry': {
+      case 'series_sermon_Entry':
+      case 'stories_stories_Entry': {
+        // stories
         return 'MediaContentItem';
       }
       case 'bibleReading_bibleReadingPlan_Entry': // bible reading plan
@@ -866,7 +884,6 @@ export class dataSource extends CraftDataSource {
       }
       case 'articles_article_Entry':
       case 'news_news_Entry': // news
-      case 'stories_stories_Entry': // stories
       case 'studies_curriculum_Entry':
       default: {
         return 'UniversalContentItem';

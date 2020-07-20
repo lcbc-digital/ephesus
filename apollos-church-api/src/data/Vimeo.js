@@ -30,27 +30,4 @@ class dataSource extends RESTDataSource {
   }
 }
 
-const baseResolver = {
-  videos: (root, args, { dataSources: { ContentItem, Vimeo } }) => {
-    const vimeoUrls = ContentItem.getVideos(root);
-    return vimeoUrls.map((video) => ({
-      ...video,
-      sources: video.sources.map(({ uri }) => ({
-        uri: Vimeo.getHLSForVideo(uri),
-      })),
-    }));
-  },
-};
-
-// overrides the video urls for all content item resolvers
-const contentItemTypes = Object.keys(ApollosConfig.ROCK_MAPPINGS.CONTENT_ITEM);
-
-const resolver = contentItemTypes.reduce(
-  (acc, curr) => ({
-    ...acc,
-    [curr]: baseResolver,
-  }),
-  {}
-);
-
-export { dataSource, resolver };
+export { dataSource };
