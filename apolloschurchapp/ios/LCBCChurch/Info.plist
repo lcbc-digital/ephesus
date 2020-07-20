@@ -92,6 +92,7 @@
 		<string>Avenir-MediumOblique.otf</string>
 		<string>Avenir-Oblique.otf</string>
 		<string>Avenir-Roman.otf</string>
+		<string>Avenir-Black.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>BootSplash</string>

@@ -51,6 +51,7 @@
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		F7121BB34A14404486BEF9D7 /* Avenir-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF362FD4475D4652830D25CC /* Avenir-Medium.otf */; };
 		FCB3069DB5DD4170B2CAEFC4 /* Inter-UI-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A460FD7884FD4574A818005A /* Inter-UI-MediumItalic.otf */; };
+		F2A51F42B8DD46D98C8CF2A1 /* Avenir-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF063CEEBE343A0A7715F1E /* Avenir-Black.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		EF935CA614D74480A47899EB /* Avenir-LightOblique.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-LightOblique.otf"; path = "../assets/fonts/Avenir-LightOblique.otf"; sourceTree = "<group>"; };
+		3EF063CEEBE343A0A7715F1E /* Avenir-Black.otf */ = {isa = PBXFileReference; name = "Avenir-Black.otf"; path = "../assets/fonts/Avenir-Black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 				77C653A2660841A4A4310C91 /* Avenir-MediumOblique.otf */,
 				AA300B776EB14A73A06BED17 /* Avenir-Oblique.otf */,
 				40C90AED919C466EADA75FD9 /* Avenir-Roman.otf */,
+				3EF063CEEBE343A0A7715F1E /* Avenir-Black.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				3B6981DBCC134BD6A34056FA /* Avenir-MediumOblique.otf in Resources */,
 				B8C41D67042E4568B3E5F617 /* Avenir-Oblique.otf in Resources */,
 				A7DE897422BD49FC805320A7 /* Avenir-Roman.otf in Resources */,
+				F2A51F42B8DD46D98C8CF2A1 /* Avenir-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
