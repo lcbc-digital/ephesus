@@ -25,12 +25,12 @@ const schema = gql`
   ${baseSchema}
 
   extend type Query {
-    userFeedFeaturesWithCampus(campusId: ID): [Feature]
+    userFeedFeaturesWithCampus(campusId: ID): [Feature] @cacheControl(maxAge: 0)
   }
 
   type ActionBarAction {
     id: ID
-    url: String
+    url: String @cacheControl(maxAge: 0)
     icon: String
     label: String
   }
