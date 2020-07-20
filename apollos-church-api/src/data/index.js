@@ -15,7 +15,7 @@ import {
   // Followings,
   // Interactions,
   RockConstants,
-  Person,
+  // Person,
   // ContentItem,
   // ContentChannel,
   Sharable,
@@ -39,6 +39,7 @@ import { ContentChannel, ContentItem, Category } from './craft';
 import * as Feature from './Feature';
 import * as Vimeo from './Vimeo';
 import * as Interactions from './Interaction';
+import * as Person from './Person';
 
 const data = {
   // Followings,

@@ -129,7 +129,7 @@ ROCK_MAPPINGS:
 
   DATAVIEW_CATEGORIES:
     # Id of the category used to store all persona dataviews
-    PersonaId: 210
+    PersonaId: 3997
 
   # Apollos will pull these content channels and expose them in the app on the discover screen.
   DISCOVER_CONTENT_CHANNEL_IDS:

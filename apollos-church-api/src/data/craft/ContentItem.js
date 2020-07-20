@@ -4,7 +4,7 @@ import sanitizeHtml from '@apollosproject/data-connector-rock/lib/sanitize-html'
 import { parseCursor, createGlobalId } from '@apollosproject/server-core';
 import sanitize from 'sanitize-html';
 import { ApolloError } from 'apollo-server';
-import { get, kebabCase } from 'lodash';
+import { get, kebabCase, intersection } from 'lodash';
 import CraftDataSource, { mapToEdgeNode } from './CraftDataSource';
 
 export const { schema } = ContentItem;
@@ -205,6 +205,50 @@ export class dataSource extends CraftDataSource {
   }
   `;
 
+  personaFragment = `
+    ... on nextSteps_nextStepDefault_Entry {
+      persona {
+        id
+      }
+    }
+    ... on series_series_Entry {
+      persona {
+        id
+      }
+    }
+    ... on series_sermon_Entry {
+      persona {
+        id
+      }
+    }
+    ... on articles_article_Entry {
+      persona {
+        id
+      }
+    }
+    ... on stories_stories_Entry {
+      persona {
+        id
+      }
+    }
+    ... on news_news_Entry {
+      persona {
+        id
+      }
+    }
+    ... on events_events_Entry {
+      persona {
+        id
+      }
+    }
+
+    ... on events_hasContentBuilder_Entry {
+      persona {
+        id
+      }
+    }
+  `;
+
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L13
   // eslint-disable-next-line
   byContentChannelId({ source }, { after }) {
@@ -219,6 +263,35 @@ export class dataSource extends CraftDataSource {
 
   byContentChannelIds(contentChannelIds) {
     console.log(byContentChannelIds);
+  }
+
+  async getCraftPersonaIdsForUser() {
+    let personas = [32210];
+    try {
+      const rockPersonas = await this.context.dataSources.Person.getPersonas({
+        categoryId: ApollosConfig.ROCK_MAPPINGS.DATAVIEW_CATEGORIES.PersonaId,
+      });
+      const query = `
+      query craftPersonas ($ids: [QueryArgument]){
+        categories(personaId: $ids){
+          id
+          title
+        }
+      }
+      `;
+      const result = await this.query(query, {
+        ids: rockPersonas.map(({ id }) => id),
+      });
+
+      if (result?.error)
+        throw new ApolloError(result?.error?.message, result?.error?.code);
+
+      const craftIds = (result?.data?.categories || []).map(({ id }) => id);
+      personas = [...personas, ...craftIds];
+    } catch (e) {
+      console.log(e);
+    }
+    return personas;
   }
 
   async byTypeId(id, { after: cursor, first }) {
@@ -283,16 +356,19 @@ export class dataSource extends CraftDataSource {
         ... on appGrowingInFaith_appGrowingInFaith_Entry {
           children: growingInFaithEntries {
             ${this.entryFragment}
+           ${this.personaFragment}
           }
         }
         ... on appChurchEvents_appChurchEvents_Entry {
           children: churchEventEntries {
             ${this.entryFragment}
+           ${this.personaFragment}
           }
         }
         ... on appNextSteps_appNextSteps_Entry {
           children: nextStepsEntries {
            ${this.entryFragment}
+           ${this.personaFragment}
           }
         }
       }
@@ -308,7 +384,24 @@ export class dataSource extends CraftDataSource {
     const results = (result?.data?.nodes || []).flatMap(
       (node) => node.children
     );
-    return results;
+
+    const userPersonas = await this.getCraftPersonaIdsForUser();
+
+    const resultsWithPersonas = results.filter(({ persona }) => {
+      if (!persona || persona.length === 0) {
+        // Include items that don't have a persona or have no specific personas.
+        return true;
+      }
+      if (
+        (persona && intersection(persona.map(({ id }) => id)), userPersonas)
+          .length
+      ) {
+        // Include items that share personas with the current user
+        return true;
+      }
+      return false;
+    });
+    return resultsWithPersonas;
   }
 
   // Override: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/data-source.js#L46
