@@ -23,7 +23,7 @@ import {
   PersonalDevice,
   Template,
   AuthSms,
-  Campus,
+  // Campus,
   Group,
   BinaryFiles,
   Event,
@@ -36,12 +36,13 @@ import * as Theme from './theme';
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
 import * as OneSignalWithRock from './oneSignalWithRock';
 import * as LiveStream from './ChurchOnline';
-import { ContentChannel, ContentItem, Category } from './craft';
+import { ContentChannel, ContentItem, Category, CraftCampus } from './craft';
 import * as Feature from './Feature';
 import * as Vimeo from './Vimeo';
 import * as Wistia from './Wistia';
 import * as Interactions from './Interaction';
 import * as Person from './Person';
+import * as Campus from './Campus';
 
 const data = {
   // Followings,
@@ -75,6 +76,7 @@ const data = {
   PrayerRequest,
   Vimeo,
   Wistia,
+  CraftCampus,
 };
 
 const {

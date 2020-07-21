@@ -23,6 +23,7 @@ import ChangePassword from './user-settings/ChangePassword';
 import LandingScreen from './LandingScreen';
 import UserWebBrowser from './user-web-browser';
 import Onboarding from './ui/Onboarding';
+import AboutCampus from './AboutCampus';
 
 const AppStatusBar = withTheme(({ theme }) => ({
   barStyle: theme.barStyle,
@@ -54,6 +55,7 @@ const AppNavigator = createStackNavigator(
     UserWebBrowser,
     Onboarding,
     LandingScreen,
+    AboutCampus,
   },
   {
     initialRouteName: 'ProtectedRoute',
