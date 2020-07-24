@@ -9,12 +9,17 @@ import CraftDataSource, { mapToEdgeNode } from './CraftDataSource';
 
 export const { schema } = ContentItem;
 
+const ERROR_COPY = `
+<p>Uh Oh - Looks like we had a mishap.
+Looking for something specific? <a href="https://lcbcchurch.com/forms/contact">Contact us</a> and we'll help...</p>
+`;
+
 const newResolvers = {
   htmlContent: ({ description, articlePost }) => {
     if (articlePost && articlePost?.length > 0) {
       return sanitizeHtml(articlePost.map(({ body }) => body).join('\n'));
     }
-    return sanitizeHtml(description);
+    return sanitizeHtml(description || ERROR_COPY);
   },
   childContentItemsConnection: ({ id }, args, context) =>
     context.dataSources.ContentItem.getChildren(id, args),
@@ -220,7 +225,7 @@ export class dataSource extends CraftDataSource {
         }
       }
     }
-    description:mobileAppContent
+    description: mobileAppContent
   }
 
   ... on pages_pages_Entry {
@@ -233,7 +238,7 @@ export class dataSource extends CraftDataSource {
         }
       }
     }
-    description:mobileAppContent
+    description: mobileAppContent
   }
 
   ... on nextSteps_nextStepDefault_Entry {

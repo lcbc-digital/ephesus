@@ -114,6 +114,11 @@ type Campus implements Node {
   longitude: Float
   image: ImageMediaSource
   distanceFromLocation(location: CampusLocationInput): Float
+  description: String
+  leader: Person
+  serviceTimes: String
+  contactEmail: String
+  childContentItemsConnection(first: Int, after: String): ContentItemsConnection
   events: [Event]
 }
 
