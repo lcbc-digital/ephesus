@@ -3,6 +3,8 @@ import { createGlobalId, parseGlobalId } from '@apollosproject/server-core';
 import { get } from 'lodash';
 import ApollosConfig from '@apollosproject/config';
 import gql from 'graphql-tag';
+import fetch from 'node-fetch';
+import moment from 'moment';
 
 const { resolver: baseResolver, schema: baseSchema } = Feature;
 
@@ -51,6 +53,7 @@ class dataSource extends Feature.dataSource {
     MOST_RECENT_SERMON: this.mostRecentSermonAlgorithm.bind(this),
     SECTION: this.sectionFeature.bind(this),
     CAMPUS: this.campusFeature.bind(this),
+    VERSE_OF_THE_DAY: this.verseOfTheDayAlgorithm.bind(this),
   };
 
   getFromId(args, id) {
@@ -68,6 +71,37 @@ class dataSource extends Feature.dataSource {
       JSON.stringify({ campusId: this.context.campusId, ...args }),
       type
     );
+  }
+
+  async verseOfTheDayAlgorithm() {
+    const verseOfTheDay = await fetch(
+      `https://developers.youversionapi.com/1.0/verse_of_the_day/${moment().dayOfYear()}?version_id=1`,
+      {
+        headers: {
+          'X-YouVersion-Developer-Token': 'UKe3tMsbC7Rpt55oXjwgI4In__Y',
+          'Accept-Language': 'en',
+          Accept: 'application/json',
+        },
+      }
+    ).then((result) => result.json());
+    const imageUrl = get(verseOfTheDay, 'image.url', '')
+      .replace('{width}', 800)
+      .replace('{height}', 800);
+    return [
+      {
+        id: createGlobalId('verse-of-the-day', 'CardListItem'),
+        title: '',
+        subtitle: '',
+        relatedNode: {
+          url: get(verseOfTheDay, 'verse.url'),
+          id: createGlobalId(JSON.stringify({ verseOfTheDay }), 'Url'),
+          __type: 'Url',
+        },
+        image: { sources: [{ uri: imageUrl }] },
+        action: 'OPEN_URL',
+        hasAction: false,
+      },
+    ];
   }
 
   async getHomeFeedFeatures() {

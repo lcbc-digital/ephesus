@@ -49,8 +49,6 @@ export class dataSource extends CraftDataSource {
 
     const result = await this.query(query);
 
-    console.log(result);
-
     if (result?.error)
       throw new ApolloError(result?.error?.message, result?.error?.code);
 

@@ -1,5 +1,13 @@
+import React from 'react';
+import { get } from 'lodash';
 // import styleOverrides from './styleOverrides';
 // import propOverrides from './propOverrides';
+import {
+  DefaultCard,
+  HighlightCard,
+  FeaturedCard,
+} from '@apollosproject/ui-kit';
+import ImageCard from '../ui/ImageCard';
 import fontStack from './fontStack';
 
 /* Add your custom theme definitions below. Anything that is supported in UI-Kit Theme can be
@@ -11,6 +19,29 @@ import fontStack from './fontStack';
  * elements are colored, go there. The next level of control comes
  * on a per-component basis with "overrides"
  */
+
+const cardMapper = (props) => {
+  // map typename to the the card we want to render.
+  if (props.isFeatured) {
+    return <FeaturedCard {...props} />;
+  }
+  switch (get(props, '__typename')) {
+    case 'Url':
+      if (!props.title && !props.subtitle) {
+        return <ImageCard {...props} />;
+      }
+      return <HighlightCard {...props} />;
+
+    case 'MediaContentItem':
+    case 'WeekendContentItem':
+    case 'ContentSeriesContentItem':
+    case 'DevotionalContentItem':
+      return <HighlightCard {...props} />;
+    default:
+      return <DefaultCard {...props} />;
+  }
+};
+
 const colors = {
   primary: '#008CD0',
   secondary: '#004F71',
@@ -81,11 +112,23 @@ const colors = {
 //   ...propOverrides,
 // };
 
+const overlays = {
+  'no-overlay': () => () => ({
+    colors: ['transparent', 'transparent'],
+    start: { x: 0, y: 0 },
+    end: { x: 0, y: 1 },
+    locations: [0, 1],
+  }),
+};
+
 export const typography = {
   ...fontStack,
 };
 
 const overrides = {
+  ContentCardComponentMapper: {
+    Component: () => cardMapper,
+  },
   H1: {
     fontFamily: typography.sans.black.default,
   },
@@ -107,4 +150,4 @@ const overrides = {
   },
 };
 
-export default { colors, typography, overrides };
+export default { colors, typography, overrides, overlays };

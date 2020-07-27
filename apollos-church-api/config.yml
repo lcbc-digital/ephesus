@@ -172,6 +172,7 @@ HOME_FEATURES:
     title: Daily Prayer
     subtitle: Join us in prayer
   - algorithms:
+    - type: VERSE_OF_THE_DAY
     - type: SECTION
       arguments:
         section: appGrowingInFaith

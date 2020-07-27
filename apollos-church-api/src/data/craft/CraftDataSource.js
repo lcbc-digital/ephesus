@@ -44,13 +44,11 @@ export default class Craft extends RESTDataSource {
       ? cursor
           .top(first)
           .skip(skip)
-          .transform(
-            (result) =>
-              console.log(result) ||
-              result.map((node, i) => ({
-                node,
-                cursor: createCursor({ position: i + skip }),
-              }))
+          .transform((result) =>
+            result.map((node, i) => ({
+              node,
+              cursor: createCursor({ position: i + skip }),
+            }))
           )
           .get()
       : [];
