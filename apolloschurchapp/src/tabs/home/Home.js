@@ -42,7 +42,8 @@ class Home extends PureComponent {
       });
     }
     if (action === 'OPEN_URL') {
-      openUrl(relatedNode.url);
+      const externalBrowser = relatedNode.url.includes('#external');
+      openUrl(relatedNode.url, { externalBrowser });
     }
   };
 

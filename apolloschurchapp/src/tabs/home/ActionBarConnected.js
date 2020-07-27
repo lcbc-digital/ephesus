@@ -8,7 +8,6 @@ import {
 } from '@apollosproject/ui-kit';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
-import { RockAuthedWebBrowser } from '@apollosproject/ui-connected';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -17,28 +16,26 @@ const ActionBarHeader = styled({
   justifyContent: 'center',
 })(PaddedView);
 
-const ActionsBar = ({ navigation, actions, title }) => (
-  <RockAuthedWebBrowser>
-    {(openUrl) => (
-      <>
-        {title && (
-          <ActionBarHeader vertical={false}>
-            <H4>{title}</H4>
-          </ActionBarHeader>
-        )}
-        <ActionBar>
-          {actions.map(({ icon, label, url }) => (
-            <ActionBarItem
-              key={url}
-              onPress={() => openUrl(url)}
-              icon={icon}
-              label={label}
-            />
-          ))}
-        </ActionBar>
-      </>
+const ActionsBar = ({ navigation, actions, title, onPressItem }) => (
+  <>
+    {title && (
+      <ActionBarHeader vertical={false}>
+        <H4>{title}</H4>
+      </ActionBarHeader>
     )}
-  </RockAuthedWebBrowser>
+    <ActionBar>
+      {actions.map(({ icon, label, url }) => (
+        <ActionBarItem
+          key={url}
+          onPress={() =>
+            onPressItem({ relatedNode: { url }, action: 'OPEN_URL' })
+          }
+          icon={icon}
+          label={label}
+        />
+      ))}
+    </ActionBar>
+  </>
 );
 
 ActionsBar.propTypes = {
@@ -74,7 +71,7 @@ const GET_ACTION_BAR_FEATURE = gql`
   }
 `;
 
-const ActionBarConnected = ({ featureId, refetchRef }) => (
+const ActionBarConnected = ({ featureId, refetchRef, ...props }) => (
   <Query
     query={GET_ACTION_BAR_FEATURE}
     variables={{ featureId }}
@@ -86,6 +83,7 @@ const ActionBarConnected = ({ featureId, refetchRef }) => (
       const node = data.node || {};
       return (
         <ActionBarWithNavigation
+          {...props}
           actions={node.actions || []}
           title={node.title}
         />

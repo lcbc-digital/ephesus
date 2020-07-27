@@ -17,6 +17,7 @@ import {
   H2,
   StretchyView,
 } from '@apollosproject/ui-kit';
+import safeOpenUrl from '../../utils/safeOpenUrl';
 
 const FlexedScrollView = styled({ flex: 1 })(Animated.ScrollView);
 
@@ -45,7 +46,10 @@ const UniversalContentItem = ({ content, loading }) => {
               <H2 padded isLoading={!content.title && loading}>
                 {content.title}
               </H2>
-              <ContentHTMLViewConnected contentId={content.id} />
+              <ContentHTMLViewConnected
+                contentId={content.id}
+                onPressAnchor={safeOpenUrl}
+              />
             </PaddedView>
             <ContentSingleFeaturesConnected contentId={content.id} />
             <UpNextButtonConnected contentId={content.id} />

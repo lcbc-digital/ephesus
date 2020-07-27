@@ -7,6 +7,7 @@ import {
 } from '@apollosproject/ui-connected';
 import { PaddedView, H2, styled, withIsLoading } from '@apollosproject/ui-kit';
 import { ScriptureList } from '@apollosproject/ui-scripture';
+import safeOpenUrl from '../../utils/safeOpenUrl';
 
 const ContentContainer = withIsLoading(
   styled({ paddingVertical: 0 })(PaddedView)
@@ -35,7 +36,7 @@ const ContentTab = ({
           tabDestination={'scripture'}
         />
       ) : null}
-      <ContentHTMLViewConnected contentId={id} />
+      <ContentHTMLViewConnected contentId={id} onPressAnchor={safeOpenUrl} />
     </ContentContainer>
     <HorizontalContentSeriesFeedConnected
       contentId={id}
