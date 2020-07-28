@@ -568,10 +568,10 @@ export class dataSource extends CraftDataSource {
   }
 
   getFeatures = () => [
-    this.context.dataSources.Feature.createSharableImageFeature({
-      url:
-        'https://lcbcchurch.com/index.php?p=admin/actions/assets/thumb&uid=9c9031f6-1531-4f9f-b4aa-22b6842a7ed0&width=760&height=284&v=1474999373',
-    }),
+    // this.context.dataSources.Feature.createSharableImageFeature({
+    //   url:
+    //     'https://storage.googleapis.com/lcbc-assets/images/AtTheMovies__1600x900-SeriesHero.jpg?mtime=20200702163703&focal=none',
+    // }),
   ];
 
   getVideos = ({ videoEmbed, title, storyVideo, ...args }) => {

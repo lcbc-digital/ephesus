@@ -1,5 +1,4 @@
 import React from 'react';
-import { Image } from 'react-native';
 import {
   ContentSingleFeaturesConnected,
   ContentSingleFeatures,
@@ -7,16 +6,7 @@ import {
   ScriptureFeature,
   WebviewFeature,
 } from '@apollosproject/ui-connected';
-import { ConnectedImage } from '@apollosproject/ui-kit';
-
-const ShareableImageFeature = ({ image }) =>
-  console.warn(image) || (
-    <ConnectedImage
-      width={400}
-      source={image.sources}
-      style={{ backgroundColor: 'red' }}
-    />
-  );
+import ShareableImageFeature from './ShareableImageFeature';
 
 const FEATURE_MAP = {
   TextFeature,
