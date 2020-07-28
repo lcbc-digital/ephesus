@@ -4,6 +4,38 @@ import gql from 'graphql-tag';
 
 const fragments = {
   ...FRAGMENTS,
+  FEATURES_FRAGMENT: gql`
+    fragment FeaturesFragment on Feature {
+      id
+      ...TextFeatureFragment
+      ...ScriptureFeatureFragment
+      ...WebviewFeatureFragment
+      ... on ShareableImageFeature {
+        id
+
+        image {
+          sources {
+            uri
+          }
+        }
+      }
+    }
+  `,
+
+  CARD_FEATURES_FRAGMENT: gql`
+    fragment CardFeaturesFragment on ContentItem {
+      ... on ContentSeriesContentItem {
+        features {
+          ...FeaturesFragment
+        }
+      }
+      ... on WeekendContentItem {
+        features {
+          ...FeaturesFragment
+        }
+      }
+    }
+  `,
   CAMPUS_PARTS_FRAGMENT: gql`
     fragment CampusParts on Campus {
       id

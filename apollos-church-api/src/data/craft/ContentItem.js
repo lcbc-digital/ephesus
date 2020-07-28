@@ -567,7 +567,12 @@ export class dataSource extends CraftDataSource {
     return childItemsWithApollosIds[firstInteractedIndex - 1];
   }
 
-  getFeatures = () => {};
+  getFeatures = () => [
+    // this.context.dataSources.Feature.createSharableImageFeature({
+    //   url:
+    //     'https://storage.googleapis.com/lcbc-assets/images/AtTheMovies__1600x900-SeriesHero.jpg?mtime=20200702163703&focal=none',
+    // }),
+  ];
 
   getVideos = ({ videoEmbed, title, storyVideo, ...args }) => {
     const uri = videoEmbed || storyVideo;

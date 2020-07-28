@@ -126,7 +126,7 @@ export const typography = {
 };
 
 const overrides = {
-  ContentCardComponentMapper: {
+  'ui-connected.ContentCardConnected.ContentCardComponentMapper': {
     Component: () => cardMapper,
   },
   H1: {
