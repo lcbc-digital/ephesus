@@ -719,7 +719,7 @@ export class dataSource extends CraftDataSource {
 
   getMostRecentSermon = async () => {
     const query = `query {
-      entries(section:"series", hasDescendants:true, limit:1) {
+      entries(section:"series", hasDescendants:true, limit:2) {
         children(orderBy:"postDate desc", limit:1) {
           ${this.entryFragment}
           parent {
@@ -734,7 +734,9 @@ export class dataSource extends CraftDataSource {
     if (result?.error)
       throw new ApolloError(result?.error?.message, result?.error?.code);
 
-    return get(result, 'data.entries[0].children[0]');
+    const sermons = result.data.entries.flatMap(({ children }) => children);
+
+    return sermons[0];
   };
 
   getActiveLiveStreamContent = async () => {
@@ -742,9 +744,8 @@ export class dataSource extends CraftDataSource {
     const { isLive } = await LiveStream.getLiveStream();
     // if there is no live stream, then there is no live content. Easy enough!
     if (!isLive) return [];
-
     const mostRecentSermon = await this.getMostRecentSermon();
-    return [mostRecentSermon];
+    return mostRecentSermon ? [mostRecentSermon] : [];
   };
 
   getByCampusId = async (campusId) => {
