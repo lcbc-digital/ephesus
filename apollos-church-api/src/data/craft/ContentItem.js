@@ -567,7 +567,12 @@ export class dataSource extends CraftDataSource {
     return childItemsWithApollosIds[firstInteractedIndex - 1];
   }
 
-  getFeatures = () => {};
+  getFeatures = () => [
+    this.context.dataSources.Feature.createSharableImageFeature({
+      url:
+        'https://lcbcchurch.com/index.php?p=admin/actions/assets/thumb&uid=9c9031f6-1531-4f9f-b4aa-22b6842a7ed0&width=760&height=284&v=1474999373',
+    }),
+  ];
 
   getVideos = ({ videoEmbed, title, storyVideo, ...args }) => {
     const uri = videoEmbed || storyVideo;

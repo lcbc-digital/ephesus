@@ -44,6 +44,14 @@ const schema = gql`
     title: String
     actions: [ActionBarAction]
   }
+
+  type ShareableImageFeature implements Feature & Node {
+    id: ID!
+    order: Int
+
+    image: ImageMedia
+    title: String
+  }
 `;
 
 class dataSource extends Feature.dataSource {
@@ -71,6 +79,14 @@ class dataSource extends Feature.dataSource {
       JSON.stringify({ campusId: this.context.campusId, ...args }),
       type
     );
+  }
+
+  createSharableImageFeature({ url }) {
+    return {
+      id: createGlobalId({ url }, 'ShareableImageFeature'),
+      image: { sources: [{ uri: url }] },
+      __typename: 'ShareableImageFeature',
+    };
   }
 
   async verseOfTheDayAlgorithm() {

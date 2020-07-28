@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+z#!/usr/bin/env bash
 set -ex
 
 # Swaps out all placeholder env variables w/ their real values

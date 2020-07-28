@@ -7,7 +7,6 @@ import {
   HorizontalContentSeriesFeedConnected,
   LiveConsumer,
   MediaControlsConnected,
-  ContentSingleFeaturesConnected,
 } from '@apollosproject/ui-connected';
 import {
   styled,
@@ -23,6 +22,7 @@ import {
 } from '@apollosproject/ui-kit';
 
 import safeOpenUrl from '../../utils/safeOpenUrl';
+import ContentSingleFeaturesConnected from '../ContentSingleFeaturesConnected';
 
 const FlexedScrollView = styled({ flex: 1 })(Animated.ScrollView);
 
@@ -87,7 +87,10 @@ const WeekendContentItem = ({ content, loading }) => {
                     <H2 padded isLoading={!content.title && loading}>
                       {content.title}
                     </H2>
-                    <ContentHTMLViewConnected contentId={content.id} onPressAnchor={safeOpenUrl} />
+                    <ContentHTMLViewConnected
+                      contentId={content.id}
+                      onPressAnchor={safeOpenUrl}
+                    />
                   </ThemeMixin>
                 </Header>
                 <StyledMediaControlsConnected contentId={content.id} />

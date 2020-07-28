@@ -6,7 +6,6 @@ import {
   ContentHTMLViewConnected,
   HorizontalContentSeriesFeedConnected,
   MediaControlsConnected,
-  ContentSingleFeaturesConnected,
   UpNextButtonConnected,
 } from '@apollosproject/ui-connected';
 import {
@@ -18,6 +17,7 @@ import {
   StretchyView,
 } from '@apollosproject/ui-kit';
 import safeOpenUrl from '../../utils/safeOpenUrl';
+import ContentSingleFeaturesConnected from '../ContentSingleFeaturesConnected';
 
 const FlexedScrollView = styled({ flex: 1 })(Animated.ScrollView);
 

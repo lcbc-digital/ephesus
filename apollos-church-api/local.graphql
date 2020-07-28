@@ -516,6 +516,13 @@ type SharableFeature implements Sharable {
   url: String @deprecated(reason: "Not supported on a feature")
 }
 
+type ShareableImageFeature implements Feature & Node {
+  id: ID!
+  order: Int
+  image: ImageMedia
+  title: String
+}
+
 type SmsPinResult {
   success: Boolean
   userAuthStatus: USER_AUTH_STATUS
