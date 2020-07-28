@@ -4,7 +4,7 @@ import sanitizeHtml from '@apollosproject/data-connector-rock/lib/sanitize-html'
 import { parseCursor, createGlobalId } from '@apollosproject/server-core';
 import sanitize from 'sanitize-html';
 import { ApolloError } from 'apollo-server';
-import { get, kebabCase, intersection } from 'lodash';
+import { get, kebabCase, intersection, chunk, flatten } from 'lodash';
 import CraftDataSource, { mapToEdgeNode } from './CraftDataSource';
 
 export const { schema } = ContentItem;
@@ -540,12 +540,23 @@ export class dataSource extends CraftDataSource {
       apollosId: createGlobalId(childItem.id, this.resolveType(childItem)),
     }));
 
-    const interactions = await Interactions.getInteractionsForCurrentUserAndNodes(
-      {
-        nodeIds: childItemsWithApollosIds.map(({ apollosId }) => apollosId),
-        actions: ['COMPLETE'],
-      }
+    const interactionGroups = chunk(
+      childItemsWithApollosIds.map(({ apollosId }) => apollosId),
+      20
     );
+
+    const interactions = flatten(
+      await Promise.all(
+        interactionGroups.flatMap((apollosIds) =>
+          Interactions.getInteractionsForCurrentUserAndNodes({
+            nodeIds: apollosIds,
+            actions: ['COMPLETE'],
+          })
+        )
+      )
+    );
+
+    console.log(interactions);
 
     const apollosIdsWithInteractions = interactions.map(
       ({ foreignKey }) => foreignKey
