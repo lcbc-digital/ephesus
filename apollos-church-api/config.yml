@@ -19,6 +19,9 @@ CRAFT:
   GRAPH_TOKEN: ${CRAFT_GRAPH_TOKEN}
 VIMEO:
   TOKEN: ${VIMEO_TOKEN}
+BUGSNAG:
+  ## Optional, but you'll need to remove references to @apollosproject/bugsnag if you don't wish to use.
+  API_KEY: ${BUGSNAG_KEY}
 ROCK:
   API_URL: https://rock.lcbcchurch.com/api
   API_TOKEN: ${ROCK_TOKEN}
