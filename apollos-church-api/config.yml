@@ -21,7 +21,7 @@ VIMEO:
   TOKEN: ${VIMEO_TOKEN}
 BUGSNAG:
   ## Optional, but you'll need to remove references to @apollosproject/bugsnag if you don't wish to use.
-  API_KEY: ${BUGSNAG_KEY}
+  API_KEY: d936777e50cddda8a3e4387ae65da09f
 ROCK:
   API_URL: https://rock.lcbcchurch.com/api
   API_TOKEN: ${ROCK_TOKEN}
