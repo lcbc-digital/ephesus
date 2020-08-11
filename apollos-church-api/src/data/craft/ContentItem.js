@@ -760,8 +760,8 @@ export class dataSource extends CraftDataSource {
   };
 
   getByCampusId = async (campusId) => {
-    const query = `query($campusRockId: [QueryArgument]){
-    entries(section:"appCampusContent", hasDescendants:true, campusRockId: $campusRockId){
+    const query = `query($campusId: [QueryArgument]){
+    entries(section:"appCampusContent", hasDescendants:true, campusRockId: $campusId){
         children {
           __typename
           ... on appCampusContent_campusSchedule_Entry {
