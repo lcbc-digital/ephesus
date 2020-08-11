@@ -51,11 +51,11 @@ const fragments = {
       image {
         uri
       }
-      leader {
-        id
-        firstName
-        lastName
-      }
+      # leader {
+      #   id
+      #   firstName
+      #   lastName
+      # }
       serviceTimes
       contactEmail
     }
