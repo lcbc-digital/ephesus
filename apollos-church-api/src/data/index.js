@@ -22,7 +22,7 @@ import {
   Auth,
   PersonalDevice,
   Template,
-  AuthSms,
+  // AuthSms,
   // Campus,
   Group,
   BinaryFiles,
@@ -43,6 +43,7 @@ import * as Wistia from './Wistia';
 import * as Interactions from './Interaction';
 import * as Person from './Person';
 import * as Campus from './Campus';
+import * as AuthSms from './AuthSms';
 
 const data = {
   // Followings,
