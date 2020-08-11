@@ -44,7 +44,7 @@ const cardMapper = (props) => {
 
 const colors = {
   primary: '#008CD0',
-  secondary: '#004F71',
+  secondary: '#008CD0', // '#004F71',
   tertiary: '#313131',
 
   screen: '#F8FAFB',
@@ -79,7 +79,9 @@ const colors = {
 /* Base sizing units. These are used to scale
  * space, and size components relatively to one another.
  */
-// export const sizing = {};
+export const sizing = {
+  baseBorderRadius: 8,
+};
 
 /* Base alpha values. These are used to keep transparent values across the app consistant */
 // export const alpha = {};
@@ -137,7 +139,6 @@ const overrides = {
   },
   H3: {
     fontFamily: typography.sans.black.default,
-    textTransform: 'uppercase',
   },
   H4: {
     fontFamily: typography.sans.black.default,
@@ -150,4 +151,4 @@ const overrides = {
   },
 };
 
-export default { colors, typography, overrides, overlays };
+export default { colors, typography, sizing, overrides, overlays };
