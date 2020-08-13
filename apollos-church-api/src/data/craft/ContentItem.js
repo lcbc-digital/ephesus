@@ -5,6 +5,7 @@ import { parseCursor, createGlobalId } from '@apollosproject/server-core';
 import sanitize from 'sanitize-html';
 import { ApolloError } from 'apollo-server';
 import { get, kebabCase, intersection, chunk, flatten } from 'lodash';
+import Color from 'color';
 import CraftDataSource, { mapToEdgeNode } from './CraftDataSource';
 
 export const { schema } = ContentItem;
@@ -33,6 +34,8 @@ const newResolvers = {
     parent ? dataSources.ContentItem.getFromId(parent.id) : {},
   videos: (root, args, { dataSources: { ContentItem } }) =>
     ContentItem.getVideos(root),
+  theme: (root, input, { dataSources }) =>
+    dataSources.ContentItem.getTheme(root),
 };
 
 const contentItemTypes = Object.keys(ApollosConfig.ROCK_MAPPINGS.CONTENT_ITEM);
@@ -108,6 +111,7 @@ export class dataSource extends CraftDataSource {
     # series
     ... on series_series_Entry {
       description: seriesDescription
+      overlayColor
       hero {
         ... on hero_photoHero_BlockType {
           image {
@@ -299,6 +303,19 @@ export class dataSource extends CraftDataSource {
       }
     }
   `;
+
+  async getTheme({ overlayColor }) {
+    // const type = Color(overlayColor).luminosity() > 0.5 ? 'light' : 'dark';
+
+    const theme = {
+      type: 'light',
+      colors: {
+        primary: overlayColor,
+      },
+    };
+
+    return theme;
+  }
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L13
   // eslint-disable-next-line

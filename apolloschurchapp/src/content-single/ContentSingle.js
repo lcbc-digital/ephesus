@@ -87,7 +87,7 @@ class ContentSingle extends PureComponent {
     return (
       <ThemeMixin
         mixin={{
-          type: get(theme, 'type'),
+          type: get(theme, 'type').toLowerCase(),
           colors: get(theme, 'colors'),
         }}
       >
