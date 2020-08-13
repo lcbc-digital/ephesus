@@ -76,9 +76,6 @@ const colors = {
   // background: {
   //   accent: '#9BCBEB',
   // },
-  shadows: {
-    default: 'rgba(8, 0, 20, 0.25)',
-  },
 };
 
 /* Base Typography sizing and fonts.
