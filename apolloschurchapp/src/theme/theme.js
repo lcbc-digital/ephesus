@@ -23,7 +23,7 @@ import fontStack from './fontStack';
 const cardMapper = (props) => {
   // map typename to the the card we want to render.
   if (props.isFeatured) {
-    return <FeaturedCard {...props} />;
+    return <FeaturedCard {...props} theme={props.relatedNode?.theme} />;
   }
   switch (get(props, '__typename')) {
     case 'Url':
@@ -36,7 +36,7 @@ const cardMapper = (props) => {
     case 'WeekendContentItem':
     case 'ContentSeriesContentItem':
     case 'DevotionalContentItem':
-      return <HighlightCard {...props} />;
+      return <HighlightCard {...props} theme={props.relatedNode?.theme} />;
     default:
       return <DefaultCard {...props} />;
   }

@@ -60,6 +60,25 @@ const fragments = {
       contactEmail
     }
   `,
+  RELATED_NODE_FRAGMENT: gql`
+    fragment RelatedFeatureNodeFragment on Node {
+      id
+      ... on Url {
+        url
+      }
+      ... on ContentItem {
+        theme {
+          type
+          colors {
+            primary
+            secondary
+            screen
+            paper
+          }
+        }
+      }
+    }
+  `,
   LIVE_STREAM_FRAGMENT: gql`
     fragment LiveStreamFragment on LiveStream {
       isLive

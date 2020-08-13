@@ -154,6 +154,9 @@ export class dataSource extends CraftDataSource {
           url
         }
       }
+      ... on series_series_Entry {
+        overlayColor
+      }
       id
     }
 
@@ -304,17 +307,16 @@ export class dataSource extends CraftDataSource {
     }
   `;
 
-  async getTheme({ overlayColor }) {
-    // const type = Color(overlayColor).luminosity() > 0.5 ? 'light' : 'dark';
+  async getTheme({ overlayColor, parent }) {
+    const primary = overlayColor || parent?.overlayColor;
 
     const theme = {
-      type: 'light',
+      type: 'LIGHT',
       colors: {
-        primary: overlayColor,
+        primary,
       },
     };
-
-    return theme;
+    return primary ? theme : null;
   }
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L13
