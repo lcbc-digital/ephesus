@@ -5,7 +5,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
   colors={
     Array [
       4294967295,
-      4294506484,
+      4294507259,
     ]
   }
   endPoint={
@@ -49,6 +49,11 @@ exports[`User Home Feed Query should return correct query results 1`] = `
             }
           }
         />
+      }
+      additionalFeatures={
+        Object {
+          "ActionBarFeature": [Function],
+        }
       }
       data={Array []}
       disableVirtualization={false}
@@ -97,7 +102,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
             style={
               Object {
                 "alignSelf": "center",
-                "height": 16,
+                "height": 41.6,
                 "margin": 16,
                 "resizeMode": "contain",
               }

@@ -109,7 +109,7 @@ exports[`touchable cell renders the cell, icon, and text 1`] = `
           fill={
             Array [
               0,
-              4281348144,
+              4281413937,
             ]
           }
           fillOpacity={1}
@@ -154,7 +154,7 @@ exports[`touchable cell renders the cell, icon, and text 1`] = `
     <Text
       style={
         Object {
-          "color": "#303030",
+          "color": "#313131",
           "flexGrow": 1,
           "flexShrink": 1,
           "fontFamily": "System",

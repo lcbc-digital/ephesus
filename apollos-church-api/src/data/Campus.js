@@ -23,6 +23,7 @@ const schema = gql`
 const resolver = resolverMerge(
   {
     Campus: {
+      // eslint-disable-next-line
       childContentItemsConnection: async ({ id }, args, { dataSources }) =>
         null,
       //         const cursor = await dataSources.ContentItem.byRockCampus({
@@ -80,6 +81,7 @@ class dataSource extends CampusDataSource {
     const craftCampus = await this.context.dataSources.CraftCampus.getFromRockId(
       root.id
     );
+    // eslint-disable-next-line
     root.craftCampus = craftCampus;
     return func(root);
   };

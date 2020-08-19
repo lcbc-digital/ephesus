@@ -1,6 +1,4 @@
 import { Interactions } from '@apollosproject/data-connector-rock';
-import { get } from 'lodash';
-import ApollosConfig from '@apollosproject/config';
 import { createGlobalId, parseGlobalId } from '@apollosproject/server-core';
 
 const { resolver, schema } = Interactions;

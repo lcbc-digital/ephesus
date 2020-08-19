@@ -8,7 +8,6 @@ import {
   CardImage,
   H2,
   H4,
-  H3,
   Icon,
   PaddedView,
   SideBySideView,

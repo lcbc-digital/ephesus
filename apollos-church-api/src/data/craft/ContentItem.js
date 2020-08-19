@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow, class-methods-use-this, consistent-return, no-unused-vars, max-classes-per-file */
 import { ContentItem } from '@apollosproject/data-connector-rock';
 import ApollosConfig from '@apollosproject/config';
 import sanitizeHtml from '@apollosproject/data-connector-rock/lib/sanitize-html';
@@ -353,9 +354,9 @@ export class dataSource extends CraftDataSource {
     return [];
   }
 
-  byContentChannelIds(contentChannelIds) {
-    console.log(byContentChannelIds);
-  }
+  // byContentChannelIds(contentChannelIds) {
+  //   console.log(byContentChannelIds);
+  // }
 
   async getCraftPersonaIdsForUser() {
     let personas = [32210];

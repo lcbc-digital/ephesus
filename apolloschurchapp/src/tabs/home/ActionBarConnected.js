@@ -16,7 +16,7 @@ const ActionBarHeader = styled({
   justifyContent: 'center',
 })(PaddedView);
 
-const ActionsBar = ({ navigation, actions, title, onPressItem }) => (
+const ActionsBar = ({ actions, title, onPressItem }) => (
   <>
     {title && (
       <ActionBarHeader vertical={false}>
@@ -43,6 +43,7 @@ ActionsBar.propTypes = {
     navigate: PropTypes.func.isRequired,
   }).isRequired,
   title: PropTypes,
+  onPressItem: PropTypes.func,
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string,

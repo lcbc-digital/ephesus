@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import { Feature } from '@apollosproject/data-connector-rock';
 import { createGlobalId, parseGlobalId } from '@apollosproject/server-core';
 import { get } from 'lodash';
@@ -13,6 +14,7 @@ const resolver = {
   Query: {
     ...baseResolver.Query,
     userFeedFeaturesWithCampus: (root, { campusId }, context, ...args) => {
+      // eslint-disable-next-line
       context.campusId = campusId;
       return baseResolver.Query.userFeedFeatures(root, null, context, ...args);
     },

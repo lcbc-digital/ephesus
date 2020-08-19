@@ -64,7 +64,7 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
             colors={
               Array [
                 4294967295,
-                4294506484,
+                4294507259,
               ]
             }
             endPoint={
@@ -120,8 +120,8 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                     style={
                       Object {
                         "alignItems": "center",
-                        "backgroundColor": "#F8F7F4",
-                        "borderRadius": 16,
+                        "backgroundColor": "#F8FAFB",
+                        "borderRadius": 8,
                         "flexDirection": "row",
                         "flexGrow": 1,
                         "overflow": "hidden",
@@ -207,7 +207,7 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                           fill={
                             Array [
                               0,
-                              4289045925,
+                              4290101446,
                             ]
                           }
                           fillOpacity={1}
@@ -257,13 +257,13 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                       onChangeText={[Function]}
                       onFocus={[Function]}
                       placeholder="Search"
-                      placeholderTextColor="#A5A5A5"
+                      placeholderTextColor="#B5C0C6"
                       rejectResponderTermination={true}
                       returnKeyType="search"
-                      selectionColor="#17B582"
+                      selectionColor="#008CD0"
                       style={
                         Object {
-                          "color": "#303030",
+                          "color": "#313131",
                           "flexGrow": 1,
                           "fontFamily": "System",
                           "fontSize": 14,
@@ -304,9 +304,9 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#F8F7F4",
+                            "backgroundColor": "#F8FAFB",
                             "borderBottomRightRadius": 16,
-                            "borderColor": "#F8F7F4",
+                            "borderColor": "#F8FAFB",
                             "borderRightWidth": 1,
                             "borderTopRightRadius": 16,
                             "overflow": "hidden",
@@ -416,7 +416,7 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                                   fill={
                                     Array [
                                       0,
-                                      4289045925,
+                                      4290101446,
                                     ]
                                   }
                                   fillOpacity={1}
@@ -466,7 +466,7 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                         onPress={[Function]}
                         style={
                           Object {
-                            "color": "#17B582",
+                            "color": "#008CD0",
                             "fontFamily": "System",
                             "fontSize": 14,
                             "fontStyle": null,
@@ -880,7 +880,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                       <Text
                         style={
                           Object {
-                            "color": "#303030",
+                            "color": "#313131",
                             "fontFamily": "InterUI-Medium",
                             "fontSize": 14,
                             "lineHeight": 21,
@@ -920,7 +920,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                           style={
                             Object {
                               "color": "#505050",
-                              "fontFamily": "InterUI-Bold",
+                              "fontFamily": "Avenir-Medium",
                               "fontSize": 12,
                               "lineHeight": 18,
                             }
@@ -929,7 +929,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                           <Text
                             style={
                               Object {
-                                "color": "#17B582",
+                                "color": "#008CD0",
                               }
                             }
                           >
@@ -1086,7 +1086,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             style={
                               Object {
                                 "backgroundColor": "#FFFFFF",
-                                "borderRadius": 16,
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -1104,7 +1104,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -1112,50 +1112,35 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
                                 }
                               >
-                                <View
-                                  animate={null}
-                                  customAnimate={null}
-                                  forceRatio={2}
-                                  onReady={false}
+                                <Image
+                                  fadeDuration={250}
+                                  hasTitleAndSummary={true}
+                                  isLoading={false}
+                                  onLoad={[Function]}
+                                  source={
+                                    Array [
+                                      Object {
+                                        "__typename": "ImageMediaSource",
+                                        "cache": "force-cache",
+                                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D62e0e2ba-2dac-468b-a852-7e8cf2533efc",
+                                      },
+                                    ]
+                                  }
                                   style={
                                     Object {
                                       "aspectRatio": 2,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "resizeMode": "cover",
                                       "width": "100%",
                                     }
                                   }
-                                >
-                                  <Image
-                                    hasTitleAndSummary={true}
-                                    maxAspectRatio={2}
-                                    minAspectRatio={2}
-                                    onLoad={[Function]}
-                                    source={
-                                      Array [
-                                        Object {
-                                          "__typename": "ImageMediaSource",
-                                          "cache": "force-cache",
-                                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D62e0e2ba-2dac-468b-a852-7e8cf2533efc",
-                                        },
-                                      ]
-                                    }
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#A5A5A5",
-                                        "opacity": 0,
-                                        "resizeMode": "cover",
-                                        "width": "100%",
-                                      }
-                                    }
-                                  />
-                                </View>
+                                />
                                 <BVLinearGradient
                                   colors={
                                     Array [
@@ -1208,7 +1193,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#303030",
+                                      "color": "#313131",
                                       "fontFamily": "InterUI-Medium",
                                       "fontSize": 14,
                                       "lineHeight": 21,
@@ -1224,8 +1209,8 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#A5A5A5",
-                                      "fontFamily": "InterUI-Regular",
+                                      "color": "#B5C0C6",
+                                      "fontFamily": "Avenir-Book",
                                       "fontSize": 12,
                                       "lineHeight": 18,
                                       "paddingTop": 8,
@@ -1276,7 +1261,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             style={
                               Object {
                                 "backgroundColor": "#FFFFFF",
-                                "borderRadius": 16,
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -1294,7 +1279,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -1302,50 +1287,35 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
                                 }
                               >
-                                <View
-                                  animate={null}
-                                  customAnimate={null}
-                                  forceRatio={2}
-                                  onReady={false}
+                                <Image
+                                  fadeDuration={250}
+                                  hasTitleAndSummary={true}
+                                  isLoading={false}
+                                  onLoad={[Function]}
+                                  source={
+                                    Array [
+                                      Object {
+                                        "__typename": "ImageMediaSource",
+                                        "cache": "force-cache",
+                                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Df3ba0936-8aab-46c1-8245-0e5aef637ae3",
+                                      },
+                                    ]
+                                  }
                                   style={
                                     Object {
                                       "aspectRatio": 2,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "resizeMode": "cover",
                                       "width": "100%",
                                     }
                                   }
-                                >
-                                  <Image
-                                    hasTitleAndSummary={true}
-                                    maxAspectRatio={2}
-                                    minAspectRatio={2}
-                                    onLoad={[Function]}
-                                    source={
-                                      Array [
-                                        Object {
-                                          "__typename": "ImageMediaSource",
-                                          "cache": "force-cache",
-                                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Df3ba0936-8aab-46c1-8245-0e5aef637ae3",
-                                        },
-                                      ]
-                                    }
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#A5A5A5",
-                                        "opacity": 0,
-                                        "resizeMode": "cover",
-                                        "width": "100%",
-                                      }
-                                    }
-                                  />
-                                </View>
+                                />
                                 <BVLinearGradient
                                   colors={
                                     Array [
@@ -1398,7 +1368,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#303030",
+                                      "color": "#313131",
                                       "fontFamily": "InterUI-Medium",
                                       "fontSize": 14,
                                       "lineHeight": 21,
@@ -1414,8 +1384,8 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#A5A5A5",
-                                      "fontFamily": "InterUI-Regular",
+                                      "color": "#B5C0C6",
+                                      "fontFamily": "Avenir-Book",
                                       "fontSize": 12,
                                       "lineHeight": 18,
                                       "paddingTop": 8,
@@ -1466,7 +1436,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             style={
                               Object {
                                 "backgroundColor": "#FFFFFF",
-                                "borderRadius": 16,
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -1484,7 +1454,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -1492,50 +1462,35 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
                                 }
                               >
-                                <View
-                                  animate={null}
-                                  customAnimate={null}
-                                  forceRatio={2}
-                                  onReady={false}
+                                <Image
+                                  fadeDuration={250}
+                                  hasTitleAndSummary={true}
+                                  isLoading={false}
+                                  onLoad={[Function]}
+                                  source={
+                                    Array [
+                                      Object {
+                                        "__typename": "ImageMediaSource",
+                                        "cache": "force-cache",
+                                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D58c037fa-cc7f-4d72-9571-a0cc0558e346",
+                                      },
+                                    ]
+                                  }
                                   style={
                                     Object {
                                       "aspectRatio": 2,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "resizeMode": "cover",
                                       "width": "100%",
                                     }
                                   }
-                                >
-                                  <Image
-                                    hasTitleAndSummary={true}
-                                    maxAspectRatio={2}
-                                    minAspectRatio={2}
-                                    onLoad={[Function]}
-                                    source={
-                                      Array [
-                                        Object {
-                                          "__typename": "ImageMediaSource",
-                                          "cache": "force-cache",
-                                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D58c037fa-cc7f-4d72-9571-a0cc0558e346",
-                                        },
-                                      ]
-                                    }
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#A5A5A5",
-                                        "opacity": 0,
-                                        "resizeMode": "cover",
-                                        "width": "100%",
-                                      }
-                                    }
-                                  />
-                                </View>
+                                />
                                 <BVLinearGradient
                                   colors={
                                     Array [
@@ -1588,7 +1543,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#303030",
+                                      "color": "#313131",
                                       "fontFamily": "InterUI-Medium",
                                       "fontSize": 14,
                                       "lineHeight": 21,
@@ -1604,8 +1559,8 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#A5A5A5",
-                                      "fontFamily": "InterUI-Regular",
+                                      "color": "#B5C0C6",
+                                      "fontFamily": "Avenir-Book",
                                       "fontSize": 12,
                                       "lineHeight": 18,
                                       "paddingTop": 8,
@@ -1647,7 +1602,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                       <Text
                         style={
                           Object {
-                            "color": "#303030",
+                            "color": "#313131",
                             "fontFamily": "InterUI-Medium",
                             "fontSize": 14,
                             "lineHeight": 21,
@@ -1687,7 +1642,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                           style={
                             Object {
                               "color": "#505050",
-                              "fontFamily": "InterUI-Bold",
+                              "fontFamily": "Avenir-Medium",
                               "fontSize": 12,
                               "lineHeight": 18,
                             }
@@ -1696,7 +1651,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                           <Text
                             style={
                               Object {
-                                "color": "#17B582",
+                                "color": "#008CD0",
                               }
                             }
                           >
@@ -1830,7 +1785,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             style={
                               Object {
                                 "backgroundColor": "#FFFFFF",
-                                "borderRadius": 16,
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -1848,7 +1803,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -1856,7 +1811,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
@@ -1867,7 +1822,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                   style={
                                     Object {
                                       "aspectRatio": 2,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "width": "100%",
                                     }
                                   }
@@ -1924,7 +1879,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#303030",
+                                      "color": "#313131",
                                       "fontFamily": "InterUI-Medium",
                                       "fontSize": 14,
                                       "lineHeight": 21,
@@ -1940,8 +1895,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#A5A5A5",
-                                      "fontFamily": "InterUI-Regular",
+                                      "color": "#B5C0C6",
+                                      "fontFamily": "Avenir-Book",
                                       "fontSize": 12,
                                       "lineHeight": 18,
                                       "paddingTop": 8,
@@ -1992,7 +1947,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             style={
                               Object {
                                 "backgroundColor": "#FFFFFF",
-                                "borderRadius": 16,
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -2010,7 +1965,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -2018,7 +1973,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
@@ -2029,7 +1984,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                   style={
                                     Object {
                                       "aspectRatio": 2,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "width": "100%",
                                     }
                                   }
@@ -2086,7 +2041,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#303030",
+                                      "color": "#313131",
                                       "fontFamily": "InterUI-Medium",
                                       "fontSize": 14,
                                       "lineHeight": 21,
@@ -2102,8 +2057,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#A5A5A5",
-                                      "fontFamily": "InterUI-Regular",
+                                      "color": "#B5C0C6",
+                                      "fontFamily": "Avenir-Book",
                                       "fontSize": 12,
                                       "lineHeight": 18,
                                       "paddingTop": 8,
@@ -2154,7 +2109,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             style={
                               Object {
                                 "backgroundColor": "#FFFFFF",
-                                "borderRadius": 16,
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -2172,7 +2127,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -2180,7 +2135,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
@@ -2191,7 +2146,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                   style={
                                     Object {
                                       "aspectRatio": 2,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "width": "100%",
                                     }
                                   }
@@ -2248,7 +2203,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#303030",
+                                      "color": "#313131",
                                       "fontFamily": "InterUI-Medium",
                                       "fontSize": 14,
                                       "lineHeight": 21,
@@ -2264,8 +2219,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#A5A5A5",
-                                      "fontFamily": "InterUI-Regular",
+                                      "color": "#B5C0C6",
+                                      "fontFamily": "Avenir-Book",
                                       "fontSize": 12,
                                       "lineHeight": 18,
                                       "paddingTop": 8,
@@ -2308,7 +2263,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                       <Text
                         style={
                           Object {
-                            "color": "#303030",
+                            "color": "#313131",
                             "fontFamily": "InterUI-Medium",
                             "fontSize": 14,
                             "lineHeight": 21,
@@ -2348,7 +2303,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           style={
                             Object {
                               "color": "#505050",
-                              "fontFamily": "InterUI-Bold",
+                              "fontFamily": "Avenir-Medium",
                               "fontSize": 12,
                               "lineHeight": 18,
                             }
@@ -2357,7 +2312,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           <Text
                             style={
                               Object {
-                                "color": "#17B582",
+                                "color": "#008CD0",
                               }
                             }
                           >
@@ -2516,8 +2471,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             isLoading={false}
                             style={
                               Object {
-                                "backgroundColor": "#303030",
-                                "borderRadius": 16,
+                                "backgroundColor": "#313131",
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -2536,7 +2491,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -2544,50 +2499,35 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
                                 }
                               >
-                                <View
-                                  animate={null}
-                                  customAnimate={null}
-                                  forceRatio={1}
-                                  onReady={false}
+                                <Image
+                                  customTheme={null}
+                                  fadeDuration={250}
+                                  isLoading={false}
+                                  onLoad={[Function]}
+                                  source={
+                                    Array [
+                                      Object {
+                                        "__typename": "ImageMediaSource",
+                                        "cache": "force-cache",
+                                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D98be229f-dfed-4344-86ab-0d11666fc781",
+                                      },
+                                    ]
+                                  }
                                   style={
                                     Object {
                                       "aspectRatio": 1,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "resizeMode": "cover",
                                       "width": "100%",
                                     }
                                   }
-                                >
-                                  <Image
-                                    customTheme={null}
-                                    maxAspectRatio={1}
-                                    minAspectRatio={1}
-                                    onLoad={[Function]}
-                                    source={
-                                      Array [
-                                        Object {
-                                          "__typename": "ImageMediaSource",
-                                          "cache": "force-cache",
-                                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D98be229f-dfed-4344-86ab-0d11666fc781",
-                                        },
-                                      ]
-                                    }
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#A5A5A5",
-                                        "opacity": 0,
-                                        "resizeMode": "cover",
-                                        "width": "100%",
-                                      }
-                                    }
-                                  />
-                                </View>
+                                />
                                 <BVLinearGradient
                                   colors={
                                     Array [
@@ -2660,8 +2600,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                       numberOfLines={4}
                                       style={
                                         Object {
-                                          "color": "#F8F7F4",
-                                          "fontFamily": "InterUI-Black",
+                                          "color": "#ECEFF0",
+                                          "fontFamily": "Avenir-Black",
                                           "fontSize": 24,
                                           "lineHeight": 27.6,
                                         }
@@ -2715,8 +2655,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             isLoading={false}
                             style={
                               Object {
-                                "backgroundColor": "#303030",
-                                "borderRadius": 16,
+                                "backgroundColor": "#313131",
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -2735,7 +2675,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -2743,50 +2683,35 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
                                 }
                               >
-                                <View
-                                  animate={null}
-                                  customAnimate={null}
-                                  forceRatio={1}
-                                  onReady={false}
+                                <Image
+                                  customTheme={null}
+                                  fadeDuration={250}
+                                  isLoading={false}
+                                  onLoad={[Function]}
+                                  source={
+                                    Array [
+                                      Object {
+                                        "__typename": "ImageMediaSource",
+                                        "cache": "force-cache",
+                                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D50f4e3e3-2842-4991-9f64-8fc6fbb3067c",
+                                      },
+                                    ]
+                                  }
                                   style={
                                     Object {
                                       "aspectRatio": 1,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "resizeMode": "cover",
                                       "width": "100%",
                                     }
                                   }
-                                >
-                                  <Image
-                                    customTheme={null}
-                                    maxAspectRatio={1}
-                                    minAspectRatio={1}
-                                    onLoad={[Function]}
-                                    source={
-                                      Array [
-                                        Object {
-                                          "__typename": "ImageMediaSource",
-                                          "cache": "force-cache",
-                                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D50f4e3e3-2842-4991-9f64-8fc6fbb3067c",
-                                        },
-                                      ]
-                                    }
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#A5A5A5",
-                                        "opacity": 0,
-                                        "resizeMode": "cover",
-                                        "width": "100%",
-                                      }
-                                    }
-                                  />
-                                </View>
+                                />
                                 <BVLinearGradient
                                   colors={
                                     Array [
@@ -2859,8 +2784,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                       numberOfLines={4}
                                       style={
                                         Object {
-                                          "color": "#F8F7F4",
-                                          "fontFamily": "InterUI-Black",
+                                          "color": "#ECEFF0",
+                                          "fontFamily": "Avenir-Black",
                                           "fontSize": 24,
                                           "lineHeight": 27.6,
                                         }
@@ -2914,8 +2839,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             isLoading={false}
                             style={
                               Object {
-                                "backgroundColor": "#303030",
-                                "borderRadius": 16,
+                                "backgroundColor": "#313131",
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -2934,7 +2859,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -2942,50 +2867,35 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
                                 }
                               >
-                                <View
-                                  animate={null}
-                                  customAnimate={null}
-                                  forceRatio={1}
-                                  onReady={false}
+                                <Image
+                                  customTheme={null}
+                                  fadeDuration={250}
+                                  isLoading={false}
+                                  onLoad={[Function]}
+                                  source={
+                                    Array [
+                                      Object {
+                                        "__typename": "ImageMediaSource",
+                                        "cache": "force-cache",
+                                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D3e3e38d2-d804-45db-b45a-3b7a82c415d1",
+                                      },
+                                    ]
+                                  }
                                   style={
                                     Object {
                                       "aspectRatio": 1,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "resizeMode": "cover",
                                       "width": "100%",
                                     }
                                   }
-                                >
-                                  <Image
-                                    customTheme={null}
-                                    maxAspectRatio={1}
-                                    minAspectRatio={1}
-                                    onLoad={[Function]}
-                                    source={
-                                      Array [
-                                        Object {
-                                          "__typename": "ImageMediaSource",
-                                          "cache": "force-cache",
-                                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D3e3e38d2-d804-45db-b45a-3b7a82c415d1",
-                                        },
-                                      ]
-                                    }
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#A5A5A5",
-                                        "opacity": 0,
-                                        "resizeMode": "cover",
-                                        "width": "100%",
-                                      }
-                                    }
-                                  />
-                                </View>
+                                />
                                 <BVLinearGradient
                                   colors={
                                     Array [
@@ -3058,8 +2968,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                       numberOfLines={4}
                                       style={
                                         Object {
-                                          "color": "#F8F7F4",
-                                          "fontFamily": "InterUI-Black",
+                                          "color": "#ECEFF0",
+                                          "fontFamily": "Avenir-Black",
                                           "fontSize": 24,
                                           "lineHeight": 27.6,
                                         }
@@ -3102,7 +3012,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                       <Text
                         style={
                           Object {
-                            "color": "#303030",
+                            "color": "#313131",
                             "fontFamily": "InterUI-Medium",
                             "fontSize": 14,
                             "lineHeight": 21,
@@ -3142,7 +3052,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           style={
                             Object {
                               "color": "#505050",
-                              "fontFamily": "InterUI-Bold",
+                              "fontFamily": "Avenir-Medium",
                               "fontSize": 12,
                               "lineHeight": 18,
                             }
@@ -3151,7 +3061,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           <Text
                             style={
                               Object {
-                                "color": "#17B582",
+                                "color": "#008CD0",
                               }
                             }
                           >
@@ -3310,8 +3220,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             isLoading={false}
                             style={
                               Object {
-                                "backgroundColor": "#303030",
-                                "borderRadius": 16,
+                                "backgroundColor": "#313131",
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -3330,7 +3240,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -3338,50 +3248,35 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
                                 }
                               >
-                                <View
-                                  animate={null}
-                                  customAnimate={null}
-                                  forceRatio={1}
-                                  onReady={false}
+                                <Image
+                                  customTheme={null}
+                                  fadeDuration={250}
+                                  isLoading={false}
+                                  onLoad={[Function]}
+                                  source={
+                                    Array [
+                                      Object {
+                                        "__typename": "ImageMediaSource",
+                                        "cache": "force-cache",
+                                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D31af1a61-360c-4b1e-8e62-45517c06a9a2",
+                                      },
+                                    ]
+                                  }
                                   style={
                                     Object {
                                       "aspectRatio": 1,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "resizeMode": "cover",
                                       "width": "100%",
                                     }
                                   }
-                                >
-                                  <Image
-                                    customTheme={null}
-                                    maxAspectRatio={1}
-                                    minAspectRatio={1}
-                                    onLoad={[Function]}
-                                    source={
-                                      Array [
-                                        Object {
-                                          "__typename": "ImageMediaSource",
-                                          "cache": "force-cache",
-                                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D31af1a61-360c-4b1e-8e62-45517c06a9a2",
-                                        },
-                                      ]
-                                    }
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#A5A5A5",
-                                        "opacity": 0,
-                                        "resizeMode": "cover",
-                                        "width": "100%",
-                                      }
-                                    }
-                                  />
-                                </View>
+                                />
                                 <BVLinearGradient
                                   colors={
                                     Array [
@@ -3454,8 +3349,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                       numberOfLines={4}
                                       style={
                                         Object {
-                                          "color": "#F8F7F4",
-                                          "fontFamily": "InterUI-Black",
+                                          "color": "#ECEFF0",
+                                          "fontFamily": "Avenir-Black",
                                           "fontSize": 24,
                                           "lineHeight": 27.6,
                                         }
@@ -3509,8 +3404,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             isLoading={false}
                             style={
                               Object {
-                                "backgroundColor": "#303030",
-                                "borderRadius": 16,
+                                "backgroundColor": "#313131",
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -3529,7 +3424,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -3537,50 +3432,35 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
                                 }
                               >
-                                <View
-                                  animate={null}
-                                  customAnimate={null}
-                                  forceRatio={1}
-                                  onReady={false}
+                                <Image
+                                  customTheme={null}
+                                  fadeDuration={250}
+                                  isLoading={false}
+                                  onLoad={[Function]}
+                                  source={
+                                    Array [
+                                      Object {
+                                        "__typename": "ImageMediaSource",
+                                        "cache": "force-cache",
+                                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Dd3a96243-2558-4c04-bf41-3aadcf41771f",
+                                      },
+                                    ]
+                                  }
                                   style={
                                     Object {
                                       "aspectRatio": 1,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "resizeMode": "cover",
                                       "width": "100%",
                                     }
                                   }
-                                >
-                                  <Image
-                                    customTheme={null}
-                                    maxAspectRatio={1}
-                                    minAspectRatio={1}
-                                    onLoad={[Function]}
-                                    source={
-                                      Array [
-                                        Object {
-                                          "__typename": "ImageMediaSource",
-                                          "cache": "force-cache",
-                                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Dd3a96243-2558-4c04-bf41-3aadcf41771f",
-                                        },
-                                      ]
-                                    }
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#A5A5A5",
-                                        "opacity": 0,
-                                        "resizeMode": "cover",
-                                        "width": "100%",
-                                      }
-                                    }
-                                  />
-                                </View>
+                                />
                                 <BVLinearGradient
                                   colors={
                                     Array [
@@ -3653,8 +3533,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                       numberOfLines={4}
                                       style={
                                         Object {
-                                          "color": "#F8F7F4",
-                                          "fontFamily": "InterUI-Black",
+                                          "color": "#ECEFF0",
+                                          "fontFamily": "Avenir-Black",
                                           "fontSize": 24,
                                           "lineHeight": 27.6,
                                         }
@@ -3708,8 +3588,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             isLoading={false}
                             style={
                               Object {
-                                "backgroundColor": "#303030",
-                                "borderRadius": 16,
+                                "backgroundColor": "#313131",
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -3728,7 +3608,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -3736,50 +3616,35 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
                                 }
                               >
-                                <View
-                                  animate={null}
-                                  customAnimate={null}
-                                  forceRatio={1}
-                                  onReady={false}
+                                <Image
+                                  customTheme={null}
+                                  fadeDuration={250}
+                                  isLoading={false}
+                                  onLoad={[Function]}
+                                  source={
+                                    Array [
+                                      Object {
+                                        "__typename": "ImageMediaSource",
+                                        "cache": "force-cache",
+                                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D70b0b57c-5a15-4f46-8e6a-c759231685bf",
+                                      },
+                                    ]
+                                  }
                                   style={
                                     Object {
                                       "aspectRatio": 1,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "resizeMode": "cover",
                                       "width": "100%",
                                     }
                                   }
-                                >
-                                  <Image
-                                    customTheme={null}
-                                    maxAspectRatio={1}
-                                    minAspectRatio={1}
-                                    onLoad={[Function]}
-                                    source={
-                                      Array [
-                                        Object {
-                                          "__typename": "ImageMediaSource",
-                                          "cache": "force-cache",
-                                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D70b0b57c-5a15-4f46-8e6a-c759231685bf",
-                                        },
-                                      ]
-                                    }
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#A5A5A5",
-                                        "opacity": 0,
-                                        "resizeMode": "cover",
-                                        "width": "100%",
-                                      }
-                                    }
-                                  />
-                                </View>
+                                />
                                 <BVLinearGradient
                                   colors={
                                     Array [
@@ -3852,8 +3717,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                       numberOfLines={4}
                                       style={
                                         Object {
-                                          "color": "#F8F7F4",
-                                          "fontFamily": "InterUI-Black",
+                                          "color": "#ECEFF0",
+                                          "fontFamily": "Avenir-Black",
                                           "fontSize": 24,
                                           "lineHeight": 27.6,
                                         }
@@ -3896,7 +3761,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                       <Text
                         style={
                           Object {
-                            "color": "#303030",
+                            "color": "#313131",
                             "fontFamily": "InterUI-Medium",
                             "fontSize": 14,
                             "lineHeight": 21,
@@ -3936,7 +3801,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           style={
                             Object {
                               "color": "#505050",
-                              "fontFamily": "InterUI-Bold",
+                              "fontFamily": "Avenir-Medium",
                               "fontSize": 12,
                               "lineHeight": 18,
                             }
@@ -3945,7 +3810,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           <Text
                             style={
                               Object {
-                                "color": "#17B582",
+                                "color": "#008CD0",
                               }
                             }
                           >
@@ -4103,7 +3968,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             style={
                               Object {
                                 "backgroundColor": "#FFFFFF",
-                                "borderRadius": 16,
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -4121,7 +3986,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -4129,50 +3994,35 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
                                 }
                               >
-                                <View
-                                  animate={null}
-                                  customAnimate={null}
-                                  forceRatio={2}
-                                  onReady={false}
+                                <Image
+                                  fadeDuration={250}
+                                  hasTitleAndSummary={true}
+                                  isLoading={false}
+                                  onLoad={[Function]}
+                                  source={
+                                    Array [
+                                      Object {
+                                        "__typename": "ImageMediaSource",
+                                        "cache": "force-cache",
+                                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D2a65e561-cd6e-4590-bb37-029a21c554e8",
+                                      },
+                                    ]
+                                  }
                                   style={
                                     Object {
                                       "aspectRatio": 2,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "resizeMode": "cover",
                                       "width": "100%",
                                     }
                                   }
-                                >
-                                  <Image
-                                    hasTitleAndSummary={true}
-                                    maxAspectRatio={2}
-                                    minAspectRatio={2}
-                                    onLoad={[Function]}
-                                    source={
-                                      Array [
-                                        Object {
-                                          "__typename": "ImageMediaSource",
-                                          "cache": "force-cache",
-                                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D2a65e561-cd6e-4590-bb37-029a21c554e8",
-                                        },
-                                      ]
-                                    }
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#A5A5A5",
-                                        "opacity": 0,
-                                        "resizeMode": "cover",
-                                        "width": "100%",
-                                      }
-                                    }
-                                  />
-                                </View>
+                                />
                                 <BVLinearGradient
                                   colors={
                                     Array [
@@ -4225,7 +4075,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#303030",
+                                      "color": "#313131",
                                       "fontFamily": "InterUI-Medium",
                                       "fontSize": 14,
                                       "lineHeight": 21,
@@ -4241,8 +4091,8 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#A5A5A5",
-                                      "fontFamily": "InterUI-Regular",
+                                      "color": "#B5C0C6",
+                                      "fontFamily": "Avenir-Book",
                                       "fontSize": 12,
                                       "lineHeight": 18,
                                       "paddingTop": 8,
@@ -4293,7 +4143,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             style={
                               Object {
                                 "backgroundColor": "#FFFFFF",
-                                "borderRadius": 16,
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -4311,7 +4161,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -4319,50 +4169,35 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
                                 }
                               >
-                                <View
-                                  animate={null}
-                                  customAnimate={null}
-                                  forceRatio={2}
-                                  onReady={false}
+                                <Image
+                                  fadeDuration={250}
+                                  hasTitleAndSummary={true}
+                                  isLoading={false}
+                                  onLoad={[Function]}
+                                  source={
+                                    Array [
+                                      Object {
+                                        "__typename": "ImageMediaSource",
+                                        "cache": "force-cache",
+                                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D0305285f-1155-4405-ba38-a61b9c8558be",
+                                      },
+                                    ]
+                                  }
                                   style={
                                     Object {
                                       "aspectRatio": 2,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "resizeMode": "cover",
                                       "width": "100%",
                                     }
                                   }
-                                >
-                                  <Image
-                                    hasTitleAndSummary={true}
-                                    maxAspectRatio={2}
-                                    minAspectRatio={2}
-                                    onLoad={[Function]}
-                                    source={
-                                      Array [
-                                        Object {
-                                          "__typename": "ImageMediaSource",
-                                          "cache": "force-cache",
-                                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D0305285f-1155-4405-ba38-a61b9c8558be",
-                                        },
-                                      ]
-                                    }
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#A5A5A5",
-                                        "opacity": 0,
-                                        "resizeMode": "cover",
-                                        "width": "100%",
-                                      }
-                                    }
-                                  />
-                                </View>
+                                />
                                 <BVLinearGradient
                                   colors={
                                     Array [
@@ -4415,7 +4250,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#303030",
+                                      "color": "#313131",
                                       "fontFamily": "InterUI-Medium",
                                       "fontSize": 14,
                                       "lineHeight": 21,
@@ -4431,8 +4266,8 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#A5A5A5",
-                                      "fontFamily": "InterUI-Regular",
+                                      "color": "#B5C0C6",
+                                      "fontFamily": "Avenir-Book",
                                       "fontSize": 12,
                                       "lineHeight": 18,
                                       "paddingTop": 8,
@@ -4483,7 +4318,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             style={
                               Object {
                                 "backgroundColor": "#FFFFFF",
-                                "borderRadius": 16,
+                                "borderRadius": 8,
                                 "height": 240,
                                 "margin": 8,
                                 "marginBottom": 12,
@@ -4501,7 +4336,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             <View
                               style={
                                 Object {
-                                  "borderRadius": 16,
+                                  "borderRadius": 8,
                                   "overflow": "hidden",
                                 }
                               }
@@ -4509,50 +4344,35 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#A5A5A5",
+                                    "backgroundColor": "#B5C0C6",
                                     "overflow": "hidden",
                                     "width": "100%",
                                   }
                                 }
                               >
-                                <View
-                                  animate={null}
-                                  customAnimate={null}
-                                  forceRatio={2}
-                                  onReady={false}
+                                <Image
+                                  fadeDuration={250}
+                                  hasTitleAndSummary={true}
+                                  isLoading={false}
+                                  onLoad={[Function]}
+                                  source={
+                                    Array [
+                                      Object {
+                                        "__typename": "ImageMediaSource",
+                                        "cache": "force-cache",
+                                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Da65bc45d-f961-4b7e-a899-63eb1f9b8da9",
+                                      },
+                                    ]
+                                  }
                                   style={
                                     Object {
                                       "aspectRatio": 2,
-                                      "backgroundColor": "#A5A5A5",
+                                      "backgroundColor": "#B5C0C6",
                                       "resizeMode": "cover",
                                       "width": "100%",
                                     }
                                   }
-                                >
-                                  <Image
-                                    hasTitleAndSummary={true}
-                                    maxAspectRatio={2}
-                                    minAspectRatio={2}
-                                    onLoad={[Function]}
-                                    source={
-                                      Array [
-                                        Object {
-                                          "__typename": "ImageMediaSource",
-                                          "cache": "force-cache",
-                                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Da65bc45d-f961-4b7e-a899-63eb1f9b8da9",
-                                        },
-                                      ]
-                                    }
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#A5A5A5",
-                                        "opacity": 0,
-                                        "resizeMode": "cover",
-                                        "width": "100%",
-                                      }
-                                    }
-                                  />
-                                </View>
+                                />
                                 <BVLinearGradient
                                   colors={
                                     Array [
@@ -4605,7 +4425,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#303030",
+                                      "color": "#313131",
                                       "fontFamily": "InterUI-Medium",
                                       "fontSize": 14,
                                       "lineHeight": 21,
@@ -4621,8 +4441,8 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                   numberOfLines={2}
                                   style={
                                     Object {
-                                      "color": "#A5A5A5",
-                                      "fontFamily": "InterUI-Regular",
+                                      "color": "#B5C0C6",
+                                      "fontFamily": "Avenir-Book",
                                       "fontSize": 12,
                                       "lineHeight": 18,
                                       "paddingTop": 8,
@@ -4670,21 +4490,31 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.
           }
         }
       >
-        <View
-          onLayout={[Function]}
-          pointerEvents="box-none"
-          style={
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+          forceInset={
             Object {
-              "backgroundColor": undefined,
-              "borderBottomColor": "#a7a7aa",
-              "borderBottomWidth": 0,
-              "elevation": 0,
-              "height": 64,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 20,
+              "bottom": "never",
+              "horizontal": "always",
+              "top": "always",
             }
+          }
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#a7a7aa",
+                "borderBottomWidth": 0.5,
+              },
+              Object {
+                "height": 44,
+              },
+              Object {
+                "backgroundColor": undefined,
+                "borderBottomWidth": 0,
+                "elevation": 0,
+              },
+            ]
           }
         >
           <View
@@ -4743,7 +4573,7 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.
               </View>
             </View>
           </View>
-        </View>
+        </RCTSafeAreaView>
       </View>
     </View>
   </View>

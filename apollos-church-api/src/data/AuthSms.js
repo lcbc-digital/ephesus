@@ -1,4 +1,5 @@
 import { AuthSms } from '@apollosproject/data-connector-rock';
+import { UserInputError } from 'apollo-server';
 
 const { resolver, dataSource: AuthSmsDataSource, schema } = AuthSms;
 

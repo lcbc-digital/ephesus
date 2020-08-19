@@ -3,6 +3,7 @@ import { Share } from 'react-native';
 import RNFetchBlob, { fs } from 'rn-fetch-blob';
 import {
   ConnectedImage,
+  ImageSourceType,
   Touchable,
   PaddedView,
   ButtonLink,
@@ -21,7 +22,7 @@ const shareImage = async ({ url }) => {
     // here's base64 encoded image
     await Share.share({ url: base64DataUrl });
     // remove the file from storage
-    return fs.unlink(imagePath);
+    fs.unlink(imagePath);
   } catch (e) {
     console.warn(e);
   }
@@ -37,5 +38,9 @@ const ShareableImageFeature = ({ image }) => (
     </Touchable>
   </PaddedView>
 );
+
+ShareableImageFeature.propTypes = {
+  image: ImageSourceType,
+};
 
 export default ShareableImageFeature;

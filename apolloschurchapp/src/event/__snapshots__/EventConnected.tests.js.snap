@@ -5,7 +5,7 @@ exports[`EventConnected component renders without errors 1`] = `
   colors={
     Array [
       4294967295,
-      4294506484,
+      4294507259,
     ]
   }
   endPoint={
@@ -61,19 +61,29 @@ exports[`EventConnected component renders without errors 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#A5A5A5",
+                "backgroundColor": "#B5C0C6",
                 "overflow": "hidden",
                 "width": "100%",
               }
             }
           >
             <Image
+              fadeDuration={250}
+              isLoading={false}
               onLoad={[Function]}
-              source={Array []}
+              source={
+                Array [
+                  Object {
+                    "__typename": "ImageMediaSource",
+                    "cache": "force-cache",
+                    "uri": "https://url.com/image.jpg",
+                  },
+                ]
+              }
               style={
                 Object {
-                  "backgroundColor": "#A5A5A5",
-                  "opacity": 0,
+                  "aspectRatio": 1,
+                  "backgroundColor": "#B5C0C6",
                   "resizeMode": "cover",
                   "width": "100%",
                 }
@@ -94,8 +104,8 @@ exports[`EventConnected component renders without errors 1`] = `
             padded={true}
             style={
               Object {
-                "color": "#303030",
-                "fontFamily": "InterUI-Black",
+                "color": "#313131",
+                "fontFamily": "Avenir-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "paddingBottom": 20.02,
@@ -198,7 +208,7 @@ exports[`EventConnected component renders without errors 1`] = `
                     fill={
                       Array [
                         0,
-                        4289045925,
+                        4290101446,
                       ]
                     }
                     fillOpacity={1}
@@ -251,8 +261,8 @@ exports[`EventConnected component renders without errors 1`] = `
                   bold={true}
                   style={
                     Object {
-                      "color": "#303030",
-                      "fontFamily": "InterUI-Bold",
+                      "color": "#313131",
+                      "fontFamily": "Avenir-Medium",
                       "fontSize": 16,
                       "lineHeight": 24,
                     }
@@ -263,8 +273,8 @@ exports[`EventConnected component renders without errors 1`] = `
                 <Text
                   style={
                     Object {
-                      "color": "#A5A5A5",
-                      "fontFamily": "InterUI-Bold",
+                      "color": "#B5C0C6",
+                      "fontFamily": "Avenir-Medium",
                       "fontSize": 14,
                       "lineHeight": 18,
                       "marginTop": 4,
@@ -361,7 +371,7 @@ exports[`EventConnected component renders without errors 1`] = `
                     fill={
                       Array [
                         0,
-                        4289045925,
+                        4290101446,
                       ]
                     }
                     fillOpacity={1}
@@ -414,8 +424,8 @@ exports[`EventConnected component renders without errors 1`] = `
                   bold={true}
                   style={
                     Object {
-                      "color": "#303030",
-                      "fontFamily": "InterUI-Bold",
+                      "color": "#313131",
+                      "fontFamily": "Avenir-Medium",
                       "fontSize": 16,
                       "lineHeight": 24,
                     }
@@ -426,8 +436,8 @@ exports[`EventConnected component renders without errors 1`] = `
                 <Text
                   style={
                     Object {
-                      "color": "#A5A5A5",
-                      "fontFamily": "InterUI-Bold",
+                      "color": "#B5C0C6",
+                      "fontFamily": "Avenir-Medium",
                       "fontSize": 14,
                       "lineHeight": 18,
                       "marginTop": 4,
@@ -450,8 +460,8 @@ exports[`EventConnected component renders without errors 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#303030",
-                    "fontFamily": "InterUI-Regular",
+                    "color": "#313131",
+                    "fontFamily": "Avenir-Book",
                     "fontSize": 16,
                     "lineHeight": 26,
                   }
@@ -462,8 +472,8 @@ exports[`EventConnected component renders without errors 1`] = `
                   italic={false}
                   style={
                     Object {
-                      "color": "#303030",
-                      "fontFamily": "InterUI-Regular",
+                      "color": "#313131",
+                      "fontFamily": "Avenir-Book",
                       "fontSize": 16,
                       "lineHeight": 26,
                     }

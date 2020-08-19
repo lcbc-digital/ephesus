@@ -20,7 +20,7 @@ const Underline = styled(({ theme }) => ({
   right: -theme.sizing.baseUnit * 0.2,
 }))(View);
 
-const UnderlinedWord = styled(({ theme }) => ({
+const UnderlinedWord = styled(() => ({
   // marginRight: theme.sizing.baseUnit * 0.5,
 }))(View);
 

@@ -64,7 +64,7 @@ exports[`the Devotional component renders a devotional 1`] = `
             colors={
               Array [
                 4294967295,
-                4294506484,
+                4294507259,
               ]
             }
             endPoint={
@@ -144,7 +144,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                     <View
                       style={
                         Object {
-                          "backgroundColor": "#6EC5B8",
+                          "backgroundColor": "#313131",
                           "bottom": 0,
                           "height": 3,
                           "left": 0,
@@ -235,8 +235,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 padded={true}
                                 style={
                                   Object {
-                                    "color": "#303030",
-                                    "fontFamily": "InterUI-Bold",
+                                    "color": "#313131",
+                                    "fontFamily": "Avenir-Medium",
                                     "fontSize": 16,
                                     "lineHeight": 24,
                                     "paddingBottom": 12,
@@ -291,8 +291,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 padded={true}
                                 style={
                                   Object {
-                                    "color": "#303030",
-                                    "fontFamily": "InterUI-Bold",
+                                    "color": "#313131",
+                                    "fontFamily": "Avenir-Medium",
                                     "fontSize": 16,
                                     "lineHeight": 24,
                                     "paddingBottom": 12,
@@ -359,8 +359,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                               padded={true}
                               style={
                                 Object {
-                                  "color": "#303030",
-                                  "fontFamily": "InterUI-Black",
+                                  "color": "#313131",
+                                  "fontFamily": "Avenir-Black",
                                   "fontSize": 36,
                                   "lineHeight": 41.4,
                                   "paddingBottom": 20.02,
@@ -373,8 +373,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                             <Text
                               style={
                                 Object {
-                                  "color": "#00676D",
-                                  "fontFamily": "InterUI-Bold",
+                                  "color": "#008CD0",
+                                  "fontFamily": "Avenir-Medium",
                                   "fontSize": 16,
                                   "lineHeight": 24,
                                   "paddingBottom": 24,
@@ -388,7 +388,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 padded={true}
                                 style={
                                   Object {
-                                    "color": "#17B582",
+                                    "color": "#008CD0",
                                   }
                                 }
                               >
@@ -406,8 +406,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 style={
                                   Object {
                                     "alignSelf": "stretch",
-                                    "backgroundColor": "#A5A5A5",
-                                    "borderRadius": 16,
+                                    "backgroundColor": "#B5C0C6",
+                                    "borderRadius": 8,
                                     "height": 16,
                                     "marginVertical": 5,
                                     "width": "85%",
@@ -418,8 +418,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 style={
                                   Object {
                                     "alignSelf": "stretch",
-                                    "backgroundColor": "#A5A5A5",
-                                    "borderRadius": 16,
+                                    "backgroundColor": "#B5C0C6",
+                                    "borderRadius": 8,
                                     "height": 16,
                                     "marginVertical": 5,
                                     "width": "100%",
@@ -430,8 +430,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 style={
                                   Object {
                                     "alignSelf": "stretch",
-                                    "backgroundColor": "#A5A5A5",
-                                    "borderRadius": 16,
+                                    "backgroundColor": "#B5C0C6",
+                                    "borderRadius": 8,
                                     "height": 16,
                                     "marginVertical": 5,
                                     "width": "100%",
@@ -442,8 +442,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 style={
                                   Object {
                                     "alignSelf": "stretch",
-                                    "backgroundColor": "#A5A5A5",
-                                    "borderRadius": 16,
+                                    "backgroundColor": "#B5C0C6",
+                                    "borderRadius": 8,
                                     "height": 16,
                                     "marginVertical": 5,
                                     "width": "100%",
@@ -454,8 +454,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 style={
                                   Object {
                                     "alignSelf": "stretch",
-                                    "backgroundColor": "#A5A5A5",
-                                    "borderRadius": 16,
+                                    "backgroundColor": "#B5C0C6",
+                                    "borderRadius": 8,
                                     "height": 16,
                                     "marginVertical": 5,
                                     "width": "100%",
@@ -466,8 +466,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 style={
                                   Object {
                                     "alignSelf": "stretch",
-                                    "backgroundColor": "#A5A5A5",
-                                    "borderRadius": 16,
+                                    "backgroundColor": "#B5C0C6",
+                                    "borderRadius": 8,
                                     "height": 16,
                                     "marginVertical": 5,
                                     "width": "100%",
@@ -478,8 +478,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 style={
                                   Object {
                                     "alignSelf": "stretch",
-                                    "backgroundColor": "#A5A5A5",
-                                    "borderRadius": 16,
+                                    "backgroundColor": "#B5C0C6",
+                                    "borderRadius": 8,
                                     "height": 16,
                                     "marginVertical": 5,
                                     "width": "100%",
@@ -490,8 +490,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 style={
                                   Object {
                                     "alignSelf": "stretch",
-                                    "backgroundColor": "#A5A5A5",
-                                    "borderRadius": 16,
+                                    "backgroundColor": "#B5C0C6",
+                                    "borderRadius": 8,
                                     "height": 16,
                                     "marginVertical": 5,
                                     "width": "75%",
@@ -526,8 +526,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                               <Text
                                 style={
                                   Object {
-                                    "color": "#303030",
-                                    "fontFamily": "InterUI-Bold",
+                                    "color": "#313131",
+                                    "fontFamily": "Avenir-Medium",
                                     "fontSize": 16,
                                     "lineHeight": 24,
                                     "paddingBottom": 12,
@@ -537,8 +537,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 <Text
                                   style={
                                     Object {
-                                      "color": "#303030",
-                                      "fontFamily": "InterUI-Bold",
+                                      "color": "#313131",
+                                      "fontFamily": "Avenir-Medium",
                                       "fontSize": 16,
                                       "lineHeight": 24,
                                     }
@@ -550,7 +550,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                   style={
                                     Object {
                                       "color": "#505050",
-                                      "fontFamily": "InterUI-Bold",
+                                      "fontFamily": "Avenir-Medium",
                                       "fontSize": 12,
                                       "lineHeight": 18,
                                     }
@@ -580,7 +580,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                       italic={false}
                                       style={
                                         Object {
-                                          "color": "#303030",
+                                          "color": "#313131",
                                           "fontFamily": "DroidSerif",
                                           "fontSize": 16,
                                           "lineHeight": 26,
@@ -610,7 +610,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                         italic={false}
                                         style={
                                           Object {
-                                            "color": "#303030",
+                                            "color": "#313131",
                                             "fontFamily": "DroidSerif",
                                             "fontSize": 16,
                                             "lineHeight": 26,
@@ -631,7 +631,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 style={
                                   Object {
                                     "color": "#505050",
-                                    "fontFamily": "InterUI-Regular",
+                                    "fontFamily": "Avenir-Book",
                                     "fontSize": 9.6,
                                     "lineHeight": 10.8,
                                   }
@@ -642,8 +642,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                               <Text
                                 style={
                                   Object {
-                                    "color": "#303030",
-                                    "fontFamily": "InterUI-Bold",
+                                    "color": "#313131",
+                                    "fontFamily": "Avenir-Medium",
                                     "fontSize": 16,
                                     "lineHeight": 24,
                                     "paddingBottom": 12,
@@ -653,8 +653,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                                 <Text
                                   style={
                                     Object {
-                                      "color": "#303030",
-                                      "fontFamily": "InterUI-Bold",
+                                      "color": "#313131",
+                                      "fontFamily": "Avenir-Medium",
                                       "fontSize": 16,
                                       "lineHeight": 24,
                                     }
@@ -666,7 +666,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                   style={
                                     Object {
                                       "color": "#505050",
-                                      "fontFamily": "InterUI-Bold",
+                                      "fontFamily": "Avenir-Medium",
                                       "fontSize": 12,
                                       "lineHeight": 18,
                                     }
@@ -696,7 +696,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                       italic={false}
                                       style={
                                         Object {
-                                          "color": "#303030",
+                                          "color": "#313131",
                                           "fontFamily": "DroidSerif",
                                           "fontSize": 16,
                                           "lineHeight": 26,
@@ -726,7 +726,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                         italic={false}
                                         style={
                                           Object {
-                                            "color": "#303030",
+                                            "color": "#313131",
                                             "fontFamily": "DroidSerif",
                                             "fontSize": 16,
                                             "lineHeight": 26,
@@ -760,7 +760,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                         italic={false}
                                         style={
                                           Object {
-                                            "color": "#303030",
+                                            "color": "#313131",
                                             "fontFamily": "DroidSerif",
                                             "fontSize": 16,
                                             "lineHeight": 26,
@@ -794,7 +794,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                         italic={false}
                                         style={
                                           Object {
-                                            "color": "#303030",
+                                            "color": "#313131",
                                             "fontFamily": "DroidSerif",
                                             "fontSize": 16,
                                             "lineHeight": 26,
@@ -828,7 +828,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                         italic={false}
                                         style={
                                           Object {
-                                            "color": "#303030",
+                                            "color": "#313131",
                                             "fontFamily": "DroidSerif",
                                             "fontSize": 16,
                                             "lineHeight": 26,
@@ -862,7 +862,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                         italic={false}
                                         style={
                                           Object {
-                                            "color": "#303030",
+                                            "color": "#313131",
                                             "fontFamily": "DroidSerif",
                                             "fontSize": 16,
                                             "lineHeight": 26,
@@ -896,7 +896,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                         italic={false}
                                         style={
                                           Object {
-                                            "color": "#303030",
+                                            "color": "#313131",
                                             "fontFamily": "DroidSerif",
                                             "fontSize": 16,
                                             "lineHeight": 26,
@@ -930,7 +930,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                         italic={false}
                                         style={
                                           Object {
-                                            "color": "#303030",
+                                            "color": "#313131",
                                             "fontFamily": "DroidSerif",
                                             "fontSize": 16,
                                             "lineHeight": 26,
@@ -964,7 +964,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                                         italic={false}
                                         style={
                                           Object {
-                                            "color": "#303030",
+                                            "color": "#313131",
                                             "fontFamily": "DroidSerif",
                                             "fontSize": 16,
                                             "lineHeight": 26,
@@ -1016,20 +1016,27 @@ exports[`the Devotional component renders a devotional 1`] = `
           }
         }
       >
-        <View
-          onLayout={[Function]}
-          pointerEvents="box-none"
-          style={
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+          forceInset={
             Object {
-              "backgroundColor": "#fff",
-              "borderBottomColor": "#a7a7aa",
-              "borderBottomWidth": 0.5,
-              "height": 64,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 20,
+              "bottom": "never",
+              "horizontal": "always",
+              "top": "always",
             }
+          }
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#a7a7aa",
+                "borderBottomWidth": 0.5,
+              },
+              Object {
+                "height": 44,
+              },
+              Object {},
+            ]
           }
         >
           <View
@@ -1086,7 +1093,7 @@ exports[`the Devotional component renders a devotional 1`] = `
               </View>
             </View>
           </View>
-        </View>
+        </RCTSafeAreaView>
       </View>
     </View>
   </View>

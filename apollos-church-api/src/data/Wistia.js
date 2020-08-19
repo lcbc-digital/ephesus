@@ -4,7 +4,7 @@ import { RESTDataSource } from 'apollo-datasource-rest';
 class dataSource extends RESTDataSource {
   baseURL = 'https://lcbcchurch.wistia.com/embed/medias/';
 
-  willSendRequest = (request) => {};
+  // willSendRequest = (request) => {};
 
   getHLSForVideo = async (id) => {
     // captures either vimeo/123 or 123

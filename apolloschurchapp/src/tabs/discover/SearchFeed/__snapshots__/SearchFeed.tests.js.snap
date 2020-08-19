@@ -230,11 +230,11 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                   }
                 >
                   <View
-                    cardColor="#00676D"
+                    cardColor="#008CD0"
                     style={
                       Object {
-                        "backgroundColor": "#00676D",
-                        "borderRadius": 16,
+                        "backgroundColor": "#008CD0",
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -250,7 +250,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -258,48 +258,34 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          customTheme={Object {}}
+                          fadeDuration={250}
+                          onLoad={[Function]}
+                          source={
+                            Array [
+                              Object {
+                                "__typename": "ImageMediaSource",
+                                "cache": "force-cache",
+                                "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Dd3a96243-2558-4c04-bf41-3aadcf41771f",
+                              },
+                            ]
+                          }
                           style={
                             Object {
                               "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.2}
-                            minAspectRatio={0.75}
-                            onLoad={[Function]}
-                            source={
-                              Array [
-                                Object {
-                                  "__typename": "ImageMediaSource",
-                                  "cache": "force-cache",
-                                  "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Dd3a96243-2558-4c04-bf41-3aadcf41771f",
-                                },
-                              ]
-                            }
-                            style={
-                              Object {
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -355,8 +341,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           numberOfLines={3}
                           style={
                             Object {
-                              "color": "#F8F7F4",
-                              "fontFamily": "InterUI-Black",
+                              "color": "#ECEFF0",
+                              "fontFamily": "Avenir-Black",
                               "fontSize": 24,
                               "lineHeight": 27.6,
                             }
@@ -388,8 +374,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               numberOfLines={2}
                               style={
                                 Object {
-                                  "color": "#F8F7F4",
-                                  "fontFamily": "InterUI-Regular",
+                                  "color": "#ECEFF0",
+                                  "fontFamily": "Avenir-Book",
                                   "fontSize": 16,
                                   "lineHeight": 26,
                                 }
@@ -432,7 +418,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -448,7 +434,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -456,7 +442,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
@@ -466,7 +452,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           style={
                             Object {
                               "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#B5C0C6",
                               "width": "100%",
                             }
                           }
@@ -523,8 +509,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           numberOfLines={2}
                           style={
                             Object {
-                              "color": "#303030",
-                              "fontFamily": "InterUI-Black",
+                              "color": "#313131",
+                              "fontFamily": "Avenir-Black",
                               "fontSize": 24,
                               "lineHeight": 27.6,
                             }
@@ -538,8 +524,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           numberOfLines={2}
                           style={
                             Object {
-                              "color": "#303030",
-                              "fontFamily": "InterUI-Regular",
+                              "color": "#313131",
+                              "fontFamily": "Avenir-Book",
                               "fontSize": 16,
                               "lineHeight": 26,
                               "paddingTop": 16,
@@ -582,7 +568,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -598,7 +584,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -606,48 +592,33 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          fadeDuration={250}
+                          onLoad={[Function]}
+                          source={
+                            Array [
+                              Object {
+                                "__typename": "ImageMediaSource",
+                                "cache": "force-cache",
+                                "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Db08e4d69-0acf-40ff-920a-4517de086175",
+                              },
+                            ]
+                          }
                           style={
                             Object {
-                              "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "aspectRatio": 1.2,
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.78}
-                            minAspectRatio={1.2}
-                            onLoad={[Function]}
-                            source={
-                              Array [
-                                Object {
-                                  "__typename": "ImageMediaSource",
-                                  "cache": "force-cache",
-                                  "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Db08e4d69-0acf-40ff-920a-4517de086175",
-                                },
-                              ]
-                            }
-                            style={
-                              Object {
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -700,8 +671,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           numberOfLines={2}
                           style={
                             Object {
-                              "color": "#303030",
-                              "fontFamily": "InterUI-Black",
+                              "color": "#313131",
+                              "fontFamily": "Avenir-Black",
                               "fontSize": 24,
                               "lineHeight": 27.6,
                             }
@@ -715,8 +686,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           numberOfLines={2}
                           style={
                             Object {
-                              "color": "#303030",
-                              "fontFamily": "InterUI-Regular",
+                              "color": "#313131",
+                              "fontFamily": "Avenir-Book",
                               "fontSize": 16,
                               "lineHeight": 26,
                               "paddingTop": 16,
@@ -758,7 +729,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -774,7 +745,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -782,48 +753,33 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          fadeDuration={250}
+                          onLoad={[Function]}
+                          source={
+                            Array [
+                              Object {
+                                "__typename": "ImageMediaSource",
+                                "cache": "force-cache",
+                                "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D58c037fa-cc7f-4d72-9571-a0cc0558e346",
+                              },
+                            ]
+                          }
                           style={
                             Object {
-                              "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "aspectRatio": 1.2,
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.78}
-                            minAspectRatio={1.2}
-                            onLoad={[Function]}
-                            source={
-                              Array [
-                                Object {
-                                  "__typename": "ImageMediaSource",
-                                  "cache": "force-cache",
-                                  "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D58c037fa-cc7f-4d72-9571-a0cc0558e346",
-                                },
-                              ]
-                            }
-                            style={
-                              Object {
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -876,8 +832,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           numberOfLines={2}
                           style={
                             Object {
-                              "color": "#303030",
-                              "fontFamily": "InterUI-Black",
+                              "color": "#313131",
+                              "fontFamily": "Avenir-Black",
                               "fontSize": 24,
                               "lineHeight": 27.6,
                             }
@@ -891,8 +847,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           numberOfLines={2}
                           style={
                             Object {
-                              "color": "#303030",
-                              "fontFamily": "InterUI-Regular",
+                              "color": "#313131",
+                              "fontFamily": "Avenir-Book",
                               "fontSize": 16,
                               "lineHeight": 26,
                               "paddingTop": 16,
@@ -934,7 +890,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -950,7 +906,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -958,7 +914,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
@@ -968,7 +924,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           style={
                             Object {
                               "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#B5C0C6",
                               "width": "100%",
                             }
                           }
@@ -1025,8 +981,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           numberOfLines={2}
                           style={
                             Object {
-                              "color": "#303030",
-                              "fontFamily": "InterUI-Black",
+                              "color": "#313131",
+                              "fontFamily": "Avenir-Black",
                               "fontSize": 24,
                               "lineHeight": 27.6,
                             }
@@ -1040,8 +996,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           numberOfLines={2}
                           style={
                             Object {
-                              "color": "#303030",
-                              "fontFamily": "InterUI-Regular",
+                              "color": "#313131",
+                              "fontFamily": "Avenir-Book",
                               "fontSize": 16,
                               "lineHeight": 26,
                               "paddingTop": 16,
@@ -1080,11 +1036,11 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                   }
                 >
                   <View
-                    cardColor="#00676D"
+                    cardColor="#008CD0"
                     style={
                       Object {
-                        "backgroundColor": "#00676D",
-                        "borderRadius": 16,
+                        "backgroundColor": "#008CD0",
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -1100,7 +1056,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -1108,48 +1064,34 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          customTheme={Object {}}
+                          fadeDuration={250}
+                          onLoad={[Function]}
+                          source={
+                            Array [
+                              Object {
+                                "__typename": "ImageMediaSource",
+                                "cache": "force-cache",
+                                "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Dd3a96243-2558-4c04-bf41-3aadcf41771f",
+                              },
+                            ]
+                          }
                           style={
                             Object {
                               "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.2}
-                            minAspectRatio={0.75}
-                            onLoad={[Function]}
-                            source={
-                              Array [
-                                Object {
-                                  "__typename": "ImageMediaSource",
-                                  "cache": "force-cache",
-                                  "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Dd3a96243-2558-4c04-bf41-3aadcf41771f",
-                                },
-                              ]
-                            }
-                            style={
-                              Object {
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -1205,8 +1147,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           numberOfLines={3}
                           style={
                             Object {
-                              "color": "#F8F7F4",
-                              "fontFamily": "InterUI-Black",
+                              "color": "#ECEFF0",
+                              "fontFamily": "Avenir-Black",
                               "fontSize": 24,
                               "lineHeight": 27.6,
                             }
@@ -1238,8 +1180,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               numberOfLines={2}
                               style={
                                 Object {
-                                  "color": "#F8F7F4",
-                                  "fontFamily": "InterUI-Regular",
+                                  "color": "#ECEFF0",
+                                  "fontFamily": "Avenir-Book",
                                   "fontSize": 16,
                                   "lineHeight": 26,
                                 }
@@ -1283,20 +1225,27 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
           }
         }
       >
-        <View
-          onLayout={[Function]}
-          pointerEvents="box-none"
-          style={
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+          forceInset={
             Object {
-              "backgroundColor": "#fff",
-              "borderBottomColor": "#a7a7aa",
-              "borderBottomWidth": 0.5,
-              "height": 64,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 20,
+              "bottom": "never",
+              "horizontal": "always",
+              "top": "always",
             }
+          }
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#a7a7aa",
+                "borderBottomWidth": 0.5,
+              },
+              Object {
+                "height": 44,
+              },
+              Object {},
+            ]
           }
         >
           <View
@@ -1353,7 +1302,7 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
               </View>
             </View>
           </View>
-        </View>
+        </RCTSafeAreaView>
       </View>
     </View>
   </View>
@@ -1606,7 +1555,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -1622,7 +1571,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -1630,41 +1579,26 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          fadeDuration={250}
+                          isLoading={true}
+                          onLoad={[Function]}
+                          source={Array []}
                           style={
                             Object {
-                              "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "aspectRatio": 1.2,
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.78}
-                            minAspectRatio={1.2}
-                            onLoad={[Function]}
-                            source={Array []}
-                            style={
-                              Object {
-                                "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -1726,8 +1660,8 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
-                                "borderRadius": 16,
+                                "backgroundColor": "#B5C0C6",
+                                "borderRadius": 8,
                                 "height": 32,
                                 "paddingHorizontal": 12,
                                 "width": 64,
@@ -1769,7 +1703,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -1785,7 +1719,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -1793,41 +1727,26 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          fadeDuration={250}
+                          isLoading={true}
+                          onLoad={[Function]}
+                          source={Array []}
                           style={
                             Object {
-                              "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "aspectRatio": 1.2,
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.78}
-                            minAspectRatio={1.2}
-                            onLoad={[Function]}
-                            source={Array []}
-                            style={
-                              Object {
-                                "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -1889,8 +1808,8 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
-                                "borderRadius": 16,
+                                "backgroundColor": "#B5C0C6",
+                                "borderRadius": 8,
                                 "height": 32,
                                 "paddingHorizontal": 12,
                                 "width": 64,
@@ -1932,7 +1851,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -1948,7 +1867,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -1956,41 +1875,26 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          fadeDuration={250}
+                          isLoading={true}
+                          onLoad={[Function]}
+                          source={Array []}
                           style={
                             Object {
-                              "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "aspectRatio": 1.2,
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.78}
-                            minAspectRatio={1.2}
-                            onLoad={[Function]}
-                            source={Array []}
-                            style={
-                              Object {
-                                "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -2052,8 +1956,8 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
-                                "borderRadius": 16,
+                                "backgroundColor": "#B5C0C6",
+                                "borderRadius": 8,
                                 "height": 32,
                                 "paddingHorizontal": 12,
                                 "width": 64,
@@ -2095,7 +1999,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -2111,7 +2015,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -2119,41 +2023,26 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          fadeDuration={250}
+                          isLoading={true}
+                          onLoad={[Function]}
+                          source={Array []}
                           style={
                             Object {
-                              "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "aspectRatio": 1.2,
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.78}
-                            minAspectRatio={1.2}
-                            onLoad={[Function]}
-                            source={Array []}
-                            style={
-                              Object {
-                                "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -2215,8 +2104,8 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
-                                "borderRadius": 16,
+                                "backgroundColor": "#B5C0C6",
+                                "borderRadius": 8,
                                 "height": 32,
                                 "paddingHorizontal": 12,
                                 "width": 64,
@@ -2258,7 +2147,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -2274,7 +2163,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -2282,41 +2171,26 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          fadeDuration={250}
+                          isLoading={true}
+                          onLoad={[Function]}
+                          source={Array []}
                           style={
                             Object {
-                              "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "aspectRatio": 1.2,
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.78}
-                            minAspectRatio={1.2}
-                            onLoad={[Function]}
-                            source={Array []}
-                            style={
-                              Object {
-                                "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -2378,8 +2252,8 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
-                                "borderRadius": 16,
+                                "backgroundColor": "#B5C0C6",
+                                "borderRadius": 8,
                                 "height": 32,
                                 "paddingHorizontal": 12,
                                 "width": 64,
@@ -2421,7 +2295,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -2437,7 +2311,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -2445,41 +2319,26 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          fadeDuration={250}
+                          isLoading={true}
+                          onLoad={[Function]}
+                          source={Array []}
                           style={
                             Object {
-                              "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "aspectRatio": 1.2,
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.78}
-                            minAspectRatio={1.2}
-                            onLoad={[Function]}
-                            source={Array []}
-                            style={
-                              Object {
-                                "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -2541,8 +2400,8 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
-                                "borderRadius": 16,
+                                "backgroundColor": "#B5C0C6",
+                                "borderRadius": 8,
                                 "height": 32,
                                 "paddingHorizontal": 12,
                                 "width": 64,
@@ -2584,7 +2443,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -2600,7 +2459,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -2608,41 +2467,26 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          fadeDuration={250}
+                          isLoading={true}
+                          onLoad={[Function]}
+                          source={Array []}
                           style={
                             Object {
-                              "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "aspectRatio": 1.2,
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.78}
-                            minAspectRatio={1.2}
-                            onLoad={[Function]}
-                            source={Array []}
-                            style={
-                              Object {
-                                "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -2704,8 +2548,8 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
-                                "borderRadius": 16,
+                                "backgroundColor": "#B5C0C6",
+                                "borderRadius": 8,
                                 "height": 32,
                                 "paddingHorizontal": 12,
                                 "width": 64,
@@ -2747,7 +2591,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -2763,7 +2607,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -2771,41 +2615,26 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          fadeDuration={250}
+                          isLoading={true}
+                          onLoad={[Function]}
+                          source={Array []}
                           style={
                             Object {
-                              "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "aspectRatio": 1.2,
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.78}
-                            minAspectRatio={1.2}
-                            onLoad={[Function]}
-                            source={Array []}
-                            style={
-                              Object {
-                                "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -2867,8 +2696,8 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
-                                "borderRadius": 16,
+                                "backgroundColor": "#B5C0C6",
+                                "borderRadius": 8,
                                 "height": 32,
                                 "paddingHorizontal": 12,
                                 "width": 64,
@@ -2910,7 +2739,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -2926,7 +2755,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -2934,41 +2763,26 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          fadeDuration={250}
+                          isLoading={true}
+                          onLoad={[Function]}
+                          source={Array []}
                           style={
                             Object {
-                              "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "aspectRatio": 1.2,
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.78}
-                            minAspectRatio={1.2}
-                            onLoad={[Function]}
-                            source={Array []}
-                            style={
-                              Object {
-                                "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -3030,8 +2844,8 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
-                                "borderRadius": 16,
+                                "backgroundColor": "#B5C0C6",
+                                "borderRadius": 8,
                                 "height": 32,
                                 "paddingHorizontal": 12,
                                 "width": 64,
@@ -3073,7 +2887,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     style={
                       Object {
                         "backgroundColor": "#FFFFFF",
-                        "borderRadius": 16,
+                        "borderRadius": 8,
                         "marginHorizontal": 16,
                         "marginVertical": 12,
                         "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -3089,7 +2903,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                     <View
                       style={
                         Object {
-                          "borderRadius": 16,
+                          "borderRadius": 8,
                           "overflow": "hidden",
                         }
                       }
@@ -3097,41 +2911,26 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#A5A5A5",
+                            "backgroundColor": "#B5C0C6",
                             "overflow": "hidden",
                             "width": "100%",
                           }
                         }
                       >
-                        <View
-                          animate={null}
-                          customAnimate={null}
-                          onReady={false}
+                        <Image
+                          fadeDuration={250}
+                          isLoading={true}
+                          onLoad={[Function]}
+                          source={Array []}
                           style={
                             Object {
-                              "aspectRatio": 1,
-                              "backgroundColor": "#A5A5A5",
+                              "aspectRatio": 1.2,
+                              "backgroundColor": "#B5C0C6",
                               "resizeMode": "cover",
                               "width": "100%",
                             }
                           }
-                        >
-                          <Image
-                            maxAspectRatio={1.78}
-                            minAspectRatio={1.2}
-                            onLoad={[Function]}
-                            source={Array []}
-                            style={
-                              Object {
-                                "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
-                                "opacity": 0,
-                                "resizeMode": "cover",
-                                "width": "100%",
-                              }
-                            }
-                          />
-                        </View>
+                        />
                         <BVLinearGradient
                           colors={
                             Array [
@@ -3193,8 +2992,8 @@ exports[`The SearchFeed component should render a loading state 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
-                                "borderRadius": 16,
+                                "backgroundColor": "#B5C0C6",
+                                "borderRadius": 8,
                                 "height": 32,
                                 "paddingHorizontal": 12,
                                 "width": 64,
@@ -3236,20 +3035,27 @@ exports[`The SearchFeed component should render a loading state 1`] = `
           }
         }
       >
-        <View
-          onLayout={[Function]}
-          pointerEvents="box-none"
-          style={
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+          forceInset={
             Object {
-              "backgroundColor": "#fff",
-              "borderBottomColor": "#a7a7aa",
-              "borderBottomWidth": 0.5,
-              "height": 64,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 20,
+              "bottom": "never",
+              "horizontal": "always",
+              "top": "always",
             }
+          }
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#a7a7aa",
+                "borderBottomWidth": 0.5,
+              },
+              Object {
+                "height": 44,
+              },
+              Object {},
+            ]
           }
         >
           <View
@@ -3306,7 +3112,7 @@ exports[`The SearchFeed component should render a loading state 1`] = `
               </View>
             </View>
           </View>
-        </View>
+        </RCTSafeAreaView>
       </View>
     </View>
   </View>
@@ -3514,7 +3320,7 @@ exports[`The SearchFeed component should render an empty state 1`] = `
                         fill={
                           Array [
                             0,
-                            4289045925,
+                            4290101446,
                           ]
                         }
                         fillOpacity={1}
@@ -3560,8 +3366,8 @@ exports[`The SearchFeed component should render an empty state 1`] = `
                     padded={true}
                     style={
                       Object {
-                        "color": "#A5A5A5",
-                        "fontFamily": "InterUI-Bold",
+                        "color": "#B5C0C6",
+                        "fontFamily": "Avenir-Medium",
                         "fontSize": 16,
                         "lineHeight": 24,
                         "paddingBottom": 12,
@@ -3587,8 +3393,8 @@ exports[`The SearchFeed component should render an empty state 1`] = `
                     italic={false}
                     style={
                       Object {
-                        "color": "#A5A5A5",
-                        "fontFamily": "InterUI-Regular",
+                        "color": "#B5C0C6",
+                        "fontFamily": "Avenir-Book",
                         "fontSize": 12,
                         "lineHeight": 18,
                         "textAlign": "center",
@@ -3601,8 +3407,8 @@ exports[`The SearchFeed component should render an empty state 1`] = `
                       italic={false}
                       style={
                         Object {
-                          "color": "#A5A5A5",
-                          "fontFamily": "InterUI-Bold",
+                          "color": "#B5C0C6",
+                          "fontFamily": "Avenir-Medium",
                           "fontSize": 12,
                           "lineHeight": 18,
                           "textAlign": "center",
@@ -3644,20 +3450,27 @@ exports[`The SearchFeed component should render an empty state 1`] = `
           }
         }
       >
-        <View
-          onLayout={[Function]}
-          pointerEvents="box-none"
-          style={
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+          forceInset={
             Object {
-              "backgroundColor": "#fff",
-              "borderBottomColor": "#a7a7aa",
-              "borderBottomWidth": 0.5,
-              "height": 64,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 20,
+              "bottom": "never",
+              "horizontal": "always",
+              "top": "always",
             }
+          }
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#a7a7aa",
+                "borderBottomWidth": 0.5,
+              },
+              Object {
+                "height": 44,
+              },
+              Object {},
+            ]
           }
         >
           <View
@@ -3714,7 +3527,7 @@ exports[`The SearchFeed component should render an empty state 1`] = `
               </View>
             </View>
           </View>
-        </View>
+        </RCTSafeAreaView>
       </View>
     </View>
   </View>

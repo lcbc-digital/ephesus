@@ -5,7 +5,7 @@ exports[`content feed query component renders a feedview after successful query 
   colors={
     Array [
       4294967295,
-      4294506484,
+      4294507259,
     ]
   }
   endPoint={
@@ -115,7 +115,7 @@ exports[`content feed query component renders a feedview after successful query 
             style={
               Object {
                 "backgroundColor": "#FFFFFF",
-                "borderRadius": 16,
+                "borderRadius": 8,
                 "marginHorizontal": 16,
                 "marginVertical": 12,
                 "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -131,7 +131,7 @@ exports[`content feed query component renders a feedview after successful query 
             <View
               style={
                 Object {
-                  "borderRadius": 16,
+                  "borderRadius": 8,
                   "overflow": "hidden",
                 }
               }
@@ -139,7 +139,7 @@ exports[`content feed query component renders a feedview after successful query 
               <View
                 style={
                   Object {
-                    "backgroundColor": "#A5A5A5",
+                    "backgroundColor": "#B5C0C6",
                     "overflow": "hidden",
                     "width": "100%",
                   }
@@ -149,7 +149,7 @@ exports[`content feed query component renders a feedview after successful query 
                   style={
                     Object {
                       "aspectRatio": 1,
-                      "backgroundColor": "#A5A5A5",
+                      "backgroundColor": "#B5C0C6",
                       "width": "100%",
                     }
                   }
@@ -206,8 +206,8 @@ exports[`content feed query component renders a feedview after successful query 
                   numberOfLines={2}
                   style={
                     Object {
-                      "color": "#303030",
-                      "fontFamily": "InterUI-Black",
+                      "color": "#313131",
+                      "fontFamily": "Avenir-Black",
                       "fontSize": 24,
                       "lineHeight": 27.6,
                     }
@@ -221,8 +221,8 @@ exports[`content feed query component renders a feedview after successful query 
                   numberOfLines={2}
                   style={
                     Object {
-                      "color": "#303030",
-                      "fontFamily": "InterUI-Regular",
+                      "color": "#313131",
+                      "fontFamily": "Avenir-Book",
                       "fontSize": 16,
                       "lineHeight": 26,
                       "paddingTop": 16,
@@ -265,7 +265,7 @@ exports[`content feed query component renders a feedview after successful query 
             style={
               Object {
                 "backgroundColor": "#FFFFFF",
-                "borderRadius": 16,
+                "borderRadius": 8,
                 "marginHorizontal": 16,
                 "marginVertical": 12,
                 "shadowColor": "rgba(0, 0, 0, 0.09999999999999998)",
@@ -281,7 +281,7 @@ exports[`content feed query component renders a feedview after successful query 
             <View
               style={
                 Object {
-                  "borderRadius": 16,
+                  "borderRadius": 8,
                   "overflow": "hidden",
                 }
               }
@@ -289,7 +289,7 @@ exports[`content feed query component renders a feedview after successful query 
               <View
                 style={
                   Object {
-                    "backgroundColor": "#A5A5A5",
+                    "backgroundColor": "#B5C0C6",
                     "overflow": "hidden",
                     "width": "100%",
                   }
@@ -299,7 +299,7 @@ exports[`content feed query component renders a feedview after successful query 
                   style={
                     Object {
                       "aspectRatio": 1,
-                      "backgroundColor": "#A5A5A5",
+                      "backgroundColor": "#B5C0C6",
                       "width": "100%",
                     }
                   }
@@ -356,8 +356,8 @@ exports[`content feed query component renders a feedview after successful query 
                   numberOfLines={2}
                   style={
                     Object {
-                      "color": "#303030",
-                      "fontFamily": "InterUI-Black",
+                      "color": "#313131",
+                      "fontFamily": "Avenir-Black",
                       "fontSize": 24,
                       "lineHeight": 27.6,
                     }
@@ -371,8 +371,8 @@ exports[`content feed query component renders a feedview after successful query 
                   numberOfLines={2}
                   style={
                     Object {
-                      "color": "#303030",
-                      "fontFamily": "InterUI-Regular",
+                      "color": "#313131",
+                      "fontFamily": "Avenir-Book",
                       "fontSize": 16,
                       "lineHeight": 26,
                       "paddingTop": 16,

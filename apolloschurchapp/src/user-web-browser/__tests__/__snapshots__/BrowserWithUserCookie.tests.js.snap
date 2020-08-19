@@ -5,7 +5,7 @@ exports[`the BrowserWithUserCookie component renders with a user 1`] = `
   colors={
     Array [
       4294967295,
-      4294506484,
+      4294507259,
     ]
   }
   endPoint={
@@ -94,7 +94,7 @@ exports[`the BrowserWithUserCookie component renders with a user 1`] = `
       align="xMidYMid"
       bbHeight={32}
       bbWidth={32}
-      fill="#303030"
+      fill="#313131"
       focusable={false}
       height={32}
       meetOrSlice={0}
@@ -125,7 +125,7 @@ exports[`the BrowserWithUserCookie component renders with a user 1`] = `
         fill={
           Array [
             0,
-            4281348144,
+            4281413937,
           ]
         }
         fillOpacity={1}
@@ -171,7 +171,7 @@ exports[`the BrowserWithUserCookie component renders with a user 1`] = `
       align="xMidYMid"
       bbHeight={32}
       bbWidth={32}
-      fill="#303030"
+      fill="#313131"
       focusable={false}
       height={32}
       meetOrSlice={0}
@@ -202,7 +202,7 @@ exports[`the BrowserWithUserCookie component renders with a user 1`] = `
         fill={
           Array [
             0,
-            4281348144,
+            4281413937,
           ]
         }
         fillOpacity={1}

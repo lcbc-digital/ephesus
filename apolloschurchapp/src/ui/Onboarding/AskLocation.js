@@ -23,6 +23,8 @@ const StyledCampusCard = styled(({ theme }) => ({
   marginBottom: theme.sizing.baseUnit,
 }))(CampusCard);
 
+const TitleContainer = styled({ flex: 1 })(View);
+
 // memo = sfc PureComponent 💥
 const LocationFinder = memo(
   ({
@@ -42,7 +44,7 @@ const LocationFinder = memo(
     >
       {BackgroundComponent}
       <Wrapper>
-        <View style={{ flex: 1 }}>
+        <TitleContainer>
           <TitleWrapper>
             <H1>{`Select your `}</H1>
             <UnderlinedWord>
@@ -63,7 +65,7 @@ const LocationFinder = memo(
           <Intro>
             {'Let us know how to keep you connected with LCBC each week.'}
           </Intro>
-        </View>
+        </TitleContainer>
         {campus && onPressPrimary ? (
           <Touchable onPress={onPressButton}>
             <StyledCampusCard

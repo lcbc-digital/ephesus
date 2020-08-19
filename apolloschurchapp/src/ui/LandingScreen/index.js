@@ -20,7 +20,7 @@ const Content = styled({
   justifyContent: 'center',
 })(PaddedView);
 
-const BrandIcon = withTheme(({ theme, color }) => ({
+const BrandIcon = withTheme(({ theme }) => ({
   name: 'brand-icon',
   size: theme.sizing.baseUnit * 7,
   fill: theme.colors.primary,
@@ -67,8 +67,8 @@ const LandingScreen = ({
         </TitleWrapper>
         <PaddedView horizontal={false}>
           <H5>
-            {`Welcome to LCBC—we’re so glad you're here! No matter who you are, what you believe, or 
-what experiences you've had with church, 
+            {`Welcome to LCBC—we’re so glad you're here! No matter who you are, what you believe, or
+what experiences you've had with church,
 you're welcome.`}
           </H5>
         </PaddedView>

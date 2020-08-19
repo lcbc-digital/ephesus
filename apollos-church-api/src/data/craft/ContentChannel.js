@@ -71,7 +71,7 @@ export class dataSource extends CraftDataSource {
       },
     ];
   }
-
+  // eslint-disable-next-line
   async getFromId(id) {
     try {
       const parsedId = JSON.parse(id);

@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server';
-import randomColor from 'randomcolor';
+// import randomColor from 'randomcolor';
 
 import colorScalarType from './colorScalarType';
 

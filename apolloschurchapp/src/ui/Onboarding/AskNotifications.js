@@ -7,6 +7,7 @@ import { Slide } from '@apollosproject/ui-onboarding';
 import { Wrapper, Underline, Intro, UnderlinedWord } from './Components';
 
 const TitleWrapper = styled({ flexDirection: 'row', flexWrap: 'wrap' })(View);
+const TitleContainer = styled({ flex: 1 })(View);
 
 // memo = sfc PureComponent 💥
 // eslint-disable-next-line react/display-name
@@ -24,7 +25,7 @@ const AskNotifications = memo(
     <Slide {...props} alwaysBounceVertical={false}>
       {BackgroundComponent}
       <Wrapper>
-        <View style={{ flex: 1 }}>
+        <TitleContainer>
           <TitleWrapper>
             <H1>{`Stay `}</H1>
             <UnderlinedWord>
@@ -37,7 +38,7 @@ const AskNotifications = memo(
               'Never miss an update—turn on notifications to stay in the loop with what’s going on around our church.'
             }
           </Intro>
-        </View>
+        </TitleContainer>
         {buttonDisabled || onPressButton ? (
           <PaddedView horizontal={false}>
             <Button

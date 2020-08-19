@@ -58,6 +58,7 @@ class Connect extends PureComponent {
                     itemId={userCampus.id}
                     navigation={navigation}
                     sectionTitle={'Your Campus'}
+                    isLoading={userCampusLoading}
                   />
                 ) : (
                   <CurrentCampus
@@ -69,6 +70,7 @@ class Connect extends PureComponent {
                     headerBackgroundColor={screenProps.headerBackgroundColor}
                     headerTintColor={screenProps.headerTintColor}
                     headerTitleColor={screenProps.headerTitleStyle.color}
+                    isLoading={userCampusLoading}
                   />
                 );
               }}

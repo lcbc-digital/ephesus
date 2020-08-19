@@ -5,7 +5,7 @@ exports[`The Event component should render 1`] = `
   colors={
     Array [
       4294967295,
-      4294506484,
+      4294507259,
     ]
   }
   endPoint={
@@ -61,46 +61,34 @@ exports[`The Event component should render 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#A5A5A5",
+                "backgroundColor": "#B5C0C6",
                 "overflow": "hidden",
                 "width": "100%",
               }
             }
           >
-            <View
-              animate={null}
-              customAnimate={null}
-              onReady={false}
+            <Image
+              fadeDuration={250}
+              isLoading={false}
+              onLoad={[Function]}
+              source={
+                Array [
+                  Object {
+                    "cache": "force-cache",
+                    "uri": "https://url.com/image.jpg",
+                    "url": "https://url.com/image.jpg",
+                  },
+                ]
+              }
               style={
                 Object {
                   "aspectRatio": 1,
-                  "backgroundColor": "#A5A5A5",
+                  "backgroundColor": "#B5C0C6",
                   "resizeMode": "cover",
                   "width": "100%",
                 }
               }
-            >
-              <Image
-                onLoad={[Function]}
-                source={
-                  Array [
-                    Object {
-                      "cache": "force-cache",
-                      "uri": "https://url.com/image.jpg",
-                      "url": "https://url.com/image.jpg",
-                    },
-                  ]
-                }
-                style={
-                  Object {
-                    "backgroundColor": "#A5A5A5",
-                    "opacity": 0,
-                    "resizeMode": "cover",
-                    "width": "100%",
-                  }
-                }
-              />
-            </View>
+            />
           </View>
         </View>
         <View
@@ -116,8 +104,8 @@ exports[`The Event component should render 1`] = `
             padded={true}
             style={
               Object {
-                "color": "#303030",
-                "fontFamily": "InterUI-Black",
+                "color": "#313131",
+                "fontFamily": "Avenir-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "paddingBottom": 20.02,
@@ -218,7 +206,7 @@ exports[`The Event component should render 1`] = `
                     fill={
                       Array [
                         0,
-                        4289045925,
+                        4290101446,
                       ]
                     }
                     fillOpacity={1}
@@ -271,8 +259,8 @@ exports[`The Event component should render 1`] = `
                   bold={true}
                   style={
                     Object {
-                      "color": "#303030",
-                      "fontFamily": "InterUI-Bold",
+                      "color": "#313131",
+                      "fontFamily": "Avenir-Medium",
                       "fontSize": 16,
                       "lineHeight": 24,
                     }
@@ -283,8 +271,8 @@ exports[`The Event component should render 1`] = `
                 <Text
                   style={
                     Object {
-                      "color": "#A5A5A5",
-                      "fontFamily": "InterUI-Bold",
+                      "color": "#B5C0C6",
+                      "fontFamily": "Avenir-Medium",
                       "fontSize": 14,
                       "lineHeight": 18,
                       "marginTop": 4,
@@ -381,7 +369,7 @@ exports[`The Event component should render 1`] = `
                     fill={
                       Array [
                         0,
-                        4289045925,
+                        4290101446,
                       ]
                     }
                     fillOpacity={1}
@@ -434,8 +422,8 @@ exports[`The Event component should render 1`] = `
                   bold={true}
                   style={
                     Object {
-                      "color": "#303030",
-                      "fontFamily": "InterUI-Bold",
+                      "color": "#313131",
+                      "fontFamily": "Avenir-Medium",
                       "fontSize": 16,
                       "lineHeight": 24,
                     }
@@ -446,8 +434,8 @@ exports[`The Event component should render 1`] = `
                 <Text
                   style={
                     Object {
-                      "color": "#A5A5A5",
-                      "fontFamily": "InterUI-Bold",
+                      "color": "#B5C0C6",
+                      "fontFamily": "Avenir-Medium",
                       "fontSize": 14,
                       "lineHeight": 18,
                       "marginTop": 4,

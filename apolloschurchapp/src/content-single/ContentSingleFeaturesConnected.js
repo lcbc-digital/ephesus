@@ -19,6 +19,7 @@ const ContentSingleFeaturesWithExtras = (props) => (
   <ContentSingleFeatures {...props} featureMap={FEATURE_MAP} />
 );
 
+// eslint-disable-next-line
 export default (props) => (
   <ContentSingleFeaturesConnected
     {...props}

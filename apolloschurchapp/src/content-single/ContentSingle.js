@@ -8,7 +8,7 @@ import { ErrorCard, ThemeMixin } from '@apollosproject/ui-kit';
 import { TrackEventWhenLoaded } from '@apollosproject/ui-analytics';
 import { InteractWhenLoadedConnected } from '@apollosproject/ui-connected';
 
-import ActionContainer from './ActionContainer';
+// import ActionContainer from './ActionContainer';
 import GET_CONTENT_ITEM from './getContentItem';
 
 import DevotionalContentItem from './DevotionalContentItem';
@@ -82,7 +82,7 @@ class ContentSingle extends PureComponent {
 
     const content = data.node || {};
 
-    const { theme = {}, id } = content;
+    const { theme = {} } = content;
     const colors = get(theme, 'colors') || {};
 
     return (

@@ -1,6 +1,5 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
 import ApollosConfig from '@apollosproject/config';
-import { ApolloError } from 'apollo-server';
 import { createCursor, parseCursor } from '@apollosproject/server-core';
 
 export const mapToEdgeNode = (nodes, initial = 0) => ({
@@ -26,6 +25,7 @@ export default class Craft extends RESTDataSource {
     );
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L12
+  // eslint-disable-next-line class-methods-use-this
   async paginate({ cursor, args: { after, first = 20 } = {} }) {
     // console.log(cursor);
     let skip = 0;
