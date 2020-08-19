@@ -341,6 +341,7 @@ type MediaContentItem implements ContentItem & Node {
   parentChannel: ContentChannel
   theme: Theme
   scriptures: [Scripture]
+  features: [Feature]
   sharing: SharableContentItem
 }
 
