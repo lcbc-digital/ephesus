@@ -29,6 +29,11 @@ const fragments = {
           ...FeaturesFragment
         }
       }
+      ... on MediaContentItem {
+        features {
+          ...FeaturesFragment
+        }
+      }
       ... on WeekendContentItem {
         features {
           ...FeaturesFragment

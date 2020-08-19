@@ -6,9 +6,15 @@ import sanitize from 'sanitize-html';
 import { ApolloError } from 'apollo-server';
 import { get, kebabCase, intersection, chunk, flatten } from 'lodash';
 import Color from 'color';
+import gql from 'graphql-tag';
 import CraftDataSource, { mapToEdgeNode } from './CraftDataSource';
 
-export const { schema } = ContentItem;
+export const schema = gql`
+  ${ContentItem.schema}
+  extend type MediaContentItem {
+    features: [Feature]
+  }
+`;
 
 const ERROR_COPY = `
 <p>Uh Oh - Looks like we had a mishap.
@@ -42,6 +48,11 @@ const contentItemTypes = Object.keys(ApollosConfig.ROCK_MAPPINGS.CONTENT_ITEM);
 
 const baseResolver = {
   ...ContentItem.resolver,
+  MediaContentItem: {
+    ...ContentItem.resolver.MediaContentItem,
+    features: (root, args, { dataSources: { ContentItem } }) =>
+      ContentItem.getFeatures(root),
+  },
   DevotionalContentItem: {
     ...ContentItem.resolver.DevotionalContentItem,
     scriptures: async ({ bibleReference }, args, { dataSources }) => {
@@ -107,6 +118,16 @@ export class dataSource extends CraftDataSource {
     title
     typeId
     craftType: __typename
+
+
+    ... on media_mediaWallpaper_Entry {
+      title
+      image {
+        url
+        id
+        title
+      }
+    }
 
     # series
     ... on series_series_Entry {
@@ -309,7 +330,6 @@ export class dataSource extends CraftDataSource {
 
   async getTheme({ overlayColor, parent }) {
     const primary = overlayColor || parent?.overlayColor;
-    console.log({ primary });
     const type = Color(primary).luminosity() > 0.5 ? 'LIGHT' : 'DARK';
 
     const theme = {
@@ -472,6 +492,8 @@ export class dataSource extends CraftDataSource {
            ${this.personaFragment}
           }
         }
+       ${this.entryFragment}
+       ${this.personaFragment}       
       }
     }`;
 
@@ -483,7 +505,7 @@ export class dataSource extends CraftDataSource {
       throw new ApolloError(result?.error?.message, result?.error?.code);
 
     const results = (result?.data?.nodes || []).flatMap(
-      (node) => node.children
+      (node) => node.children || node
     );
 
     const userPersonas = await this.getCraftPersonaIdsForUser();
@@ -599,12 +621,16 @@ export class dataSource extends CraftDataSource {
     return childItemsWithApollosIds[firstInteractedIndex - 1];
   }
 
-  getFeatures = () => [
-    // this.context.dataSources.Feature.createSharableImageFeature({
-    //   url:
-    //     'https://storage.googleapis.com/lcbc-assets/images/AtTheMovies__1600x900-SeriesHero.jpg?mtime=20200702163703&focal=none',
-    // }),
-  ];
+  getFeatures = ({ craftType, image }) => {
+    if (craftType === 'media_mediaWallpaper_Entry' && image.length) {
+      return image.map(({ url }) =>
+        this.context.dataSources.Feature.createSharableImageFeature({
+          url,
+        })
+      );
+    }
+    return [];
+  };
 
   getVideos = ({ videoEmbed, title, storyVideo, ...args }) => {
     const uri = videoEmbed || storyVideo;
@@ -893,6 +919,7 @@ export class dataSource extends CraftDataSource {
       case 'news_news_Entry': // news
       case 'bibleReading_bibleReadingPlan_Entry':
       case 'stories_stories_Entry': // stories
+      case 'media_mediaWallpaper_Entry': // wallpapers
       case 'studies_curriculum_Entry': {
         // studies
         return {
@@ -917,6 +944,7 @@ export class dataSource extends CraftDataSource {
         return 'DevotionalContentItem';
       }
       case 'series_sermon_Entry':
+      case 'media_mediaWallpaper_Entry': // wallpapers
       case 'stories_stories_Entry': {
         // stories
         return 'MediaContentItem';
