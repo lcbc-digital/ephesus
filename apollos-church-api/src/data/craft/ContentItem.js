@@ -309,9 +309,11 @@ export class dataSource extends CraftDataSource {
 
   async getTheme({ overlayColor, parent }) {
     const primary = overlayColor || parent?.overlayColor;
+    console.log({ primary });
+    const type = Color(primary).luminosity() > 0.5 ? 'LIGHT' : 'DARK';
 
     const theme = {
-      type: 'LIGHT',
+      type,
       colors: {
         primary,
       },

@@ -84,18 +84,12 @@ class ContentSingle extends PureComponent {
 
     const { theme = {}, id } = content;
     const colors = get(theme, 'colors') || {};
-    const { primary, secondary, screen, paper } = colors;
 
     return (
       <ThemeMixin
         mixin={{
           type: get(theme, 'type', 'light').toLowerCase(),
-          colors: {
-            ...(primary ? { primary, tertiary: primary } : {}),
-            ...(secondary ? { secondary } : {}),
-            ...(screen ? { screen } : {}),
-            ...(paper ? { paper } : {}),
-          },
+          colors,
         }}
       >
         <InteractWhenLoadedConnected

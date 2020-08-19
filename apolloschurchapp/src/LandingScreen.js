@@ -1,6 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
-import { styled, withTheme } from '@apollosproject/ui-kit';
+import { withTheme } from '@apollosproject/ui-kit';
 
 import ApollosLandingScreen from './ui/LandingScreen';
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-native';
+import { Query } from 'react-apollo';
 import {
   checkNotifications,
   openSettings,
@@ -12,6 +13,8 @@ import {
   FeaturesConnected,
   LocationFinderConnected,
   OnboardingSwiper,
+  onboardingComplete,
+  WITH_USER_ID,
 } from '@apollosproject/ui-onboarding';
 import WelcomeSlide from './WelcomeSlide';
 import AskLocation from './AskLocation';
@@ -41,31 +44,38 @@ function Onboarding({ navigation }) {
                 navigation.navigate('Location');
               }}
             />
-            <AskNotificationsConnected
-              Component={AskNotifications}
-              onRequestPushPermissions={(update) => {
-                checkNotifications().then((checkRes) => {
-                  if (checkRes.status === RESULTS.DENIED) {
-                    requestNotifications(['alert', 'badge', 'sound']).then(
-                      () => {
-                        update();
-                      }
+            <Query query={WITH_USER_ID} fetchPolicy="network-only">
+              {({
+                data: { currentUser: { id } = { currentUser: { id: null } } },
+              }) => (
+                <AskNotificationsConnected
+                  Component={AskNotifications}
+                  onPressPrimary={() => {
+                    onboardingComplete({ userId: id });
+                    navigation.dispatch(
+                      NavigationService.resetAction({
+                        navigatorName: 'Tabs',
+                        routeName: 'Home',
+                      })
                     );
-                  } else {
-                    openSettings();
-                  }
-                });
-              }}
-              onPressPrimary={() =>
-                navigation.dispatch(
-                  NavigationService.resetAction({
-                    navigatorName: 'Tabs',
-                    routeName: 'Home',
-                  })
-                )
-              }
-              primaryNavText={'Finish'}
-            />
+                  }}
+                  onRequestPushPermissions={(update) => {
+                    checkNotifications().then((checkRes) => {
+                      if (checkRes.status === RESULTS.DENIED) {
+                        requestNotifications(['alert', 'badge', 'sound']).then(
+                          () => {
+                            update();
+                          }
+                        );
+                      } else {
+                        openSettings();
+                      }
+                    });
+                  }}
+                  primaryNavText={'Finish'}
+                />
+              )}
+            </Query>
           </>
         )}
       </OnboardingSwiper>

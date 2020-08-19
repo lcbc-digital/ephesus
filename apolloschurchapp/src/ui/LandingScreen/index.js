@@ -29,11 +29,6 @@ const BrandIcon = withTheme(({ theme, color }) => ({
   },
 }))(Icon);
 
-const Title = styled(({ theme, color }) => ({
-  marginBottom: theme.sizing.baseUnit,
-  ...(color ? { color } : {}),
-}))(H1);
-
 const TitleWrapper = styled({ flexDirection: 'row', flexWrap: 'wrap' })(View);
 
 const LandingScreen = ({
