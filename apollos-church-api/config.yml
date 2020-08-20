@@ -204,6 +204,14 @@ HOME_FEATURES:
     type: VerticalCardList
     title: Upcoming
     subtitle: Events
+  - algorithms: [SERIES_IN_PROGRESS]
+    type: HorizontalCardList
+    title:
+    subtitle: Continue
+  # - algorithms: [NEW_FOR_YOU]
+  #   type: HorizontalCardList
+  #   title:
+  #   subtitle: Start something new
   # - algorithms: [CAMPAIGN_ITEMS]
   #   type: HeroList
   #   isFeatured: true

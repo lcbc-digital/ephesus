@@ -2,10 +2,14 @@
 import { ContentItem } from '@apollosproject/data-connector-rock';
 import ApollosConfig from '@apollosproject/config';
 import sanitizeHtml from '@apollosproject/data-connector-rock/lib/sanitize-html';
-import { parseCursor, createGlobalId } from '@apollosproject/server-core';
+import {
+  parseCursor,
+  createGlobalId,
+  parseGlobalId,
+} from '@apollosproject/server-core';
 import sanitize from 'sanitize-html';
 import { ApolloError } from 'apollo-server';
-import { get, kebabCase, intersection, chunk, flatten } from 'lodash';
+import { get, kebabCase, intersection, chunk, flatten, uniq } from 'lodash';
 import Color from 'color';
 import gql from 'graphql-tag';
 import CraftDataSource, { mapToEdgeNode } from './CraftDataSource';
@@ -528,6 +532,125 @@ export class dataSource extends CraftDataSource {
     return resultsWithPersonas;
   }
 
+  async getSeriesWithUserProgress() {
+    const { Auth, Interactions } = this.context.dataSources;
+
+    // Safely exit if we don't have a current user.
+    try {
+      await Auth.getCurrentPerson();
+    } catch (e) {
+      return this.request().empty();
+    }
+
+    const interactions = await Interactions.getInteractionsForCurrentUser({
+      actions: ['SERIES_START'],
+    });
+
+    const ids = uniq(
+      interactions.map(({ foreignKey }) => {
+        const { id } = parseGlobalId(foreignKey);
+        return id;
+      })
+    );
+
+    // We need to make sure we don't include the campaign channels.
+    // We could also consider doing this using a whitelist.
+    // This also may be part of a broader conversation about how we identify the true parent of a content item
+    // const blacklistedIds = (await this.byContentChannelIds(
+    //   ROCK_MAPPINGS.CAMPAIGN_CHANNEL_IDS
+    // ).get()).map(({ id }) => `${id}`);
+    const blacklistedIds = [];
+
+    const completedIds = (await Promise.all(
+      ids.map(async (id) => ({
+        id,
+        percent: await this.getPercentComplete({ id }),
+      }))
+    ))
+      .filter(({ percent }) => percent === 100)
+      .map(({ id }) => id);
+
+    const finalIds = ids.filter(
+      (id) => ![...blacklistedIds, ...completedIds].includes(id)
+    );
+
+    return this.getFromIds(finalIds);
+  }
+
+  async getPercentComplete({ id }) {
+    const { Auth, Interactions } = this.context.dataSources;
+    // This can, and should, be cached in redis or some other system at some point
+
+    // Safely exit if we don't have a current user.
+    try {
+      await Auth.getCurrentPerson();
+    } catch (e) {
+      return null;
+    }
+
+    const childItemsEdges = await this.getChildren(id, {
+      after: null,
+      first: null,
+    });
+    const childItems = childItemsEdges.edges.map(({ node }) => node);
+
+    if (childItems.length === 0) {
+      return 0;
+    }
+
+    const childItemsWithApollosIds = childItems.map((childItem) => ({
+      ...childItem,
+      apollosId: createGlobalId(childItem.id, this.resolveType(childItem)),
+    }));
+
+    const interactionGroups = chunk(
+      childItemsWithApollosIds.map(({ apollosId }) => apollosId),
+      20
+    );
+
+    const interactions = flatten(
+      await Promise.all(
+        interactionGroups.flatMap((apollosIds) =>
+          Interactions.getInteractionsForCurrentUserAndNodes({
+            nodeIds: apollosIds,
+            actions: ['COMPLETE'],
+          })
+        )
+      )
+    );
+
+    const apollosIdsWithInteractions = interactions.map(
+      ({ foreignKey }) => foreignKey
+    );
+
+    const totalItemsWithInteractions = childItemsWithApollosIds.filter(
+      ({ apollosId }) => apollosIdsWithInteractions.includes(apollosId)
+    ).length;
+
+    return (totalItemsWithInteractions / childItems.length) * 100;
+  }
+
+  async getFromIds(ids) {
+    const query = `query ($ids: [QueryArgument]) {
+     nodes: entries(id: $ids) { ${this.entryFragment} }
+    }`;
+
+    const result = await this.query(query, { ids });
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    const nodes = result?.data?.nodes;
+
+    if (!nodes || !nodes.length) {
+      return null;
+    }
+
+    return nodes.map((node) => ({
+      __typename: this.resolveType(node),
+      ...node,
+    }));
+  }
+
   // Override: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/data-source.js#L46
   async getFromId(id) {
     const query = `query ($id: [QueryArgument]) {
@@ -547,7 +670,7 @@ export class dataSource extends CraftDataSource {
     //   }`;
     // }
 
-    const result = await this.query(query, { id: [id] });
+    const result = await this.query(query, { id });
     if (result?.error)
       throw new ApolloError(result?.error?.message, result?.error?.code);
 
@@ -599,8 +722,6 @@ export class dataSource extends CraftDataSource {
         )
       )
     );
-
-    console.log(interactions);
 
     const apollosIdsWithInteractions = interactions.map(
       ({ foreignKey }) => foreignKey

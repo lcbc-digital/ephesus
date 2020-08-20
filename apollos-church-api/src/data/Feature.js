@@ -224,6 +224,22 @@ class dataSource extends Feature.dataSource {
       },
     ];
   }
+
+  async seriesInProgressAlgorithm({ limit = 3 } = {}) {
+    const { ContentItem } = this.context.dataSources;
+
+    const items = await ContentItem.getSeriesWithUserProgress();
+
+    return items.slice(0, limit).map((item, i) => ({
+      id: createGlobalId(`${item.id}${i}`, 'ActionListAction'),
+      title: item.title,
+      subtitle: get(item, 'contentChannel.name'),
+      relatedNode: { ...item, __type: ContentItem.resolveType(item) },
+      image: ContentItem.getCoverImage(item),
+      action: 'READ_CONTENT',
+      summary: ContentItem.createSummary(item),
+    }));
+  }
 }
 
 export { resolver, schema, dataSource };
