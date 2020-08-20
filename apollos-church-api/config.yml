@@ -208,10 +208,10 @@ HOME_FEATURES:
     type: HorizontalCardList
     title:
     subtitle: Continue
-  # - algorithms: [NEW_FOR_YOU]
-  #   type: HorizontalCardList
-  #   title:
-  #   subtitle: Start something new
+  - algorithms: [START_SOMETHING_NEW]
+    type: HorizontalCardList
+    title:
+    subtitle: Start something new
   # - algorithms: [CAMPAIGN_ITEMS]
   #   type: HeroList
   #   isFeatured: true

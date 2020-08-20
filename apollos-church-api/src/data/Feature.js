@@ -64,6 +64,7 @@ class dataSource extends Feature.dataSource {
     SECTION: this.sectionFeature.bind(this),
     CAMPUS: this.campusFeature.bind(this),
     VERSE_OF_THE_DAY: this.verseOfTheDayAlgorithm.bind(this),
+    START_SOMETHING_NEW: this.startSomethingNewAlgorithm.bind(this),
   };
 
   getFromId(args, id) {
@@ -229,6 +230,22 @@ class dataSource extends Feature.dataSource {
     const { ContentItem } = this.context.dataSources;
 
     const items = await ContentItem.getSeriesWithUserProgress();
+
+    return items.slice(0, limit).map((item, i) => ({
+      id: createGlobalId(`${item.id}${i}`, 'ActionListAction'),
+      title: item.title,
+      subtitle: get(item, 'contentChannel.name'),
+      relatedNode: { ...item, __type: ContentItem.resolveType(item) },
+      image: ContentItem.getCoverImage(item),
+      action: 'READ_CONTENT',
+      summary: ContentItem.createSummary(item),
+    }));
+  }
+
+  async startSomethingNewAlgorithm({ limit = 3 } = {}) {
+    const { ContentItem } = this.context.dataSources;
+
+    const items = await ContentItem.getNewSeries();
 
     return items.slice(0, limit).map((item, i) => ({
       id: createGlobalId(`${item.id}${i}`, 'ActionListAction'),

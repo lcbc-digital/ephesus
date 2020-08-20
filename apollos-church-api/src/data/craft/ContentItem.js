@@ -743,6 +743,39 @@ export class dataSource extends CraftDataSource {
     return childItemsWithApollosIds[firstInteractedIndex - 1];
   }
 
+  getNewSeries = async () => {
+    const { Interactions } = this.context.dataSources;
+    const interactions = await Interactions.getInteractionsForCurrentUser({
+      actions: ['SERIES_START'],
+    });
+
+    const startedIds = uniq(
+      interactions.map(({ foreignKey }) => {
+        const { id } = parseGlobalId(foreignKey);
+        return id;
+      })
+    );
+
+    const query = `
+    query {
+      entries(eligibleForStartSomethingNew: "true", type:"series") { ${
+        this.entryFragment
+      } }
+    }`;
+
+    const result = await this.query(query);
+    if (result?.error)
+      throw new ApolloError(result?.error?.message, result?.error?.code);
+
+    const entries = result?.data?.entries;
+
+    if (!entries.length) {
+      return [];
+    }
+
+    return entries.filter(({ id }) => !startedIds.includes(`${id}`));
+  };
+
   getFeatures = ({ craftType, image }) => {
     if (craftType === 'media_mediaWallpaper_Entry' && image.length) {
       return image.map(({ url }) =>
