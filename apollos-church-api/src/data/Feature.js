@@ -67,10 +67,11 @@ class dataSource extends Feature.dataSource {
     START_SOMETHING_NEW: this.startSomethingNewAlgorithm.bind(this),
   };
 
-  getFromId(args, id) {
+  getFromId(args, id, { info }) {
     const type = id.split(':')[0];
     const funcArgs = JSON.parse(args);
     const method = this[`create${type}`].bind(this);
+    this.info = info;
     if (funcArgs.campusId) {
       this.context.campusId = funcArgs.campusId;
     }
@@ -227,6 +228,9 @@ class dataSource extends Feature.dataSource {
   }
 
   async seriesInProgressAlgorithm({ limit = 3 } = {}) {
+    if (this.info) {
+      this.info.cacheControl.setCacheHint({ maxAge: 0 });
+    }
     const { ContentItem } = this.context.dataSources;
 
     const items = await ContentItem.getSeriesWithUserProgress();
@@ -243,6 +247,9 @@ class dataSource extends Feature.dataSource {
   }
 
   async startSomethingNewAlgorithm({ limit = 3 } = {}) {
+    if (this.info) {
+      this.info.cacheControl.setCacheHint({ maxAge: 0 });
+    }
     const { ContentItem } = this.context.dataSources;
 
     const items = await ContentItem.getNewSeries();
