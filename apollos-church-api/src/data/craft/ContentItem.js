@@ -204,6 +204,10 @@ export class dataSource extends CraftDataSource {
         title
         url
       }
+      preferredTopic {
+        id
+        title
+      }
       articlePost {
         ... on articlePost_textBlock_BlockType {
           body
@@ -235,6 +239,10 @@ export class dataSource extends CraftDataSource {
       ... on articlePost_textBlock_BlockType {
         body
       }
+    }
+    preferredTopic {
+      id
+      title
     }
     excerpt
     hero {
@@ -498,7 +506,7 @@ export class dataSource extends CraftDataSource {
           }
         }
        ${this.entryFragment}
-       ${this.personaFragment}       
+       ${this.personaFragment}
       }
     }`;
 
@@ -842,6 +850,18 @@ export class dataSource extends CraftDataSource {
        parent {
         ${this.entryFragment}
        }
+       ... on articles_article_Entry {
+         preferredTopic {
+           id
+           title
+         }
+       }
+       ... on stories_stories_Entry {
+         preferredTopic {
+           id
+           title
+         }
+       }
      }
     }`;
 
@@ -852,11 +872,10 @@ export class dataSource extends CraftDataSource {
     if (result?.error)
       throw new ApolloError(result?.error?.message, result?.error?.code);
 
-    const parent = result?.data?.node?.parent;
-    if (!parent) {
-      return null;
-    }
-    return parent;
+    const itemParent = result?.data?.node?.parent;
+    const categoryParent = result?.data?.node?.preferredTopic;
+
+    return itemParent || categoryParent;
   };
 
   async getAppBarActions() {
@@ -883,7 +902,10 @@ export class dataSource extends CraftDataSource {
       try {
         if (r.usePersonId) {
           const token = await this.context.dataSources.Auth.getAuthToken();
-          url = new URL(r.actionBarURL);
+          if (!url.includes('http')) {
+            url = `https://${url}`;
+          }
+          url = new URL(url);
           url.searchParams.append('rckipid', token);
           url = url.toString();
         }

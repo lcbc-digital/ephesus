@@ -20,11 +20,6 @@ fragment ServiceFields on Service {
   endTime
   content {
     id
-    features {
-      publicChat
-      livePrayer
-      __typename
-    }
     hostInfo
     notes
     title
@@ -39,36 +34,6 @@ fragment ServiceFields on Service {
     videoStartTime
     __typename
   }
-  sequence {
-    serverTime
-    steps {
-      fetchTime
-      queries
-      transitionTime
-      __typename
-    }
-    __typename
-  }
-  feed {
-    id
-    key
-    type
-    name
-    direct
-    group
-    subscribers {
-      id
-      nickname
-      avatar
-      role {
-        label
-        __typename
-      }
-      __typename
-    }
-    __typename
-  }
-  __typename
 }`;
 
 export class dataSource extends RESTDataSource {
