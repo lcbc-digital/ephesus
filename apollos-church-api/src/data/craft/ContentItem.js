@@ -27,7 +27,45 @@ Looking for something specific? <a href="https://lcbcchurch.com/forms/contact">C
 `;
 
 const newResolvers = {
-  htmlContent: ({ description, articlePost }) => {
+  htmlContent: (
+    { description, articlePost, craftType },
+    args,
+    { dataSources }
+  ) => {
+    if (craftType === 'news_news_Entry') {
+      return sanitize(description, {
+        exclusiveFilter: (frame) =>
+          frame.tag === 'div' &&
+          frame.attribs.class &&
+          frame.attribs.class.includes('wistia_responsive_padding'),
+        allowedTags: [
+          'h1',
+          'h2',
+          'h3',
+          'h4',
+          'h5',
+          'h6',
+          'blockquote',
+          'p',
+          'a',
+          'ul',
+          'ol',
+          'li',
+          'b',
+          'i',
+          'strong',
+          'em',
+          'br',
+          '  caption',
+          'img',
+          'div',
+        ],
+        allowedAttributes: {
+          a: ['href', 'target'],
+          img: ['src'],
+        },
+      });
+    }
     if (articlePost && articlePost?.length > 0) {
       return sanitizeHtml(articlePost.map(({ body }) => body).join('\n'));
     }
@@ -854,13 +892,30 @@ export class dataSource extends CraftDataSource {
     return [];
   };
 
-  getVideos = ({ videoEmbed, title, storyVideo, ...args }) => {
-    const uri = videoEmbed || storyVideo;
+  getVideos = async ({
+    description,
+    craftType,
+    videoEmbed,
+    title,
+    storyVideo,
+  }) => {
+    let newsUri;
+    if (craftType === 'news_news_Entry') {
+      // Find the media id in the HTML.
+      const matches = description.match(
+        /fast\.wistia\.com\/embed\/medias\/(.*)\/swatch/
+      );
+      if (matches && matches[1]) {
+        newsUri = `https://lcbcchurch.wistia.com/medias/${matches[1]}`;
+      }
+    }
+    const uri = videoEmbed || storyVideo || newsUri;
     const { Vimeo, Wistia } = this.context.dataSources;
     if (uri) {
       const finalUri = uri.includes('vimeo')
         ? Vimeo.getHLSForVideo(uri)
         : Wistia.getHLSForVideo(uri);
+
       return [
         {
           __typename: 'VideoMedia',

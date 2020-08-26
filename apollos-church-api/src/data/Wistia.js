@@ -17,7 +17,10 @@ class dataSource extends RESTDataSource {
   };
 
   findHLSSource({ media }) {
-    const hls = media.assets.find(({ type }) => type === 'original');
+    const hls =
+      media.assets.find(
+        ({ type, width }) => type === 'hd_mp4_video' && width === 1920
+      ) || media.assets.find(({ type }) => type === 'original');
 
     return hls ? `${hls.url.split('.bin')[0]}.m3u8?origin_v2=1` : null;
   }
