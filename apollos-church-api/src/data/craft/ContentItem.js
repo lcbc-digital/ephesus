@@ -863,7 +863,7 @@ export class dataSource extends CraftDataSource {
 
     const query = `
     query {
-      entries(eligibleForStartSomethingNew: "true", type:"series") { ${
+      entries(eligibleForStartSomethingNew: "true", type:"series", orderBy: "postDate desc") { ${
         this.entryFragment
       } }
     }`;
