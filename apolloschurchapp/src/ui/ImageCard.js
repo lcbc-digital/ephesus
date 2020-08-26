@@ -3,12 +3,15 @@ import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
 import {
+  styled,
   withIsLoading,
   ImageSourceType,
   withTheme,
   ThemeMixin,
   Card,
   CardImage,
+  CardLabel,
+  CardContent,
 } from '@apollosproject/ui-kit';
 
 const StyledCard = withTheme(({ theme }) => ({
@@ -22,22 +25,47 @@ const Image = withTheme(({ theme, customTheme }) => ({
   overlayColor: get(customTheme, 'colors.primary', theme.colors.black),
 }))(CardImage);
 
-const HighlightCard = withIsLoading(({ coverImage, isLoading, theme }) => (
-  <ThemeMixin
-    mixin={{
-      type: get(theme, 'type', 'dark').toLowerCase(), // not sure why we need toLowerCase
-      colors: get(theme, 'colors', {}),
-    }}
-  >
-    <StyledCard isLoading={isLoading}>
-      <Image
-        overlayType={'no-overlay'}
-        customTheme={theme}
-        source={coverImage}
-      />
-    </StyledCard>
-  </ThemeMixin>
-));
+const Content = styled(({ theme }) => ({
+  position: 'absolute',
+  bottom: 0,
+  width: '100%',
+  alignItems: 'flex-start', // needed to make `Label` display as an "inline" element
+  paddingHorizontal: theme.sizing.baseUnit * 1.5, // TODO: refactor CardContent to have this be the default
+  paddingBottom: theme.sizing.baseUnit * 2, // TODO: refactor CardContent to have this be the default
+}))(CardContent);
+
+const Label = withTheme(({ customTheme, labelText }) => ({
+  title: labelText,
+  theme: { colors: get(customTheme, 'colors', {}) },
+  type: 'primary',
+}))(CardLabel);
+
+const HighlightCard = withIsLoading(
+  ({ coverImage, isLoading, theme, labelText }) => (
+    <ThemeMixin
+      mixin={{
+        type: get(theme, 'type', 'dark').toLowerCase(), // not sure why we need toLowerCase
+        colors: get(theme, 'colors', {}),
+      }}
+    >
+      <StyledCard isLoading={isLoading}>
+        <Image
+          overlayType={'no-overlay'}
+          customTheme={theme}
+          source={coverImage}
+        />
+        <Content>
+          <Label
+            customTheme={theme}
+            labelText={labelText}
+            isLive={false}
+            IconComponent={null}
+          />
+        </Content>
+      </StyledCard>
+    </ThemeMixin>
+  )
+);
 
 HighlightCard.propTypes = {
   coverImage: PropTypes.oneOfType([

@@ -28,7 +28,7 @@ const resolver = {
     labelText: (item) =>
       item?.relatedNode?.craftType === 'media_mediaWallpaper_Entry'
         ? 'Tap to Download'
-        : startCase(item.relatedNode.labelText),
+        : startCase(item.relatedNode.labelText) || item.labelText,
     action: (item) =>
       item?.relatedNode?.craftType === 'media_mediaWallpaper_Entry'
         ? 'SHARE_IMAGE'
@@ -126,11 +126,13 @@ class dataSource extends Feature.dataSource {
     const imageUrl = get(verseOfTheDay, 'image.url', '')
       .replace('{width}', 800)
       .replace('{height}', 800);
+
     return [
       {
         id: createGlobalId('verse-of-the-day', 'CardListItem'),
         title: '',
         subtitle: '',
+        labelText: 'Verse of the Day',
         relatedNode: {
           url: get(verseOfTheDay, 'verse.url'),
           id: createGlobalId(JSON.stringify({ verseOfTheDay }), 'Url'),
