@@ -486,10 +486,11 @@ export class dataSource extends CraftDataSource {
   byActive() {
     const cursor = new CraftCursor({
       connector: this,
-      query: `query ($first: Int, $after: Int, section: ["articles", "bibleReading", "media", "news", "series", "stories", "studies"]) {
+      query: `query ($first: Int, $after: Int) {
         nodes: entries(
           limit: $first
           offset: $after
+          section: ["articles", "bibleReading", "media", "news", "series", "stories", "studies"]
         ) { ${this.entryFragment} }
       }`,
     });
@@ -501,11 +502,12 @@ export class dataSource extends CraftDataSource {
     const cursor = new CraftCursor({
       connector: this,
       variables: { postDate: `>= ${datetime}` },
-      query: `query ($first: Int, $after: Int, $postDate: [String], section: ["articles", "bibleReading", "media", "news", "series", "stories", "studies"]) {
+      query: `query ($first: Int, $after: Int, $postDate: [String]) {
         nodes: entries(
           limit: $first
           offset: $after
           postDate: $postDate
+          section: ["articles", "bibleReading", "media", "news", "series", "stories", "studies"]
         ) { ${this.entryFragment} }
       }`,
     });
