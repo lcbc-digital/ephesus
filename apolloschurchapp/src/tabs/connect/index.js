@@ -1,4 +1,4 @@
-  import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import { withTheme } from '@apollosproject/ui-kit';
 import { LikedContentFeedConnected } from '@apollosproject/ui-connected';
 
