@@ -123,10 +123,10 @@ export class dataSource extends CraftDataSource {
     title
     typeId
     craftType: __typename
+    labelText: sectionHandle
 
 
     ... on media_mediaWallpaper_Entry {
-      title
       image {
         url
         id

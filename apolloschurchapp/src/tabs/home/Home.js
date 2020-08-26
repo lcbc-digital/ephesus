@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { styled, BackgroundView } from '@apollosproject/ui-kit';
 import { RockAuthedWebBrowser } from '@apollosproject/ui-connected';
+import { shareImage } from '../../content-single/ShareableImageFeature';
 import ActionBarConnected from './ActionBarConnected';
 import FeaturesFeedWithCampus from './FeaturesFeedWithCampus';
 
@@ -28,7 +29,7 @@ class Home extends PureComponent {
     }),
   };
 
-  handleOnPress = ({ openUrl }) => ({ action, relatedNode }) => {
+  handleOnPress = ({ openUrl }) => ({ action, relatedNode, coverImage }) => {
     if (action === 'READ_CONTENT') {
       this.props.navigation.navigate('ContentSingle', {
         itemId: relatedNode.id,
@@ -44,6 +45,10 @@ class Home extends PureComponent {
     if (action === 'OPEN_URL') {
       const externalBrowser = relatedNode.url.includes('#external');
       openUrl(relatedNode.url, { externalBrowser });
+    }
+    if (action === 'SHARE_IMAGE') {
+      const imageUrl = coverImage[0].uri;
+      shareImage({ url: imageUrl });
     }
   };
 

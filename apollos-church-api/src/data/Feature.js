@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import { Feature } from '@apollosproject/data-connector-rock';
 import { createGlobalId, parseGlobalId } from '@apollosproject/server-core';
-import { get } from 'lodash';
+import { get, startCase } from 'lodash';
 import ApollosConfig from '@apollosproject/config';
 import gql from 'graphql-tag';
 import fetch from 'node-fetch';
@@ -23,6 +23,21 @@ const resolver = {
     ...baseResolver.ActionListAction,
     subtitle: ({ subtitle, summary }) => subtitle || summary,
   },
+  CardListItem: {
+    ...baseResolver.CardListItem,
+    labelText: (item) =>
+      item?.relatedNode?.craftType === 'media_mediaWallpaper_Entry'
+        ? 'Tap to Download'
+        : startCase(item.relatedNode.labelText),
+    action: (item) =>
+      item?.relatedNode?.craftType === 'media_mediaWallpaper_Entry'
+        ? 'SHARE_IMAGE'
+        : item.action,
+    title: (item) =>
+      item?.relatedNode?.craftType === 'media_mediaWallpaper_Entry'
+        ? ''
+        : item.title,
+  },
 };
 
 const schema = gql`
@@ -30,6 +45,10 @@ const schema = gql`
 
   extend type Query {
     userFeedFeaturesWithCampus(campusId: ID): [Feature] @cacheControl(maxAge: 0)
+  }
+
+  extend enum ACTION_FEATURE_ACTION {
+    SHARE_IMAGE
   }
 
   type ActionBarAction {

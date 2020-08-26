@@ -9,7 +9,7 @@ import {
   ButtonLink,
 } from '@apollosproject/ui-kit';
 
-const shareImage = async ({ url }) => {
+export const shareImage = async ({ url }) => {
   try {
     let imagePath = null;
     const resp = await RNFetchBlob.config({
