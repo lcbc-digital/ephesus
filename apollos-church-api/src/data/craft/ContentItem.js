@@ -138,6 +138,10 @@ export class dataSource extends CraftDataSource {
     ... on series_series_Entry {
       description: seriesDescription
       overlayColor
+      squareImage: halfBlockSquare {
+        id
+        url
+      }
       hero {
         ... on hero_photoHero_BlockType {
           image {
@@ -156,8 +160,15 @@ export class dataSource extends CraftDataSource {
 
     # bible reading plans
     ... on bibleReading_bibleReadingPlan_Entry {
+      overlayColor
       description: planDescription
       image {
+        id
+        title
+        url
+      }
+
+      squareImage: halfBlockSquare {
         id
         title
         url
@@ -179,9 +190,19 @@ export class dataSource extends CraftDataSource {
           title
           url
         }
+        squareImage: halfBlockSquare {
+          id
+          title
+          url
+        }
+        overlayColor
       }
       ... on series_series_Entry {
         overlayColor
+        squareImage: halfBlockSquare {
+          id
+          url
+        }
       }
       id
     }
@@ -269,6 +290,32 @@ export class dataSource extends CraftDataSource {
     description: mobileAppContent
   }
 
+  ... on events_hasContentBuilder_Entry {
+    hero {
+      ... on hero_photoHero_BlockType {
+        image {
+          id
+          title
+          url
+        }
+      }
+    }
+    description: mobileAppContent
+  }
+  ... on events_events_Entry {
+    description: eventDescription
+    image: eventPhoto {
+      id
+      title
+      url
+    }
+    squareImage: halfBlockSquare {
+      id
+      title
+      url
+    }
+  }
+
   ... on pages_pages_Entry {
     hero {
       ... on hero_photoHero_BlockType {
@@ -280,6 +327,11 @@ export class dataSource extends CraftDataSource {
       }
     }
     description: mobileAppContent
+    squareImage: halfBlockSquare {
+      id
+      title
+      url
+    }
   }
 
   ... on nextSteps_nextStepDefault_Entry {
@@ -293,6 +345,11 @@ export class dataSource extends CraftDataSource {
           title
         }
       }
+    }
+    squareImage: halfBlockSquare {
+      id
+      title
+      url
     }
   }
   `;
@@ -1059,6 +1116,24 @@ export class dataSource extends CraftDataSource {
   };
 
   getCoverImage = async ({ craftType, ...entry }) => {
+    if (entry.squareImage && entry.squareImage.length) {
+      return {
+        __typename: 'ImageMedia',
+        key: entry.squareImage?.[0]?.id,
+        name: entry.squareImage?.[0]?.title,
+        sources: [{ uri: entry.squareImage?.[0]?.url }],
+      };
+    }
+
+    if (entry?.parent?.squareImage && entry.parent.squareImage.length) {
+      return {
+        __typename: 'ImageMedia',
+        key: entry.parent.squareImage?.[0]?.id,
+        name: entry.parent.squareImage?.[0]?.title,
+        sources: [{ uri: entry.parent.squareImage?.[0]?.url }],
+      };
+    }
+
     switch (craftType) {
       case 'series_series_Entry':
       case 'events_hasContentBuilder_Entry':
@@ -1094,6 +1169,7 @@ export class dataSource extends CraftDataSource {
         };
       }
       case 'news_news_Entry': // news
+      case 'events_events_Entry':
       case 'bibleReading_bibleReadingPlan_Entry':
       case 'stories_stories_Entry': // stories
       case 'media_mediaWallpaper_Entry': // wallpapers

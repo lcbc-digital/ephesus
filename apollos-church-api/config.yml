@@ -179,9 +179,9 @@ HOME_FEATURES:
     - type: SECTION
       arguments:
         section: appGrowingInFaith
-    - type: SECTION
-      arguments:
-        section: media
+    # - type: SECTION
+    #   arguments:
+    #     section: media
     type: VerticalCardList
     title:
     subtitle: Growing in faith
