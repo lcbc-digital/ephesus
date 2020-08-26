@@ -501,7 +501,7 @@ export class dataSource extends CraftDataSource {
     const cursor = new CraftCursor({
       connector: this,
       variables: { postDate: `>= ${datetime}` },
-      query: `query ($first: Int, $after: Int, $postDate: [String]) {
+      query: `query ($first: Int, $after: Int, $postDate: [String], section: ["articles", "bibleReading", "media", "news", "series", "stories", "studies"]) {
         nodes: entries(
           limit: $first
           offset: $after
@@ -518,7 +518,7 @@ export class dataSource extends CraftDataSource {
       after = parseCursor(cursor);
     }
 
-    const query = `query ($first: Int, $after: Int, $categories: [Int]) {
+    const query = `query ($first: Int, $after: Int, $categories: [Int], section: ["articles", "bibleReading", "media", "news", "series", "stories", "studies"]) {
         nodes: entries(
           limit: $first
           offset: $after
