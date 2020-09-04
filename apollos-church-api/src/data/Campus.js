@@ -71,6 +71,7 @@ class dataSource extends CampusDataSource {
     const craftCampus = await this.context.dataSources.CraftCampus.getFromRockId(
       id
     );
+
     return { ...campus, craftCampus };
   };
 

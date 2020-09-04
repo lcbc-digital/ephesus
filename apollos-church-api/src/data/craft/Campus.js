@@ -6,7 +6,7 @@ class CraftCampus extends CraftDataSource {
     const result = await this.query(
       `
 query campus($rockId: [QueryArgument]) {
-  entry(campusRockId: $rockId) {
+  entry(campusRockId: $rockId, section:"campuses") {
     craftType: __typename
     ... on campuses_campus_Entry {
       emailAddress
@@ -34,6 +34,7 @@ query campus($rockId: [QueryArgument]) {
 
     if (result?.error)
       throw new ApolloError(result?.error?.message, result?.error?.code);
+
     return result?.data?.entry;
   }
 }
