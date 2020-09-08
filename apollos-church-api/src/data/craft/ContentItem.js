@@ -374,6 +374,7 @@ export class dataSource extends CraftDataSource {
 
   ... on nextSteps_nextStepDefault_Entry {
     description: mobileAppContent
+    videoEmbed:wistiaVideo
     excerpt
     hero {
       ... on hero_photoHero_BlockType {

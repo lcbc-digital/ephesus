@@ -7,6 +7,7 @@ import { MediaPlayerProvider } from '@apollosproject/ui-media-player';
 import { NotificationsProvider } from '@apollosproject/ui-notifications';
 import { LiveProvider } from '@apollosproject/ui-connected';
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
+import { track, identify } from './amplitude';
 
 import ClientProvider, { client } from './client';
 import customTheme, { customIcons } from './theme';
@@ -28,7 +29,11 @@ const AppProviders = (props) => (
         }
       >
         <MediaPlayerProvider>
-          <AnalyticsProvider useServerAnalytics={false}>
+          <AnalyticsProvider
+            trackFunctions={[track]}
+            identifyFunctions={[identify]}
+            useServerAnalytics={false}
+          >
             <LiveProvider>
               <Providers
                 themeInput={customTheme}

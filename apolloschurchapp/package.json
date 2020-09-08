@@ -65,9 +65,11 @@
     "@apollosproject/ui-prayer": "1.5.0",
     "@apollosproject/ui-scripture": "1.5.0",
     "@apollosproject/ui-storybook": "1.5.0",
+    "@metarouter/analytics-react-native": "^1.1.5",
     "@react-native-community/async-storage": "^1.5.1",
     "@react-native-community/datetimepicker": "^2.4.0",
     "@react-native-community/geolocation": "^2.0.2",
+    "amplitude-js": "^7.1.1",
     "apollo-cache-inmemory": "1.5.1",
     "apollo-cache-persist": "0.1.1",
     "apollo-client": "2.6.8",
@@ -118,8 +120,7 @@
     "rn-fetch-blob": "^0.10.16",
     "stream": "^0.0.2",
     "wml": "^0.0.83",
-    "yup": "0.26.6",
-    "@metarouter/analytics-react-native": "^1.1.5"
+    "yup": "0.26.6"
   },
   "devDependencies": {
     "@apollosproject/eslint-config": "1.5.0",
