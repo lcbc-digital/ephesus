@@ -177,6 +177,11 @@ export class dataSource extends CraftDataSource {
       }
     }
 
+    ... on media_media_Entry {
+      videoEmbed: wistiaVideo
+      description
+    }
+
     # series
     ... on series_series_Entry {
       description: seriesDescription
@@ -1237,6 +1242,17 @@ export class dataSource extends CraftDataSource {
           key: entry.parent?.image?.[0]?.id,
           name: entry.parent?.image?.[0]?.title,
           sources: [{ uri: entry.parent?.image?.[0]?.url }],
+        };
+      }
+      case 'media_media_Entry': {
+        const imageUrl = await this.context.dataSources.Wistia.getImage(
+          entry.videoEmbed
+        );
+        return {
+          __typename: 'ImageMedia',
+          key: entry.id,
+          name: entry.title,
+          sources: [{ uri: imageUrl }],
         };
       }
       case 'news_news_Entry': // news

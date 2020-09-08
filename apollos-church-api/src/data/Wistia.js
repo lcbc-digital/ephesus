@@ -16,6 +16,15 @@ class dataSource extends RESTDataSource {
     return null;
   };
 
+  getImage = async (id) => {
+    const matches = id.match(/\/?(\w+)$/);
+    if (matches && matches[1]) {
+      const video = await this.get(`${matches[1]}.json`);
+      return this.findJPGSource(video);
+    }
+    return null;
+  };
+
   findHLSSource({ media }) {
     const hls =
       media.assets.find(
@@ -23,6 +32,12 @@ class dataSource extends RESTDataSource {
       ) || media.assets.find(({ type }) => type === 'original');
 
     return hls ? `${hls.url.split('.bin')[0]}.m3u8?origin_v2=1` : null;
+  }
+
+  findJPGSource({ media }) {
+    const jpg = media.assets.find(({ type }) => type === 'still_image');
+
+    return jpg ? `${jpg.url.split('.bin')[0]}.jpeg` : null;
   }
 }
 
