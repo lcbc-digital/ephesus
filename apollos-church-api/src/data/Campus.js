@@ -34,6 +34,10 @@ const resolver = resolverMerge(
       //           cursor,
       //           args,
       //         });
+      street1: ({ location }) => location.street1 || 'No locations near you. ',
+      city: ({ location }) => location.city || "When there's one",
+      state: ({ location }) => location.state || "we'll let you know!",
+      postalCode: ({ location }) => location.postalCode || '',
       description: (root, args, { dataSources }) =>
         dataSources.Campus.getWithCraft(
           root,

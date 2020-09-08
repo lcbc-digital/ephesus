@@ -23,7 +23,7 @@ const Toolbar = ({ navigation }) => (
           label="Give"
         />
         <ActionBarItem
-          onPress={() => openUrl('https://my.lcbcchurch.com/prayer')}
+          onPress={() => openUrl('https://my.lcbcchurch.com/Prayer')}
           icon="information"
           label="Prayer"
         />
