@@ -1,15 +1,26 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { get } from 'lodash';
+import { Text } from 'react-native';
+import {
+  AddPrayerScreenConnected,
+  ConfirmationDialogScreen,
+  PrayerDialogScreen,
+  PrayerScreen,
+} from '@apollosproject/ui-prayer/src/screens';
+import { PrayerCard } from '@apollosproject/ui-prayer';
 // import styleOverrides from './styleOverrides';
 // import propOverrides from './propOverrides';
 import {
   DefaultCard,
   HighlightCard,
   FeaturedCard,
+  BodyText,
 } from '@apollosproject/ui-kit';
 import ImageCard from '../ui/ImageCard';
 import fontStack from './fontStack';
+
+console.warn(AddPrayerScreenConnected, ConfirmationDialogScreen, 'components');
 
 /* Add your custom theme definitions below. Anything that is supported in UI-Kit Theme can be
  overridden and/or customized here! */
@@ -158,6 +169,35 @@ const overrides = {
   H6: {
     fontFamily: typography.sans.black.default,
   },
+  'ui-prayer.PrayerExperience': () => ({
+    AddPrayerComponent: (props) => (
+      <AddPrayerScreenConnected
+        {...props}
+        AddedPrayerComponent={(props) => (
+          <ConfirmationDialogScreen
+            {...props}
+            title={
+              'Thanks for giving our community the opportunity to pray for you!'
+            }
+            body={
+              <Text>
+                <BodyText>
+                  In addition to our prayer community here on the LCBC App, your
+                  request has also been sent to the LCBC Ministry Team and a
+                  small trusted team of volunteers.
+                </BodyText>
+                {'\n\n'}
+                <BodyText>
+                  We hope you feel encouraged by God’s presence in your life and
+                  his love for you today!
+                </BodyText>
+              </Text>
+            }
+          />
+        )}
+      />
+    ),
+  }),
 };
 
 export default { colors, typography, sizing, overrides, overlays };
