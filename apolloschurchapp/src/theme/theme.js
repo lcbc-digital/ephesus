@@ -66,9 +66,9 @@ const colors = {
 
   // Statics
   wordOfChrist: '#8b0000', // only used in Scripture.
-  // background: {
-  //   accent: '#9BCBEB',
-  // },
+  action: {
+    secondary: '#008CD0',
+  },
 };
 
 /* Base Typography sizing and fonts.
@@ -133,6 +133,12 @@ export const typography = {
 const overrides = {
   'ui-connected.ContentCardConnected.ContentCardComponentMapper': {
     Component: () => cardMapper,
+  },
+  'ui-kit.FeaturedCard.Label': {
+    type: 'secondary',
+  },
+  'ui-kit.HighlightCard.Label': {
+    type: 'secondary',
   },
   H1: {
     fontFamily: typography.sans.black.default,
