@@ -9,19 +9,23 @@ const Toolbar = ({ navigation }) => (
     {(openUrl) => (
       <ActionBar>
         <ActionBarItem
-          onPress={() => navigation.navigate('Passes')}
+          onPress={() => openUrl('https://app.lcbcchurch.com/AppCheckin/')}
           icon="check"
-          label="Check-in"
+          label="Check-In"
         />
         <ActionBarItem
-          onPress={() => openUrl('https://apollosrock.newspring.cc/page/186')}
+          onPress={() =>
+            openUrl('https://pushpay.com/g/lcbcchurch?src=app#external', {
+              externalBrowser: true,
+            })
+          }
           icon="download"
           label="Give"
         />
         <ActionBarItem
-          onPress={() => navigation.navigate('TestingControlPanel')}
+          onPress={() => openUrl('https://my.lcbcchurch.com/prayer')}
           icon="information"
-          label="Test"
+          label="Prayer"
         />
       </ActionBar>
     )}

@@ -11,7 +11,7 @@ import {
   styled,
   PaddedView,
   H4,
-  NavigationService,
+  // NavigationService,
 } from '@apollosproject/ui-kit';
 import { RockAuthedWebBrowser } from '@apollosproject/ui-connected';
 
@@ -32,44 +32,51 @@ const ActionTable = () => (
       <View>
         <RowHeader>
           <Name>
-            <H4>{'Connect with Apollos'}</H4>
+            <H4>{'Connect with LCBC'}</H4>
           </Name>
         </RowHeader>
         <TableView>
           <Touchable
-            onPress={() => openUrl('https://apollosrock.newspring.cc/page/235')}
+            onPress={() => openUrl('https://lcbcchurch.com/next-steps/groups')}
           >
             <Cell>
-              <CellText>Find a serving opportunity</CellText>
+              <CellText>Join A Group</CellText>
               <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
           <Divider />
           <Touchable
-            onPress={() => openUrl('https://apollosrock.newspring.cc/page/236')}
+            onPress={() => openUrl('https://lcbcchurch.com/next-steps/serve')}
           >
             <Cell>
-              <CellText>Join a small group</CellText>
+              <CellText>Find a Serving Opportunity</CellText>
               <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
           <Divider />
           <Touchable
-            onPress={() => openUrl('https://apollosrock.newspring.cc/page/233')}
+            onPress={() => openUrl('https://lcbcchurch.com/locations')}
           >
             <Cell>
-              <CellText>I need prayer</CellText>
+              <CellText>LCBC Locations & Times</CellText>
               <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
-        </TableView>
-        <TableView>
+          <Divider />
           <Touchable
-            onPress={() => NavigationService.navigate('TestingControlPanel')}
+            onPress={() => openUrl('https://my.lcbcchurch.com/contact-us')}
           >
             <Cell>
-              <CellIcon name="settings" />
-              <CellText>Open Testing Panel</CellText>
+              <CellText>Contact Us</CellText>
+              <CellIcon name="arrow-next" />
+            </Cell>
+          </Touchable>
+          <Divider />
+          <Touchable
+            onPress={() => openUrl('https://my.lcbcchurch.com/bugreport')}
+          >
+            <Cell>
+              <CellText>Report A Bug</CellText>
               <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
