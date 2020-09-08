@@ -253,6 +253,11 @@ export class dataSource extends CraftDataSource {
         title
         url
       }
+      squareImage: halfBlockSquare {
+        id
+        title
+        url
+      }
     }
 
     # stories
