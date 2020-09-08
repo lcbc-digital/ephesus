@@ -28,7 +28,7 @@ Looking for something specific? <a href="https://lcbcchurch.com/forms/contact">C
 
 const newResolvers = {
   htmlContent: (
-    { description, articlePost, craftType },
+    { description, articlePost, craftType, sermonQuestions },
     args,
     { dataSources }
   ) => {
@@ -65,6 +65,11 @@ const newResolvers = {
           img: ['src'],
         },
       });
+    }
+    if (sermonQuestions?.[0]?.url) {
+      description += `<p><a href="${
+        sermonQuestions[0].url
+      }">Sermon Questions</a></p>`;
     }
     if (articlePost && articlePost?.length > 0) {
       return sanitizeHtml(articlePost.map(({ body }) => body).join('\n'));
@@ -194,6 +199,9 @@ export class dataSource extends CraftDataSource {
     # sermons
     ... on series_sermon_Entry {
       description: sermonDescription
+      sermonQuestions {
+        url
+      }
     }
 
     # bible reading plans
