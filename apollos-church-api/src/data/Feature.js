@@ -27,12 +27,12 @@ const resolver = {
     ...baseResolver.CardListItem,
     labelText: (item) =>
       item?.relatedNode?.craftType === 'media_mediaWallpaper_Entry'
-        ? 'Tap to Download'
+        ? 'Wallpaper'
         : startCase(item.relatedNode.labelText) || item.labelText,
-    action: (item) =>
-      item?.relatedNode?.craftType === 'media_mediaWallpaper_Entry'
-        ? 'SHARE_IMAGE'
-        : item.action,
+    // action: (item) =>
+    //   item?.relatedNode?.craftType === 'media_mediaWallpaper_Entry'
+    //     ? 'SHARE_IMAGE'
+    //     : item.action,
     title: (item) =>
       item?.relatedNode?.craftType === 'media_mediaWallpaper_Entry'
         ? ''
