@@ -28,61 +28,66 @@ const Name = styled({
 
 const ActionTable = () => (
   <RockAuthedWebBrowser>
-    {(openUrl) => (
-      <View>
-        <RowHeader>
-          <Name>
-            <H4>{'Connect with LCBC'}</H4>
-          </Name>
-        </RowHeader>
-        <TableView>
-          <Touchable
-            onPress={() => openUrl('https://lcbcchurch.com/next-steps/groups')}
-          >
-            <Cell>
-              <CellText>Join A Group</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
-          <Divider />
-          <Touchable
-            onPress={() => openUrl('https://lcbcchurch.com/next-steps/serve')}
-          >
-            <Cell>
-              <CellText>Find a Serving Opportunity</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
-          <Divider />
-          <Touchable
-            onPress={() => openUrl('https://lcbcchurch.com/locations')}
-          >
-            <Cell>
-              <CellText>LCBC Locations & Times</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
-          <Divider />
-          <Touchable
-            onPress={() => openUrl('https://my.lcbcchurch.com/contact-us')}
-          >
-            <Cell>
-              <CellText>Contact Us</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
-          <Divider />
-          <Touchable
-            onPress={() => openUrl('https://my.lcbcchurch.com/bugreport')}
-          >
-            <Cell>
-              <CellText>Report A Bug</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
-        </TableView>
-      </View>
-    )}
+    {(openUrlFunc) => {
+      const openUrl = (url) => openUrlFunc(url, {}, { useRockToken: true });
+      return (
+        <View>
+          <RowHeader>
+            <Name>
+              <H4>{'Connect with LCBC'}</H4>
+            </Name>
+          </RowHeader>
+          <TableView>
+            <Touchable
+              onPress={() =>
+                openUrl('https://lcbcchurch.com/next-steps/groups')
+              }
+            >
+              <Cell>
+                <CellText>Join A Group</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+            <Divider />
+            <Touchable
+              onPress={() => openUrl('https://lcbcchurch.com/next-steps/serve')}
+            >
+              <Cell>
+                <CellText>Find a Serving Opportunity</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+            <Divider />
+            <Touchable
+              onPress={() => openUrl('https://lcbcchurch.com/locations')}
+            >
+              <Cell>
+                <CellText>LCBC Locations & Times</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+            <Divider />
+            <Touchable
+              onPress={() => openUrl('https://my.lcbcchurch.com/contact-us')}
+            >
+              <Cell>
+                <CellText>Contact Us</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+            <Divider />
+            <Touchable
+              onPress={() => openUrl('https://my.lcbcchurch.com/bugreport')}
+            >
+              <Cell>
+                <CellText>Report A Bug</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+          </TableView>
+        </View>
+      );
+    }}
   </RockAuthedWebBrowser>
 );
 

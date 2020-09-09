@@ -44,6 +44,7 @@ class Home extends PureComponent {
     }
     if (action === 'OPEN_URL') {
       const externalBrowser = relatedNode.url.includes('#external');
+      // const useRockToken = relatedNode.url.includes('my.lcbc');
       openUrl(relatedNode.url, { externalBrowser });
     }
     if (action === 'SHARE_IMAGE') {

@@ -9,8 +9,14 @@ const Toolbar = ({ navigation }) => (
     {(openUrl) => (
       <ActionBar>
         <ActionBarItem
-          onPress={() => openUrl('https://app.lcbcchurch.com/AppCheckin/')}
-          icon="check"
+          onPress={() =>
+            openUrl(
+              'https://app.lcbcchurch.com/AppCheckin/',
+              {},
+              { useRockToken: true }
+            )
+          }
+          icon="check-in"
           label="Check-In"
         />
         <ActionBarItem
@@ -19,12 +25,18 @@ const Toolbar = ({ navigation }) => (
               externalBrowser: true,
             })
           }
-          icon="download"
+          icon="give"
           label="Give"
         />
         <ActionBarItem
-          onPress={() => openUrl('https://my.lcbcchurch.com/Prayer')}
-          icon="information"
+          onPress={() =>
+            openUrl(
+              'https://my.lcbcchurch.com/Prayer',
+              {},
+              { useRockToken: true }
+            )
+          }
+          icon="pray"
           label="Prayer"
         />
       </ActionBar>
