@@ -23,6 +23,7 @@ const ContentSingleFeaturesWithExtras = (props) => (
 export default (props) => (
   <ContentSingleFeaturesConnected
     {...props}
+    title=""
     Component={ContentSingleFeaturesWithExtras}
   />
 );
