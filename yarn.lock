@@ -305,10 +305,25 @@
     entities "^1.1.2"
     htmlparser2 "3.9.2"
 
-"@apollosproject/ui-kit@1.5.0", "@apollosproject/ui-kit@^1.5.0":
+"@apollosproject/ui-kit@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-1.5.0.tgz#06388ea723f47deca4094f7c55af23b06faae040"
   integrity sha512-REsE4WFeGbTZS4AMNkXG9DJDhSPYSLMLXMszorNxWNHHrmGr5Ib4BhGnU/QIz8PCjnh2yTrYl+fks/pt1qQKkA==
+  dependencies:
+    "@react-native-community/blur" "^3.6.0"
+    color "^3.1.0"
+    lodash "^4.17.11"
+    moment "^2.24.0"
+    numeral "^2.0.6"
+    react-native-modal-datetime-picker "8.7.1"
+    react-native-tab-view "1.0.2"
+    recompose "^0.30.0"
+    rn-placeholder "1.2.0"
+
+"@apollosproject/ui-kit@^1.5.1-alpha.7":
+  version "1.5.1-alpha.7"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-1.5.1-alpha.7.tgz#5d4572bb570cee04e169a7873aaca1e176522b0c"
+  integrity sha512-6aWyEdEnqWKfFT93uXx5a9ydoazY4pQuMxEGwxGHsNRi9PUfRQ5J56xUDi6L5yNsw1xsVIEoEFK7sYnrOSrdwg==
   dependencies:
     "@react-native-community/blur" "^3.6.0"
     color "^3.1.0"
