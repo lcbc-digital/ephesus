@@ -37,7 +37,7 @@ const Content = styled(({ theme }) => ({
 const Label = withTheme(({ customTheme, labelText }) => ({
   title: labelText,
   theme: { colors: get(customTheme, 'colors', {}) },
-  type: 'primary',
+  type: 'secondary',
 }))(CardLabel);
 
 const HighlightCard = withIsLoading(

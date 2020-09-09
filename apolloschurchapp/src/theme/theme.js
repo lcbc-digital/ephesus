@@ -128,6 +128,13 @@ export const sizing = {
 //   ...propOverrides,
 // };
 
+export const buttons = () => ({
+  secondary: {
+    fill: '#313131',
+    accent: '#ffffff',
+  },
+});
+
 const overlays = {
   'no-overlay': () => () => ({
     colors: ['transparent', 'transparent'],
@@ -200,4 +207,4 @@ const overrides = {
   }),
 };
 
-export default { colors, typography, sizing, overrides, overlays };
+export default { colors, typography, sizing, overrides, overlays, buttons };
