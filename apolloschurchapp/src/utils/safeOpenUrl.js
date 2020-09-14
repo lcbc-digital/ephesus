@@ -1,11 +1,11 @@
 import { Linking } from 'react-native';
 import InAppBrowser from 'react-native-inappbrowser-reborn';
 
-async function safeHandleUrl(url, { external = false } = {}) {
+async function safeHandleUrl(url, { external = false, browserFunc } = {}) {
   try {
     if (url.startsWith('http') && !external && !url.includes('#external')) {
       // safe enough to use InAppBrowser
-      return InAppBrowser.open(url);
+      return browserFunc(url) || InAppBrowser.open(url);
     }
 
     const canWeOpenUrl = await Linking.canOpenURL(url);

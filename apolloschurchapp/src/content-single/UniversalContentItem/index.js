@@ -7,6 +7,7 @@ import {
   HorizontalContentSeriesFeedConnected,
   MediaControlsConnected,
   UpNextButtonConnected,
+  RockAuthedWebBrowser,
 } from '@apollosproject/ui-connected';
 import {
   styled,
@@ -29,34 +30,43 @@ const UniversalContentItem = ({ content, loading }) => {
   const coverImageSources = get(content, 'coverImage.sources', []);
   return (
     <BackgroundView>
-      <StretchyView>
-        {({ Stretchy, ...scrollViewProps }) => (
-          <FlexedScrollView {...scrollViewProps}>
-            {coverImageSources.length || loading ? (
-              <Stretchy>
-                <GradientOverlayImage
-                  isLoading={!coverImageSources.length && loading}
-                  source={coverImageSources}
-                />
-              </Stretchy>
-            ) : null}
-            <StyledMediaControlsConnected contentId={content.id} />
-            {/* fixes text/navigation spacing by adding vertical padding if we dont have an image */}
-            <PaddedView vertical={!coverImageSources.length}>
-              <H2 padded isLoading={!content.title && loading}>
-                {content.title}
-              </H2>
-              <ContentHTMLViewConnected
-                contentId={content.id}
-                onPressAnchor={safeOpenUrl}
-              />
-            </PaddedView>
-            <ContentSingleFeaturesConnected contentId={content.id} />
-            <UpNextButtonConnected contentId={content.id} />
-            <HorizontalContentSeriesFeedConnected contentId={content.id} />
-          </FlexedScrollView>
+      <RockAuthedWebBrowser>
+        {(openUrl) => (
+          <StretchyView>
+            {({ Stretchy, ...scrollViewProps }) => (
+              <FlexedScrollView {...scrollViewProps}>
+                {coverImageSources.length || loading ? (
+                  <Stretchy>
+                    <GradientOverlayImage
+                      isLoading={!coverImageSources.length && loading}
+                      source={coverImageSources}
+                    />
+                  </Stretchy>
+                ) : null}
+                <StyledMediaControlsConnected contentId={content.id} />
+                {/* fixes text/navigation spacing by adding vertical padding if we dont have an image */}
+                <PaddedView vertical={!coverImageSources.length}>
+                  <H2 padded isLoading={!content.title && loading}>
+                    {content.title}
+                  </H2>
+                  <ContentHTMLViewConnected
+                    contentId={content.id}
+                    onPressAnchor={(url) =>
+                      safeOpenUrl(url, {
+                        browserFunc: (_url) =>
+                          openUrl(_url, {}, { useRockToken: true }), // bit of a hack to inject the UserAuthedBrowser into the safeOpen logic
+                      })
+                    }
+                  />
+                </PaddedView>
+                <ContentSingleFeaturesConnected contentId={content.id} />
+                <UpNextButtonConnected contentId={content.id} />
+                <HorizontalContentSeriesFeedConnected contentId={content.id} />
+              </FlexedScrollView>
+            )}
+          </StretchyView>
         )}
-      </StretchyView>
+      </RockAuthedWebBrowser>
     </BackgroundView>
   );
 };

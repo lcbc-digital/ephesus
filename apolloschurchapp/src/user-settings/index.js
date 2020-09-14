@@ -53,126 +53,130 @@ class UserSettings extends PureComponent {
                 <UserAvatarUpdate />
 
                 <RockAuthedWebBrowser>
-                  {(openUrl) => (
-                    <>
-                      <TableView>
-                        <Touchable
-                          onPress={async () => {
-                            await this.props.navigation.navigate(
-                              'PersonalDetails',
-                              {
+                  {(openUrlFunc) => {
+                    const openUrl = (url) =>
+                      openUrlFunc(url, {}, { useRockToken: true });
+                    return (
+                      <>
+                        <TableView>
+                          <Touchable
+                            onPress={async () => {
+                              await this.props.navigation.navigate(
+                                'PersonalDetails',
+                                {
+                                  backgroundColor: this.props.screenProps
+                                    .headerBackgroundColor,
+                                  headerTitleColor: this.props.screenProps
+                                    .headerTitleStyle.color,
+                                }
+                              );
+                            }}
+                          >
+                            <Cell>
+                              <CellText>Personal Details</CellText>
+                              <CellIcon name="arrow-next" />
+                            </Cell>
+                          </Touchable>
+                          <Divider />
+                          <Touchable
+                            onPress={async () => {
+                              await this.props.navigation.navigate('Location', {
                                 backgroundColor: this.props.screenProps
                                   .headerBackgroundColor,
                                 headerTitleColor: this.props.screenProps
                                   .headerTitleStyle.color,
-                              }
-                            );
-                          }}
-                        >
+                              });
+                            }}
+                          >
+                            <Cell>
+                              <CellText>Location</CellText>
+                              <CellIcon name="arrow-next" />
+                            </Cell>
+                          </Touchable>
+                          <Divider />
+                          <Touchable
+                            onPress={async () => {
+                              await this.props.navigation.navigate(
+                                'ChangePassword',
+                                {
+                                  backgroundColor: this.props.screenProps
+                                    .headerBackgroundColor,
+                                  headerTitleColor: this.props.screenProps
+                                    .headerTitleStyle.color,
+                                }
+                              );
+                            }}
+                          >
+                            <Cell>
+                              <CellText>Change Password</CellText>
+                              <CellIcon name="arrow-next" />
+                            </Cell>
+                          </Touchable>
+                        </TableView>
+                        <TableView>
+                          <Touchable
+                            onPress={() =>
+                              openUrl('https://my.lcbcchurch.com/contact-us')
+                            }
+                          >
+                            <Cell>
+                              <CellText>Give Feedback</CellText>
+                              <CellIcon name="arrow-next" />
+                            </Cell>
+                          </Touchable>
+                        </TableView>
+                        <TableView>
+                          <Touchable
+                            onPress={() =>
+                              openUrl('https://lcbcchurch.com/privacy-policy')
+                            }
+                          >
+                            <Cell>
+                              <CellText>Privacy Policy</CellText>
+                              <CellIcon name="arrow-next" />
+                            </Cell>
+                          </Touchable>
+                          <Divider />
+                          <Touchable
+                            onPress={() =>
+                              openUrl('https://lcbcchurch.com/terms-of-use')
+                            }
+                          >
+                            <Cell>
+                              <CellText>Terms of Use</CellText>
+                              <CellIcon name="arrow-next" />
+                            </Cell>
+                          </Touchable>
+                        </TableView>
+                        <TableView>
+                          <Mutation mutation={LOGOUT}>
+                            {(handleLogout) => (
+                              <Touchable
+                                onPress={async () => {
+                                  await handleLogout();
+                                  // This resets the navigation stack, and the navigates to the first auth screen.
+                                  // This ensures that user isn't navigated to a subscreen of Auth, like the pin entry screen.
+                                  await NavigationService.resetToAuth();
+                                }}
+                              >
+                                <Cell>
+                                  <CellText>Logout</CellText>
+                                  <CellIcon name="arrow-next" />
+                                </Cell>
+                              </Touchable>
+                            )}
+                          </Mutation>
+                        </TableView>
+                        <TableView>
                           <Cell>
-                            <CellText>Personal Details</CellText>
-                            <CellIcon name="arrow-next" />
+                            <CellText>
+                              {`App Version: ${getVersion()}.${getBuildNumber()}`}
+                            </CellText>
                           </Cell>
-                        </Touchable>
-                        <Divider />
-                        <Touchable
-                          onPress={async () => {
-                            await this.props.navigation.navigate('Location', {
-                              backgroundColor: this.props.screenProps
-                                .headerBackgroundColor,
-                              headerTitleColor: this.props.screenProps
-                                .headerTitleStyle.color,
-                            });
-                          }}
-                        >
-                          <Cell>
-                            <CellText>Location</CellText>
-                            <CellIcon name="arrow-next" />
-                          </Cell>
-                        </Touchable>
-                        <Divider />
-                        <Touchable
-                          onPress={async () => {
-                            await this.props.navigation.navigate(
-                              'ChangePassword',
-                              {
-                                backgroundColor: this.props.screenProps
-                                  .headerBackgroundColor,
-                                headerTitleColor: this.props.screenProps
-                                  .headerTitleStyle.color,
-                              }
-                            );
-                          }}
-                        >
-                          <Cell>
-                            <CellText>Change Password</CellText>
-                            <CellIcon name="arrow-next" />
-                          </Cell>
-                        </Touchable>
-                      </TableView>
-                      <TableView>
-                        <Touchable
-                          onPress={() =>
-                            openUrl('https://apollosrock.newspring.cc/')
-                          }
-                        >
-                          <Cell>
-                            <CellText>Give Feedback</CellText>
-                            <CellIcon name="arrow-next" />
-                          </Cell>
-                        </Touchable>
-                      </TableView>
-                      <TableView>
-                        <Touchable
-                          onPress={() =>
-                            openUrl('https://apollosrock.newspring.cc/')
-                          }
-                        >
-                          <Cell>
-                            <CellText>Privacy Policy</CellText>
-                            <CellIcon name="arrow-next" />
-                          </Cell>
-                        </Touchable>
-                        <Divider />
-                        <Touchable
-                          onPress={() =>
-                            openUrl('https://apollosrock.newspring.cc/')
-                          }
-                        >
-                          <Cell>
-                            <CellText>Terms of Use</CellText>
-                            <CellIcon name="arrow-next" />
-                          </Cell>
-                        </Touchable>
-                      </TableView>
-                      <TableView>
-                        <Mutation mutation={LOGOUT}>
-                          {(handleLogout) => (
-                            <Touchable
-                              onPress={async () => {
-                                await handleLogout();
-                                // This resets the navigation stack, and the navigates to the first auth screen.
-                                // This ensures that user isn't navigated to a subscreen of Auth, like the pin entry screen.
-                                await NavigationService.resetToAuth();
-                              }}
-                            >
-                              <Cell>
-                                <CellText>Logout</CellText>
-                                <CellIcon name="arrow-next" />
-                              </Cell>
-                            </Touchable>
-                          )}
-                        </Mutation>
-                      </TableView>
-                      <TableView>
-                        <Cell>
-                          <CellText>
-                            {`App Version: ${getVersion()}.${getBuildNumber()}`}
-                          </CellText>
-                        </Cell>
-                      </TableView>
-                    </>
-                  )}
+                        </TableView>
+                      </>
+                    );
+                  }}
                 </RockAuthedWebBrowser>
               </ScrollView>
             </BackgroundView>
