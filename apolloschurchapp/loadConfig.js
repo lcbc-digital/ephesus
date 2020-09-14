@@ -61,8 +61,8 @@ const fragments = {
       #   firstName
       #   lastName
       # }
-      serviceTimes
-      contactEmail
+      # serviceTimes
+      # contactEmail
     }
   `,
   RELATED_NODE_FRAGMENT: gql`
