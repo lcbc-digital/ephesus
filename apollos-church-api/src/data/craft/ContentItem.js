@@ -71,6 +71,9 @@ const newResolvers = {
         sermonQuestions[0].url
       }">Sermon Questions</a></p>`;
     }
+    if (craftType === 'media_mediaWallpaper_Entry') {
+      return `Wallpapers highlight verses, phrases, and reminders that can encourage us throughout the week. Download a wallpaper to use on your device by tapping the photo below and saving it right to your device.`;
+    }
     if (articlePost && articlePost?.length > 0) {
       return sanitizeHtml(articlePost.map(({ body }) => body).join('\n'));
     }
