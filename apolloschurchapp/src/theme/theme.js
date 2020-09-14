@@ -80,6 +80,9 @@ const colors = {
   action: {
     secondary: '#008CD0',
   },
+  text: {
+    link: '#008CD0',
+  },
 };
 
 /* Base Typography sizing and fonts.
