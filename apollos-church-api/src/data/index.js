@@ -13,7 +13,7 @@ import * as Sms from '@apollosproject/data-connector-twilio';
 import {
   // Followings,
   // Interactions,
-  RockConstants,
+  // RockConstants,
   // Person,
   // ContentItem,
   // ContentChannel,
@@ -44,6 +44,7 @@ import * as Interactions from './Interaction';
 import * as Person from './Person';
 import * as Campus from './Campus';
 import * as AuthSms from './AuthSms';
+import * as RockConstants from './RockConstants';
 
 const data = {
   // Followings,
