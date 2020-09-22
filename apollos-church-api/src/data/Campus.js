@@ -49,10 +49,13 @@ const resolver = resolverMerge(
       serviceTimes: (root, args, { dataSources }) =>
         dataSources.Campus.getWithCraft(root, ({ craftCampus }) =>
           unescape(
-            sanitizeHtmlNode(craftCampus.serviceTimes, {
-              allowedTags: [],
-              allowedAttributes: [],
-            })
+            sanitizeHtmlNode(
+              craftCampus.serviceTimes.replace(/<br +\/+>/, '\n'),
+              {
+                allowedTags: [],
+                allowedAttributes: [],
+              }
+            )
           )
         ),
       contactEmail: (root, args, { dataSources }) =>
