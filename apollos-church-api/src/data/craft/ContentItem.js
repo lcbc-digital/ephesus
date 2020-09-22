@@ -346,21 +346,14 @@ export class dataSource extends CraftDataSource {
         }
       }
     }
+    squareImage: halfBlockSquare {
+      id
+      title
+      url
+    }    
     description: mobileAppContent
   }
 
-  ... on events_hasContentBuilder_Entry {
-    hero {
-      ... on hero_photoHero_BlockType {
-        image {
-          id
-          title
-          url
-        }
-      }
-    }
-    description: mobileAppContent
-  }
   ... on events_events_Entry {
     description: eventDescription
     image: eventPhoto {
