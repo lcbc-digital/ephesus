@@ -444,6 +444,12 @@ export class dataSource extends CraftDataSource {
       }
     }
 
+    ... on media_mediaWallpaper_Entry {
+      persona {
+        id
+      }
+    }
+
     ... on events_hasContentBuilder_Entry {
       persona {
         id
@@ -633,9 +639,13 @@ export class dataSource extends CraftDataSource {
       (node) => node.children || node
     );
 
+    return this.filterResultsWithPersonas({ results });
+  }
+
+  async filterResultsWithPersonas({ results }) {
     const userPersonas = await this.getCraftPersonaIdsForUser();
 
-    const resultsWithPersonas = results.filter(({ persona }) => {
+    return results.filter(({ persona }) => {
       if (!persona || persona.length === 0) {
         // Include items that don't have a persona or have no specific personas.
         return true;
@@ -649,7 +659,6 @@ export class dataSource extends CraftDataSource {
       }
       return false;
     });
-    return resultsWithPersonas;
   }
 
   async getSeriesWithUserProgress() {
@@ -1120,6 +1129,7 @@ export class dataSource extends CraftDataSource {
           ... on appCampusContent_campusSchedule_Entry {
             campusContentEvents {
               ${this.entryFragment}
+              ${this.personaFragment}
             }
           }
         }
@@ -1131,7 +1141,13 @@ export class dataSource extends CraftDataSource {
     if (result?.error)
       throw new ApolloError(result?.error?.message, result?.error?.code);
 
-    return get(result, 'data.entries[0].children[0].campusContentEvents');
+    const results = get(
+      result,
+      'data.entries[0].children[0].campusContentEvents',
+      []
+    );
+
+    return this.filterResultsWithPersonas({ results });
   };
 
   getParentHeroImage = async ({ parentId }) => {
