@@ -1182,6 +1182,9 @@ export class dataSource extends CraftDataSource {
       case 'studies_curriculum_Entry': // studies
       case 'bibleReading_bibleReadingPlan_Entry': // bible reading plan
       case 'news_news_Entry': // news
+      case 'events_events_Entry':
+      case 'events_hasContentBuilder_Entry':
+      case 'media_media_Entry':
       case 'series_sermon_Entry': {
         // series
         return sanitize(entry.description, {
