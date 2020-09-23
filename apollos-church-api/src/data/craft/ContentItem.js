@@ -324,6 +324,11 @@ export class dataSource extends CraftDataSource {
       id
       title
     }
+    squareImage: halfBlockSquare {
+      id
+      title
+      url
+    }
     excerpt
     hero {
       ... on hero_photoHero_BlockType {
@@ -350,7 +355,7 @@ export class dataSource extends CraftDataSource {
       id
       title
       url
-    }    
+    }
     description: mobileAppContent
   }
 
