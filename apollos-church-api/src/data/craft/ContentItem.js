@@ -455,6 +455,12 @@ export class dataSource extends CraftDataSource {
       }
     }
 
+    ... on media_media_Entry {
+      persona {
+        id
+      }
+    }    
+
     ... on events_hasContentBuilder_Entry {
       persona {
         id
