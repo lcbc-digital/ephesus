@@ -1,6 +1,7 @@
 import React from 'react';
-import { Share } from 'react-native';
-import RNFetchBlob, { fs } from 'rn-fetch-blob';
+import { View, Platform } from 'react-native';
+import Share from 'react-native-share';
+import RNFetchBlob from 'rn-fetch-blob';
 import {
   ConnectedImage,
   ImageSourceType,
@@ -17,12 +18,16 @@ export const shareImage = async ({ url }) => {
     }).fetch('GET', url);
 
     imagePath = resp.path();
+    // console.log(imagePath);
     const base64Data = await resp.readFile('base64');
+    // console.log(base64Data);
     const base64DataUrl = `data:image/png;base64,${base64Data}`;
     // here's base64 encoded image
-    await Share.share({ url: base64DataUrl });
+    await Share.open({ url: base64DataUrl, title: 'Wallpaper' });
     // remove the file from storage
-    fs.unlink(imagePath);
+    if (Platform.OS !== 'android') {
+      RNFetchBlob.fs.unlink(imagePath);
+    }
   } catch (e) {
     console.warn(e);
   }
@@ -31,10 +36,12 @@ export const shareImage = async ({ url }) => {
 const ShareableImageFeature = ({ image }) => (
   <PaddedView>
     <Touchable onPress={() => shareImage({ url: image.sources[0].uri })}>
-      <ConnectedImage source={image.sources} maintainAspectRatio />
-      <PaddedView horizontal={false}>
-        <ButtonLink>{'Download'}</ButtonLink>
-      </PaddedView>
+      <View>
+        <ConnectedImage source={image.sources} maintainAspectRatio />
+        <PaddedView horizontal={false}>
+          <ButtonLink>{'Download'}</ButtonLink>
+        </PaddedView>
+      </View>
     </Touchable>
   </PaddedView>
 );
