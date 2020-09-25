@@ -82,6 +82,24 @@ class dataSource extends CampusDataSource {
     return { ...campus, craftCampus };
   };
 
+  _getByLocation = this.getByLocation;
+
+  getByLocation = async (...args) => {
+    const rockCampuses = await this._getByLocation(...args);
+    const craftCampuses = await this.context.dataSources.CraftCampus.getFromRockIds(
+      { ids: rockCampuses.map(({ id }) => id) }
+    );
+
+    const mapped = rockCampuses.map((campus) => ({
+      ...campus,
+      craftCampus: craftCampuses.find(
+        ({ campusRockId }) => String(campus.id) === campusRockId
+      ),
+    }));
+
+    return mapped;
+  };
+
   getWithCraft = async (root, func) => {
     if (root.craftCampus) {
       return func(root);
