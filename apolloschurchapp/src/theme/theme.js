@@ -203,6 +203,19 @@ const overrides = {
       />
     ),
   }),
+  'ui-auth.ProfileDetailsEntry': () => ({
+    ProfileEntryComponent: (props) => (
+      <ProfileDetailsEntryConnected
+        {...props}
+        Component={(props) => (
+          <ProfileDetailsEntry
+            {...props}
+            title={"Here's what's next"}
+          />
+        )}
+      />
+    ),
+  }),
 };
 
 export default { colors, typography, sizing, overrides, overlays, buttons };
