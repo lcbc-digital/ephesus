@@ -210,6 +210,9 @@ class dataSource extends Feature.dataSource {
   }
 
   async campusFeature() {
+    if (this.info) {
+      this.info.cacheControl.setCacheHint({ maxAge: 0 });
+    }
     const { ContentItem } = this.context.dataSources;
 
     if (!this.context.campusId) return [];
