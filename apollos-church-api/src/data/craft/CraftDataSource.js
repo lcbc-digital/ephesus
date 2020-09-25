@@ -1,3 +1,4 @@
+import https from 'https';
 import { RESTDataSource } from 'apollo-datasource-rest';
 import ApollosConfig from '@apollosproject/config';
 import { createCursor, parseCursor } from '@apollosproject/server-core';
@@ -6,12 +7,31 @@ export const mapToEdgeNode = (nodes, initial = 0) => ({
   edges: nodes.map((node, i) => ({ node, cursor: createCursor(i + initial) })),
 });
 
+const CRAFT_AGENT = new https.Agent({
+  keepAlive: true,
+  keepAliveMsecs: 1500,
+  maxSockets: 70,
+});
+
 export default class Craft extends RESTDataSource {
   baseURL = ApollosConfig.CRAFT.URL;
 
+  callCount = 0;
+
+  calls = {};
+
   willSendRequest = (request) => {
+    this.callCount += 1;
+    const query = JSON.parse(request.body).query.replace(/(\r\n|\n|\r)/gm, '');
+    if (!this.calls[query]) {
+      this.calls[query] = 0;
+    }
+    this.calls[query] += 1;
+
     request.headers.set('Authorization', ApollosConfig.CRAFT.GRAPH_TOKEN);
     request.headers.set('Content-Type', 'application/json');
+
+    request.agent = CRAFT_AGENT;
   };
 
   // NOTE: Craft Integration
