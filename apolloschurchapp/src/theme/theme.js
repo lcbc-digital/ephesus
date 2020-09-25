@@ -5,10 +5,7 @@ import { Text } from 'react-native';
 import {
   AddPrayerScreenConnected,
   ConfirmationDialogScreen,
-  PrayerDialogScreen,
-  PrayerScreen,
 } from '@apollosproject/ui-prayer/src/screens';
-import { PrayerCard } from '@apollosproject/ui-prayer';
 // import styleOverrides from './styleOverrides';
 // import propOverrides from './propOverrides';
 import {
@@ -19,8 +16,6 @@ import {
 } from '@apollosproject/ui-kit';
 import ImageCard from '../ui/ImageCard';
 import fontStack from './fontStack';
-
-console.warn(AddPrayerScreenConnected, ConfirmationDialogScreen, 'components');
 
 /* Add your custom theme definitions below. Anything that is supported in UI-Kit Theme can be
  overridden and/or customized here! */

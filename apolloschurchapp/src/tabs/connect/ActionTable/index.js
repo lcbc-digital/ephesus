@@ -68,7 +68,7 @@ const ActionTable = () => (
             </Touchable>
             <Divider />
             <Touchable
-              onPress={() => openUrl('https://my.lcbcchurch.com/contact-us')}
+              onPress={() => openUrl('https://app.lcbcchurch.com/contact-us')}
             >
               <Cell>
                 <CellText>Contact Us</CellText>
@@ -77,7 +77,7 @@ const ActionTable = () => (
             </Touchable>
             <Divider />
             <Touchable
-              onPress={() => openUrl('https://my.lcbcchurch.com/bugreport')}
+              onPress={() => openUrl('https://app.lcbcchurch.com/bugreport')}
             >
               <Cell>
                 <CellText>Report A Bug</CellText>
