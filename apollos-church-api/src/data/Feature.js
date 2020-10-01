@@ -114,7 +114,7 @@ class dataSource extends Feature.dataSource {
 
   async verseOfTheDayAlgorithm() {
     const verseOfTheDay = await fetch(
-      `https://developers.youversionapi.com/1.0/verse_of_the_day/${moment().dayOfYear()}?version_id=1`,
+      `https://developers.youversionapi.com/1.0/verse_of_the_day/${moment().dayOfYear()}?version_id=12`,
       {
         headers: {
           'X-YouVersion-Developer-Token': 'UKe3tMsbC7Rpt55oXjwgI4In__Y',
@@ -123,6 +123,7 @@ class dataSource extends Feature.dataSource {
         },
       }
     ).then((result) => result.json());
+
     const imageUrl = get(verseOfTheDay, 'image.url', '')
       .replace('{width}', 800)
       .replace('{height}', 800);
@@ -134,7 +135,9 @@ class dataSource extends Feature.dataSource {
         subtitle: '',
         labelText: 'Verse of the Day',
         relatedNode: {
-          url: get(verseOfTheDay, 'verse.url'),
+          url: get(verseOfTheDay, 'verse.url')
+            .replace('/12/', '/116/')
+            .replace('+', '-'),
           id: createGlobalId(JSON.stringify({ verseOfTheDay }), 'Url'),
           __type: 'Url',
         },
@@ -210,6 +213,9 @@ class dataSource extends Feature.dataSource {
   }
 
   async campusFeature() {
+    if (this.info) {
+      this.info.cacheControl.setCacheHint({ maxAge: 0 });
+    }
     const { ContentItem } = this.context.dataSources;
 
     if (!this.context.campusId) return [];

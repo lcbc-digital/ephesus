@@ -3,14 +3,23 @@ import CraftDataSource from './CraftDataSource';
 
 class CraftCampus extends CraftDataSource {
   async getFromRockId(rockId) {
+    const campuses = await this.getFromRockIds({ ids: [rockId] });
+    if (campuses && campuses.length) {
+      return campuses[0];
+    }
+    return null;
+  }
+
+  async getFromRockIds({ ids }) {
     const result = await this.query(
       `
-query campus($rockId: [QueryArgument]) {
-  entry(campusRockId: $rockId, section:"campuses") {
+query campus($rockIds: [QueryArgument]) {
+  entries(campusRockId: $rockIds, section:"campuses") {
     craftType: __typename
     ... on campuses_campus_Entry {
       emailAddress
       serviceTimes
+      campusRockId
       campusStaff {
         id
         __typename
@@ -29,13 +38,13 @@ query campus($rockId: [QueryArgument]) {
   }
 }
       `,
-      { rockId }
+      { rockIds: ids }
     );
 
     if (result?.error)
       throw new ApolloError(result?.error?.message, result?.error?.code);
 
-    return result?.data?.entry;
+    return result?.data?.entries || [];
   }
 }
 
