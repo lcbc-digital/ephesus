@@ -144,4 +144,19 @@ project.xcworkspace
 # CocoaPods
 /ios/Pods/
 
+
 .certs
+
+# Fastlane
+fastlane/report.xml
+
+# symbols
+LCBCChurch.app.dSYM.zip
+
+# Google Play authentication key
+key.json
+*.keystore
+
+# shared secrets
+.env.shared
+
