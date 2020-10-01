@@ -1,6 +1,9 @@
 import { gql } from 'apollo-server';
 
-import { createApolloServerConfig } from '@apollosproject/server-core';
+import {
+  createApolloServerConfig,
+  Interfaces,
+} from '@apollosproject/server-core';
 
 import * as Analytics from '@apollosproject/data-connector-analytics';
 import * as Scripture from '@apollosproject/data-connector-bible';
@@ -11,7 +14,7 @@ import * as Pass from '@apollosproject/data-connector-passes';
 import * as Cache from '@apollosproject/data-connector-redis-cache';
 import * as Sms from '@apollosproject/data-connector-twilio';
 import {
-  // Followings,
+  Followings,
   // Interactions,
   // RockConstants,
   // Person,
@@ -47,7 +50,8 @@ import * as AuthSms from './AuthSms';
 import * as RockConstants from './RockConstants';
 
 const data = {
-  // Followings,
+  Interfaces,
+  Followings,
   ContentChannel,
   ContentItem,
   Category,
