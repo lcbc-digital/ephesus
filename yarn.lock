@@ -14413,9 +14413,9 @@ react-native-gesture-handler@^1.3.1:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
-"react-native-google-cast@ssh://git@github.com:BookBub/react-native-google-cast#5c8c9456777470c7813243fe35729123ce5624d5":
+"react-native-google-cast@git+ssh://git@github.com:BookBub/react-native-google-cast#5c8c9456777470c7813243fe35729123ce5624d5":
   version "3.3.0"
-  resolved "ssh://git@github.com:BookBub/react-native-google-cast#5c8c9456777470c7813243fe35729123ce5624d5"
+  resolved "git+ssh://git@github.com:BookBub/react-native-google-cast#5c8c9456777470c7813243fe35729123ce5624d5"
   dependencies:
     prop-types "^15.6.0"
 
