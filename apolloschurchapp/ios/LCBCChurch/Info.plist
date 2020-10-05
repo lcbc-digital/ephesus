@@ -126,6 +126,11 @@
 	<array>
 	  <string>_googlecast._tcp</string>
 	  <string>$(PRODUCT_BUNDLE_IDENTIFIER)._googlecast._tcp</string>
-	</array>	
+	</array>
+	<key>bugsnag</key>
+	<dict>
+	    <key>apiKey</key>
+	    <string>8269a73008ec288f1684db3a4adc66f7</string>
+	</dict>	
 </dict>
 </plist>

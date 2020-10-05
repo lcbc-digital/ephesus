@@ -14,6 +14,7 @@
 #import <React/RCTLinkingManager.h>
 #import "RNBootSplash.h"
 #import <GoogleCast/GoogleCast.h>
+#import <Bugsnag/Bugsnag.h>
 
 @implementation AppDelegate
 
@@ -43,6 +44,7 @@
                                                    moduleName:@"LCBCChurch"
                                             initialProperties:nil];
 
+  [Bugsnag start];
   // Initialize Google Cast
   GCKDiscoveryCriteria *criteria = [[GCKDiscoveryCriteria alloc] initWithApplicationID:kGCKDefaultMediaReceiverApplicationID];
   GCKCastOptions* options = [[GCKCastOptions alloc] initWithDiscoveryCriteria:criteria];

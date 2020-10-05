@@ -1,8 +1,10 @@
 import './loadConfig';
 import { AppRegistry, YellowBox } from 'react-native';
 import ApollosConfig from '@apollosproject/config';
+import Bugsnag from '@bugsnag/react-native';
 import Storybook from './storybook';
 
+Bugsnag.start();
 const useStorybook = ApollosConfig.STORYBOOK === 'true';
 
 const MainApp = require('./src').default;
