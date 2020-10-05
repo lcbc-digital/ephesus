@@ -204,15 +204,10 @@ const overrides = {
     ),
   }),
   'ui-auth.ProfileDetailsEntry': () => ({
-    ProfileEntryComponent: (props) => (
-      <ProfileDetailsEntryConnected
+    Component: (props) => (
+      <ProfileDetailsEntry
         {...props}
-        Component={(props) => (
-          <ProfileDetailsEntry
-            {...props}
-            title={"Here's what's next"}
-          />
-        )}
+        title={"Here's what's next"}
       />
     ),
   }),
