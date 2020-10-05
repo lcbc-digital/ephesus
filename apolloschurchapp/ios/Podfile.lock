@@ -1,5 +1,4 @@
 PODS:
-  - AstronomerAnalytics (3.6.9)
   - boost-for-react-native (1.63.0)
   - BugsnagReactNative (7.4.0):
     - React
@@ -24,7 +23,8 @@ PODS:
     - GTMSessionFetcher/Core (~> 1.0)
     - Protobuf (~> 3.12)
   - GTMSessionFetcher/Core (1.4.0)
-  - OneSignal (2.10.1)
+  - MetarouterAnalytics (3.8.0-beta.3)
+  - OneSignal (2.15.2)
   - Permission-Notifications (2.0.10):
     - RNPermissions
   - Permission-PhotoLibrary (2.0.10):
@@ -91,8 +91,8 @@ PODS:
     - React
   - react-native-music-control (0.10.8):
     - React
-  - react-native-onesignal (3.3.2):
-    - OneSignal (= 2.10.1)
+  - react-native-onesignal (3.9.1):
+    - OneSignal (= 2.15.2)
     - React (< 1.0.0, >= 0.13.0)
   - react-native-passkit-wallet (0.1.4):
     - React
@@ -135,7 +135,7 @@ PODS:
   - RNAirplay (1.0.0):
     - React
   - RNAnalytics (1.1.5):
-    - AstronomerAnalytics
+    - MetarouterAnalytics (~> 3.8.0-beta.3)
     - React
   - RNBootSplash (2.1.0):
     - React
@@ -198,7 +198,7 @@ DEPENDENCIES:
   - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
   - rn-fetch-blob (from `../node_modules/rn-fetch-blob`)
   - "RNAirplay (from `../node_modules/@apollosproject/react-native-airplay-btn`)"
-  - "RNAnalytics (from `../node_modules/@metarouter/analytics-react-native`)"
+  - "RNAnalytics (from `../node_modules/@apollosproject/metarouter-analytics-react-native`)"
   - RNBootSplash (from `../node_modules/react-native-bootsplash`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
@@ -213,10 +213,10 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - AstronomerAnalytics
     - boost-for-react-native
     - google-cast-sdk-no-bluetooth
     - GTMSessionFetcher
+    - MetarouterAnalytics
     - OneSignal
     - Protobuf
 
@@ -298,7 +298,7 @@ EXTERNAL SOURCES:
   RNAirplay:
     :path: "../node_modules/@apollosproject/react-native-airplay-btn"
   RNAnalytics:
-    :path: "../node_modules/@metarouter/analytics-react-native"
+    :path: "../node_modules/@apollosproject/metarouter-analytics-react-native"
   RNBootSplash:
     :path: "../node_modules/react-native-bootsplash"
   RNCAsyncStorage:
@@ -323,7 +323,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  AstronomerAnalytics: 36f48678a387e41481650edd6247c6c95d994131
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BugsnagReactNative: fee60d898e05e2ac29e081f3808f1cf3f3bcbe6c
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
@@ -332,7 +331,8 @@ SPEC CHECKSUMS:
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   google-cast-sdk-no-bluetooth: a01e9da91e15059e2d4b40ce98bd85240e23db8c
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
-  OneSignal: 8fb749fa07f88006403c9b659a570fb7fb74519a
+  MetarouterAnalytics: 3ca7bffe49c8fddbe8f5bd3a92fbfd00e6b7c08b
+  OneSignal: 9531e385388565f4d31797ddadbe0fcc786430ec
   Permission-Notifications: c9eb3a2da68dc0f37a8dc67d37bd28d150c5041d
   Permission-PhotoLibrary: e59a7a687e002e8c8c46946c26520934ba85a688
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
@@ -349,7 +349,7 @@ SPEC CHECKSUMS:
   react-native-image-picker: e6e06d4315e3c85bad17e4b2002cd29f11d202c8
   react-native-maps: 6e499eee4eabf422ba8b6f94e993cc768bf35153
   react-native-music-control: dcfe5b61e56a15898c4618579cb8ce612c9d21a8
-  react-native-onesignal: 8958311abbd9125f26e600914e48833b57321cbf
+  react-native-onesignal: ad2eaab1517951e50d19fa3eccd16d3048167181
   react-native-passkit-wallet: 51e3babdaeec4c10b5736786ebd1bfb470fcaa36
   react-native-safari-view: 955d7160d159241b8e9395d12d10ea0ef863dcdd
   react-native-safe-area-context: e380a6f783ccaec848e2f3cc8eb205a62362950d
@@ -367,7 +367,7 @@ SPEC CHECKSUMS:
   React-RCTWebSocket: cd932a16b7214898b6b7f788c8bddb3637246ac4
   rn-fetch-blob: 651b8d076b43d0d7aa294a3d9ec16c00aab8bef9
   RNAirplay: 75777dd55dafbd3687703c3eb9c290ea6cc43248
-  RNAnalytics: 360b0680753d0e1d37152a25d47aa34a015cab72
+  RNAnalytics: 93b68dbcf5ee073410700ca2515d02396ee53958
   RNBootSplash: fbf76a4bf1c03e9acd1dd08ce064847f26d6d8bf
   RNCAsyncStorage: 453cd7c335ec9ba3b877e27d02238956b76f3268
   RNDateTimePicker: c4285bfdd87430f1e575b81a4742b7586a09d53e
