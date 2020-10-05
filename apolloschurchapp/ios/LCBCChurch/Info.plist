@@ -67,6 +67,9 @@
 	<string>$(PRODUCT_NAME) would like to save photos to your photo gallery (for uploading profile pictures)</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like access to your photo gallery (for uploading profile pictures)</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>${PRODUCT_NAME} uses the local network to discover Cast-enabled devices on your WiFi
+	network.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>DroidSerif-Bold.ttf</string>
@@ -119,5 +122,15 @@
 	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSBonjourServices</key>
+	<array>
+	  <string>_googlecast._tcp</string>
+	  <string>$(PRODUCT_BUNDLE_IDENTIFIER)._googlecast._tcp</string>
+	</array>
+	<key>bugsnag</key>
+	<dict>
+	    <key>apiKey</key>
+	    <string>8269a73008ec288f1684db3a4adc66f7</string>
+	</dict>	
 </dict>
 </plist>

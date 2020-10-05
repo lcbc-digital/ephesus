@@ -732,9 +732,9 @@ export class dataSource extends CraftDataSource {
       after: null,
       first: null,
     });
-    const childItems = childItemsEdges.edges.map(({ node }) => node);
+    const childItems = childItemsEdges?.edges?.map(({ node }) => node);
 
-    if (childItems.length === 0) {
+    if (!childItems || childItems.length === 0) {
       return 0;
     }
 
