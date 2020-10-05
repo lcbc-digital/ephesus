@@ -23,6 +23,12 @@ const resolver = {
     ...baseResolver.ActionListAction,
     subtitle: ({ subtitle, summary }) => subtitle || summary,
   },
+  ActionBarFeature: {
+    id: ({ id }) => createGlobalId(id, 'ActionBarFeature'),
+  },
+  ShareableImageFeature: {
+    id: ({ id }) => createGlobalId(id, 'ShareableImageFeature'),
+  },
   CardListItem: {
     ...baseResolver.CardListItem,
     labelText: (item) =>
@@ -86,7 +92,8 @@ class dataSource extends Feature.dataSource {
     START_SOMETHING_NEW: this.startSomethingNewAlgorithm.bind(this),
   };
 
-  getFromId(args, id, { info }) {
+  getFromId(args, id, { info } = { info: {} }) {
+    this.cacheControl = info.cacheControl;
     const type = id.split(':')[0];
     const funcArgs = JSON.parse(args);
     const method = this[`create${type}`].bind(this);
@@ -97,16 +104,13 @@ class dataSource extends Feature.dataSource {
     return method(funcArgs);
   }
 
-  createFeatureId({ args, type }) {
-    return createGlobalId(
-      JSON.stringify({ campusId: this.context.campusId, ...args }),
-      type
-    );
+  createFeatureId({ args }) {
+    return JSON.stringify({ campusId: this.context.campusId, ...args });
   }
 
   createSharableImageFeature({ url }) {
     return {
-      id: createGlobalId({ url }, 'ShareableImageFeature'),
+      id: JSON.stringify({ url }),
       image: { sources: [{ uri: url }] },
       __typename: 'ShareableImageFeature',
     };
@@ -130,7 +134,7 @@ class dataSource extends Feature.dataSource {
 
     return [
       {
-        id: createGlobalId('verse-of-the-day', 'CardListItem'),
+        id: 'verse-of-the-day',
         title: '',
         subtitle: '',
         labelText: 'Verse of the Day',
@@ -138,7 +142,7 @@ class dataSource extends Feature.dataSource {
           url: get(verseOfTheDay, 'verse.url')
             .replace('/12/', '/116/')
             .replace('+', '-'),
-          id: createGlobalId(JSON.stringify({ verseOfTheDay }), 'Url'),
+          id: JSON.stringify({ verseOfTheDay }),
           __type: 'Url',
         },
         image: { sources: [{ uri: imageUrl }] },
@@ -184,7 +188,6 @@ class dataSource extends Feature.dataSource {
       // The Feature ID is based on all of the action ids, added together.
       // This is naive, and could be improved.
       id: this.createFeatureId({
-        type: 'ActionBarFeature',
         args: {
           title,
         },
@@ -202,7 +205,7 @@ class dataSource extends Feature.dataSource {
     const items = await ContentItem.getBySection(section);
 
     return items.map((item, i) => ({
-      id: createGlobalId(`${item.id}${i}`, 'ActionListAction'),
+      id: `${item.id}${i}`,
       title: item.title,
       subtitle: get(item, 'parent.title'),
       relatedNode: { ...item, __type: ContentItem.resolveType(item) },
@@ -213,9 +216,8 @@ class dataSource extends Feature.dataSource {
   }
 
   async campusFeature() {
-    if (this.info) {
-      this.info.cacheControl.setCacheHint({ maxAge: 0 });
-    }
+    this.setCacheHint({ maxAge: 0, scope: 'PRIVATE' });
+
     const { ContentItem } = this.context.dataSources;
 
     if (!this.context.campusId) return [];
@@ -227,7 +229,7 @@ class dataSource extends Feature.dataSource {
     });
 
     return items.map((item, i) => ({
-      id: createGlobalId(`${item.id}${i}`, 'ActionListAction'),
+      id: `${item.id}${i}`,
       title: item.title,
       subtitle: get(item, 'parent.title'),
       relatedNode: { ...item, __typename: ContentItem.resolveType(item) },
@@ -243,7 +245,7 @@ class dataSource extends Feature.dataSource {
     const item = await ContentItem.getMostRecentSermon();
     return [
       {
-        id: createGlobalId(`${item.id}`, 'ActionListAction'),
+        id: `${item.id}`,
         title: item.title,
         subtitle: get(item, 'parent.title'),
         relatedNode: { ...item, __type: ContentItem.resolveType(item) },
@@ -255,15 +257,14 @@ class dataSource extends Feature.dataSource {
   }
 
   async seriesInProgressAlgorithm({ limit = 3 } = {}) {
-    if (this.info) {
-      this.info.cacheControl.setCacheHint({ maxAge: 0 });
-    }
+    this.setCacheHint({ maxAge: 0, scope: 'PRIVATE' });
+
     const { ContentItem } = this.context.dataSources;
 
     const items = await ContentItem.getSeriesWithUserProgress();
 
     return items.slice(0, limit).map((item, i) => ({
-      id: createGlobalId(`${item.id}${i}`, 'ActionListAction'),
+      id: `${item.id}${i}`,
       title: item.title,
       subtitle: get(item, 'contentChannel.name'),
       relatedNode: { ...item, __type: ContentItem.resolveType(item) },
@@ -274,15 +275,14 @@ class dataSource extends Feature.dataSource {
   }
 
   async startSomethingNewAlgorithm({ limit = 3 } = {}) {
-    if (this.info) {
-      this.info.cacheControl.setCacheHint({ maxAge: 0 });
-    }
+    this.setCacheHint({ maxAge: 0, scope: 'PRIVATE' });
+
     const { ContentItem } = this.context.dataSources;
 
     const items = await ContentItem.getNewSeries();
 
     return items.slice(0, limit).map((item, i) => ({
-      id: createGlobalId(`${item.id}${i}`, 'ActionListAction'),
+      id: `${item.id}${i}`,
       title: item.title,
       subtitle: get(item, 'contentChannel.name'),
       relatedNode: { ...item, __type: ContentItem.resolveType(item) },
