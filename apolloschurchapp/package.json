@@ -58,7 +58,7 @@
     "@apollosproject/ui-fragments": "^1.6.0-beta.0",
     "@apollosproject/ui-htmlview": "^1.6.0-beta.1",
     "@apollosproject/ui-kit": "^1.6.0-beta.1",
-    "@apollosproject/ui-mapview": "^1.6.0-alpha.12",
+    "@apollosproject/ui-mapview": "^1.6.0-alpha.13",
     "@apollosproject/ui-media-player": "^1.6.0-beta.0",
     "@apollosproject/ui-notifications": "^1.6.0-beta.0",
     "@apollosproject/ui-onboarding": "^1.6.0-beta.0",
