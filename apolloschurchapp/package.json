@@ -112,7 +112,7 @@
     "react-native-safe-area-context": "^0.3.6",
     "react-native-safe-area-view": "0.13.1",
     "react-native-screens": "^1.0.0-alpha.23",
-    "react-native-share": "^3.8.3",
+    "react-native-share": "^4.0.1",
     "react-native-svg": "^9.4.0",
     "react-native-video": "^5.0.0",
     "react-native-video-controls": "2.2.3",
