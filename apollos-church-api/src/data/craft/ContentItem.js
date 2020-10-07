@@ -360,7 +360,7 @@ export class dataSource extends CraftDataSource {
   }
 
   ... on events_events_Entry {
-    description: eventDescription
+    description: mobileAppContent
     image: eventPhoto {
       id
       title
