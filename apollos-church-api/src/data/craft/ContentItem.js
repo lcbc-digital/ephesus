@@ -782,7 +782,7 @@ export class dataSource extends CraftDataSource {
     const nodes = result?.data?.nodes;
 
     if (!nodes || !nodes.length) {
-      return null;
+      return [];
     }
 
     return nodes.map((node) => ({
