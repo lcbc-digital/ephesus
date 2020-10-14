@@ -40,6 +40,7 @@ class FeaturesFeedWithCampus extends FeaturesFeedConnected {
                     renderItem={this.renderFeatures}
                     loading={loading || userCampusLoading}
                     refetch={this.refetch}
+                    numColumns={1}
                     {...props}
                   />
                 );
