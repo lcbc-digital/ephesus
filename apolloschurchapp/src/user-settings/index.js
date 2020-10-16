@@ -116,7 +116,7 @@ class UserSettings extends PureComponent {
                         <TableView>
                           <Touchable
                             onPress={() =>
-                              openUrl('https://my.lcbcchurch.com/contact-us')
+                              openUrl('https://app.lcbcchurch.com/bugreport')
                             }
                           >
                             <Cell>
