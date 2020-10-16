@@ -31,7 +31,7 @@ const Toolbar = ({ navigation }) => (
         <ActionBarItem
           onPress={() =>
             openUrl(
-              'https://my.lcbcchurch.com/Prayer',
+              'https://app.lcbcchurch.com/prayer-request',
               {},
               { useRockToken: true }
             )
