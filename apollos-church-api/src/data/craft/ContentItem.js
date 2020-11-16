@@ -770,6 +770,17 @@ export class dataSource extends CraftDataSource {
     return (totalItemsWithInteractions / childItems.length) * 100;
   }
 
+  async getShareUrl({ contentId }) {
+    const item = await this.getFromId(contentId);
+    const __typename = this.resolveType(item);
+    return `${
+      ApollosConfig.APP.ROOT_API_URL
+    }/app-link/Apollos/ContentSingle?itemId=${createGlobalId(
+      contentId,
+      __typename
+    )}`;
+  }
+
   async getFromIds(ids) {
     const query = `query ($ids: [QueryArgument]) {
      nodes: entries(id: $ids) { ${this.entryFragment} }

@@ -14,6 +14,7 @@ import {
   applyServerMiddleware,
   setupJobs,
 } from './data';
+import { createRedirectLink } from './universal-linking';
 
 export { resolvers, schema, testSchema };
 
@@ -68,7 +69,7 @@ app.get('/health', (req, res) => {
 applyServerMiddleware({ app, dataSources, context });
 setupJobs({ app, dataSources, context });
 // Comment out if you don't want the API serving apple-app-site-association or assetlinks manifests.
-setupUniversalLinks({ app });
+setupUniversalLinks({ app, createRedirectLink });
 
 apolloServer.applyMiddleware({ app });
 apolloServer.applyMiddleware({ app, path: '/' });
