@@ -105,7 +105,7 @@ class ContentSingle extends PureComponent {
           }}
         />
         {this.renderContent({ content, loading, error })}
-        <ActionContainer itemId={id} />
+        <ActionContainer itemId={this.itemId} />
       </ThemeMixin>
     );
   };

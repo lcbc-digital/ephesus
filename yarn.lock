@@ -327,6 +327,21 @@
     entities "^1.1.2"
     htmlparser2 "3.9.2"
 
+"@apollosproject/ui-kit@1.7.0-beta.3":
+  version "1.7.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-1.7.0-beta.3.tgz#202a7f1a105f32d0bca4958550a1f31b8e0c8747"
+  integrity sha512-pIwdbl2G55iI57jfgMqn6A7ckMJJqzvzkDk7q1pcCMoxHdDOS+GmUVLViHXuJPWFgKeQPIG02H6A77f+DaTBbg==
+  dependencies:
+    "@react-native-community/blur" "^3.6.0"
+    color "^3.1.0"
+    lodash "^4.17.11"
+    moment "^2.24.0"
+    numeral "^2.0.6"
+    react-native-modal-datetime-picker "8.7.1"
+    react-native-tab-view "1.0.2"
+    recompose "^0.30.0"
+    rn-placeholder "1.2.0"
+
 "@apollosproject/ui-kit@^1.6.0":
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-1.6.0.tgz#f036d75e1922c439285c9459f48df61e10cab91e"
