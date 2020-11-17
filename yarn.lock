@@ -4213,10 +4213,10 @@ algoliasearch@^3.34.0:
     semver "^5.1.0"
     tunnel-agent "^0.6.0"
 
-amplitude-js@^7.1.1:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/amplitude-js/-/amplitude-js-7.1.1.tgz#3e3282be836aa4245eb2d6e52f16ecbb81c0b6d2"
-  integrity sha512-grEQf0p4V/q4aIcGYdGEJ6EquBXu91R/RorsYTQvh9O6sxjpwHf5vSDICQJq7twEElBrSHoSF77GUvC9ZTBj4A==
+amplitude-js@7.3.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/amplitude-js/-/amplitude-js-7.3.0.tgz#26b75ecf6de68e87b7741a6ddc98095a9aaad718"
+  integrity sha512-FI3ziFNfV4kqpLYHLo6t+E7cbZZ1n8VRCNt214Z1CuDbEzPcc/TenmkCwPoYJA5FQibamqZL9qiKtdMTZhSsUg==
   dependencies:
     "@amplitude/ua-parser-js" "0.7.24"
     blueimp-md5 "^2.10.0"

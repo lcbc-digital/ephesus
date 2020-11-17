@@ -6,7 +6,7 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applink:a.lcbc.church</string>
+		<string>applinks:a.lcbc.church</string>
 	</array>
 	<key>com.apple.developer.networking.wifi-info</key>
 	<true/>
