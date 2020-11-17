@@ -93,6 +93,11 @@ const newResolvers = {
     ContentItem.getVideos(root),
   theme: (root, input, { dataSources }) =>
     dataSources.ContentItem.getTheme(root),
+  sharing: (root, args, { dataSources: { ContentItem } }) => ({
+    url: ContentItem.getShareUrl(root),
+    title: 'Share via ...',
+    message: `${root.title} - ${ContentItem.createSummary(root)}`,
+  }),
 };
 
 const contentItemTypes = Object.keys(ApollosConfig.ROCK_MAPPINGS.CONTENT_ITEM);
@@ -770,15 +775,11 @@ export class dataSource extends CraftDataSource {
     return (totalItemsWithInteractions / childItems.length) * 100;
   }
 
-  async getShareUrl({ contentId }) {
-    const item = await this.getFromId(contentId);
+  async getShareUrl(item) {
     const __typename = this.resolveType(item);
     return `${
       ApollosConfig.APP.ROOT_API_URL
-    }/app-link/Apollos/ContentSingle?itemId=${createGlobalId(
-      contentId,
-      __typename
-    )}`;
+    }/app-link/ContentSingle?itemId=${createGlobalId(item.id, __typename)}`;
   }
 
   async getFromIds(ids) {
