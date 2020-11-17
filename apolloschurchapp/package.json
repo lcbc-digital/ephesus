@@ -57,7 +57,7 @@
     "@apollosproject/ui-connected": "^1.6.0",
     "@apollosproject/ui-fragments": "^1.6.0",
     "@apollosproject/ui-htmlview": "^1.6.0",
-    "@apollosproject/ui-kit": "^1.6.0",
+    "@apollosproject/ui-kit": "1.7.0-beta.3",
     "@apollosproject/ui-mapview": "^1.6.0",
     "@apollosproject/ui-media-player": "^1.6.0",
     "@apollosproject/ui-notifications": "^1.6.0",

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { SideBySideView, styled } from '@apollosproject/ui-kit';
 import { MediaPlayerSpacer } from '@apollosproject/ui-media-player';
 import {
-  LikeButtonConnected,
+  // LikeButtonConnected,
   ShareButtonConnected,
 } from '@apollosproject/ui-connected';
 
@@ -23,7 +23,7 @@ const ActionContainer = ({ itemId }) => (
   <Container>
     <MediaPlayerSpacer>
       <PositioningView>
-        <LikeButtonConnected itemId={itemId} />
+        {/* <LikeButtonConnected itemId={itemId} /> */}
         <ShareButtonConnected itemId={itemId} />
       </PositioningView>
     </MediaPlayerSpacer>
