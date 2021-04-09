@@ -1,4 +1,4 @@
-import { Campus } from '@apollosproject/data-connector-rock';
+import { Campus, Utils } from '@apollosproject/data-connector-rock';
 import gql from 'graphql-tag';
 import { resolverMerge } from '@apollosproject/server-core';
 import sanitizeHtmlNode from 'sanitize-html';
@@ -23,6 +23,16 @@ const schema = gql`
 const resolver = resolverMerge(
   {
     Campus: {
+      image: ({ location }) =>
+        location.image
+          ? {
+              uri:
+                location.image.path ||
+                Utils.createImageUrlFromGuid(location.image.guid),
+              width: location.image.width,
+              height: location.image.height,
+            }
+          : null,
       // eslint-disable-next-line
       childContentItemsConnection: async ({ id }, args, { dataSources }) =>
         null,
