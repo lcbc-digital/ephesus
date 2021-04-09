@@ -503,7 +503,7 @@ export class dataSource extends CraftDataSource {
   // }
 
   async getCraftPersonaIdsForUser() {
-    let personas = [32210];
+    let personas = ['32210'];
     try {
       const rockPersonas = await this.context.dataSources.Person.getPersonas({
         categoryId: ApollosConfig.ROCK_MAPPINGS.DATAVIEW_CATEGORIES.PersonaId,
@@ -667,7 +667,7 @@ export class dataSource extends CraftDataSource {
         return true;
       }
       if (
-        (persona && intersection(persona.map(({ id }) => id)), userPersonas)
+        (persona && intersection(persona.map(({ id }) => id), userPersonas))
           .length
       ) {
         // Include items that share personas with the current user
