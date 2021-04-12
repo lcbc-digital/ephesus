@@ -316,6 +316,7 @@ export class dataSource extends CraftDataSource {
 
   ... on series_sermon_Entry {
     videoEmbed
+    streamingVideoUrl
   }
 
   # articles
@@ -943,6 +944,7 @@ export class dataSource extends CraftDataSource {
     description,
     craftType,
     videoEmbed,
+    streamingVideoUrl,
     title,
     storyVideo,
   }) => {
@@ -958,6 +960,16 @@ export class dataSource extends CraftDataSource {
     }
     const uri = videoEmbed || storyVideo || newsUri;
     const { Vimeo, Wistia } = this.context.dataSources;
+    if (streamingVideoUrl) {
+      return [
+        {
+          __typename: 'VideoMedia',
+          name: title,
+          embedHtml: null,
+          sources: [{ uri: streamingVideoUrl }],
+        },
+      ];
+    }
     if (uri) {
       const finalUri = uri.includes('vimeo')
         ? Vimeo.getHLSForVideo(uri)
