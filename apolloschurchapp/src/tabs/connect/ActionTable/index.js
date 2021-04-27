@@ -77,6 +77,14 @@ const ActionTable = () => (
             </Touchable>
             <Divider />
             <Touchable
+              onPress={() => openUrl('LCBCChurch://a/app-link/Passes')}
+            >
+              <Cell>
+                <CellText>Check-in</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+            <Touchable
               onPress={() => openUrl('https://app.lcbcchurch.com/bugreport')}
             >
               <Cell>
