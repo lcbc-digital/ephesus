@@ -13,6 +13,11 @@ import {
   HighlightCard,
   FeaturedCard,
   BodyText,
+  H3,
+  H6,
+  HorizontalDefaultCard,
+  HorizontalHighlightCard,
+  PaddedView,
 } from '@apollosproject/ui-kit';
 import ImageCard from '../ui/ImageCard';
 import fontStack from './fontStack';
@@ -41,13 +46,32 @@ const cardMapper = (props) => {
 
     case 'MediaContentItem':
     case 'WeekendContentItem':
-    case 'ContentSeriesContentItem':
-    case 'DevotionalContentItem':
       return (
         <HighlightCard {...props} theme={{ ...props.relatedNode?.theme }} />
       );
     default:
       return <DefaultCard {...props} />;
+  }
+};
+
+const horizontalCardMapper = ({ title, hyphenatedTitle, ...props }) => {
+  // map typename to the the card we want to render.
+  switch (get(props, '__typename')) {
+    case 'MediaContentItem':
+    case 'WeekendContentItem':
+      return <HorizontalHighlightCard title={hyphenatedTitle} {...props} />;
+    case 'Message':
+      return (
+        <PaddedView>
+          {title ? <H3>{title}</H3> : null}
+          {props.subtitle ? <H6>{props.subtitle}</H6> : null}
+          {props.relatedNode?.message ? (
+            <BodyText>{props.relatedNode?.message}</BodyText>
+          ) : null}
+        </PaddedView>
+      );
+    default:
+      return <HorizontalDefaultCard title={title} {...props} />;
   }
 };
 
@@ -149,6 +173,9 @@ export const typography = {
 const overrides = {
   'ui-connected.ContentCardConnected.ContentCardComponentMapper': {
     Component: () => cardMapper,
+  },
+  'ui-connected.HorizontalContentCardConnected.HorizontalContentCardComponentMapper': {
+    Component: () => horizontalCardMapper,
   },
   'ui-kit.FeaturedCard.Label': {
     type: 'secondary',
