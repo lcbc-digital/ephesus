@@ -319,6 +319,7 @@ export class dataSource extends CraftDataSource {
 
   ... on series_sermon_Entry {
     videoEmbed
+    streamingVideoUrl
   }
 
   # articles
@@ -506,7 +507,7 @@ export class dataSource extends CraftDataSource {
   // }
 
   async getCraftPersonaIdsForUser() {
-    let personas = [32210];
+    let personas = ['32210'];
     try {
       const rockPersonas = await this.context.dataSources.Person.getPersonas({
         categoryId: ApollosConfig.ROCK_MAPPINGS.DATAVIEW_CATEGORIES.PersonaId,
@@ -670,7 +671,7 @@ export class dataSource extends CraftDataSource {
         return true;
       }
       if (
-        (persona && intersection(persona.map(({ id }) => id)), userPersonas)
+        (persona && intersection(persona.map(({ id }) => id), userPersonas))
           .length
       ) {
         // Include items that share personas with the current user
@@ -946,6 +947,7 @@ export class dataSource extends CraftDataSource {
     description,
     craftType,
     videoEmbed,
+    streamingVideoUrl,
     title,
     storyVideo,
   }) => {
@@ -961,6 +963,16 @@ export class dataSource extends CraftDataSource {
     }
     const uri = videoEmbed || storyVideo || newsUri;
     const { Vimeo, Wistia } = this.context.dataSources;
+    if (streamingVideoUrl) {
+      return [
+        {
+          __typename: 'VideoMedia',
+          name: title,
+          embedHtml: null,
+          sources: [{ uri: streamingVideoUrl }],
+        },
+      ];
+    }
     if (uri) {
       const finalUri = uri.includes('vimeo')
         ? Vimeo.getHLSForVideo(uri)
