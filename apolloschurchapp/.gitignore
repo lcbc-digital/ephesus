@@ -133,7 +133,6 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-project.xcworkspace
 
 # misc
 .env.local
@@ -144,14 +143,14 @@ project.xcworkspace
 # CocoaPods
 /ios/Pods/
 
-
-.certs
-
 # Fastlane
 fastlane/report.xml
 
 # symbols
-LCBCChurch.app.dSYM.zip
+*.app.dSYM.zip
+
+# iOS keys
+*.p8
 
 # Google Play authentication key
 key.json
@@ -160,3 +159,5 @@ key.json
 # shared secrets
 .env.shared
 
+# GraphQL info
+fragmentTypes.json

@@ -1,10 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { GradientOverlayImage } from '@apollosproject/ui-kit';
+import { Providers } from '@apollosproject/ui-test-utils';
 
-import Providers from '../../Providers';
-
-import LandingScreen from '.';
+import LandingScreen from './LandingScreen';
 
 describe('The Onboarding LandingScreen component', () => {
   it('should render', () => {
