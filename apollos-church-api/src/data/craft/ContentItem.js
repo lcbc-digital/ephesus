@@ -1,7 +1,6 @@
 /* eslint-disable no-shadow, class-methods-use-this, consistent-return, no-unused-vars, max-classes-per-file */
 import { ContentItem } from '@apollosproject/data-connector-rock';
 import ApollosConfig from '@apollosproject/config';
-import sanitizeHtml from '@apollosproject/data-connector-rock/lib/sanitize-html';
 import {
   parseCursor,
   createGlobalId,
@@ -75,9 +74,13 @@ const newResolvers = {
       return `Wallpapers highlight verses, phrases, and reminders that can encourage us throughout the week. Download a wallpaper to use on your device by tapping the photo below and saving it right to your device.`;
     }
     if (articlePost && articlePost?.length > 0) {
-      return sanitizeHtml(articlePost.map(({ body }) => body).join('\n'));
+      return dataSources.RockContentItem.createHTMLContent(
+        articlePost.map(({ body }) => body).join('\n')
+      );
     }
-    return sanitizeHtml(description || ERROR_COPY);
+    return dataSources.RockContentItem.createHTMLContent(
+      description || ERROR_COPY
+    );
   },
   childContentItemsConnection: ({ id }, args, context) =>
     context.dataSources.ContentItem.getChildren(id, args),

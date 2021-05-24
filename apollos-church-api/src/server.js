@@ -1,11 +1,24 @@
 import { ApolloServer } from 'apollo-server-express';
-// import ApollosConfig from '@apollosproject/config';
+import ApollosConfig from '@apollosproject/config';
+
 import express from 'express';
 import { RockLoggingExtension } from '@apollosproject/rock-apollo-data-source';
 import { get } from 'lodash';
 import { setupUniversalLinks } from '@apollosproject/server-core';
+
 import { BugsnagPlugin } from '@apollosproject/bugsnag';
-import {
+import { createMigrationRunner } from '@apollosproject/data-connector-postgres';
+import { createRedirectLink } from './universal-linking';
+
+let dataObj;
+
+if (ApollosConfig?.DATABASE?.URL) {
+  dataObj = require('./data/index.postgres');
+} else {
+  dataObj = require('./data/index');
+}
+
+const {
   resolvers,
   schema,
   testSchema,
@@ -13,8 +26,8 @@ import {
   dataSources,
   applyServerMiddleware,
   setupJobs,
-} from './data';
-import { createRedirectLink } from './universal-linking';
+  migrations,
+} = dataObj;
 
 export { resolvers, schema, testSchema };
 
@@ -33,7 +46,7 @@ const cacheOptions = isDev
       },
     };
 
-// const { ENGINE } = ApollosConfig;
+const { ROCK, APP } = ApollosConfig;
 
 const apolloServer = new ApolloServer({
   typeDefs: schema,
@@ -61,9 +74,9 @@ const apolloServer = new ApolloServer({
 
 const app = express();
 
-// health check
-app.get('/health', (req, res) => {
-  res.send('ok');
+// password reset
+app.get('/forgot-password', (req, res) => {
+  res.redirect(APP.FORGOT_PASSWORD_URL || `${ROCK.URL}/page/56`);
 });
 
 applyServerMiddleware({ app, dataSources, context });
@@ -73,5 +86,14 @@ setupUniversalLinks({ app, createRedirectLink });
 
 apolloServer.applyMiddleware({ app });
 apolloServer.applyMiddleware({ app, path: '/' });
+
+// make sure this is called last.
+// (or at least after the apollos server setup)
+(async () => {
+  if (ApollosConfig?.DATABASE?.URL) {
+    const migrationRunner = await createMigrationRunner({ migrations });
+    await migrationRunner.up();
+  }
+})();
 
 export default app;

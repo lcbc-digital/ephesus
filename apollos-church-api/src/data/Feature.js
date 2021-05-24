@@ -57,21 +57,6 @@ const schema = gql`
     SHARE_IMAGE
   }
 
-  type ActionBarAction {
-    id: ID
-    url: String @cacheControl(maxAge: 0)
-    icon: String
-    label: String
-  }
-
-  type ActionBarFeature implements Feature & Node {
-    id: ID!
-    order: Int
-
-    title: String
-    actions: [ActionBarAction]
-  }
-
   type ShareableImageFeature implements Feature & Node {
     id: ID!
     order: Int
