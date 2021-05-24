@@ -32,7 +32,7 @@ import {
   PrayerRequest,
   Persona,
   FeatureFeed,
-  ActionAlgorithm,
+  // ActionAlgorithm,
   // Feature,
 } from '@apollosproject/data-connector-rock';
 import * as OneSignal from './OneSignal';
@@ -52,6 +52,7 @@ import * as Person from './Person';
 import * as Campus from './Campus';
 import * as AuthSms from './AuthSms';
 import * as RockConstants from './RockConstants';
+import * as ActionAlgorithm from './ActionAlgorithms';
 
 // This is to mock any postgres resolvers so we don't throw API errors for unresolved
 // typedefs
