@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import { ActionAlgorithm } from '@apollosproject/data-connector-rock';
 import { parseGlobalId } from '@apollosproject/server-core';
-import { get, flatten } from 'lodash';
+import { get } from 'lodash';
 import fetch from 'node-fetch';
 import moment from 'moment';
 

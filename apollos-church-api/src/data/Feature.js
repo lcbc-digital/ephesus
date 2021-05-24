@@ -21,9 +21,6 @@ const resolver = {
     ...baseResolver.ActionListAction,
     subtitle: ({ subtitle, summary }) => subtitle || summary,
   },
-  ActionBarFeature: {
-    id: ({ id }) => createGlobalId(id, 'ActionBarFeature'),
-  },
   ShareableImageFeature: {
     id: ({ id }) => createGlobalId(id, 'ShareableImageFeature'),
   },
