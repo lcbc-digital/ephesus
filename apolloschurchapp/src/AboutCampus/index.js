@@ -1,6 +1,6 @@
 import React from 'react';
 import { Animated, Platform, Linking } from 'react-native';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import {
   styled,
   GradientOverlayImage,
@@ -59,8 +59,8 @@ const openMaps = ({ street1, street2, city, state, postalCode }) => {
   }
 };
 
-const AboutCampus = ({ navigation }) => {
-  const itemId = navigation.getParam('itemId', []);
+const AboutCampus = ({ route, navigation }) => {
+  const itemId = route.params.itemId
   return (
     <ModalView navigation={navigation} onClose={() => navigation.goBack()}>
       <BackgroundView>

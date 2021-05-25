@@ -14,6 +14,7 @@ class dataSource extends ActionAlgorithm.dataSource {
     CAMPUS: this.campusFeature.bind(this),
     VERSE_OF_THE_DAY: this.verseOfTheDayAlgorithm.bind(this),
     START_SOMETHING_NEW: this.startSomethingNewAlgorithm.bind(this),
+    CHANNEL: this.channelFeature.bind(this),
   };
 
   async verseOfTheDayAlgorithm() {
@@ -59,6 +60,25 @@ class dataSource extends ActionAlgorithm.dataSource {
     const items = await ContentItem.getBySection(section);
 
     return items.map((item, i) => ({
+      id: `${item.id}${i}`,
+      title: item.title,
+      subtitle: get(item, 'parent.title'),
+      relatedNode: { ...item, __type: ContentItem.resolveType(item) },
+      image: ContentItem.getCoverImage(item),
+      action: 'READ_CONTENT',
+      summary: ContentItem.createSummary(item),
+    }));
+  }
+
+  async channelFeature({ channelId, ...args }) {
+    const { ContentChannel, ContentItem } = this.context.dataSources;
+    // Feature.setCacheHint({ maxAge: 0, scope: 'PRIVATE' });
+
+    const items = await ContentChannel.byChildren(channelId, args);
+
+    console.log(items);
+
+    return items.edges.map(({ node: item }, i) => ({
       id: `${item.id}${i}`,
       title: item.title,
       subtitle: get(item, 'parent.title'),
@@ -127,9 +147,8 @@ class dataSource extends ActionAlgorithm.dataSource {
   }
 
   async startSomethingNewAlgorithm({ limit = 3 } = {}) {
-    this.setCacheHint({ maxAge: 0, scope: 'PRIVATE' });
-
-    const { ContentItem } = this.context.dataSources;
+    const { ContentItem, Feature } = this.context.dataSources;
+    Feature.setCacheHint({ maxAge: 0, scope: 'PRIVATE' });
 
     const items = await ContentItem.getNewSeries();
 

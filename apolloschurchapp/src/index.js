@@ -31,6 +31,8 @@ import LandingScreen from './ui/LandingScreen';
 import Onboarding from './ui/Onboarding';
 import Search from './ui/Search';
 
+import AboutCampus from './AboutCampus';
+
 enableScreens(); // improves performance for react-navigation
 
 const AppStatusBar = withTheme(({ theme }) => ({
@@ -126,6 +128,7 @@ const App = () => (
           />
           <Screen name="LandingScreen" component={LandingScreen} />
           <Screen component={Search} name="Search" />
+          <Screen name="AboutCampus" component={AboutCampus} />
         </Navigator>
       </ThemedNavigationContainer>
     </BackgroundView>

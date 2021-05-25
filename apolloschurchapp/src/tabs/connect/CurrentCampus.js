@@ -18,6 +18,7 @@ import {
   // GradientOverlayImage,
 } from '@apollosproject/ui-kit';
 
+import { useNavigation } from '@react-navigation/core'
 import { View } from 'react-native';
 // import Label from '../../ui/LabelText';
 
@@ -71,10 +72,11 @@ const CurrentCampus = withIsLoading(
     headerTitleColor,
     isLoading,
     itemId,
-    navigation,
     sectionTitle,
     theme,
   }) => {
+    const navigation = useNavigation();
+
     const handleOnPressItem = () => {
       if (itemId) {
         navigation.push('AboutCampus', {

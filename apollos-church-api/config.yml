@@ -153,6 +153,155 @@ ROCK_MAPPINGS:
 
   MOBILE_DEVICE_TYPE_ID: 671
 
+TABS:
+  HOME:
+    - type: ActionBar
+      title: Welcome to LCBC!
+    - algorithms: [MOST_RECENT_SERMON]
+      type: VerticalCardList
+      isFeatured: true
+    - algorithms: [DAILY_PRAYER]
+      isCard: false
+      type: PrayerList
+      title: Daily Prayer
+      subtitle: Join us in prayer
+    - algorithms:
+      - type: VERSE_OF_THE_DAY
+      - type: SECTION
+        arguments:
+          section: appGrowingInFaith
+      # - type: SECTION
+      #   arguments:
+      #     section: media
+      type: VerticalCardList
+      title:
+      subtitle: Growing in faith
+    - algorithms:
+      - type: SECTION
+        arguments:
+          section: appNextSteps
+      type: HeroList
+      title: Your next steps
+      subtitle: Growing with God
+    - algorithms:
+      - type: CAMPUS
+      type: VerticalCardList
+      title:
+      subtitle: Your campus
+    - algorithms:
+      - type: SECTION
+        arguments:
+          section: appChurchEvents
+      type: VerticalCardList
+      title: Upcoming
+      subtitle: Events
+    - algorithms: [SERIES_IN_PROGRESS]
+      type: HorizontalCardList
+      title:
+      subtitle: Continue
+    - algorithms: [START_SOMETHING_NEW]
+      type: HorizontalCardList
+      title:
+      subtitle: Start something new
+  READ:
+    - algorithms:
+        - type: CHANNEL
+          arguments:
+            channelId: { typeId: 7, source: 'EntryList' }
+            first: 3
+      type: HorizontalCardList
+      subtitle: Sermons
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: { typeId: 7, source: 'EntryList' }
+          name: Sermons
+    - algorithms:
+        - type: CHANNEL
+          arguments:
+            channelId: { typeId: 40, source: 'EntryList' }
+            first: 3
+      type: HorizontalCardList
+      subtitle: Bible Reading
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: { typeId: 40, source: 'EntryList' }
+          name: Bible Reading
+    - algorithms:
+        - type: CHANNEL
+          arguments:
+            channelId: { typeId: 41, source: 'EntryList' }
+            first: 3
+      type: HorizontalCardList
+      subtitle: News
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: { typeId: 40, source: 'EntryList' }
+          name: News
+    # - algorithms:
+    #     - type: CONTENT_CHANNEL
+    #       arguments:
+    #         contentChannelId: 3
+    #         limit: 3
+    #   type: HorizontalCardList
+    #   subtitle: Studies
+    #   primaryAction:
+    #     action: OPEN_CHANNEL
+    #     title: 'View All'
+    #     relatedNode:
+    #       __typename: ContentChannel
+    #       id: 3
+    #       name: Studies
+    # - algorithms:
+    #     - type: CONTENT_CHANNEL
+    #       arguments:
+    #         contentChannelId: 4
+    #         limit: 3
+    #   type: HorizontalCardList
+    #   subtitle: Articles
+    #   primaryAction:
+    #     action: OPEN_CHANNEL
+    #     title: 'View All'
+    #     relatedNode:
+    #       __typename: ContentChannel
+    #       id: 4
+    #       name: Articles
+    # - algorithms:
+    #     - type: CONTENT_CHANNEL
+    #       arguments:
+    #         contentChannelId: 6
+    #         limit: 3
+    #   type: HorizontalCardList
+    #   subtitle: News
+    #   primaryAction:
+    #     action: OPEN_CHANNEL
+    #     title: 'View All'
+    #     relatedNode:
+    #       __typename: ContentChannel
+    #       id: 6
+    #       name: News
+    # - algorithms:
+    #     - type: CONTENT_CHANNEL
+    #       arguments:
+    #         contentChannelId: 8
+    #         limit: 3
+    #   type: HorizontalCardList
+    #   subtitle: Stories
+    #   primaryAction:
+    #     action: OPEN_CHANNEL
+    #     title: 'View All'
+    #     relatedNode:
+    #       __typename: ContentChannel
+    #       id: 8
+    #       name: Stories
 HOME_FEATURES:
   - type: ActionBar
     title: Welcome to LCBC!

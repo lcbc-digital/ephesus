@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { get } from 'lodash';
 
 import {
@@ -37,11 +37,7 @@ class Connect extends PureComponent {
                     cardTitle={userCampus.name}
                     coverImage={userCampus.image}
                     headerActionText={'Change'}
-                    // headerBackgroundColor={screenProps.headerBackgroundColor}
-                    // headerTintColor={screenProps.headerTintColor}
-                    // headerTitleColor={screenProps.headerTitleStyle.color}
                     itemId={userCampus.id}
-                    // navigation={navigation}
                     sectionTitle={'Your Campus'}
                     isLoading={userCampusLoading}
                   />
@@ -50,11 +46,7 @@ class Connect extends PureComponent {
                     cardButtonText={'Select a Campus'}
                     cardTitle={'No location'}
                     headerActionText={'Select a Campus'}
-                    // navigation={navigation}
                     sectionTitle={'Your Campus'}
-                    // headerBackgroundColor={screenProps.headerBackgroundColor}
-                    // headerTintColor={screenProps.headerTintColor}
-                    // headerTitleColor={screenProps.headerTitleStyle.color}
                     isLoading={userCampusLoading}
                   />
                 );
