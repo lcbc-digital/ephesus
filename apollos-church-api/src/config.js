@@ -37,4 +37,55 @@ ApollosConfig.loadJs({
   const version = (await res.text()).split('.');
   console.log(`Rock Version: ${version[1]}`);
   ApollosConfig.loadJs({ ROCK: { VERSION: version[1] } });
+
+  const { data } = await fetch(`${ApollosConfig.CRAFT.URL}/`, {
+    method: 'POST',
+    headers: {
+      Authorization: ApollosConfig.CRAFT.GRAPH_TOKEN,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: `
+    query {
+        categories(
+          groupId: 9
+          hasDescendants: true
+        ) {
+          id
+          title
+        }
+      }`,
+      variables: {},
+    }),
+  }).then((res) => res.json());
+  ApollosConfig.loadJs({
+    TABS: {
+      READ: [
+        ...ApollosConfig.TABS.READ.slice(0, -1),
+        ...data.categories.map(({ id, title }) => ({
+          algorithms: [
+            {
+              type: 'CHANNEL',
+              arguments: {
+                channelId: { categoryId: id, source: 'CategoryChildren' },
+                first: 3,
+              },
+            },
+          ],
+          type: 'HorizontalCardList',
+          subtitle: title,
+          primaryAction: {
+            action: 'OPEN_CHANNEL',
+            title: 'View All',
+            relatedNode: {
+              __typename: 'ContentChannel',
+              id: { categoryId: id, source: 'CategoryChildren' },
+              name: title,
+            },
+          },
+        })),
+        ...ApollosConfig.TABS.READ.slice(-1),
+      ],
+    },
+  });
 })();
