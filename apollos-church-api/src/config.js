@@ -61,7 +61,7 @@ ApollosConfig.loadJs({
   ApollosConfig.loadJs({
     TABS: {
       READ: [
-        ...ApollosConfig.TABS.READ.slice(0, -1),
+        ...ApollosConfig.TABS.READ.slice(0, -1), // All the items except news
         ...data.categories.map(({ id, title }) => ({
           algorithms: [
             {
@@ -84,7 +84,7 @@ ApollosConfig.loadJs({
             },
           },
         })),
-        ...ApollosConfig.TABS.READ.slice(-1),
+        ...ApollosConfig.TABS.READ.slice(-1), // Put news back in at the bottom
       ],
     },
   });
