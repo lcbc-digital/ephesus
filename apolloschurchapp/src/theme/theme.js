@@ -174,6 +174,7 @@ const overrides = {
   'ui-connected.ContentCardConnected.ContentCardComponentMapper': {
     Component: () => cardMapper,
   },
+  'ui-connected.SuggestedFollowListConnected': { Component: () => () => null },
   'ui-connected.HorizontalContentCardConnected.HorizontalContentCardComponentMapper': {
     Component: () => horizontalCardMapper,
   },
