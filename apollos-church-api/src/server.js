@@ -15,6 +15,7 @@ let dataObj;
 if (ApollosConfig?.DATABASE?.URL) {
   dataObj = require('./data/index.postgres');
 } else {
+  console.log('no postgres');
   dataObj = require('./data/index');
 }
 

@@ -21,6 +21,16 @@ const resolver = {
     ...baseResolver.ActionListAction,
     subtitle: ({ subtitle, summary }) => subtitle || summary,
   },
+  ActionBarAction: {
+    ...baseResolver.ActionListAction,
+    title: ({ label }) => label,
+    relatedNode: ({ url }) => ({
+      __typename: 'Url',
+      url,
+      id: createGlobalId(url, 'Url'),
+    }),
+    action: () => 'OPEN_URL',
+  },
   ShareableImageFeature: {
     id: ({ id }) => createGlobalId(id, 'ShareableImageFeature'),
   },

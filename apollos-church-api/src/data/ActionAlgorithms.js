@@ -76,8 +76,6 @@ class dataSource extends ActionAlgorithm.dataSource {
 
     const items = await ContentChannel.byChildren(channelId, args);
 
-    console.log(items);
-
     return items.edges.map(({ node: item }, i) => ({
       id: `${item.id}${i}`,
       title: item.title,
