@@ -4,7 +4,10 @@ import { useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { styled, NavigationService } from '@apollosproject/ui-kit';
 import { useApolloClient } from '@apollo/client';
-import { createFeatureFeedTab } from '@apollosproject/ui-connected';
+import {
+  createFeatureFeedTab,
+  CampusTabComponent,
+} from '@apollosproject/ui-connected';
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
 import { SearchButton } from '../ui/Search';
 import { ONBOARDING_VERSION } from '../ui/Onboarding';
@@ -32,6 +35,7 @@ const HomeTab = createFeatureFeedTab({
   },
   tabName: 'Home',
   feedName: 'HOME',
+  TabComponent: CampusTabComponent,
 });
 
 const ReadTab = createFeatureFeedTab({
@@ -39,15 +43,15 @@ const ReadTab = createFeatureFeedTab({
   feedName: 'READ',
 });
 
-const WatchTab = createFeatureFeedTab({
-  tabName: 'Watch',
-  feedName: 'WATCH',
-});
-
-const PrayTab = createFeatureFeedTab({
-  tabName: 'Pray',
-  feedName: 'PRAY',
-});
+// const WatchTab = createFeatureFeedTab({
+//   tabName: 'Watch',
+//   feedName: 'WATCH',
+// });
+//
+// const PrayTab = createFeatureFeedTab({
+//   tabName: 'Pray',
+//   feedName: 'PRAY',
+// });
 
 const { Navigator, Screen } = createBottomTabNavigator();
 

@@ -253,7 +253,7 @@ PODS:
     - React-cxxreact (= 0.63.4)
     - React-jsi (= 0.63.4)
   - React-jsinspector (0.63.4)
-  - react-native-apollos-player (2.17.0):
+  - react-native-apollos-player (2.18.1):
     - React
   - react-native-config (0.11.7):
     - React
@@ -369,7 +369,7 @@ PODS:
     - React
   - RNCPicker (1.16.1):
     - React-Core
-  - RNDateTimePicker (3.5.0):
+  - RNDateTimePicker (3.5.1):
     - React-Core
   - RNDeviceInfo (4.0.1):
     - React
@@ -379,7 +379,7 @@ PODS:
     - React
   - RNPermissions (2.0.10):
     - React
-  - RNReanimated (2.1.0):
+  - RNReanimated (2.2.0):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -682,7 +682,7 @@ SPEC CHECKSUMS:
   React-jsi: a0418934cf48f25b485631deb27c64dc40fb4c31
   React-jsiexecutor: 93bd528844ad21dc07aab1c67cb10abae6df6949
   React-jsinspector: 58aef7155bc9a9683f5b60b35eccea8722a4f53a
-  react-native-apollos-player: 05e77f652456c927f29c21cf0bf53835b9f53952
+  react-native-apollos-player: fdcff4efbb262794f2bc599faead2d2c56c774fe
   react-native-config: 55548054279d92e0e4566ea15a8b9b81028ec342
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
   react-native-geolocation-service: 7c9436da6dfdecd9526c62eac62ea2bc3f0cc8ea
@@ -714,12 +714,12 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: 453cd7c335ec9ba3b877e27d02238956b76f3268
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
   RNCPicker: 61c7a0645b9e4ac67960aa7f22a3effcecfdfb8d
-  RNDateTimePicker: d4f276aabaf26386bb4dca86e8c92087e7151ba0
+  RNDateTimePicker: 0f48ad498f7bb88ef7231ff4fbf74e9496e26fc6
   RNDeviceInfo: 687c1b2ab6d86ff1ca1208783320cd144138c7f2
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNInAppBrowser: c1a0dad2734458d79bcb6c8f4297ba8658a1da9f
   RNPermissions: 1008d3511fee0e25739cf81c4af0d1b2248f1053
-  RNReanimated: 70f662b5232dd5d19ccff581e919a54ea73df51c
+  RNReanimated: d9da990fc90123f4ffbfdda93d00fc15174863a8
   RNScreens: c277bfc4b5bb7c2fe977d19635df6f974f95dfd6
   RNShare: 7fb06e9dc9dab68854eb99041aaca080ca3fde10
   RNSVG: 8ba35cbeb385a52fd960fd28db9d7d18b4c2974f
