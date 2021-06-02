@@ -18,7 +18,7 @@ import {
   // Interactions,
   // RockConstants,
   // Person,
-  // ContentItem,
+  ContentItem as RockContentItem,
   // ContentChannel,
   Sharable,
   Auth,
@@ -30,6 +30,10 @@ import {
   BinaryFiles,
   Event,
   PrayerRequest,
+  Persona,
+  FeatureFeed,
+  // ActionAlgorithm,
+  // Feature,
 } from '@apollosproject/data-connector-rock';
 import * as OneSignal from './OneSignal';
 import * as Search from './Algolia';
@@ -48,8 +52,14 @@ import * as Person from './Person';
 import * as Campus from './Campus';
 import * as AuthSms from './AuthSms';
 import * as RockConstants from './RockConstants';
+import * as ActionAlgorithm from './ActionAlgorithms';
+
+// This is to mock any postgres resolvers so we don't throw API errors for unresolved
+// typedefs
+import NoPostgres from './noPostgres';
 
 const data = {
+  RockContentItem: { dataSource: RockContentItem.dataSource },
   Interfaces,
   Followings,
   ContentChannel,
@@ -77,12 +87,16 @@ const data = {
   Group,
   BinaryFiles,
   Feature,
+  Persona,
   Event,
   Cache,
   PrayerRequest,
   Vimeo,
   Wistia,
   CraftCampus,
+  FeatureFeed,
+  ActionAlgorithm,
+  NoPostgres,
 };
 
 const {
@@ -92,6 +106,7 @@ const {
   context,
   applyServerMiddleware,
   setupJobs,
+  migrations,
 } = createApolloServerConfig(data);
 
 export {
@@ -101,6 +116,7 @@ export {
   context,
   applyServerMiddleware,
   setupJobs,
+  migrations,
 };
 
 // the upload Scalar is added

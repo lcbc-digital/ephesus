@@ -17,7 +17,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		16264350553548FCB3B12750 /* Avenir-BlackOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3AD1DBECA5E9459585355CCD /* Avenir-BlackOblique.otf */; };
 		1C48DCDE11AC47C48E918489 /* Inter-UI-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC74A378C1CC40E4B6192D7F /* Inter-UI-Medium.otf */; };
-		25B9E67E3B46D33F45473A84 /* libPods-LCBCChurch-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F64CCA987A0419EB9C02236 /* libPods-LCBCChurch-tvOSTests.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -25,6 +24,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* LCBCChurchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* LCBCChurchTests.m */; };
 		3B6981DBCC134BD6A34056FA /* Avenir-MediumOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77C653A2660841A4A4310C91 /* Avenir-MediumOblique.otf */; };
 		578FFEC1D7D54C9B871A9E5B /* Inter-UI-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A5A2BC2998547F4816B82E4 /* Inter-UI-BlackItalic.otf */; };
+		5EAF3A01E19B41B7C21B28B7 /* libPods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4F49F2132614DE69D3B3F0 /* libPods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.a */; };
 		68D1351E80AA4A2C96288FD9 /* Inter-UI-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC21254B449443F99016EBFD /* Inter-UI-Black.otf */; };
 		7550056AC76E46ACA1B43064 /* Avenir-HeavyOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 84A14AD330A24F7F9029F235 /* Avenir-HeavyOblique.otf */; };
 		7A0AE8C2E27F4BC78FBF92B7 /* Avenir-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 51BC81D8F9CF4D2696A8B98A /* Avenir-Light.otf */; };
@@ -41,11 +41,12 @@
 		93A2B0A9328A46A4B7DD5EFA /* DroidSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E007B33EDD74B82AEF02C24 /* DroidSerif-Regular.ttf */; };
 		9BDFC286605B46EEB9895215 /* Avenir-BookOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 34F7B29F3B5E4EE685337919 /* Avenir-BookOblique.otf */; };
 		9C0F214CA90648069785B61B /* Avenir-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B97BA424EE045148FDEFA43 /* Avenir-Heavy.otf */; };
-		A415698B9815C7305EDB7AA7 /* libPods-LCBCChurchTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 560CBCD50AE7D282715D134E /* libPods-LCBCChurchTests.a */; };
 		A7DE897422BD49FC805320A7 /* Avenir-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40C90AED919C466EADA75FD9 /* Avenir-Roman.otf */; };
 		AB3BD177B8A14193A5EEDDF8 /* Inter-UI-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A613256118404CB691DE2C8E /* Inter-UI-Regular.otf */; };
 		B02F194A3F6A4FE29AC799B4 /* DroidSerif-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A93F9D112A034626A9421759 /* DroidSerif-BoldItalic.ttf */; };
 		B8C41D67042E4568B3E5F617 /* Avenir-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA300B776EB14A73A06BED17 /* Avenir-Oblique.otf */; };
+		BFE08EA0265D2906000D123D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE08E9F265D2906000D123D /* File.swift */; };
+		E4B2A883601F69741A189DCE /* libPods-LCBCChurch-LCBCChurchTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA39BAAEC242D03900B2E5AF /* libPods-LCBCChurch-LCBCChurchTests.a */; };
 		E875558F3FB8FA2024EF7DC2 /* libPods-LCBCChurch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB6B5B7B6A0D1ECB68CF0DD /* libPods-LCBCChurch.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
@@ -76,6 +77,7 @@
 		00E356EE1AD99517003FC87E /* LCBCChurchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LCBCChurchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* LCBCChurchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCBCChurchTests.m; sourceTree = "<group>"; };
+		0B0E48F66316CBC14D7B07DD /* Pods-LCBCChurch-LCBCChurchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCBCChurch-LCBCChurchTests.release.xcconfig"; path = "Target Support Files/Pods-LCBCChurch-LCBCChurchTests/Pods-LCBCChurch-LCBCChurchTests.release.xcconfig"; sourceTree = "<group>"; };
 		0D480D95FC7F4569B8B934E3 /* libRCTOneSignal.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTOneSignal.a; sourceTree = "<group>"; };
 		11694637484F4A4DBE1CA9C4 /* Avenir-Book.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-Book.otf"; path = "../assets/fonts/Avenir-Book.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* LCBC Church.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LCBC Church.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,17 +92,17 @@
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5410F239E9477B9C2E86BD /* Inter-UI-BoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-BoldItalic.otf"; path = "../assets/fonts/Inter-UI-BoldItalic.otf"; sourceTree = "<group>"; };
 		34F7B29F3B5E4EE685337919 /* Avenir-BookOblique.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-BookOblique.otf"; path = "../assets/fonts/Avenir-BookOblique.otf"; sourceTree = "<group>"; };
+		375F5885F89C50AE124C9563 /* Pods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-LCBCChurch-tvOS-LCBCChurch-tvOSTests/Pods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		38B9762ACA099D28C28DBB31 /* libPods-LCBCChurch-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LCBCChurch-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD1DBECA5E9459585355CCD /* Avenir-BlackOblique.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-BlackOblique.otf"; path = "../assets/fonts/Avenir-BlackOblique.otf"; sourceTree = "<group>"; };
 		3EF063CEEBE343A0A7715F1E /* Avenir-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-Black.otf"; path = "../assets/fonts/Avenir-Black.otf"; sourceTree = "<group>"; };
 		40C90AED919C466EADA75FD9 /* Avenir-Roman.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-Roman.otf"; path = "../assets/fonts/Avenir-Roman.otf"; sourceTree = "<group>"; };
 		4E007B33EDD74B82AEF02C24 /* DroidSerif-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidSerif-Regular.ttf"; path = "../assets/fonts/DroidSerif-Regular.ttf"; sourceTree = "<group>"; };
-		4F64CCA987A0419EB9C02236 /* libPods-LCBCChurch-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LCBCChurch-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51BC81D8F9CF4D2696A8B98A /* Avenir-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-Light.otf"; path = "../assets/fonts/Avenir-Light.otf"; sourceTree = "<group>"; };
 		54F271B8EB67A4997A2C7D96 /* Pods-LCBCChurch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCBCChurch.debug.xcconfig"; path = "Target Support Files/Pods-LCBCChurch/Pods-LCBCChurch.debug.xcconfig"; sourceTree = "<group>"; };
-		560CBCD50AE7D282715D134E /* libPods-LCBCChurchTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LCBCChurchTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5A2BC2998547F4816B82E4 /* Inter-UI-BlackItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-BlackItalic.otf"; path = "../assets/fonts/Inter-UI-BlackItalic.otf"; sourceTree = "<group>"; };
 		63F6EE53A9B44B4388B5F1C2 /* Inter-UI-Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-Italic.otf"; path = "../assets/fonts/Inter-UI-Italic.otf"; sourceTree = "<group>"; };
+		6C4014C122E3187D88B5A6DF /* Pods-LCBCChurch-LCBCChurchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCBCChurch-LCBCChurchTests.debug.xcconfig"; path = "Target Support Files/Pods-LCBCChurch-LCBCChurchTests/Pods-LCBCChurch-LCBCChurchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		745C835CA2F1E1EC2425152A /* Pods-LCBCChurch-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCBCChurch-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-LCBCChurch-tvOS/Pods-LCBCChurch-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		77C653A2660841A4A4310C91 /* Avenir-MediumOblique.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-MediumOblique.otf"; path = "../assets/fonts/Avenir-MediumOblique.otf"; sourceTree = "<group>"; };
 		82AAE52D24187BB500D1EEC7 /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = LCBCChurch/BootSplash.storyboard; sourceTree = "<group>"; };
@@ -111,8 +113,13 @@
 		A93F9D112A034626A9421759 /* DroidSerif-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidSerif-BoldItalic.ttf"; path = "../assets/fonts/DroidSerif-BoldItalic.ttf"; sourceTree = "<group>"; };
 		AA300B776EB14A73A06BED17 /* Avenir-Oblique.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-Oblique.otf"; path = "../assets/fonts/Avenir-Oblique.otf"; sourceTree = "<group>"; };
 		AB44FC16DED929081698EDFD /* Pods-LCBCChurchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCBCChurchTests.debug.xcconfig"; path = "Target Support Files/Pods-LCBCChurchTests/Pods-LCBCChurchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AB4F49F2132614DE69D3B3F0 /* libPods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADC3D2DB245545ADB1CAB3FE /* DroidSerif-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidSerif-Italic.ttf"; path = "../assets/fonts/DroidSerif-Italic.ttf"; sourceTree = "<group>"; };
 		AE85030F59F256E90D5A4C2B /* Pods-LCBCChurch-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCBCChurch-tvOS.release.xcconfig"; path = "Target Support Files/Pods-LCBCChurch-tvOS/Pods-LCBCChurch-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		B33F8167C5AC0285EA567E97 /* Pods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-LCBCChurch-tvOS-LCBCChurch-tvOSTests/Pods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BA39BAAEC242D03900B2E5AF /* libPods-LCBCChurch-LCBCChurchTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LCBCChurch-LCBCChurchTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFE08E9E265D2905000D123D /* LCBCChurch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LCBCChurch-Bridging-Header.h"; sourceTree = "<group>"; };
+		BFE08E9F265D2906000D123D /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		CF362FD4475D4652830D25CC /* Avenir-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-Medium.otf"; path = "../assets/fonts/Avenir-Medium.otf"; sourceTree = "<group>"; };
 		D394E3064D75710E81C51EB0 /* Pods-LCBCChurch-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCBCChurch-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-LCBCChurch-tvOSTests/Pods-LCBCChurch-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5157D807E164356ADE87867 /* Inter-UI-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-Bold.otf"; path = "../assets/fonts/Inter-UI-Bold.otf"; sourceTree = "<group>"; };
@@ -133,7 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A415698B9815C7305EDB7AA7 /* libPods-LCBCChurchTests.a in Frameworks */,
+				E4B2A883601F69741A189DCE /* libPods-LCBCChurch-LCBCChurchTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25B9E67E3B46D33F45473A84 /* libPods-LCBCChurch-tvOSTests.a in Frameworks */,
+				5EAF3A01E19B41B7C21B28B7 /* libPods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +202,8 @@
 				82AAE52D24187BB500D1EEC7 /* BootSplash.storyboard */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				BFE08E9F265D2906000D123D /* File.swift */,
+				BFE08E9E265D2905000D123D /* LCBCChurch-Bridging-Header.h */,
 			);
 			name = LCBCChurch;
 			sourceTree = "<group>";
@@ -207,8 +216,8 @@
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				DDB6B5B7B6A0D1ECB68CF0DD /* libPods-LCBCChurch.a */,
 				38B9762ACA099D28C28DBB31 /* libPods-LCBCChurch-tvOS.a */,
-				4F64CCA987A0419EB9C02236 /* libPods-LCBCChurch-tvOSTests.a */,
-				560CBCD50AE7D282715D134E /* libPods-LCBCChurchTests.a */,
+				BA39BAAEC242D03900B2E5AF /* libPods-LCBCChurch-LCBCChurchTests.a */,
+				AB4F49F2132614DE69D3B3F0 /* libPods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -255,6 +264,10 @@
 				DA9745795726553C6FA9E7A8 /* Pods-LCBCChurch-tvOSTests.release.xcconfig */,
 				AB44FC16DED929081698EDFD /* Pods-LCBCChurchTests.debug.xcconfig */,
 				E98AC9782C338F13632EF710 /* Pods-LCBCChurchTests.release.xcconfig */,
+				6C4014C122E3187D88B5A6DF /* Pods-LCBCChurch-LCBCChurchTests.debug.xcconfig */,
+				0B0E48F66316CBC14D7B07DD /* Pods-LCBCChurch-LCBCChurchTests.release.xcconfig */,
+				B33F8167C5AC0285EA567E97 /* Pods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.debug.xcconfig */,
+				375F5885F89C50AE124C9563 /* Pods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -313,6 +326,8 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				561CA4E9DA8886EB4E7CA28F /* [CP] Embed Pods Frameworks */,
+				D479F9EA490E47B6EBC63BA2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -334,6 +349,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				43D579D8398224D7B09F58F6 /* [CP] Copy Pods Resources */,
+				52A3F16668639FB95D9C8670 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -388,7 +404,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 940;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -397,6 +413,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = T4S67UWF3G;
+						LastSwiftMigration = 1250;
 						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -525,7 +542,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LCBCChurchTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-LCBCChurch-LCBCChurchTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -553,17 +570,55 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LCBCChurch/Pods-LCBCChurch-resources.sh",
-				"${PODS_ROOT}/google-cast-sdk-no-bluetooth/GoogleCastSDK-ios-4.5.0_static/GoogleCast.framework/GoogleCastCoreResources.bundle",
-				"${PODS_ROOT}/google-cast-sdk-no-bluetooth/GoogleCastSDK-ios-4.5.0_static/GoogleCast.framework/GoogleCastUIResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+				"${PODS_ROOT}/google-cast-sdk/GoogleCastSDK-ios-4.5.0_static/GoogleCast.framework/GoogleCastCoreResources.bundle",
+				"${PODS_ROOT}/google-cast-sdk/GoogleCastSDK-ios-4.5.0_static/GoogleCast.framework/GoogleCastUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleCastCoreResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleCastUIResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LCBCChurch/Pods-LCBCChurch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52A3F16668639FB95D9C8670 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LCBCChurch/Pods-LCBCChurch-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LCBCChurch/Pods-LCBCChurch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		561CA4E9DA8886EB4E7CA28F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LCBCChurch-LCBCChurchTests/Pods-LCBCChurch-LCBCChurchTests-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LCBCChurch-LCBCChurchTests/Pods-LCBCChurch-LCBCChurchTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9C20354F160AAF86C8281F23 /* [CP] Check Pods Manifest.lock */ = {
@@ -603,11 +658,33 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LCBCChurch-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-LCBCChurch-tvOS-LCBCChurch-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D479F9EA490E47B6EBC63BA2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LCBCChurch-LCBCChurchTests/Pods-LCBCChurch-LCBCChurchTests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+				"${PODS_ROOT}/google-cast-sdk/GoogleCastSDK-ios-4.5.0_static/GoogleCast.framework/GoogleCastCoreResources.bundle",
+				"${PODS_ROOT}/google-cast-sdk/GoogleCastSDK-ios-4.5.0_static/GoogleCast.framework/GoogleCastUIResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleCastCoreResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleCastUIResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LCBCChurch-LCBCChurchTests/Pods-LCBCChurch-LCBCChurchTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DEEF24CE4F76789E5E8C369D /* [CP] Check Pods Manifest.lock */ = {
@@ -648,6 +725,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				BFE08EA0265D2906000D123D /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,8 +765,9 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB44FC16DED929081698EDFD /* Pods-LCBCChurchTests.debug.xcconfig */;
+			baseConfigurationReference = 6C4014C122E3187D88B5A6DF /* Pods-LCBCChurch-LCBCChurchTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -699,7 +778,7 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 				);
 				INFOPLIST_FILE = LCBCChurchTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
@@ -714,8 +793,9 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E98AC9782C338F13632EF710 /* Pods-LCBCChurchTests.release.xcconfig */;
+			baseConfigurationReference = 0B0E48F66316CBC14D7B07DD /* Pods-LCBCChurch-LCBCChurchTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				HEADER_SEARCH_PATHS = (
@@ -723,7 +803,7 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 				);
 				INFOPLIST_FILE = LCBCChurchTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
@@ -741,11 +821,12 @@
 			baseConfigurationReference = 54F271B8EB67A4997A2C7D96 /* Pods-LCBCChurch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LCBCChurch/LCBCChurch.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 18;
-				DEAD_CODE_STRIPPING = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = T4S67UWF3G;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -762,6 +843,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lcbcchurchcom;
 				PRODUCT_NAME = "LCBC Church";
 				PROVISIONING_PROFILE_SPECIFIER = "Apollos AppStore";
+				SWIFT_OBJC_BRIDGING_HEADER = "LCBCChurch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -772,6 +856,7 @@
 			baseConfigurationReference = 1F8F5BC4745C8F22C695573D /* Pods-LCBCChurch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LCBCChurch/LCBCChurch.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
@@ -792,6 +877,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lcbcchurchcom;
 				PRODUCT_NAME = "LCBC Church";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "LCBCChurch-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -825,7 +912,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -857,13 +944,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D394E3064D75710E81C51EB0 /* Pods-LCBCChurch-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = B33F8167C5AC0285EA567E97 /* Pods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -888,13 +975,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LCBCChurch-tvOS.app/LCBCChurch-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA9745795726553C6FA9E7A8 /* Pods-LCBCChurch-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 375F5885F89C50AE124C9563 /* Pods-LCBCChurch-tvOS-LCBCChurch-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -919,7 +1006,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LCBCChurch-tvOS.app/LCBCChurch-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -927,6 +1014,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -945,6 +1033,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -969,7 +1058,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -980,6 +1074,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -998,6 +1093,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1015,9 +1111,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

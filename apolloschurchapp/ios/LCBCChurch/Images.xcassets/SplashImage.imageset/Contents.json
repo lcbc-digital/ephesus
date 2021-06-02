@@ -1,0 +1,25 @@
+{
+  "images" : [
+    {
+      "filename" : "Vector.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Vector (1).png",
+      "idiom" : "universal",
+      "filename" : "splash@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Vector (2).png",
+      "idiom" : "universal",
+      "filename" : "splash@3x.png",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
