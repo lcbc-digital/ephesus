@@ -525,7 +525,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		2C62ED438C51D0F43EC7017B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -817,7 +817,7 @@
 				CODE_SIGN_ENTITLEMENTS = LCBCChurch/LCBCChurch.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 161;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = T4S67UWF3G;
 				HEADER_SEARCH_PATHS = (
@@ -852,7 +852,7 @@
 				CODE_SIGN_ENTITLEMENTS = LCBCChurch/LCBCChurch.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 161;
 				DEVELOPMENT_TEAM = T4S67UWF3G;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
