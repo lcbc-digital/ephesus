@@ -1,6 +1,6 @@
+require('dotenv').config();
 const fs = require('fs');
 const Path = require('path');
-require('dotenv/config');
 const fetch = require('node-fetch');
 
 const attempts = 0;
