@@ -3,7 +3,7 @@
   "version": "1.3.1",
   "private": true,
   "engines": {
-    "node": ">=16.x.x"
+    "node": ">=12.x.x"
   },
   "files": [
     "src"

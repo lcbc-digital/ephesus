@@ -21,7 +21,7 @@
     "upgrade": "npx @apollosproject/upgrade-tools upgrade"
   },
   "engines": {
-    "node": ">=8.11.x"
+    "node": ">=12.x.x"
   },
   "jest": {
     "collectCoverage": true,
