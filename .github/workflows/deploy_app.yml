@@ -51,8 +51,8 @@ jobs:
     - name: Generate Stories
       run: yarn generate-stories
 
-    - name: Generate Schema
-      run: yarn get-schema
+    # - name: Generate Schema
+    #   run: yarn get-schema
 
     - name: Generate Fragment Types
       run: node ./scripts/get-introspection-data.js

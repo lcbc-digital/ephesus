@@ -87,6 +87,7 @@
     "dotenv": "^6.2.0",
     "events": "^3.0.0",
     "formik": "^1.5.2",
+    "get-graphql-schema": "^2.1.2",
     "graphql": "14.7.0",
     "graphql-tag": "2.9.2",
     "graphql-tools": "3.1.1",
