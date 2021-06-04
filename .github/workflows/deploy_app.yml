@@ -44,6 +44,8 @@ jobs:
 
     - run: cp .env.shared .env
 
+    - run: ls
+
     - name: Install Dependencies
       run: yarn
 

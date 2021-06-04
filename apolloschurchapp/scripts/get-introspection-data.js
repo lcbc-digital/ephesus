@@ -7,7 +7,7 @@ const attempts = 0;
 const maxAttempts = 3;
 const timeBetweenAttempts = 5 * 1000;
 
-console.log(process.env.APP_DATA_URL);
+console.log('app url', process.env.APP_DATA_URL);
 
 const getIntrospectionData = async () => {
   try {
