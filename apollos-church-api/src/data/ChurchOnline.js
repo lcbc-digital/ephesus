@@ -67,48 +67,49 @@ export class dataSource extends RESTDataSource {
   }
 
   async getLiveStream() {
-    const accessToken = await this.getAccessToken();
-    const result = await this.post(
-      'graphql',
-      {
-        operationName: 'CurrentState',
-        query: CurrentLivestreamQuery,
-      },
-      {
-        headers: {
-          cookie: `access_token=${accessToken};`,
-        },
-      }
-    );
+//     const accessToken = await this.getAccessToken();
+//     const result = await this.post(
+//       'graphql',
+//       {
+//         operationName: 'CurrentState',
+//         query: CurrentLivestreamQuery,
+//       },
+//       {
+//         headers: {
+//           cookie: `access_token=${accessToken};`,
+//         },
+//       }
+//     );
     // TODO: The cookie above won't last forever.
-    const { data } = result;
+    // const { data } = result;
     return {
-      isLive: get(data, 'currentService.content.videoStarted', false),
-      eventStartTime: get(data, 'currentService.startTime'),
-      media: () =>
+      isLive: false, // get(data, 'currentService.content.videoStarted', false),
+      eventStartTime: null, // get(data, 'currentService.startTime'),
+      media: null, /* () =>
         this.mediaUrls.length
           ? {
               sources: this.mediaUrls.map((uri) => ({
                 uri,
               })),
             }
-          : null,
-      webViewUrl: this.webViewUrl,
+          : null, */
+      webViewUrl: null, // this.webViewUrl,
     };
   }
 
   async getLiveStreams() {
-    const { ContentItem } = this.context.dataSources;
+    // const { ContentItem } = this.context.dataSources;
     // This logic is a little funky right now.
     // The follow method looks at the sermon feed and the `getLiveStream` on this module
     // If we have data in the sermon feed, and the `getLiveStream.isLive` is true
     // this returns an array of livestreams
-    const liveItems = await ContentItem.getActiveLiveStreamContent();
-    return Promise.all(
-      liveItems.map(async (item) => ({
-        contentItem: item,
-        ...(await this.getLiveStream()),
-      }))
-    );
+    // const liveItems = await ContentItem.getActiveLiveStreamContent();
+//     return Promise.all(
+//       liveItems.map(async (item) => ({
+//         contentItem: item,
+//         ...(await this.getLiveStream()),
+//       }))
+//     );
+    return [];
   }
 }
