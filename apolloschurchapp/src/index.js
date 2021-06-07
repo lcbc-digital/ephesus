@@ -27,7 +27,7 @@ import Providers from './Providers';
 import ContentSingle from './content-single';
 import Event from './event';
 import Tabs from './tabs';
-import LandingScreen from './ui/LandingScreen';
+import LandingScreen from './LandingScreen';
 import Onboarding from './ui/Onboarding';
 import Search from './ui/Search';
 
