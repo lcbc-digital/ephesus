@@ -1,44 +1,29 @@
 import React, { PureComponent } from 'react';
-import { ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { get } from 'lodash';
 
-// import { HorizontalLikedContentFeedConnected } from '@apollosproject/ui-connected';
-import { BackgroundView } from '@apollosproject/ui-kit';
-
+import {
+  ConnectScreenConnected,
+  GET_USER_PROFILE,
+} from '@apollosproject/ui-connected';
 import ActionTable from './ActionTable';
 import ActionBar from './ActionBar';
-import UserAvatarHeader from './UserAvatarHeader';
-import GET_USER_PROFILE from './UserAvatarHeader/getUserProfile';
 import CurrentCampus from './CurrentCampus';
 
 class Connect extends PureComponent {
-  static navigationOptions = () => ({
-    title: 'Connect',
-    header: null,
-  });
-
   static propTypes = {
     navigation: PropTypes.shape({
-      getParam: PropTypes.func,
       navigate: PropTypes.func,
-    }),
-    screenProps: PropTypes.shape({
-      headerBackgroundColor: PropTypes.string,
-      headerTintColor: PropTypes.string,
-      headerTitleStyle: PropTypes.shape({ color: PropTypes.string }),
     }),
   };
 
   render() {
-    const { navigation, screenProps } = this.props;
     return (
-      <BackgroundView>
-        <SafeAreaView>
-          <ScrollView>
-            <UserAvatarHeader />
+      <ConnectScreenConnected
+        ActionTable={ActionTable}
+        ActionBar={() => (
+          <>
             <ActionBar />
             <Query query={GET_USER_PROFILE}>
               {({ data: campusData, loading: userCampusLoading }) => {
@@ -52,11 +37,7 @@ class Connect extends PureComponent {
                     cardTitle={userCampus.name}
                     coverImage={userCampus.image}
                     headerActionText={'Change'}
-                    headerBackgroundColor={screenProps.headerBackgroundColor}
-                    headerTintColor={screenProps.headerTintColor}
-                    headerTitleColor={screenProps.headerTitleStyle.color}
                     itemId={userCampus.id}
-                    navigation={navigation}
                     sectionTitle={'Your Campus'}
                     isLoading={userCampusLoading}
                   />
@@ -65,20 +46,15 @@ class Connect extends PureComponent {
                     cardButtonText={'Select a Campus'}
                     cardTitle={'No location'}
                     headerActionText={'Select a Campus'}
-                    navigation={navigation}
                     sectionTitle={'Your Campus'}
-                    headerBackgroundColor={screenProps.headerBackgroundColor}
-                    headerTintColor={screenProps.headerTintColor}
-                    headerTitleColor={screenProps.headerTitleStyle.color}
                     isLoading={userCampusLoading}
                   />
                 );
               }}
             </Query>
-            <ActionTable />
-          </ScrollView>
-        </SafeAreaView>
-      </BackgroundView>
+          </>
+        )}
+      />
     );
   }
 }

@@ -11,7 +11,6 @@ import {
   styled,
   PaddedView,
   H4,
-  // NavigationService,
 } from '@apollosproject/ui-kit';
 import { RockAuthedWebBrowser } from '@apollosproject/ui-connected';
 

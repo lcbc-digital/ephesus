@@ -15,6 +15,7 @@ class dataSource extends OneSignalDataSource {
 
   async updatePushSettings({ enabled, pushProviderUserId }) {
     const { Auth, PersonalDevice, Campus } = this.context.dataSources;
+
     const currentUser = await Auth.getCurrentPerson();
 
     if (enabled != null && pushProviderUserId != null)
@@ -24,7 +25,10 @@ class dataSource extends OneSignalDataSource {
       );
 
     if (pushProviderUserId != null) {
-      const campus = await Campus.getForPerson({ personId: currentUser.id });
+      const campus = await Campus.getForPerson({
+        originId: currentUser.id,
+        originType: 'rock',
+      });
       await this.updateExternalUserId({
         playerId: pushProviderUserId,
         userId: currentUser.primaryAliasId,

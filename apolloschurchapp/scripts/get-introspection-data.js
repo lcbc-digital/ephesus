@@ -1,19 +1,23 @@
+require('dotenv').config();
 const fs = require('fs');
 const Path = require('path');
-require('dotenv/config');
 const fetch = require('node-fetch');
 
 const attempts = 0;
 const maxAttempts = 3;
 const timeBetweenAttempts = 5 * 1000;
 
+console.log('app url', process.env.APP_DATA_URL);
+
 const getIntrospectionData = async () => {
   try {
-    const query = await fetch(process.env.APP_DATA_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        query: `
+    const query = await fetch(
+      'https://lcbc-production-herokuapp-com.global.ssl.fastly.net/',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          query: `
           {
             __schema {
               types {
@@ -26,8 +30,9 @@ const getIntrospectionData = async () => {
             }
           }
         `,
-      }),
-    });
+        }),
+      }
+    );
 
     const { data } = await query.json();
 

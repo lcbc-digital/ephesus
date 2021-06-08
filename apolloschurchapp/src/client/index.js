@@ -1,22 +1,20 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { ApolloProvider } from 'react-apollo';
-import { ApolloProvider as ApolloHookProvider } from '@apollo/react-hooks';
-import { ApolloClient } from 'apollo-client';
-import { ApolloLink } from 'apollo-link';
+import { ApolloProvider, ApolloClient, ApolloLink } from '@apollo/client';
 import { getVersion, getApplicationName } from 'react-native-device-info';
 
 import { authLink, buildErrorLink } from '@apollosproject/ui-auth';
 
 import { NavigationService } from '@apollosproject/ui-kit';
-import { resolvers, schema, defaults } from '../store';
+import { resolvers, schema, defaults, GET_ALL_DATA } from '../store';
 
 import httpLink from './httpLink';
 import cache, { ensureCacheHydration } from './cache';
 import MARK_CACHE_LOADED from './markCacheLoaded';
 
 const goToAuth = () => NavigationService.resetToAuth();
-const wipeData = () => cache.writeData({ data: defaults });
+const wipeData = () =>
+  cache.writeQuery({ query: GET_ALL_DATA, data: defaults });
 
 let clearStore;
 let storeIsResetting = false;
@@ -42,6 +40,21 @@ export const client = new ApolloClient({
   typeDefs: schema,
   name: getApplicationName(),
   version: getVersion(),
+  // NOTE: this is because we have some very taxing queries that we want to avoid running twice
+  // see if it's still an issue after we're operating mostly on Postgres and have less loading states
+  defaultOptions: {
+    watchQuery: {
+      nextFetchPolicy(lastFetchPolicy) {
+        if (
+          lastFetchPolicy === 'cache-and-network' ||
+          lastFetchPolicy === 'network-only'
+        ) {
+          return 'cache-first';
+        }
+        return lastFetchPolicy;
+      },
+    },
+  },
 });
 
 // Hack to give auth link access to method on client;
@@ -82,9 +95,7 @@ class ClientProvider extends PureComponent {
     const { children, ...otherProps } = this.props;
     return (
       <ApolloProvider {...otherProps} client={client}>
-        <ApolloHookProvider {...otherProps} client={client}>
-          {children}
-        </ApolloHookProvider>
+        {children}
       </ApolloProvider>
     );
   }

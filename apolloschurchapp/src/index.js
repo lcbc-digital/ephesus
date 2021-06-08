@@ -1,8 +1,17 @@
-import hoistNonReactStatic from 'hoist-non-react-statics';
+/* eslint-disable react/jsx-handler-names */
+
 import React from 'react';
 import { StatusBar } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
-import RNBootSplash from 'react-native-bootsplash';
+import {
+  NavigationContainer,
+  useNavigation,
+  DarkTheme,
+  DefaultTheme,
+} from '@react-navigation/native';
+import { createNativeStackNavigator } from 'react-native-screens/native-stack';
+import SplashScreen from 'react-native-splash-screen';
+import 'react-native-gesture-handler'; // required for react-navigation
+import { enableScreens } from 'react-native-screens';
 
 import {
   BackgroundView,
@@ -10,80 +19,118 @@ import {
   NavigationService,
 } from '@apollosproject/ui-kit';
 import Passes from '@apollosproject/ui-passes';
-import { CoreNavigationAnalytics } from '@apollosproject/ui-analytics';
 import { MapViewConnected as Location } from '@apollosproject/ui-mapview';
-import { MediaPlayer } from '@apollosproject/ui-media-player';
 import Auth, { ProtectedRoute } from '@apollosproject/ui-auth';
 
+import { ContentFeedConnected } from '@apollosproject/ui-connected';
 import Providers from './Providers';
 import ContentSingle from './content-single';
-import NodeSingle from './node-single';
 import Event from './event';
 import Tabs from './tabs';
-import PersonalDetails from './user-settings/PersonalDetails';
-import ChangePassword from './user-settings/ChangePassword';
 import LandingScreen from './LandingScreen';
-import UserWebBrowser from './user-web-browser';
 import Onboarding from './ui/Onboarding';
+import Search from './ui/Search';
+
 import AboutCampus from './AboutCampus';
+
+enableScreens(); // improves performance for react-navigation
 
 const AppStatusBar = withTheme(({ theme }) => ({
   barStyle: theme.barStyle,
   backgroundColor: theme.colors.background.paper,
 }))(StatusBar);
 
-const ProtectedRouteWithSplashScreen = (props) => {
-  const handleOnRouteChange = () => RNBootSplash.hide({ duration: 250 });
-
-  return <ProtectedRoute {...props} onRouteChange={handleOnRouteChange} />;
+const ProtectedRouteWithSplashScreen = () => {
+  const handleOnRouteChange = () => SplashScreen.hide();
+  const navigation = useNavigation();
+  return (
+    <ProtectedRoute
+      onRouteChange={handleOnRouteChange}
+      navigation={navigation}
+    />
+  );
 };
 
-// Hack to avoid needing to pass emailRequired through the navigator.navigate
-const EnhancedAuth = (props) => <Auth {...props} emailRequired />;
-// 😑
-hoistNonReactStatic(EnhancedAuth, Auth);
-
-const AppNavigator = createStackNavigator(
-  {
-    ProtectedRoute: ProtectedRouteWithSplashScreen,
-    Tabs,
-    ContentSingle,
-    NodeSingle,
-    Event,
-    Auth: EnhancedAuth,
-    PersonalDetails,
-    ChangePassword,
-    Location,
-    Passes,
-    UserWebBrowser,
-    Onboarding,
-    LandingScreen,
-    AboutCampus,
+const ThemedNavigationContainer = withTheme(({ theme, ...props }) => ({
+  theme: {
+    ...(theme.type === 'dark' ? DarkTheme : DefaultTheme),
+    dark: theme.type === 'dark',
+    colors: {
+      ...(theme.type === 'dark' ? DarkTheme.colors : DefaultTheme.colors),
+      primary: theme.colors.secondary,
+      background: theme.colors.background.screen,
+      card: theme.colors.background.paper,
+      text: theme.colors.text.primary,
+    },
   },
-  {
-    initialRouteName: 'ProtectedRoute',
-    mode: 'modal',
-    headerMode: 'screen',
-  }
-);
+  ...props,
+}))(({ containerRef, ...props }) => (
+  <NavigationContainer ref={containerRef} {...props} />
+));
 
-const AppContainer = createAppContainer(AppNavigator);
+const { Navigator, Screen } = createNativeStackNavigator();
 
 const App = () => (
   <Providers>
     <BackgroundView>
       <AppStatusBar />
-      <CoreNavigationAnalytics>
-        {(props) => (
-          <AppContainer
-            ref={(navigatorRef) => {
-              NavigationService.setTopLevelNavigator(navigatorRef);
-            }}
-            {...props}
+      <ThemedNavigationContainer
+        containerRef={NavigationService.setTopLevelNavigator}
+        onReady={NavigationService.setIsReady}
+      >
+        <Navigator
+          screenOptions={{ headerShown: false, stackPresentation: 'modal' }}
+        >
+          <Screen
+            name="ProtectedRoute"
+            component={ProtectedRouteWithSplashScreen}
           />
-        )}
-      </CoreNavigationAnalytics>
-      <MediaPlayer />
+          <Screen name="Tabs" component={Tabs} />
+          <Screen
+            name="ContentSingle"
+            component={ContentSingle}
+            options={{
+              title: 'Content',
+              stackPresentation: 'push',
+            }}
+          />
+          <Screen
+            component={ContentFeedConnected}
+            name="ContentFeed"
+            options={({ route }) => ({
+              title: route.params.itemTitle || 'Content Feed',
+              stackPresentation: 'push',
+            })}
+          />
+
+          <Screen name="Event" component={Event} options={{ title: 'Event' }} />
+          <Screen
+            name="Auth"
+            component={Auth}
+            options={{
+              gestureEnabled: false,
+              stackPresentation: 'push',
+            }}
+          />
+          <Screen name="Location" component={Location} />
+          <Screen
+            name="Passes"
+            component={Passes}
+            options={{ title: 'Check-In Pass' }}
+          />
+          <Screen
+            name="Onboarding"
+            component={Onboarding}
+            options={{
+              gestureEnabled: false,
+              stackPresentation: 'push',
+            }}
+          />
+          <Screen name="LandingScreen" component={LandingScreen} />
+          <Screen component={Search} name="Search" />
+          <Screen name="AboutCampus" component={AboutCampus} />
+        </Navigator>
+      </ThemedNavigationContainer>
     </BackgroundView>
   </Providers>
 );
