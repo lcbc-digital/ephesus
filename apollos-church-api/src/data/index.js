@@ -35,6 +35,7 @@ import {
   // ActionAlgorithm,
   // Feature,
 } from '@apollosproject/data-connector-rock';
+import * as LiveStream from '@apollosproject/data-connector-church-online';
 import * as OneSignal from './OneSignal';
 import * as Search from './Algolia';
 import * as Theme from './theme';
@@ -42,7 +43,7 @@ import * as Theme from './theme';
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
 import * as OneSignalWithRock from './oneSignalWithRock';
-import * as LiveStream from './ChurchOnline';
+// import * as LiveStream from './ChurchOnline';
 import { ContentChannel, ContentItem, Category, CraftCampus } from './craft';
 import * as Feature from './Feature';
 import * as Vimeo from './Vimeo';
