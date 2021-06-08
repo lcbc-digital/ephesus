@@ -382,5 +382,3 @@ HOME_FEATURES:
   #     - type: UPCOMING_EVENTS
   # - algorithms: [USER_FEED]
   #   type: VerticalCardList
-
-# Default mapping of field types -> ids. There's probably no reason to edit this.
