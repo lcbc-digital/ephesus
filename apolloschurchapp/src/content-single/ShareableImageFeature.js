@@ -33,11 +33,11 @@ export const shareImage = async ({ url }) => {
   }
 };
 
-const ShareableImageFeature = ({ image }) => (
+const ShareableImageFeature = ({ image = null } = { image: null }) => (
   <PaddedView>
     <Touchable onPress={() => shareImage({ url: image.sources[0].uri })}>
       <View>
-        <ConnectedImage source={image.sources} maintainAspectRatio />
+        <ConnectedImage source={image?.sources} maintainAspectRatio />
         <PaddedView horizontal={false}>
           <ButtonLink>{'Download'}</ButtonLink>
         </PaddedView>

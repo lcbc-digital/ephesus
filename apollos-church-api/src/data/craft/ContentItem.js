@@ -15,8 +15,9 @@ import CraftDataSource, { mapToEdgeNode } from './CraftDataSource';
 
 export const schema = gql`
   ${ContentItem.schema}
-  extend type MediaContentItem {
+  extend type MediaContentItem implements FeaturesNode {
     features: [Feature]
+    featureFeed: FeatureFeed
   }
 `;
 
@@ -111,6 +112,8 @@ const baseResolver = {
     ...ContentItem.resolver.MediaContentItem,
     features: (root, args, { dataSources: { ContentItem } }) =>
       ContentItem.getFeatures(root),
+    featureFeed: ({ id }, args, { dataSources: { FeatureFeed } }) =>
+      FeatureFeed.getFeed({ type: 'contentItem', args: { id } }),
   },
   DevotionalContentItem: {
     ...ContentItem.resolver.DevotionalContentItem,

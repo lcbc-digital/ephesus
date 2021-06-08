@@ -22,7 +22,88 @@ const fragments = {
       }
     }
   `,
+  LITE_FEATURES_FRAGMENT: gql`
+    fragment LiteFeaturesFragment on Feature {
+      id
+      __typename
+      ... on ShareableImageFeature {
+        id
 
+        image {
+          sources {
+            uri
+          }
+        }
+      }
+      ... on VerticalCardListFeature {
+        isFeatured
+        title
+        subtitle
+      }
+      ... on HorizontalCardListFeature {
+        title
+        subtitle
+      }
+      ... on ActionListFeature {
+        title
+        subtitle
+      }
+      ... on HeroListFeature {
+        title
+        subtitle
+      }
+      ... on PrayerListFeature {
+        title
+        subtitle
+        isCard
+      }
+      ... on VerticalPrayerListFeature {
+        title
+        subtitle
+      }
+      ... on TextFeature {
+        # The whole fragment is currently included b/c these nodes don't fetch their own content.
+        title
+        body
+        sharing {
+          message
+        }
+      }
+      ... on ScriptureFeature {
+        # The whole fragment is currently included b/c these nodes don't fetch their own content.
+        title
+        sharing {
+          message
+        }
+        scriptures {
+          id
+          html
+          reference
+          copyright
+          version
+        }
+      }
+      ... on WebviewFeature {
+        # The whole fragment is currently included b/c these nodes don't fetch their own content.
+        linkText
+        title
+        url
+      }
+      ... on ButtonFeature {
+        # The whole fragment is currently included b/c these nodes don't fetch their own content.
+        action {
+          title
+          action
+          relatedNode {
+            id
+            ... on Url {
+              url
+            }
+          }
+        }
+      }
+    }
+  `,
   CARD_FEATURES_FRAGMENT: gql`
     fragment CardFeaturesFragment on ContentItem {
       ... on ContentSeriesContentItem {
