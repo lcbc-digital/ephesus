@@ -9,11 +9,11 @@ class dataSource extends RESTDataSource {
 
   baseURL = 'https://api.vimeo.com/';
 
-  willSendRequest = (request) => {
+  willSendRequest(request) {
     request.headers.set('Authorization', `Bearer ${this.token}`);
-  };
+  }
 
-  getHLSForVideo = async (id) => {
+  async getHLSForVideo(id) {
     // captures either vimeo/123 or 123
     const matches = id.match(/\/?(\d+)$/);
     if (matches && matches[1]) {
@@ -21,7 +21,7 @@ class dataSource extends RESTDataSource {
       return this.findHLSSource(video);
     }
     return null;
-  };
+  }
 
   findHLSSource({ files }) {
     const hls = files.find(({ quality }) => quality === 'hls');

@@ -35,14 +35,15 @@ export default class Craft extends RESTDataSource {
   };
 
   // NOTE: Craft Integration
-  query = (query, variables) =>
-    this.post(
+  query(query, variables) {
+    return this.post(
       '/',
       JSON.stringify({
         query,
         variables,
       })
     );
+  }
 
   // Override for: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/resolver.js#L12
   // eslint-disable-next-line class-methods-use-this

@@ -6,7 +6,7 @@ class dataSource extends RESTDataSource {
 
   // willSendRequest = (request) => {};
 
-  getHLSForVideo = async (id) => {
+  async getHLSForVideo(id) {
     // captures either vimeo/123 or 123
     const matches = id.match(/\/?(\w+)$/);
     if (matches && matches[1]) {
@@ -14,18 +14,18 @@ class dataSource extends RESTDataSource {
       return this.findHLSSource(video);
     }
     return null;
-  };
+  }
 
-  getImage = async (id) => {
+  async getImage(id) {
     const matches = id.match(/\/?(\w+)$/);
     if (matches && matches[1]) {
       const video = await this.get(`${matches[1]}.json`);
       return this.findJPGSource(video);
     }
     return null;
-  };
+  }
 
-  findHLSSource({ media }) {
+  async findHLSSource({ media }) {
     const sortedAssets = media.assets.sort((a, b) => b.width - a.width);
     const hls =
       sortedAssets.find(({ type }) => type === 'hd_mp4_video') ||
