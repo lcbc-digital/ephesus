@@ -80,7 +80,7 @@
 		0B0E48F66316CBC14D7B07DD /* Pods-LCBCChurch-LCBCChurchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCBCChurch-LCBCChurchTests.release.xcconfig"; path = "Target Support Files/Pods-LCBCChurch-LCBCChurchTests/Pods-LCBCChurch-LCBCChurchTests.release.xcconfig"; sourceTree = "<group>"; };
 		0D480D95FC7F4569B8B934E3 /* libRCTOneSignal.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTOneSignal.a; sourceTree = "<group>"; };
 		11694637484F4A4DBE1CA9C4 /* Avenir-Book.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-Book.otf"; path = "../assets/fonts/Avenir-Book.otf"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* LCBC Church.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LCBC Church.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* LCBCChurch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCBCChurch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = LCBCChurch/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = LCBCChurch/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = LCBCChurch/Images.xcassets; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* LCBC Church.app */,
+				13B07F961A680F5B00A75B9A /* LCBCChurch.app */,
 				00E356EE1AD99517003FC87E /* LCBCChurchTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* LCBCChurch-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* LCBCChurch-tvOSTests.xctest */,
@@ -357,7 +357,7 @@
 			);
 			name = LCBCChurch;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* LCBC Church.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* LCBCChurch.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* LCBCChurch-tvOS */ = {
@@ -833,7 +833,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lcbcchurchcom;
-				PRODUCT_NAME = "LCBC Church";
+				PRODUCT_NAME = "LCBCChurch";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development lcbcchurchcom 1622749825";
 				SWIFT_OBJC_BRIDGING_HEADER = "LCBCChurch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -867,7 +867,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lcbcchurchcom;
-				PRODUCT_NAME = "LCBC Church";
+				PRODUCT_NAME = "LCBCChurch";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore lcbcchurchcom 1622749882";
 				SWIFT_OBJC_BRIDGING_HEADER = "LCBCChurch-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
