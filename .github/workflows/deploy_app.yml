@@ -13,7 +13,7 @@ jobs:
     - uses: actions/setup-node@v2
 
     - name: Install Dependencies
-      run: yarn --ignore-scripts
+      run: yarn --ignore-scripts --network-timeout 1000000
 
     - name: Jest
       run: yarn test -- -- -- --forceExit
@@ -47,7 +47,7 @@ jobs:
     - run: ls -la
 
     - name: Install Dependencies
-      run: yarn
+      run: yarn --network-timeout 1000000
 
     # required to build
     - name: Generate Stories
@@ -85,7 +85,7 @@ jobs:
     - run: cp .env.shared .env
 
     - name: Install Dependencies
-      run: yarn
+      run: yarn --network-timeout 1000000
 
     # required to build
     - name: Generate Stories
