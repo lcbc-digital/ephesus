@@ -157,7 +157,7 @@ android {
         applicationId "com.bluebridgechurches.lcbc"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 189
+        versionCode 190
         versionName "16.2.0"
         ndk {
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
