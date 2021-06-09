@@ -32,6 +32,7 @@ const HomeTab = createFeatureFeedTab({
     headerCenter: HeaderCenter,
     headerRight: HeaderRight,
     headerLargeTitle: false,
+    headerTopInsetEnabled: false,
   },
   tabName: 'Home',
   feedName: 'HOME',
