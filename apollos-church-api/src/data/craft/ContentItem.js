@@ -726,7 +726,13 @@ export class dataSource extends CraftDataSource {
       (id) => ![...blacklistedIds, ...completedIds].includes(id)
     );
 
-    return this.getFromIds(finalIds);
+    const items = await this.getFromIds(finalIds);
+
+    const sortedItems = finalIds.map((itemId) =>
+      items.find(({ id }) => itemId === id)
+    );
+
+    return sortedItems;
   }
 
   async getPercentComplete({ id }) {

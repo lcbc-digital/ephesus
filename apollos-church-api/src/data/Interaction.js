@@ -26,6 +26,20 @@ class dataSource extends Interactions.dataSource {
     }
   }
 
+  async getInteractionsForCurrentUser({ actions = [] }) {
+    let currentUser;
+    try {
+      currentUser = await this.context.dataSources.Auth.getCurrentPerson();
+    } catch (e) {
+      return [];
+    }
+    return this.request()
+      .filterOneOf(actions.map((a) => `Operation eq '${a}'`))
+      .andFilter(`PersonAliasId eq ${currentUser.primaryAliasId}`)
+      .orderBy('InteractionDateTime', 'desc')
+      .get();
+  }
+
   async createNodeInteraction({ nodeId, action, additional = true }) {
     const {
       dataSources: { RockConstants, Auth },
