@@ -132,6 +132,7 @@ class dataSource extends Feature.dataSource {
   async createActionBarFeature({ title }) {
     // Generate a list of horizontal cards.
     // const cards = () => this.runAlgorithms({ algorithms });
+    this.setCacheHint({ maxAge: 0, scope: 'PRIVATE' });
     const actions = await this.context.dataSources.ContentItem.getAppBarActions();
     return {
       // The Feature ID is based on all of the action ids, added together.
