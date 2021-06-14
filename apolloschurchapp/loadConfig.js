@@ -153,6 +153,12 @@ const fragments = {
       ... on Url {
         url
       }
+      ... on ContentChannel {
+        name
+      }
+      ... on Message {
+        message
+      }
       ... on ContentItem {
         theme {
           type

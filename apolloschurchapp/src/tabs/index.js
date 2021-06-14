@@ -42,6 +42,7 @@ const HomeTab = createFeatureFeedTab({
 const ReadTab = createFeatureFeedTab({
   tabName: 'Discover',
   feedName: 'READ',
+  headerTopInsetEnabled: false,
 });
 
 // const WatchTab = createFeatureFeedTab({
