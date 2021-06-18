@@ -1,6 +1,6 @@
 import React from 'react';
 import ApollosConfig from '@apollosproject/config';
-import { Providers, NavigationService } from '@apollosproject/ui-kit';
+import { NavigationService } from '@apollosproject/ui-kit';
 import { AuthProvider } from '@apollosproject/ui-auth';
 import { AnalyticsProvider } from '@apollosproject/ui-analytics';
 import { NotificationsProvider } from '@apollosproject/ui-notifications';
@@ -10,10 +10,8 @@ import {
 } from '@apollosproject/ui-connected';
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
 import { track, identify } from './amplitude';
-import { ONBOARDING_VERSION } from './ui/Onboarding';
 
 import ClientProvider, { client } from './client';
-import customTheme, { customIcons } from './theme';
 
 const AppProviders = (props) => (
   <ClientProvider {...props}>
@@ -65,11 +63,7 @@ const AppProviders = (props) => (
           useServerAnalytics={false}
         >
           <LiveProvider>
-            <Providers
-              themeInput={customTheme}
-              iconInput={customIcons}
-              {...props}
-            />
+            <LiveProvider>{props.children}</LiveProvider>
           </LiveProvider>
         </AnalyticsProvider>
       </AuthProvider>
