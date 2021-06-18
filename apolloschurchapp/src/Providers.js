@@ -24,6 +24,13 @@ const AppProviders = (props) => (
       handleExternalLink={(url) => {
         const path = url.split('app-link/')[1];
         const [route, location] = path.split('/');
+
+        // Handles the deep links currently generated.
+        // Can eventually be turned off.
+        if (path.startsWith('ContentSingle')) {
+          const itemId = path.split('itemId=')[1];
+          NavigationService.navigate('ContentSingle', { itemId });
+        }
         if (route === 'content')
           NavigationService.navigate('ContentSingle', { itemId: location });
         if (route === 'nav')
