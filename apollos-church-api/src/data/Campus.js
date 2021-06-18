@@ -47,7 +47,7 @@ const resolver = resolverMerge(
       description: (root, args, { dataSources }) =>
         dataSources.Campus.getWithCraft(
           root,
-          ({ craftCampus }) => craftCampus.campusWelcome
+          ({ craftCampus }) => craftCampus?.campusWelcome
         ),
 
       leader: ({ leaderPersonAliasId }, args, { dataSources }) =>
