@@ -53,7 +53,6 @@ const AppProviders = (props) => (
           checkOnboardingStatusAndNavigate({
             client,
             navigation: NavigationService,
-            latestOnboardingVersion: ONBOARDING_VERSION,
           })
         }
       >

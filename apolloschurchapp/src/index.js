@@ -81,6 +81,19 @@ const ThemedNavigationContainer = withTheme(({ theme, ...props }) => ({
   <NavigationContainer ref={containerRef} {...props} />
 ));
 
+const CustomOnboarding = () => (
+  <Onboarding
+    slides={[
+      (props) => <FeaturesConnected {...props} Component={WelcomeSlide} />,
+      (props) => <LocationFinderConnected {...props} Component={AskLocation} />,
+      (props) => (
+        <AskNotificationsConnected {...props} Component={AskNotifications} />
+      ),
+      ,
+    ]}
+  />
+);
+
 const { Navigator, Screen } = createNativeStackNavigator();
 
 const App = () => (
@@ -138,30 +151,10 @@ const App = () => (
             />
             <Screen
               name="Onboarding"
-              component={Onboarding}
+              component={CustomOnboarding}
               options={{
                 gestureEnabled: false,
                 stackPresentation: 'push',
-              }}
-              initialParams={{
-                slides: [
-                  (props) => (
-                    <FeaturesConnected {...props} Component={WelcomeSlide} />
-                  ),
-                  (props) => (
-                    <LocationFinderConnected
-                      {...props}
-                      Component={AskLocation}
-                    />
-                  ),
-                  (props) => (
-                    <AskNotificationsConnected
-                      {...props}
-                      Component={AskNotifications}
-                    />
-                  ),
-                  ,
-                ],
               }}
             />
             <Screen name="LandingScreen" component={LandingScreen} />
