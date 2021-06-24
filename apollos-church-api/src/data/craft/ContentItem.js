@@ -1346,6 +1346,7 @@ export class dataSource extends CraftDataSource {
         return 'DevotionalContentItem';
       }
       case 'series_sermon_Entry':
+        return 'WeekendContentItem';
       case 'media_mediaWallpaper_Entry': // wallpapers
       case 'stories_stories_Entry': {
         // stories
@@ -1362,5 +1363,10 @@ export class dataSource extends CraftDataSource {
         return 'UniversalContentItem';
       }
     }
+  }
+
+  async isContentActiveLiveStream({ id }) {
+    const liveContent = await this.getActiveLiveStreamContent();
+    return liveContent.map((c) => c.id).includes(id);
   }
 }
