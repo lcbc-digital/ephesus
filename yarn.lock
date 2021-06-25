@@ -428,10 +428,10 @@
     react-native-permissions "^2.0.5"
     url "^0.11.0"
 
-"@apollosproject/ui-onboarding@^2.22.0":
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-onboarding/-/ui-onboarding-2.22.0.tgz#fde409a5684c539d3d93141a081c6d8137b57d97"
-  integrity sha512-0cHqBedUONxzcjIaFOBeAvkJLLaCeqieua9KCMVT3tLcRZ6vFOG0qPLjbwWu1BF9z5yi/BlcaAFQSfq4oQqwqw==
+"@apollosproject/ui-onboarding@^2.23.2-canary.2":
+  version "2.23.2-canary.2"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-onboarding/-/ui-onboarding-2.23.2-canary.2.tgz#17d61f107701e9fbc39e4253dc0f152b40ca47d5"
+  integrity sha512-hCSGBdiYHPj+jZZivrnqjMMCMoq3YHW3vr59HdWOEO/B3l8PAl6P4aQ4mYXDn0zxFZt+C66LEsgTWPhHDdj3aw==
   dependencies:
     "@react-native-community/async-storage" "^1.5.1"
     formik "1.5.1"
