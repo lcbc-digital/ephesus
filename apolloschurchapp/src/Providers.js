@@ -61,9 +61,7 @@ const AppProviders = (props) => (
           identifyFunctions={[identify]}
           useServerAnalytics={false}
         >
-          <LiveProvider>
-            <LiveProvider>{props.children}</LiveProvider>
-          </LiveProvider>
+          <LiveProvider>{props.children}</LiveProvider>
         </AnalyticsProvider>
       </AuthProvider>
     </NotificationsProvider>
