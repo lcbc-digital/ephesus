@@ -10,7 +10,6 @@ const TitleWrapper = styled({ flexDirection: 'row', flexWrap: 'wrap' })(View);
 const TitleContainer = styled({ flex: 1 })(View);
 
 // memo = sfc PureComponent 💥
-// eslint-disable-next-line react/display-name
 const AskNotifications = memo(
   ({
     BackgroundComponent,
@@ -22,6 +21,7 @@ const AskNotifications = memo(
     isLoading,
     ...props
   }) => (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <Slide {...props} alwaysBounceVertical={false}>
       {BackgroundComponent}
       <Wrapper>

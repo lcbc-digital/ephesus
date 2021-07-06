@@ -38,7 +38,7 @@ const KeyboardAvoidingViewWithHeaderHeight = (props) => {
     <StyledKeyboardAvoidingView
       behavior="padding"
       keyboardVerticalOffset={Platform.OS === 'android' ? 0 : largeHeaderInset}
-      {...props}
+      {...props} // eslint-disable-line react/jsx-props-no-spreading
     />
   );
 };

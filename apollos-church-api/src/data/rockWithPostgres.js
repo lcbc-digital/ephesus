@@ -84,7 +84,7 @@ const personResolver = {
           },
         ]);
       } catch (e) {
-        console.warn(e);
+        console.warn(e); // eslint-disable-line no-console
       }
 
       // return the original return value (which is currentPerson)

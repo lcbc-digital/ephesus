@@ -77,6 +77,34 @@ const horizontalCardMapper = ({ title, hyphenatedTitle, ...props }) => {
   }
 };
 
+const AddPrayerComponent = (props) => {
+  <AddPrayerScreenConnected
+    {...props}
+    AddedPrayerComponent={(propz) => (
+      <ConfirmationDialogScreen
+        {...propz}
+        title={
+          'Thanks for giving our community the opportunity to pray for you!'
+        }
+        body={
+          <Text>
+            <BodyText>
+              In addition to our prayer community here on the LCBC App, your
+              request has also been sent to the LCBC Ministry Team and a small
+              trusted team of volunteers.
+            </BodyText>
+            {'\n\n'}
+            <BodyText>
+              We hope you feel encouraged by God’s presence in your life and his
+              love for you today!
+            </BodyText>
+          </Text>
+        }
+      />
+    )}
+  />;
+};
+
 const colors = {
   primary: '#008CD0',
   secondary: '#008CD0', // '#004F71',
@@ -208,33 +236,7 @@ export const overrides = {
     fontFamily: typography.sans.black.default,
   },
   'ui-prayer.PrayerExperience': () => ({
-    AddPrayerComponent: (props) => (
-      <AddPrayerScreenConnected
-        {...props}
-        AddedPrayerComponent={(props) => (
-          <ConfirmationDialogScreen
-            {...props}
-            title={
-              'Thanks for giving our community the opportunity to pray for you!'
-            }
-            body={
-              <Text>
-                <BodyText>
-                  In addition to our prayer community here on the LCBC App, your
-                  request has also been sent to the LCBC Ministry Team and a
-                  small trusted team of volunteers.
-                </BodyText>
-                {'\n\n'}
-                <BodyText>
-                  We hope you feel encouraged by God’s presence in your life and
-                  his love for you today!
-                </BodyText>
-              </Text>
-            }
-          />
-        )}
-      />
-    ),
+    AddPrayerComponent,
   }),
 };
 

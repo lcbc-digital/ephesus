@@ -30,7 +30,7 @@ import CraftDataSource from './CraftDataSource';
 //   },
 // };
 
-export class dataSource extends CraftDataSource {
+export default class dataSource extends CraftDataSource {
   categoryFragment = `{
     id
     title

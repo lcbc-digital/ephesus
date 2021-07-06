@@ -39,6 +39,7 @@ const LocationFinder = memo(
   }) => (
     <Slide
       onPressPrimary={onPressPrimary}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
       alwaysBounceVertical={false}
     >

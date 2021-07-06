@@ -6,6 +6,7 @@ const craft = new CraftDataSource();
 const cache = new InMemoryLRUCache();
 craft.initialize({ cache });
 
+// eslint-disable-next-line import/prefer-default-export
 export async function createRedirectLink({ req }) {
   try {
     const { itemId } = req.query;
@@ -25,7 +26,7 @@ query slug($id: [QueryArgument]){
       return data.entry.url;
     }
   } catch (e) {
-    console.log(e);
+    console.log(e); // eslint-disable-line no-console
   }
   return 'https://lcbcchurch.com/';
 }

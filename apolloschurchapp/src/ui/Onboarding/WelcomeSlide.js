@@ -10,6 +10,7 @@ const WelcomeWrapper = styled(() => ({ flexDirection: 'row' }))(View);
 
 const Features = memo(
   ({ firstName, description, BackgroundComponent, ...props }) => (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <Slide {...props} alwaysBounceVertical={false}>
       {BackgroundComponent}
       <Wrapper>

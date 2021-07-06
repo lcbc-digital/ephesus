@@ -48,4 +48,5 @@ query campus($rockIds: [QueryArgument]) {
   }
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export { CraftCampus as dataSource };

@@ -18,7 +18,7 @@ import {
   // GradientOverlayImage,
 } from '@apollosproject/ui-kit';
 
-import { useNavigation } from '@react-navigation/core'
+import { useNavigation } from '@react-navigation/core';
 import { View } from 'react-native';
 // import Label from '../../ui/LabelText';
 

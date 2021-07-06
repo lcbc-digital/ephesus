@@ -3,7 +3,7 @@ import { ActionBar, ActionBarItem } from '@apollosproject/ui-kit';
 import PropTypes from 'prop-types';
 import { RockAuthedWebBrowser } from '@apollosproject/ui-connected';
 
-const Toolbar = ({ }) => (
+const Toolbar = () => (
   <RockAuthedWebBrowser>
     {(openUrl) => (
       <ActionBar>

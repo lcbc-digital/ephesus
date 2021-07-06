@@ -4,8 +4,7 @@ import { CachePersistor } from 'apollo3-cache-persist';
 import ApollosConfig from '@apollosproject/config';
 
 // NOTE: this file is generated at runtime
-// eslint-disable-next-line
-import introspectionQueryResultData from "./fragmentTypes.json";
+import introspectionQueryResultData from './fragmentTypes.json';
 
 const finalPossibleTypes = {};
 introspectionQueryResultData.__schema.types.forEach((supertype) => {
@@ -56,7 +55,7 @@ export const ensureCacheHydration = (async () => {
       } catch (restoreError) {
         // If the restore fails, we want to do our best to purge the cache.
         await persistor.purge();
-        console.error('Error restoring cache, purging the cache', restoreError);
+        console.error('Error restoring cache, purging the cache', restoreError); // eslint-disable-line no-console
       }
     } else {
       // Otherwise, we'll want to purge the outdated persisted cache
@@ -65,7 +64,7 @@ export const ensureCacheHydration = (async () => {
       await AsyncStorage.setItem(SCHEMA_VERSION_KEY, SCHEMA_VERSION);
     }
   } catch (error) {
-    console.error('Error restoring or purging Apollo cache', error);
+    console.error('Error restoring or purging Apollo cache', error); // eslint-disable-line no-console
   }
 })();
 
