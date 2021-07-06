@@ -67,6 +67,7 @@ const newResolvers = {
       });
     }
     if (sermonQuestions?.[0]?.url) {
+      // eslint-disable-next-line no-param-reassign
       description += `<p><a href="${
         sermonQuestions[0].url
       }">Sermon Questions</a></p>`;

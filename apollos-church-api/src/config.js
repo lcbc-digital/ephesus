@@ -59,7 +59,7 @@ ApollosConfig.loadJs({
       }`,
       variables: {},
     }),
-  }).then((res) => res.json());
+  }).then((resp) => resp.json());
   ApollosConfig.loadJs({
     TABS: {
       READ: [
