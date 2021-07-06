@@ -30,7 +30,7 @@
     "preset": "react-native",
     "collectCoverage": true,
     "transformIgnorePatterns": [
-      "node_modules/(?!((jest-)?react-native|rn-*|react-clone-referenced-element|react-navigation|@react-navigation|@apollosproject))"
+      "node_modules/(?!((jest-)?react-native|rn-*|react-clone-referenced-element|@react-navigation/native|@react-navigation/stack|@apollosproject|@react-native-picker/picker))"
     ],
     "testMatch": [
       "<rootDir>/src/**/?(*.)(test|tests).{js,jsx,mjs}"
@@ -38,10 +38,8 @@
     "modulePaths": [
       "<rootDir>/src/"
     ],
-    "modulePathIgnorePatterns": [
-      "node_modules/.*/node_modules/react-native"
-    ],
     "setupFiles": [
+      "./node_modules/react-native-gesture-handler/jestSetup.js",
       "./jest.setup.js"
     ]
   },
