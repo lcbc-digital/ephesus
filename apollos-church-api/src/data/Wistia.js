@@ -41,4 +41,5 @@ class dataSource extends RESTDataSource {
   }
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export { dataSource };

@@ -38,6 +38,7 @@ const LandingScreen = ({
   BackgroundComponent,
   ...props
 }) =>
+  // eslint-disable-next-line no-console
   console.warn(props) || (
     <BackgroundView>
       <Slide {...props} scrollEnabled={false}>

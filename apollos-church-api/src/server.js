@@ -15,7 +15,7 @@ let dataObj;
 if (ApollosConfig?.DATABASE?.URL) {
   dataObj = require('./data/index.postgres');
 } else {
-  console.log('no postgres');
+  console.log('no postgres'); // eslint-disable-line no-console
   dataObj = require('./data/index');
 }
 
@@ -58,7 +58,7 @@ const apolloServer = new ApolloServer({
   extensions,
   plugins: [new BugsnagPlugin()],
   formatError: (error) => {
-    console.error(get(error, 'extensions.exception.stacktrace', []).join('\n'));
+    console.error(get(error, 'extensions.exception.stacktrace', []).join('\n')); // eslint-disable-line no-console
     return error;
   },
   playground: {

@@ -12,7 +12,7 @@ async function safeHandleUrl(url, { external = false, browserFunc } = {}) {
 
     if (canWeOpenUrl) return Linking.openURL(url);
   } catch (e) {
-    console.warn(e);
+    console.warn(e); // eslint-disable-line no-console
   }
   return false;
 }

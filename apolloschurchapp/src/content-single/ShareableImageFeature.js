@@ -29,7 +29,7 @@ export const shareImage = async ({ url }) => {
       RNFetchBlob.fs.unlink(imagePath);
     }
   } catch (e) {
-    console.warn(e);
+    console.warn(e); // eslint-disable-line no-console
   }
 };
 

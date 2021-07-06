@@ -112,6 +112,7 @@ class dataSource extends Feature.dataSource {
           case 'HorizontalCardList':
             return this.createHorizontalCardListFeature(featureConfig);
           case 'HeroListFeature':
+            // eslint-disable-next-line no-console
             console.warn(
               'Deprecated: Please use the name "HeroList" instead. You used "HeroListFeature"'
             );

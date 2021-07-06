@@ -534,7 +534,7 @@ export class dataSource extends CraftDataSource {
       const craftIds = (result?.data?.categories || []).map(({ id }) => id);
       personas = [...personas, ...craftIds];
     } catch (e) {
-      console.log(e);
+      console.log(e); // eslint-disable-line no-console
     }
     return personas;
   }
@@ -1096,7 +1096,7 @@ export class dataSource extends CraftDataSource {
           url = url.toString();
         }
       } catch (e) {
-        console.log(e);
+        console.log(e); // eslint-disable-line no-console
         // move on...
       }
       return {

@@ -28,7 +28,7 @@ ApollosConfig.loadJs({
   const hasPlugin = (await res.json())
     .map(({ Name }) => Name)
     .includes('Apollos');
-  if (hasPlugin) console.log('Apollos Rock plugin detected!');
+  if (hasPlugin) console.log('Apollos Rock plugin detected!'); // eslint-disable-line no-console
   ApollosConfig.loadJs({ ROCK: { USE_PLUGIN: hasPlugin } });
 
   // version
@@ -37,7 +37,7 @@ ApollosConfig.loadJs({
     { headers: { 'Authorization-Token': ApollosConfig.ROCK.API_TOKEN } }
   );
   const version = (await res.text()).split('.');
-  console.log(`Rock Version: ${version[1]}`);
+  console.log(`Rock Version: ${version[1]}`); // eslint-disable-line no-console
   ApollosConfig.loadJs({ ROCK: { VERSION: version[1] } });
 
   const { data } = await fetch(`${ApollosConfig.CRAFT.URL}/`, {
