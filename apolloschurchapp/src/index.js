@@ -89,7 +89,6 @@ const CustomOnboarding = () => (
       (props) => (
         <AskNotificationsConnected {...props} Component={AskNotifications} />
       ),
-      ,
     ]}
   />
 );

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Animated, Platform, Linking } from 'react-native';
 import { Query } from '@apollo/client/react/components';
@@ -60,7 +61,7 @@ const openMaps = ({ street1, street2, city, state, postalCode }) => {
 };
 
 const AboutCampus = ({ route, navigation }) => {
-  const itemId = route.params.itemId
+  const { itemId } = route.params;
   return (
     <ModalView navigation={navigation} onClose={() => navigation.goBack()}>
       <BackgroundView>
@@ -176,6 +177,17 @@ const AboutCampus = ({ route, navigation }) => {
       </BackgroundView>
     </ModalView>
   );
+};
+
+AboutCampus.propTypes = {
+  navigation: PropTypes.shape({
+    goBack: PropTypes.func,
+  }),
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      itemId: PropTypes.any,
+    }),
+  }),
 };
 
 AboutCampus.navigationOptions = {
