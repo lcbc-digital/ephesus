@@ -1,3 +1,4 @@
+import newrelic from 'newrelic'; // eslint-disable-line
 import dotenv from 'dotenv/config'; // eslint-disable-line
 import '@apollosproject/data-connector-postgres/lib/postgres/pgEnum-fix';
 import config from './config'; // eslint-disable-line
