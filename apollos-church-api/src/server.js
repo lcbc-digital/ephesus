@@ -8,6 +8,7 @@ import { setupUniversalLinks } from '@apollosproject/server-core';
 
 import { BugsnagPlugin } from '@apollosproject/bugsnag';
 import { createMigrationRunner } from '@apollosproject/data-connector-postgres';
+import newrelicPlugin from '@newrelic/apollo-server-plugin';
 import { createRedirectLink } from './universal-linking';
 
 let dataObj;
@@ -56,7 +57,7 @@ const apolloServer = new ApolloServer({
   context,
   introspection: true,
   extensions,
-  plugins: [new BugsnagPlugin()],
+  plugins: [new BugsnagPlugin(), newrelicPlugin],
   formatError: (error) => {
     console.error(get(error, 'extensions.exception.stacktrace', []).join('\n'));
     return error;
