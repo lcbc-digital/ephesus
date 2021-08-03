@@ -9,6 +9,10 @@ import { setupUniversalLinks } from '@apollosproject/server-core';
 import { BugsnagPlugin } from '@apollosproject/bugsnag';
 import { createMigrationRunner } from '@apollosproject/data-connector-postgres';
 import newrelicPlugin from '@newrelic/apollo-server-plugin';
+import {
+  GraphQLUpload, // The GraphQL "Upload" Scalar
+  graphqlUploadExpress, // The Express middleware.
+} from 'graphql-upload';
 import { createRedirectLink } from './universal-linking';
 
 let dataObj;
@@ -51,8 +55,11 @@ const cacheOptions = isDev
 const { ROCK, APP } = ApollosConfig;
 
 const apolloServer = new ApolloServer({
-  typeDefs: schema,
-  resolvers,
+  typeDefs: [...schema, `scalar Upload`],
+  resolvers: {
+    ...resolvers,
+    Upload: GraphQLUpload,
+  },
   dataSources,
   context,
   introspection: true,
@@ -67,6 +74,7 @@ const apolloServer = new ApolloServer({
       'editor.cursorShape': 'line',
     },
   },
+  uploads: false,
   ...cacheOptions,
   // engine: {
   //   apiKey: ENGINE.API_KEY,
@@ -86,6 +94,7 @@ setupJobs({ app, dataSources, context });
 // Comment out if you don't want the API serving apple-app-site-association or assetlinks manifests.
 setupUniversalLinks({ app, createRedirectLink });
 
+app.use(graphqlUploadExpress());
 apolloServer.applyMiddleware({ app });
 apolloServer.applyMiddleware({ app, path: '/' });
 

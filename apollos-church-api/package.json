@@ -21,7 +21,7 @@
     "upgrade": "npx @apollosproject/upgrade-tools upgrade"
   },
   "engines": {
-    "node": ">=12.x.x"
+    "node": ">=14.x.x"
   },
   "jest": {
     "collectCoverage": true,
@@ -61,6 +61,7 @@
     "dotenv": "6.0.0",
     "express": "^4.17.0",
     "graphql": "14.6.0",
+    "graphql-upload": "^12.0.0",
     "newrelic": "^7.5.1",
     "prettier": "1.12.1",
     "randomcolor": "0.5.3"

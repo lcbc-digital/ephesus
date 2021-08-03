@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:14-alpine
 COPY . /usr/src/
 WORKDIR /usr/src/apollos-church-api
 RUN yarn --ignore-scripts
