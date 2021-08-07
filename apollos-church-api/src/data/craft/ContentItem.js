@@ -1156,14 +1156,17 @@ export class dataSource extends CraftDataSource {
 
     const sermons = result.data.entries.flatMap(({ children }) => children);
 
+    // console.log(sermons[0]);
+
     return sermons[0];
   };
 
   getActiveLiveStreamContent = async () => {
     const { LiveStream } = this.context.dataSources;
-    const { isLive } = await LiveStream.getLiveStream();
+    const ls = await LiveStream.getLiveStream();
+    console.log(ls);
     // if there is no live stream, then there is no live content. Easy enough!
-    if (!isLive) return [];
+    // if (!isLive) return [];
     const mostRecentSermon = await this.getMostRecentSermon();
     return mostRecentSermon ? [mostRecentSermon] : [];
   };
@@ -1345,6 +1348,7 @@ export class dataSource extends CraftDataSource {
       case 'bibleReading_bibleReading_Entry': {
         return 'DevotionalContentItem';
       }
+      case 'series_series_Entry':
       case 'series_sermon_Entry':
         return 'WeekendContentItem';
       case 'media_mediaWallpaper_Entry': // wallpapers
@@ -1353,9 +1357,7 @@ export class dataSource extends CraftDataSource {
         return 'MediaContentItem';
       }
       case 'bibleReading_bibleReadingPlan_Entry': // bible reading plan
-      case 'series_series_Entry': {
         return 'ContentSeriesContentItem';
-      }
       case 'articles_article_Entry':
       case 'news_news_Entry': // news
       case 'studies_curriculum_Entry':
