@@ -1163,10 +1163,9 @@ export class dataSource extends CraftDataSource {
 
   getActiveLiveStreamContent = async () => {
     const { LiveStream } = this.context.dataSources;
-    const ls = await LiveStream.getLiveStream();
-    console.log(ls);
+    const { isLive } = await LiveStream.getLiveStream();
     // if there is no live stream, then there is no live content. Easy enough!
-    // if (!isLive) return [];
+    if (!isLive) return [];
     const mostRecentSermon = await this.getMostRecentSermon();
     return mostRecentSermon ? [mostRecentSermon] : [];
   };
