@@ -174,8 +174,7 @@ class CraftCursor {
   };
 }
 
-export class dataSource extends CraftDataSource {
-  entryFragment = `
+const ENTRY_FRAGMENT = `
     id
     title
     typeId
@@ -424,7 +423,7 @@ export class dataSource extends CraftDataSource {
   }
   `;
 
-  personaFragment = `
+const PERSONA_FRAGMENT = `
     ... on nextSteps_nextStepDefault_Entry {
       persona {
         id
@@ -480,6 +479,7 @@ export class dataSource extends CraftDataSource {
     }
   `;
 
+export class dataSource extends CraftDataSource {
   async getTheme({ overlayColor, parent }) {
     const primary = overlayColor || parent?.overlayColor;
     const type = Color(primary).luminosity() > 0.5 ? 'LIGHT' : 'DARK';
@@ -549,7 +549,7 @@ export class dataSource extends CraftDataSource {
           limit: $first
           offset: $after
           typeId: $typeId
-        ) { ${this.entryFragment} }
+        ) { ${ENTRY_FRAGMENT} }
       }`;
 
     const result = await this.query(query, {
@@ -573,7 +573,7 @@ export class dataSource extends CraftDataSource {
           limit: $first
           offset: $after
           section: ["articles", "bibleReading", "media", "news", "series", "stories", "studies"]
-        ) { ${this.entryFragment} }
+        ) { ${ENTRY_FRAGMENT} }
       }`,
     });
 
@@ -590,7 +590,7 @@ export class dataSource extends CraftDataSource {
           offset: $after
           postDate: $postDate
           section: ["articles", "bibleReading", "media", "news", "series", "stories", "studies"]
-        ) { ${this.entryFragment} }
+        ) { ${ENTRY_FRAGMENT} }
       }`,
     });
     return cursor;
@@ -607,7 +607,7 @@ export class dataSource extends CraftDataSource {
           limit: $first
           offset: $after
           relatedTo: $categories
-        ) { ${this.entryFragment} }
+        ) { ${ENTRY_FRAGMENT} }
       }`;
 
     const result = await this.query(query, {
@@ -630,26 +630,33 @@ export class dataSource extends CraftDataSource {
         ) {
         ... on appGrowingInFaith_appGrowingInFaith_Entry {
           children: growingInFaithEntries {
-            ${this.entryFragment}
-           ${this.personaFragment}
+            ...AppEntry
+            ...Persona
           }
         }
         ... on appChurchEvents_appChurchEvents_Entry {
           children: churchEventEntries {
-            ${this.entryFragment}
-           ${this.personaFragment}
+            ...AppEntry
+            ...Persona
           }
         }
         ... on appNextSteps_appNextSteps_Entry {
           children: nextStepsEntries {
-           ${this.entryFragment}
-           ${this.personaFragment}
+           ...AppEntry
+           ...Persona
           }
         }
-       ${this.entryFragment}
-       ${this.personaFragment}
+       ...AppEntry
+       ...Persona
       }
-    }`;
+    }
+    fragment Persona on EntryInterface {
+      ${PERSONA_FRAGMENT}
+    }
+    fragment AppEntry on EntryInterface {
+      ${ENTRY_FRAGMENT}
+    }    
+    `;
 
     const result = await this.query(query, {
       section: [section],
@@ -797,7 +804,7 @@ export class dataSource extends CraftDataSource {
 
   async getFromIds(ids) {
     const query = `query ($ids: [QueryArgument]) {
-     nodes: entries(id: $ids) { ${this.entryFragment} }
+     nodes: entries(id: $ids) { ${ENTRY_FRAGMENT} }
     }`;
 
     const result = await this.query(query, { ids });
@@ -819,7 +826,7 @@ export class dataSource extends CraftDataSource {
   // Override: https://github.com/ApollosProject/apollos-apps/blob/master/packages/apollos-data-connector-rock/src/content-channels/data-source.js#L46
   async getFromId(id) {
     const query = `query ($id: [QueryArgument]) {
-     node: entry(id: $id) { ${this.entryFragment} }
+     node: entry(id: $id) { ${ENTRY_FRAGMENT} }
     }`;
     // if (typename === '???') { // Example of using a different query for a different type.
     //   query = `query ($id: [QueryArgument]) {
@@ -923,9 +930,7 @@ export class dataSource extends CraftDataSource {
 
     const query = `
     query {
-      entries(eligibleForStartSomethingNew: "true", type:"series", orderBy: "postDate desc") { ${
-        this.entryFragment
-      } }
+      entries(eligibleForStartSomethingNew: "true", type:"series", orderBy: "postDate desc") { ${ENTRY_FRAGMENT} }
     }`;
 
     const result = await this.query(query);
@@ -1008,7 +1013,7 @@ export class dataSource extends CraftDataSource {
     const query = `query ($id: [QueryArgument], $first: Int, $after: Int) {
      node: entry(id: $id) {
        children(limit: $first, offset: $after) {
-        ${this.entryFragment}
+        ${ENTRY_FRAGMENT}
        }
      }
     }`;
@@ -1033,7 +1038,7 @@ export class dataSource extends CraftDataSource {
     const query = `query ($id: [QueryArgument]) {
      node: entry(id: $id) {
        parent {
-        ${this.entryFragment}
+        ${ENTRY_FRAGMENT}
        }
        ... on articles_article_Entry {
          preferredTopic {
@@ -1141,7 +1146,7 @@ export class dataSource extends CraftDataSource {
     const query = `query {
       entries(section:"series", hasDescendants:true, limit:2) {
         children(orderBy:"postDate desc", limit:1) {
-          ${this.entryFragment}
+          ${ENTRY_FRAGMENT}
           parent {
             title
           }
@@ -1177,8 +1182,8 @@ export class dataSource extends CraftDataSource {
           __typename
           ... on appCampusContent_campusSchedule_Entry {
             campusContentEvents {
-              ${this.entryFragment}
-              ${this.personaFragment}
+              ${ENTRY_FRAGMENT}
+              ${PERSONA_FRAGMENT}
             }
           }
         }
