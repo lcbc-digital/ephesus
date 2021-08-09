@@ -1347,7 +1347,6 @@ export class dataSource extends CraftDataSource {
       case 'bibleReading_bibleReading_Entry': {
         return 'DevotionalContentItem';
       }
-      case 'series_series_Entry':
       case 'series_sermon_Entry':
         return 'WeekendContentItem';
       case 'media_mediaWallpaper_Entry': // wallpapers
@@ -1356,6 +1355,7 @@ export class dataSource extends CraftDataSource {
         return 'MediaContentItem';
       }
       case 'bibleReading_bibleReadingPlan_Entry': // bible reading plan
+      case 'series_series_Entry':
         return 'ContentSeriesContentItem';
       case 'articles_article_Entry':
       case 'news_news_Entry': // news
