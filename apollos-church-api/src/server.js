@@ -9,10 +9,6 @@ import { setupUniversalLinks } from '@apollosproject/server-core';
 import { BugsnagPlugin } from '@apollosproject/bugsnag';
 import { createMigrationRunner } from '@apollosproject/data-connector-postgres';
 import newrelicPlugin from '@newrelic/apollo-server-plugin';
-import {
-  GraphQLUpload, // The GraphQL "Upload" Scalar
-  graphqlUploadExpress, // The Express middleware.
-} from 'graphql-upload';
 import { createRedirectLink } from './universal-linking';
 
 let dataObj;
@@ -20,7 +16,6 @@ let dataObj;
 if (ApollosConfig?.DATABASE?.URL) {
   dataObj = require('./data/index.postgres');
 } else {
-  console.log('no postgres');
   dataObj = require('./data/index');
 }
 
@@ -56,10 +51,7 @@ const { ROCK, APP } = ApollosConfig;
 
 const apolloServer = new ApolloServer({
   typeDefs: [...schema, `scalar Upload`],
-  resolvers: {
-    ...resolvers,
-    Upload: GraphQLUpload,
-  },
+  resolvers,
   dataSources,
   context,
   introspection: true,
@@ -94,7 +86,6 @@ setupJobs({ app, dataSources, context });
 // Comment out if you don't want the API serving apple-app-site-association or assetlinks manifests.
 setupUniversalLinks({ app, createRedirectLink });
 
-app.use(graphqlUploadExpress());
 apolloServer.applyMiddleware({ app });
 apolloServer.applyMiddleware({ app, path: '/' });
 
@@ -103,7 +94,23 @@ apolloServer.applyMiddleware({ app, path: '/' });
 (async () => {
   if (ApollosConfig?.DATABASE?.URL) {
     const migrationRunner = await createMigrationRunner({ migrations });
-    await migrationRunner.up();
+    const pending = await migrationRunner.pending();
+    if (pending.length) {
+      console.log('\x1b[31m', '██████████████████████████████████', '\x1b[0m');
+      console.log(
+        '\x1b[36m',
+        'You currently have a number of pending migrations',
+        '\x1b[0m'
+      );
+      console.log(pending);
+      console.log(
+        `Keep in mind, you are currently connected to ${
+          migrationRunner?.options?.context?.sequelize?.options?.host
+        }`
+      );
+      console.log('\x1b[31m', '██████████████████████████████████', '\x1b[0m');
+    }
+    if (ApollosConfig.AUTO_MIGRATE) await migrationRunner.up();
   }
 })();
 

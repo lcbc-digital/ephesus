@@ -4,7 +4,13 @@ import dotenv from "dotenv/config"; // eslint-disable-line
 import ApollosConfig from '@apollosproject/config';
 
 ApollosConfig.loadYaml({
-  configPath: path.join(__dirname, '..', 'config.yml'),
+  configPath: path.join(
+    __dirname,
+    '..',
+    process.env.DATABASE_CONTENT === 'true'
+      ? 'config.postgres.yml'
+      : 'config.yml'
+  ),
 });
 
 // defaults
