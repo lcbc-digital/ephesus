@@ -155,8 +155,8 @@ ROCK_MAPPINGS:
 
 TABS:
   HOME:
-    #- type: ActionBar
-      #title: Welcome to LCBC!
+    - type: ActionBar
+      title: Welcome to LCBC!
     - algorithms: [MOST_RECENT_SERMON]
       type: VerticalCardList
       isFeatured: true
