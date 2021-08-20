@@ -7,8 +7,7 @@
     "ios": "lerna run ios --parallel",
     "android": "lerna run android --parallel",
     "pods": "lerna run pods --parallel",
-    "postinstall": "lerna run postinstall --parallel",
-    "bump": "./scripts/bump.sh"
+    "postinstall": "lerna run postinstall --parallel"
   },
   "private": true,
   "devDependencies": {

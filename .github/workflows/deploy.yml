@@ -1,4 +1,4 @@
-name: Deploy Mobile App
+name: Deploy
 
 on:
   push:
@@ -56,19 +56,19 @@ jobs:
 
     - name: Setup Node
       uses: actions/setup-node@v2
+      with:
+        node-version: 14
 
     - name: Install Bundler
       run: gem install bundler
 
     - name: Decrypt Environment Variables and Apple API Key
-      run: (cd .. && yarn secrets -d ${{ secrets.ENCRYPTION_PASSWORD }})
+      run: (npx @apollosproject/apollos-cli secrets -d ${{ secrets.ENCRYPTION_PASSWORD }})
 
     - run: cp .env.shared .env
 
-    - run: ls -la
-
     - name: Install Dependencies
-      run: yarn --network-timeout 1000000
+      run: yarn
 
     # required to build
     - name: Generate Stories
@@ -96,17 +96,19 @@ jobs:
 
     - name: Setup Node
       uses: actions/setup-node@v2
+      with:
+        node-version: 14
 
     - name: Install Bundler
       run: gem install bundler
 
     - name: Decrypt Environment Variables and Keystore
-      run: (cd .. && yarn secrets -d ${{ secrets.ENCRYPTION_PASSWORD }})
+      run: (npx @apollosproject/apollos-cli secrets -d ${{ secrets.ENCRYPTION_PASSWORD }})
 
     - run: cp .env.shared .env
 
     - name: Install Dependencies
-      run: yarn --network-timeout 1000000
+      run: yarn
 
     # required to build
     - name: Generate Stories
@@ -119,8 +121,3 @@ jobs:
 
     - name: Fastlane Deploy
       run: bundle exec fastlane android deploy
-      env:
-        KEYSTORE_FILE: apollos.keystore
-        KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-        KEY_ALIAS: android
-        KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
