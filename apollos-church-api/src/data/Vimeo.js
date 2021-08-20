@@ -14,11 +14,26 @@ class dataSource extends RESTDataSource {
   }
 
   async getHLSForVideo(id) {
+    const {
+      dataSources: { Cache },
+    } = this.context;
     // captures either vimeo/123 or 123
+    const cachedVideo = await Cache.get({
+      key: ['vimeo', id],
+    });
+
+    if (cachedVideo) return cachedVideo;
+
     const matches = id.match(/\/?(\d+)$/);
     if (matches && matches[1]) {
       const video = JSON.parse(await this.get(`videos/${matches[1]}`));
-      return this.findHLSSource(video);
+      const source = this.findHLSSource(video);
+
+      await Cache.set({
+        key: ['vimeo', id],
+        data: source
+      });
+      return source;
     }
     return null;
   }

@@ -10,7 +10,7 @@ class dataSource extends RESTDataSource {
     // captures either vimeo/123 or 123
     const matches = id.match(/\/?(\w+)$/);
     if (matches && matches[1]) {
-      const video = await this.get(`${matches[1]}.json`);
+      const video = await this.getWithCache(matches[1]);
       return this.findHLSSource(video);
     }
     return null;
@@ -19,10 +19,31 @@ class dataSource extends RESTDataSource {
   async getImage(id) {
     const matches = id.match(/\/?(\w+)$/);
     if (matches && matches[1]) {
-      const video = await this.get(`${matches[1]}.json`);
+      const video = await this.getWithCache(matches[1]);
       return this.findJPGSource(video);
     }
     return null;
+  }
+
+  async getWithCache(id) {
+    const {
+      dataSources: { Cache },
+    } = this.context;
+
+    const cachedVideo = await Cache.get({
+      key: ['wista', id],
+    });
+
+    if (cachedVideo) return cachedVideo;
+
+    const result = await this.get(`${id}.json`)
+
+    await Cache.set({
+      key: ['wistia', id],
+      data: result,
+    });
+
+    return result;
   }
 
   async findHLSSource({ media }) {
