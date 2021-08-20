@@ -930,7 +930,7 @@ export class dataSource extends CraftDataSource {
 
     const query = `
     query {
-      entries(eligibleForStartSomethingNew: "true", type:"series", orderBy: "postDate desc") { ${ENTRY_FRAGMENT} }
+      entries(eligibleForStartSomethingNew: true, type:"series", orderBy: "postDate desc") { ${ENTRY_FRAGMENT} }
     }`;
 
     const result = await this.query(query);
@@ -939,7 +939,7 @@ export class dataSource extends CraftDataSource {
 
     const entries = result?.data?.entries;
 
-    if (!entries.length) {
+    if (!entries?.length) {
       return [];
     }
 
