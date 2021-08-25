@@ -26,6 +26,25 @@
     tslib "^1.10.0"
     zen-observable "^0.8.14"
 
+"@apollo/client@3.3.20":
+  version "3.3.20"
+  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.3.20.tgz#8f0935fa991857e9cf2e73c9bd378ad7ec97caf8"
+  integrity sha512-hS7UmBwJweudw/J3M0RAcusMHNiRuGqkRH6g91PM2ev8cXScIMdXr/++9jo7wD1nAITMCMF4HQQ3LFaw/Or0Bw==
+  dependencies:
+    "@graphql-typed-document-node/core" "^3.0.0"
+    "@types/zen-observable" "^0.8.0"
+    "@wry/context" "^0.6.0"
+    "@wry/equality" "^0.5.0"
+    fast-json-stable-stringify "^2.0.0"
+    graphql-tag "^2.12.0"
+    hoist-non-react-statics "^3.3.2"
+    optimism "^0.16.0"
+    prop-types "^15.7.2"
+    symbol-observable "^4.0.0"
+    ts-invariant "^0.7.0"
+    tslib "^1.10.0"
+    zen-observable "^0.8.14"
+
 "@apollo/client@^3.2.5":
   version "3.3.19"
   resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.3.19.tgz#f1172dc9b9d7eae04c8940b047fd3b452ef92d2c"
@@ -362,21 +381,22 @@
     graphql-tag "2.9.2"
     yup "^0.27.0"
 
-"@apollosproject/ui-connected@^2.22.0":
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-connected/-/ui-connected-2.22.0.tgz#7770c06b10cee1e38875b4552210046eccd49b14"
-  integrity sha512-YqBCGbHn9Uwooeg5fhD6dDzLxifUYbgGUxhN5RrCwCTYDEdQvVhnV/e3w6eJNu7zih38Zbqb5ZLhiAUrLXhPFw==
+"@apollosproject/ui-connected@^2.30.1-canary.11":
+  version "2.30.1-canary.11"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-connected/-/ui-connected-2.30.1-canary.11.tgz#fd158934309fc56376d0473139be8ea501e8ba20"
+  integrity sha512-MtdNr0t44OA+b3LD5Br6p7YMpJ6ANzA3Rj0a0yKsxcSe9pYaaRxHw1bnKf0YGBx91UuZ9BwPtolLDZRT33M38Q==
   dependencies:
     apollo-upload-client "14.1.3"
     graphql-tag "2.9.2"
     lodash "^4.17.11"
+    moment "^2.29.1"
 
-"@apollosproject/ui-fragments@^2.22.0":
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-fragments/-/ui-fragments-2.22.0.tgz#6b9dbc06d1228a7a99f32ae0f917198e46c051c0"
-  integrity sha512-Vk/9NfNfk3kT8OUkxa9M0ugNofF4m2XlQyJ1yb4kCBIwpNgaJgjbbjh0TbuP1VeZb+nQNd1v4DH59HUJMzfBrw==
+"@apollosproject/ui-fragments@^2.30.0":
+  version "2.30.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-fragments/-/ui-fragments-2.30.0.tgz#c6584f7a0287934ac56eb466d311cd3e619112a4"
+  integrity sha512-7af/PbQWMuQAgWqiS0hL1HRjGJ4ItktjbEnvhYbL3KLZHDmLtWBd2ZFT9kqfZCS6iQ9MKOkhxe011pxPviaW5A==
   dependencies:
-    graphql-tag "2.9.2"
+    "@apollo/client" "3.3.20"
 
 "@apollosproject/ui-htmlview@^2.22.0":
   version "2.22.0"
@@ -386,10 +406,10 @@
     entities "^1.1.2"
     htmlparser2 "3.9.2"
 
-"@apollosproject/ui-kit@^2.22.0":
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-2.22.0.tgz#75c8058cd14e1c4799b4896dd7c437e3127ec298"
-  integrity sha512-NId+XNgybLdjJC979kShaOZ2gwRCf7PiFrfxi34f7xWm35TlWqbcSlpZ0wZ0GEPqq5GPnImtT3Mr/zO1lpzc5g==
+"@apollosproject/ui-kit@^2.30.0":
+  version "2.30.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-2.30.0.tgz#099a47a0b299efeb0cca1344567d9c884c9cfcc5"
+  integrity sha512-KlXTFIGh8HVsi7uFidgMBE3VQANGuePW2NDpT7xkuDtS0Z3amBJ0Bt9tHFhFBPTws9HmnATPu8JplMHK5duzbQ==
   dependencies:
     "@react-native-community/blur" "^3.6.0"
     color "^3.1.0"
@@ -4662,6 +4682,13 @@
   integrity sha512-DxN/uawWfhRbgYE55zVCPOoe+jvsQ4m7PT1Wlxjyb/LCCLuU1UsucV2BbCxFAX8bjcSueFBbB5Qfj1Zfe8e7Fw==
   dependencies:
     tslib "^2.1.0"
+
+"@wry/equality@^0.5.0":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@wry/equality/-/equality-0.5.2.tgz#72c8a7a7d884dff30b612f4f8464eba26c080e73"
+  integrity sha512-oVMxbUXL48EV/C0/M7gLVsoK6qRHPS85x8zECofEZOVvxGmIPLA9o5Z27cc2PoAyZz1S2VoM2A7FLAnpfGlneA==
+  dependencies:
+    tslib "^2.3.0"
 
 "@wry/trie@^0.3.0":
   version "0.3.0"
@@ -13221,7 +13248,7 @@ moment@2.22.2:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
-moment@^2.26.0:
+moment@^2.26.0, moment@^2.29.1:
   version "2.29.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
@@ -17132,6 +17159,11 @@ symbol-observable@^2.0.0:
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-2.0.3.tgz#5b521d3d07a43c351055fa43b8355b62d33fd16a"
   integrity sha512-sQV7phh2WCYAn81oAkakC5qjq2Ml0g8ozqz03wOGnx9dDlG1de6yrF+0RAzSJD8fPUow3PTSMf2SAbOGxb93BA==
 
+symbol-observable@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-4.0.0.tgz#5b425f192279e87f2f9b937ac8540d1984b39205"
+  integrity sha512-b19dMThMV4HVFynSAM1++gBHAbk2Tc/osgLIBZMKsyqh34jb2e8Os7T6ZW/Bt3pJFdBTd2JwAnAAEQV7rSNvcQ==
+
 symbol-tree@^3.2.2:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
@@ -17560,6 +17592,11 @@ tslib@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
   integrity sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w==
+
+tslib@^2.3.0:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
 
 tsutils@^3.17.1:
   version "3.21.0"
