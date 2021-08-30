@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
   withTheme,
-  NavigationService,
+  // NavigationService,
   Icon,
   Touchable,
 } from '@apollosproject/ui-kit';
-import { useApolloClient } from '@apollo/client';
+// import { useApolloClient } from '@apollo/client';
 import {
   createFeatureFeedTab,
   CampusTabComponent,
 } from '@apollosproject/ui-connected';
-import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
+// import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
 import Connect from './connect';
 import tabBarIcon from './tabBarIcon';
 
@@ -84,50 +84,49 @@ const ReadTab = createFeatureFeedTab({
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
-const TabNavigator = () => {
-  const client = useApolloClient();
+const TabNavigator = () => (
+  // const client = useApolloClient();
   // this is only used by the tab loaded first
   // if there is a new version of the onboarding flow,
   // we'll navigate there first to show new screens
-  useEffect(
-    () => {
-      checkOnboardingStatusAndNavigate({
-        client,
-        navigation: NavigationService,
-        navigateHome: false,
-      });
-    },
-    [client]
-  );
-  return (
-    <Navigator lazy>
-      <Screen
-        name="Home"
-        component={HomeTab}
-        options={{ tabBarIcon: tabBarIcon('home') }}
-      />
-      <Screen
-        name="Discover"
-        component={ReadTab}
-        options={{ tabBarIcon: tabBarIcon('sections') }}
-      />
-      {/* <Screen */}
-      {/*   name="Watch" */}
-      {/*   component={WatchTab} */}
-      {/*   options={{ tabBarIcon: tabBarIcon('video') }} */}
-      {/* /> */}
-      {/* <Screen */}
-      {/*   name="Pray" */}
-      {/*   component={PrayTab} */}
-      {/*   options={{ tabBarIcon: tabBarIcon('like') }} */}
-      {/* /> */}
-      <Screen
-        name="Connect"
-        component={Connect}
-        options={{ tabBarIcon: tabBarIcon('profile') }}
-      />
-    </Navigator>
-  );
-};
+  // NOTE comment this back in if we figure out and fix the onboarding loop issue
+  // useEffect(
+  // () => {
+  // checkOnboardingStatusAndNavigate({
+  // client,
+  // navigation: NavigationService,
+  // navigateHome: false,
+  // });
+  // },
+  // [client]
+  // );
+  <Navigator lazy>
+    <Screen
+      name="Home"
+      component={HomeTab}
+      options={{ tabBarIcon: tabBarIcon('home') }}
+    />
+    <Screen
+      name="Discover"
+      component={ReadTab}
+      options={{ tabBarIcon: tabBarIcon('sections') }}
+    />
+    {/* <Screen */}
+    {/*   name="Watch" */}
+    {/*   component={WatchTab} */}
+    {/*   options={{ tabBarIcon: tabBarIcon('video') }} */}
+    {/* /> */}
+    {/* <Screen */}
+    {/*   name="Pray" */}
+    {/*   component={PrayTab} */}
+    {/*   options={{ tabBarIcon: tabBarIcon('like') }} */}
+    {/* /> */}
+    <Screen
+      name="Connect"
+      component={Connect}
+      options={{ tabBarIcon: tabBarIcon('profile') }}
+    />
+  </Navigator>
+);
 
 export default TabNavigator;
