@@ -46,7 +46,7 @@
     "@apollosproject/metarouter-analytics-react-native": "^1.1.5",
     "@apollosproject/react-native-airplay-btn": "^0.2.0",
     "@apollosproject/ui-analytics": "^2.22.0",
-    "@apollosproject/ui-auth": "^2.22.0",
+    "@apollosproject/ui-auth": "^2.31.1-canary.3",
     "@apollosproject/ui-connected": "^2.22.0",
     "@apollosproject/ui-fragments": "^2.22.0",
     "@apollosproject/ui-htmlview": "^2.22.0",

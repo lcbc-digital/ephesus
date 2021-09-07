@@ -388,13 +388,12 @@
     graphql-tag "2.9.2"
     react-native-device-info "^4.0.1"
 
-"@apollosproject/ui-auth@^2.22.0":
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-auth/-/ui-auth-2.22.0.tgz#50b22503f15d13569dda6418ff1c6319d1843230"
-  integrity sha512-2seETx+85EOE6z9oOmHiiehr8uJfzh8nkBHgNMAsd+6tEw9UPhUpq/FhXoocfOzdMUEGa0PD+9C6L8UXxMvCeQ==
+"@apollosproject/ui-auth@^2.31.1-canary.3":
+  version "2.31.1-canary.3"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-auth/-/ui-auth-2.31.1-canary.3.tgz#6e38bcb71264558464c177fffa85d5c64bfaff4c"
+  integrity sha512-7jz9wReqACQNeQvAIJMZZGW7dFCxEK2p0AIUbYecW5QXIP2IFEeVP882QvikyJV5w1xPwRvIZo1j+aRMg5hHmg==
   dependencies:
     formik "1.5.1"
-    graphql-tag "2.9.2"
     yup "^0.27.0"
 
 "@apollosproject/ui-connected@^2.22.0":
