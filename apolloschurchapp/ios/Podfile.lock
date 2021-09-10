@@ -1,4 +1,5 @@
 PODS:
+  - AstronomerAnalytics (3.6.9)
   - boost-for-react-native (1.63.0)
   - BugsnagReactNative (7.4.0):
     - React
@@ -71,7 +72,6 @@ PODS:
     - glog
   - glog (0.3.5)
   - libevent (2.1.12)
-  - MetarouterAnalytics (3.8.0-beta.4)
   - OneSignal (3.4.3)
   - OpenSSL-Universal (1.1.180)
   - Permission-Notifications (2.0.10):
@@ -341,7 +341,7 @@ PODS:
   - RNAirplay (1.0.0):
     - React
   - RNAnalytics (1.1.5):
-    - MetarouterAnalytics (~> 3.8.0-beta.3)
+    - AstronomerAnalytics
     - React
   - RNCAsyncStorage (1.9.0):
     - React
@@ -465,7 +465,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - rn-fetch-blob (from `../node_modules/rn-fetch-blob`)
   - "RNAirplay (from `../node_modules/@apollosproject/react-native-airplay-btn`)"
-  - "RNAnalytics (from `../node_modules/@apollosproject/metarouter-analytics-react-native`)"
+  - "RNAnalytics (from `../node_modules/@metarouter/analytics-react-native`)"
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
@@ -482,6 +482,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AstronomerAnalytics
     - boost-for-react-native
     - CocoaAsyncSocket
     - Flipper
@@ -492,7 +493,6 @@ SPEC REPOS:
     - Flipper-RSocket
     - FlipperKit
     - libevent
-    - MetarouterAnalytics
     - OneSignal
     - OpenSSL-Universal
     - YogaKit
@@ -589,7 +589,7 @@ EXTERNAL SOURCES:
   RNAirplay:
     :path: "../node_modules/@apollosproject/react-native-airplay-btn"
   RNAnalytics:
-    :path: "../node_modules/@apollosproject/metarouter-analytics-react-native"
+    :path: "../node_modules/@metarouter/analytics-react-native"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
   RNCMaskedView:
@@ -618,6 +618,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  AstronomerAnalytics: 36f48678a387e41481650edd6247c6c95d994131
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BugsnagReactNative: fee60d898e05e2ac29e081f3808f1cf3f3bcbe6c
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
@@ -635,7 +636,6 @@ SPEC CHECKSUMS:
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
-  MetarouterAnalytics: cb2db15cf7d0a6beeab46a81b4dd68c93ff5b94a
   OneSignal: e4dfb1912410f302dc9661ce98fc829f6c18ff6a
   OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
   Permission-Notifications: c9eb3a2da68dc0f37a8dc67d37bd28d150c5041d
@@ -676,7 +676,7 @@ SPEC CHECKSUMS:
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
   rn-fetch-blob: 651b8d076b43d0d7aa294a3d9ec16c00aab8bef9
   RNAirplay: 75777dd55dafbd3687703c3eb9c290ea6cc43248
-  RNAnalytics: 93b68dbcf5ee073410700ca2515d02396ee53958
+  RNAnalytics: 360b0680753d0e1d37152a25d47aa34a015cab72
   RNCAsyncStorage: 453cd7c335ec9ba3b877e27d02238956b76f3268
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
   RNCPicker: 61c7a0645b9e4ac67960aa7f22a3effcecfdfb8d
