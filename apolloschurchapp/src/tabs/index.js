@@ -15,6 +15,7 @@ import {
   CampusTabComponent,
 } from '@apollosproject/ui-connected';
 // import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
+import safeOpenUrl from '../utils/safeOpenUrl';
 import Connect from './connect';
 import tabBarIcon from './tabBarIcon';
 
@@ -62,12 +63,16 @@ const HomeTab = createFeatureFeedTab({
     headerTopInsetEnabled: false,
   },
   tabName: 'Home',
+  // allows for #external in URL
+  tabProps: { openUrl: safeOpenUrl },
   feedName: 'HOME',
   TabComponent: CampusTabComponent,
 });
 
 const ReadTab = createFeatureFeedTab({
   tabName: 'Discover',
+  // allows for #external in URL
+  tabProps: { openUrl: safeOpenUrl },
   feedName: 'READ',
   headerTopInsetEnabled: false,
 });
