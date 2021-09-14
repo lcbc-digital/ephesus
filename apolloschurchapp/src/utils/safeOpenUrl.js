@@ -5,7 +5,7 @@ async function safeHandleUrl(url, { external = false, browserFunc } = {}) {
   try {
     if (url.startsWith('http') && !external && !url.includes('#external')) {
       // safe enough to use InAppBrowser
-      return browserFunc(url) || InAppBrowser.open(url);
+      return browserFunc ? browserFunc(url) : InAppBrowser.open(url);
     }
 
     const canWeOpenUrl = await Linking.canOpenURL(url);
