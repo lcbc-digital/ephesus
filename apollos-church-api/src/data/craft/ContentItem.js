@@ -946,15 +946,34 @@ export class dataSource extends CraftDataSource {
     return entries.filter(({ id }) => !startedIds.includes(`${id}`));
   };
 
-  getFeatures = ({ craftType, image }) => {
+  getFeatures = async ({ craftType, image, id }) => {
+    const { Feature } = this.context.dataSources;
+    const features = [];
     if (craftType === 'media_mediaWallpaper_Entry' && image.length) {
-      return image.map(({ url }) =>
-        this.context.dataSources.Feature.createSharableImageFeature({
-          url,
+      features.push(
+        image.map(({ url }) =>
+          Feature.createSharableImageFeature({
+            url,
+          })
+        )
+      );
+    }
+    console.log(await this.isContentActiveLiveStream({ id }));
+    if (await this.isContentActiveLiveStream({ id })) {
+      features.push(
+        Feature.createButtonFeature({
+          action: Feature.attachActionIds({
+            relatedNode: {
+              __typename: 'Url',
+              url: ApollosConfig.CHURCH_ONLINE.URL,
+            },
+            action: 'OPEN_URL',
+            title: 'Join us for Church Online',
+          }),
         })
       );
     }
-    return [];
+    return features;
   };
 
   getVideos = async ({
@@ -1172,6 +1191,7 @@ export class dataSource extends CraftDataSource {
     // if there is no live stream, then there is no live content. Easy enough!
     // if (!isLive) return [];
     const mostRecentSermon = await this.getMostRecentSermon();
+    console.log(mostRecentSermon, 'mostRecentSermon');
     return mostRecentSermon ? [mostRecentSermon] : [];
   };
 
