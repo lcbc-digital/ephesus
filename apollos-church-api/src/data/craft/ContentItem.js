@@ -1191,7 +1191,6 @@ export class dataSource extends CraftDataSource {
     // if there is no live stream, then there is no live content. Easy enough!
     // if (!isLive) return [];
     const mostRecentSermon = await this.getMostRecentSermon();
-    console.log(mostRecentSermon, 'mostRecentSermon');
     return mostRecentSermon ? [mostRecentSermon] : [];
   };
 
