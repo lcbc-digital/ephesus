@@ -968,7 +968,7 @@ export class dataSource extends CraftDataSource {
               url: ApollosConfig.CHURCH_ONLINE.URL,
             },
             action: 'OPEN_URL',
-            title: 'Join us for Church Online',
+            title: 'Join us live for Church Online',
           }),
         })
       );
