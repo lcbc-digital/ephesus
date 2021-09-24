@@ -947,7 +947,7 @@ export class dataSource extends CraftDataSource {
   };
 
   getFeatures = async ({ craftType, image, id }) => {
-    const { Feature } = this.context.dataSources;
+    const { Feature, LiveStream } = this.context.dataSources;
     const features = [];
     if (craftType === 'media_mediaWallpaper_Entry' && image.length) {
       features.push(
@@ -958,8 +958,9 @@ export class dataSource extends CraftDataSource {
         )
       );
     }
-    console.log(await this.isContentActiveLiveStream({ id }));
-    if (await this.isContentActiveLiveStream({ id })) {
+    // If we are live, and the current item is live.
+    const { isLive } = await LiveStream.getLiveStream();
+    if (isLive && await this.isContentActiveLiveStream({ id })) {
       features.push(
         Feature.createButtonFeature({
           action: Feature.attachActionIds({
