@@ -948,9 +948,9 @@ export class dataSource extends CraftDataSource {
 
   getFeatures = async ({ craftType, image, id }) => {
     const { Feature, LiveStream } = this.context.dataSources;
-    const features = [];
+    let features = [];
     if (craftType === 'media_mediaWallpaper_Entry' && image.length) {
-      features.push(
+      features = features.concat(
         image.map(({ url }) =>
           Feature.createSharableImageFeature({
             url,
