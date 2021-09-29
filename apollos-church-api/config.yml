@@ -7,6 +7,7 @@
 
 # This file should be checked into version control.
 # `.env` should NOT be checked into version control.
+SMS_LOGIN_MESSAGE: Thanks for logging in to the LCBC app!
 APP:
   # This variable is used for generating deep links.
   # It should match whatver is in your Info.plist `CFBundleURLTypes`
