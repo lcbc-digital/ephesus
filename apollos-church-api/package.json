@@ -4,15 +4,11 @@
   "private": true,
   "main": "lib/index.js",
   "scripts": {
-    "start":
-      "NODE_ENV=production node  --max-old-space-size=1536 ./lib/index.js",
-    "start:dev":
-      "linkemon ./src/index.js --exec babel-node --delay 2 -e js,yaml,json,yml",
+    "start": "NODE_ENV=production node  --max-old-space-size=1536 ./lib/index.js",
+    "start:dev": "linkemon ./src/index.js --exec babel-node --delay 2 -e js,yaml,json,yml",
     "postinstall": "yarn build",
-    "build":
-      "NODE_ENV=production rm -rf ./lib && mkdir -p lib && babel ./src -d ./lib",
-    "test":
-      "echo \"No tests in apollos-church-api, all tested code is located in @apollosproject npm modules\"",
+    "build": "NODE_ENV=production rm -rf ./lib && mkdir -p lib && babel ./src -d ./lib",
+    "test": "echo \"No tests in apollos-church-api, all tested code is located in @apollosproject npm modules\"",
     "lint": "eslint ./src --ext .js",
     "translate": "node scripts/translate.js"
   },
@@ -31,7 +27,7 @@
     "@apollosproject/data-connector-passes": "^2.30.0",
     "@apollosproject/data-connector-postgres": "^2.30.0",
     "@apollosproject/data-connector-redis-cache": "^2.30.0",
-    "@apollosproject/data-connector-rock": "^2.32.2",
+    "@apollosproject/data-connector-rock": "^2.33.5-canary.3",
     "@apollosproject/data-connector-twilio": "^2.30.0",
     "@apollosproject/data-schema": "^2.32.2",
     "@apollosproject/rock-apollo-data-source": "^2.30.0",
