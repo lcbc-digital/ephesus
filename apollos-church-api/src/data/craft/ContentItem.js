@@ -946,15 +946,35 @@ export class dataSource extends CraftDataSource {
     return entries.filter(({ id }) => !startedIds.includes(`${id}`));
   };
 
-  getFeatures = ({ craftType, image }) => {
+  getFeatures = async ({ craftType, image, id }) => {
+    const { Feature, LiveStream } = this.context.dataSources;
+    let features = [];
     if (craftType === 'media_mediaWallpaper_Entry' && image.length) {
-      return image.map(({ url }) =>
-        this.context.dataSources.Feature.createSharableImageFeature({
-          url,
+      features = features.concat(
+        image.map(({ url }) =>
+          Feature.createSharableImageFeature({
+            url,
+          })
+        )
+      );
+    }
+    // If we are live, and the current item is live.
+    const { isLive } = await LiveStream.getLiveStream();
+    if (isLive && (await this.isContentActiveLiveStream({ id }))) {
+      features.push(
+        Feature.createButtonFeature({
+          action: Feature.attachActionIds({
+            relatedNode: {
+              __typename: 'Url',
+              url: ApollosConfig.CHURCH_ONLINE.URL,
+            },
+            action: 'OPEN_URL',
+            title: 'Join us live for Church Online',
+          }),
         })
       );
     }
-    return [];
+    return features;
   };
 
   getVideos = async ({
