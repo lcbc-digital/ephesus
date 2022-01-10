@@ -485,13 +485,12 @@
   dependencies:
     graphql-tag "^2.10.1"
 
-"@apollosproject/ui-prayer@^2.22.0":
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-prayer/-/ui-prayer-2.22.0.tgz#52ad687472fb886c3a748ea5e1cd6ece469b9405"
-  integrity sha512-PJSltxadaOs/tWScLpX+11wkST+musrYlaLViG9lhwc+Rqjf3T6nM1oAop9ekXc009uBeX+2raj3uJ+42m+3ug==
+"@apollosproject/ui-prayer@^2.41.0":
+  version "2.41.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-prayer/-/ui-prayer-2.41.0.tgz#178545492191fa829d5cf142bbb90129390bedfa"
+  integrity sha512-2dgC0Q5NxFDQxkrbLZk8ayWIoJtfs3CxQUx21MwA038MWEWHxTawjrf5fdcjzTCQnlqLOvLQUjKVvCPhyD/Zwg==
   dependencies:
     formik "1.5.1"
-    graphql-tag "2.9.2"
     lodash "4.17.21"
     react-is "^16.9.0"
     react-native-swiper "^1.6.0"
