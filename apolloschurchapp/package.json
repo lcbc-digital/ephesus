@@ -49,7 +49,7 @@
     "@apollosproject/ui-connected": "^2.22.0",
     "@apollosproject/ui-fragments": "^2.22.0",
     "@apollosproject/ui-htmlview": "^2.22.0",
-    "@apollosproject/ui-kit": "^2.22.0",
+    "@apollosproject/ui-kit": "2.35.0",
     "@apollosproject/ui-mapview": "^2.22.0",
     "@apollosproject/ui-media-player": "^2.22.0",
     "@apollosproject/ui-notifications": "^2.22.0",
