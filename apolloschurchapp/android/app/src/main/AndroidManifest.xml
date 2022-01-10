@@ -11,7 +11,6 @@
       android:name=".MainApplication"
       android:label="@string/app_name"
       android:icon="@mipmap/ic_launcher"
-      android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
 
@@ -19,16 +18,12 @@
         android:name="com.google.android.geo.API_KEY"
         android:value="@string/GOOGLE_MAPS_API_KEY"/>
 
-      <meta-data android:name="com.bugsnag.android.API_KEY"
-                 android:value="8269a73008ec288f1684db3a4adc66f7"/>
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
-        android:windowSoftInputMode="adjustPan"
-        android:exported="true"
-        android:launchMode="singleTask">
-
+        android:launchMode="singleTask"
+        android:windowSoftInputMode="adjustResize">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />

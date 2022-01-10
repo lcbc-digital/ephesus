@@ -1,23 +1,24 @@
-require('dotenv').config();
 const fs = require('fs');
 const Path = require('path');
+require('dotenv/config');
 const fetch = require('node-fetch');
 
 const attempts = 0;
 const maxAttempts = 3;
 const timeBetweenAttempts = 5 * 1000;
 
-console.log('app url', process.env.APP_DATA_URL);
-
 const getIntrospectionData = async () => {
   try {
-    const query = await fetch(
-      'https://lcbc-production-herokuapp-com.global.ssl.fastly.net/',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          query: `
+    const query = await fetch(process.env.APP_DATA_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(process.env.CHURCH_HEADER
+          ? { 'x-church': process.env.CHURCH_HEADER }
+          : {}),
+      },
+      body: JSON.stringify({
+        query: `
           {
             __schema {
               types {
@@ -30,9 +31,8 @@ const getIntrospectionData = async () => {
             }
           }
         `,
-        }),
-      }
-    );
+      }),
+    });
 
     const { data } = await query.json();
 
@@ -50,8 +50,9 @@ const getIntrospectionData = async () => {
   } catch (e) {
     if (attempts < maxAttempts) {
       console.log(
-        `Error writing fragmentTypes (-api probably hasn't started yet). Trying again after wait. Attempt: ${attempts +
-          1} of ${maxAttempts}`
+        `Error writing fragmentTypes (-api probably hasn't started yet). Trying again after wait. Attempt: ${
+          attempts + 1
+        } of ${maxAttempts}`
       );
       await new Promise((resolve) => setTimeout(resolve, timeBetweenAttempts)); // try again after waiting
       getIntrospectionData();

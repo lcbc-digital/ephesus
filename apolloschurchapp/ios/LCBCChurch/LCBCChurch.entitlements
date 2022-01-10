@@ -7,6 +7,7 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:a.lcbc.church</string>
+		<string>group.com.differential.apollos.onesignal</string>
 	</array>
 </dict>
 </plist>
