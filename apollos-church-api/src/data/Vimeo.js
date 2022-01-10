@@ -31,7 +31,7 @@ class dataSource extends RESTDataSource {
 
       await Cache.set({
         key: ['vimeo', id],
-        data: source
+        data: source,
       });
       return source;
     }
