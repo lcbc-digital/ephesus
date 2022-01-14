@@ -1,14 +1,16 @@
 import { ApolloServer } from 'apollo-server-express';
 import ApollosConfig from '@apollosproject/config';
-
 import express from 'express';
+import responseCachePlugin from 'apollo-server-plugin-response-cache';
 import { RockLoggingExtension } from '@apollosproject/rock-apollo-data-source';
 import { get } from 'lodash';
-import { setupUniversalLinks } from '@apollosproject/server-core';
 
-import { BugsnagPlugin } from '@apollosproject/bugsnag';
+import { BaseRedisCache } from 'apollo-server-cache-redis';
+import Redis from 'ioredis';
+import { setupUniversalLinks } from '@apollosproject/server-core';
 import { createMigrationRunner } from '@apollosproject/data-connector-postgres';
 import newrelicPlugin from '@newrelic/apollo-server-plugin';
+import { BugsnagPlugin } from '@apollosproject/bugsnag';
 import { createRedirectLink } from './universal-linking';
 
 let dataObj;
@@ -35,28 +37,25 @@ export { resolvers, schema, testSchema };
 const isDev =
   process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test';
 
-const extensions = isDev ? [() => new RockLoggingExtension()] : [];
-
-const cacheOptions = isDev
-  ? {}
-  : {
-      cacheControl: {
-        stripFormattedExtensions: false,
-        calculateHttpHeaders: true,
-        defaultMaxAge: 3600,
-      },
-    };
-
 const { ROCK, APP } = ApollosConfig;
 
 const apolloServer = new ApolloServer({
-  typeDefs: [...schema, `scalar Upload`],
+  typeDefs: schema,
   resolvers,
   dataSources,
   context,
   introspection: true,
-  extensions,
-  plugins: [new BugsnagPlugin(), newrelicPlugin],
+  extensions: isDev ? [() => new RockLoggingExtension()] : [],
+  plugins: [
+    new BugsnagPlugin(),
+    newrelicPlugin,
+    responseCachePlugin({
+      sessionId: (requestContext) =>
+        requestContext.request.http.headers.get('authorization') || null,
+      shouldReadFromCache: () => !isDev,
+      shouldWriteToCache: () => !isDev,
+    }),
+  ],
   formatError: (error) => {
     console.error(get(error, 'extensions.exception.stacktrace', []).join('\n'));
     return error;
@@ -67,11 +66,18 @@ const apolloServer = new ApolloServer({
     },
   },
   uploads: false,
-  ...cacheOptions,
-  // engine: {
-  //   apiKey: ENGINE.API_KEY,
-  //   schemaTag: ENGINE.SCHEMA_TAG,
-  // },
+  ...(process.env.REDIS_URL
+    ? {
+        cache: new BaseRedisCache({
+          client: new Redis(process.env.REDIS_URL),
+        }),
+      }
+    : {}),
+  cacheControl: {
+    stripFormattedExtensions: false,
+    calculateHttpHeaders: true,
+    defaultMaxAge: 3600,
+  },
 });
 
 const app = express();
