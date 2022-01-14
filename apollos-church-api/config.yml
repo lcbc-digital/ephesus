@@ -240,27 +240,27 @@ TABS:
       actions:
         [
           {
-            title: Join A Group
+            title: Join A Group,
             action: OPEN_URL,
             relatedNode: { __typename: Url, url: 'https://lcbcchurch.com/next-steps/groups' },
           },
           {
-            title: Find a Serving Opportunity
+            title: Find a Serving Opportunity,
             action: OPEN_URL,
             relatedNode: { __typename: Url, url: 'https://lcbcchurch.com/next-steps/serve' },
           },
           {
-            title: LCBC Locations & Times
+            title: LCBC Locations & Times,
             action: OPEN_URL,
             relatedNode: { __typename: Url, url: 'https://lcbcchurch.com/locations' },
           },
           {
-            title: Contact Us
+            title: Contact Us,
             action: OPEN_URL,
             relatedNode: { __typename: Url, url: 'https://app.lcbcchurch.com/contact-us' },
           },
           {
-            title: Report a Bug
+            title: Report a Bug,
             action: OPEN_URL,
             relatedNode: { __typename: Url, url: 'https://app.lcbcchurch.com/bugreport' },
           },
