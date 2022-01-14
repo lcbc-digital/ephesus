@@ -13,13 +13,8 @@ import Color from 'color';
 import gql from 'graphql-tag';
 import CraftDataSource, { mapToEdgeNode } from './CraftDataSource';
 
-export const schema = gql`
-  ${ContentItem.schema}
-  extend type MediaContentItem implements FeaturesNode {
-    features: [Feature]
-    featureFeed: FeatureFeed
-  }
-`;
+const { schema } = ContentItem;
+export { schema };
 
 const ERROR_COPY = `
 <p>Uh Oh - Looks like we had a mishap.
