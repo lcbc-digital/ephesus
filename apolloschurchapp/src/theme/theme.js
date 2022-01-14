@@ -18,6 +18,7 @@ import {
   HorizontalDefaultCard,
   HorizontalHighlightCard,
   PaddedView,
+  styled,
 } from '@apollosproject/ui-kit';
 import ImageCard from '../ui/ImageCard';
 import ShareableImageFeature from '../content-single/ShareableImageFeature';
@@ -236,6 +237,9 @@ export const overrides = {
       />
     ),
   }),
+  'ui-prayer.PrayerCard.StyledCard': {
+    cardColor: colors.darkSecondary,
+  },
 };
 
 export default { colors, typography, sizing, overrides, overlays, buttons };

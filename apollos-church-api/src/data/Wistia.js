@@ -36,7 +36,7 @@ class dataSource extends RESTDataSource {
 
     if (cachedVideo) return cachedVideo;
 
-    const result = await this.get(`${id}.json`)
+    const result = await this.get(`${id}.json`);
 
     await Cache.set({
       key: ['wistia', id],

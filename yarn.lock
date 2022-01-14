@@ -303,10 +303,10 @@
     apollo-datasource "^0.2.0"
     ioredis "4.14.1"
 
-"@apollosproject/data-connector-rock@^2.33.5-canary.3":
-  version "2.33.5-canary.3"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-2.33.5-canary.3.tgz#39fa5b65f4c3f9b5fca9aeee279f949b13dab817"
-  integrity sha512-EJwOC1iPPs9qP0XZw5RHcv16eQZt55Q9HKKujA9zDl3PcJLcxpSIWAQS7qmfndrXhwmgCiABLw28g/ya1EuZEQ==
+"@apollosproject/data-connector-rock@^2.41.1-canary.2":
+  version "2.41.1-canary.2"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-2.41.1-canary.2.tgz#709683d0f637bf7530b537769c70d8fca4ac4d87"
+  integrity sha512-kxgHJD3aSp9yOdpy3+io3tFyrFoDv2RtdTP2P+MCdyxcpO06mAw77nApxQneZ78U6TflwUj679NuIXgtH2nr0w==
   dependencies:
     awesome-phonenumber "^2.4.2"
     form-data "^4.0.0"
@@ -422,10 +422,10 @@
     entities "^1.1.2"
     htmlparser2 "3.9.2"
 
-"@apollosproject/ui-kit@^2.22.0":
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-2.22.0.tgz#75c8058cd14e1c4799b4896dd7c437e3127ec298"
-  integrity sha512-NId+XNgybLdjJC979kShaOZ2gwRCf7PiFrfxi34f7xWm35TlWqbcSlpZ0wZ0GEPqq5GPnImtT3Mr/zO1lpzc5g==
+"@apollosproject/ui-kit@2.35.0":
+  version "2.35.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-2.35.0.tgz#b8141a32fd33c70389ba784d4ed781835fe0d2ae"
+  integrity sha512-HfpXuBeyfZrMzHEpizxjuOjtVjvDGtZG5a6r/peTPntPTcvBIZyJnpZDeZ1IkAv7QkEUvlDa2QZgVp+AjXKysw==
   dependencies:
     "@react-native-community/blur" "^3.6.0"
     color "^3.1.0"
@@ -485,13 +485,12 @@
   dependencies:
     graphql-tag "^2.10.1"
 
-"@apollosproject/ui-prayer@^2.22.0":
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-prayer/-/ui-prayer-2.22.0.tgz#52ad687472fb886c3a748ea5e1cd6ece469b9405"
-  integrity sha512-PJSltxadaOs/tWScLpX+11wkST+musrYlaLViG9lhwc+Rqjf3T6nM1oAop9ekXc009uBeX+2raj3uJ+42m+3ug==
+"@apollosproject/ui-prayer@^2.41.0":
+  version "2.41.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-prayer/-/ui-prayer-2.41.0.tgz#178545492191fa829d5cf142bbb90129390bedfa"
+  integrity sha512-2dgC0Q5NxFDQxkrbLZk8ayWIoJtfs3CxQUx21MwA038MWEWHxTawjrf5fdcjzTCQnlqLOvLQUjKVvCPhyD/Zwg==
   dependencies:
     formik "1.5.1"
-    graphql-tag "2.9.2"
     lodash "4.17.21"
     react-is "^16.9.0"
     react-native-swiper "^1.6.0"
