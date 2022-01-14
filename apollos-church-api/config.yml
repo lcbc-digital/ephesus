@@ -155,7 +155,6 @@ ROCK_MAPPINGS:
 TABS:
   HOME:
     - type: ActionBar
-      title: Welcome to LCBC!
     - algorithms: [MOST_RECENT_SERMON]
       type: VerticalCardList
       isFeatured: true
@@ -234,3 +233,35 @@ TABS:
           __typename: ContentChannel
           id: { typeId: 41, source: 'EntryList' }
           name: News
+  CONNECT:
+    - type: ActionBar
+    - type: ActionTable
+      title: Connect with LCBC
+      actions:
+        [
+          {
+            title: Join A Group
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://lcbcchurch.com/next-steps/groups' },
+          },
+          {
+            title: Find a Serving Opportunity
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://lcbcchurch.com/next-steps/serve' },
+          },
+          {
+            title: LCBC Locations & Times
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://lcbcchurch.com/locations' },
+          },
+          {
+            title: Contact Us
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://app.lcbcchurch.com/contact-us' },
+          },
+          {
+            title: Report a Bug
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://app.lcbcchurch.com/bugreport' },
+          },
+        ]
