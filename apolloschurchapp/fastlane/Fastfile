@@ -64,7 +64,7 @@ platform :ios do
     match_nuke(type: 'development',
                app_identifier: [ENV['DELIVER_APP_IDENTIFIER'],
                                 "#{ENV['DELIVER_APP_IDENTIFIER']}.OneSignalNotificationServiceExtension"])
-    match_nuke(type: 'distribution',
+    match_nuke(type: 'appstore',
                app_identifier: [ENV['DELIVER_APP_IDENTIFIER'],
                                 "#{ENV['DELIVER_APP_IDENTIFIER']}.OneSignalNotificationServiceExtension"])
     match(type: 'development',
