@@ -46,20 +46,20 @@ const LocationFinder = memo(
       <Wrapper>
         <TitleContainer>
           <TitleWrapper>
-            <H1>{`Select your `}</H1>
+            <H1>{'Select your '}</H1>
             <UnderlinedWord>
               <Underline />
-              <H1>{`local`}</H1>
+              <H1>{'local'}</H1>
             </UnderlinedWord>
-            <H1>{` `}</H1>
+            <H1> </H1>
             <UnderlinedWord>
               <Underline />
-              <H1>{`LCBC`}</H1>
+              <H1>{'LCBC'}</H1>
             </UnderlinedWord>
-            <H1>{` `}</H1>
+            <H1> </H1>
             <UnderlinedWord>
               <Underline />
-              <H1>{`location`}</H1>
+              <H1>{'location'}</H1>
             </UnderlinedWord>
           </TitleWrapper>
           <Intro>

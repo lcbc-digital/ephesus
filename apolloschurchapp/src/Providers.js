@@ -1,5 +1,4 @@
-import React from 'react';
-import ApollosConfig from '@apollosproject/config';
+import querystring from 'querystring';
 import { NavigationService } from '@apollosproject/ui-kit';
 import { AuthProvider } from '@apollosproject/ui-auth';
 import { AnalyticsProvider } from '@apollosproject/ui-analytics';
@@ -13,10 +12,9 @@ import { track, identify } from './amplitude';
 
 import ClientProvider, { client } from './client';
 
-const AppProviders = (props) => (
-  <ClientProvider {...props}>
+const AppProviders = ({ children }) => (
+  <ClientProvider>
     <NotificationsProvider
-      oneSignalKey={ApollosConfig.ONE_SIGNAL_KEY}
       // TODO deprecated prop
       navigate={NavigationService.navigate}
       handleExternalLink={(url) => {
@@ -29,13 +27,18 @@ const AppProviders = (props) => (
           const itemId = path.split('itemId=')[1];
           NavigationService.navigate('ContentSingle', { itemId });
         }
-        if (route === 'content')
+        if (route === 'content') {
           NavigationService.navigate('ContentSingle', { itemId: location });
-        if (route === 'nav')
+        }
+        if (route === 'nav') {
+          const [component, params] = location.split('?');
+          const args = querystring.parse(params);
           NavigationService.navigate(
             // turns "home" into "Home"
-            location[0].toUpperCase() + location.substring(1)
+            component[0].toUpperCase() + component.substring(1),
+            args
           );
+        }
       }}
       actionMap={{
         // accept a follow request when someone taps "accept" in a follow request push notification
@@ -61,7 +64,7 @@ const AppProviders = (props) => (
           identifyFunctions={[identify]}
           useServerAnalytics={false}
         >
-          <LiveProvider>{props.children}</LiveProvider>
+          <LiveProvider>{children}</LiveProvider>
         </AnalyticsProvider>
       </AuthProvider>
     </NotificationsProvider>

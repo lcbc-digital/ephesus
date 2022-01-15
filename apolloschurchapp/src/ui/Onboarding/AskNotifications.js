@@ -27,10 +27,10 @@ const AskNotifications = memo(
       <Wrapper>
         <TitleContainer>
           <TitleWrapper>
-            <H1>{`Stay `}</H1>
+            <H1>{'Stay '}</H1>
             <UnderlinedWord>
               <Underline />
-              <H1>{`up-to-date`}</H1>
+              <H1>{'up-to-date'}</H1>
             </UnderlinedWord>
           </TitleWrapper>
           <Intro>

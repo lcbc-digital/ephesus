@@ -14,7 +14,7 @@ const Features = memo(
       {BackgroundComponent}
       <Wrapper>
         <WelcomeWrapper>
-          <H1>{`Hi `}</H1>
+          <H1>{'Hi '}</H1>
           <View>
             <Underline />
             <H1>{`${firstName || 'friend'}!`}</H1>

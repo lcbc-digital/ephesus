@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
 import { get } from 'lodash';
 import { Text } from 'react-native';
 import {
@@ -18,10 +16,9 @@ import {
   HorizontalDefaultCard,
   HorizontalHighlightCard,
   PaddedView,
-  styled,
 } from '@apollosproject/ui-kit';
 import ImageCard from '../ui/ImageCard';
-import ShareableImageFeature from '../content-single/ShareableImageFeature';
+import ShareableImageFeature from '../ui/ShareableImageFeature';
 
 import fontStack from './fontStack';
 
@@ -178,9 +175,10 @@ export const overrides = {
     Component: () => cardMapper,
   },
   'ui-connected.SuggestedFollowListConnected': { Component: () => () => null },
-  'ui-connected.HorizontalContentCardConnected.HorizontalContentCardComponentMapper': {
-    Component: () => horizontalCardMapper,
-  },
+  'ui-connected.HorizontalContentCardConnected.HorizontalContentCardComponentMapper':
+    {
+      Component: () => horizontalCardMapper,
+    },
   'ui-connected.FeaturesFeedConnected': {
     additionalFeatures: { ShareableImageFeature: () => ShareableImageFeature },
   },

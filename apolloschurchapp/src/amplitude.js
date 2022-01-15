@@ -35,8 +35,9 @@ export const identify = () => {
   if (
     process.env.NODE_ENV === 'development' ||
     process.env.NODE_ENV === 'testing'
-  )
+  ) {
     return;
+  }
 
   amplitude.getInstance().setUserId(get(data, 'currentUser.profile.id'));
 

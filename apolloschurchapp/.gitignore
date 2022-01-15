@@ -115,6 +115,7 @@ keystore.properties
 apolloskeystoreupload.keystore
 local.properties
 *.iml
+*.hprof
 
 # Xcode
 build/
@@ -145,11 +146,13 @@ DerivedData
 
 # Fastlane
 fastlane/report.xml
+fastlane/Preview.html
 
 # symbols
 *.app.dSYM.zip
 
 # iOS keys
+push.pem
 *.p8
 
 # Google Play authentication key

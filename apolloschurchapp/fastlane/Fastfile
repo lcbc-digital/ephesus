@@ -62,13 +62,17 @@ platform :ios do
   lane :certs do
     app_store_connect_api_key(key_filepath: 'ios/apollos.p8')
     match_nuke(type: 'development',
-               app_identifier: ENV['DELIVER_APP_IDENTIFIER'])
+               app_identifier: [ENV['DELIVER_APP_IDENTIFIER'],
+                                "#{ENV['DELIVER_APP_IDENTIFIER']}.OneSignalNotificationServiceExtension"])
     match_nuke(type: 'distribution',
-               app_identifier: ENV['DELIVER_APP_IDENTIFIER'])
+               app_identifier: [ENV['DELIVER_APP_IDENTIFIER'],
+                                "#{ENV['DELIVER_APP_IDENTIFIER']}.OneSignalNotificationServiceExtension"])
     match(type: 'development',
-          app_identifier: ENV['DELIVER_APP_IDENTIFIER'])
+          app_identifier: [ENV['DELIVER_APP_IDENTIFIER'],
+                           "#{ENV['DELIVER_APP_IDENTIFIER']}.OneSignalNotificationServiceExtension"])
     match(type: 'appstore',
-          app_identifier: ENV['DELIVER_APP_IDENTIFIER'])
+          app_identifier: [ENV['DELIVER_APP_IDENTIFIER'],
+                           "#{ENV['DELIVER_APP_IDENTIFIER']}.OneSignalNotificationServiceExtension"])
     get_push_certificate(app_identifier: ENV['DELIVER_APP_IDENTIFIER'])
   end
 
@@ -83,7 +87,8 @@ platform :ios do
     setup_ci
     match(
       type: 'appstore',
-      app_identifier: ENV['DELIVER_APP_IDENTIFIER'],
+      app_identifier: [ENV['DELIVER_APP_IDENTIFIER'],
+                           "#{ENV['DELIVER_APP_IDENTIFIER']}.OneSignalNotificationServiceExtension"],
       readonly: true
     )
     increment_build_number(build_number: number_of_commits, xcodeproj: 'ios/' << proj << '.xcodeproj')
