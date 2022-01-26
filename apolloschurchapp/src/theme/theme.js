@@ -171,6 +171,9 @@ export const typography = {
 };
 
 export const overrides = {
+  'ui-onboarding.Landing.BrandIcon': {
+    size: 120,
+  },
   'ui-connected.ContentCardConnected.ContentCardComponentMapper': {
     Component: () => cardMapper,
   },
