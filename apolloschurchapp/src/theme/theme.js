@@ -23,6 +23,24 @@ import ShareableImageFeature from '../ui/ShareableImageFeature';
 
 import fontStack from './fontStack';
 
+const safeHandleUrl = async (url, { external = false, browserFunc } = {}) => {
+  try {
+    if (url.startsWith('http') && !external && !url.includes('#external')) {
+      // safe enough to use InAppBrowser
+      return browserFunc(url) || InAppBrowser.open(url);
+    }
+
+    const canWeOpenUrl = await Linking.canOpenURL(url);
+
+    if (canWeOpenUrl) {
+      return Linking.openURL(url);
+    }
+  } catch (e) {
+    console.warn(e);
+  }
+  return false;
+};
+
 /* Add your custom theme definitions below. Anything that is supported in UI-Kit Theme can be
  overridden and/or customized here! */
 
@@ -243,26 +261,16 @@ export const overrides = {
     cardColor: colors.darkSecondary,
   },
   HTMLView: {
-    onPressAnchor: async function safeHandleUrl(
-      url,
-      { external = false, browserFunc } = {}
-    ) {
-      try {
-        if (url.startsWith('http') && !external && !url.includes('#external')) {
-          // safe enough to use InAppBrowser
-          return browserFunc(url) || InAppBrowser.open(url);
-        }
-
-        const canWeOpenUrl = await Linking.canOpenURL(url);
-
-        if (canWeOpenUrl) {
-          return Linking.openURL(url);
-        }
-      } catch (e) {
-        console.warn(e);
-      }
-      return false;
+    onPressAnchor: () => (url) => {
+      safeHandleUrl(url);
     },
+  },
+  'ui-connected.ActionBarFeatureConnected.ActionBarFeature': {
+    onPressItem:
+      () =>
+      ({ relatedNode }) => {
+        safeHandleUrl(relatedNode?.url);
+      },
   },
 };
 
