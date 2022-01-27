@@ -23,11 +23,11 @@ import ShareableImageFeature from '../ui/ShareableImageFeature';
 
 import fontStack from './fontStack';
 
-const safeHandleUrl = async (url, { external = false, browserFunc } = {}) => {
+const safeHandleUrl = async (url) => {
   try {
-    if (url.startsWith('http') && !external && !url.includes('#external')) {
+    if (url.startsWith('http') && !url.includes('#external')) {
       // safe enough to use InAppBrowser
-      return browserFunc(url) || InAppBrowser.open(url);
+      return InAppBrowser.open(url);
     }
 
     const canWeOpenUrl = await Linking.canOpenURL(url);
@@ -266,11 +266,10 @@ export const overrides = {
     },
   },
   'ui-connected.ActionBarFeatureConnected.ActionBarFeature': {
-    onPressItem:
-      () =>
-      ({ relatedNode }) => {
-        safeHandleUrl(relatedNode?.url);
-      },
+    onPressItem: () => (item) => {
+      console.log(item);
+      safeHandleUrl(item?.relatedNode?.url);
+    },
   },
 };
 
