@@ -1,9 +1,9 @@
 /* Export your custom icon components here. */
 export BrandIcon from './BrandIcon';
-export Give from './Give';
 export CheckIn from './CheckIn';
 export Events from './Events';
-export Info from './Info';
+export Give from './Give';
 export Home from './Home';
-export Sections from './Sections';
+export Info from './Info';
 export Profile from './Profile';
+export Sections from './Sections';
