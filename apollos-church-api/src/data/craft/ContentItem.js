@@ -90,6 +90,8 @@ const newResolvers = {
     parent ? dataSources.ContentItem.getFromId(parent.id) : {},
   videos: (root, args, { dataSources: { ContentItem } }) =>
     ContentItem.getVideos(root),
+  // they don't have audio
+  audios: () => [],
   theme: (root, input, { dataSources }) =>
     dataSources.ContentItem.getTheme(root),
   sharing: (root, args, { dataSources: { ContentItem } }) => ({
@@ -787,7 +789,7 @@ export class dataSource extends CraftDataSource {
       ({ apollosId }) => apollosIdsWithInteractions.includes(apollosId)
     ).length;
 
-    return (totalItemsWithInteractions / childItems.length) * 100;
+    return totalItemsWithInteractions / childItems.length * 100;
   }
 
   async getShareUrl(item) {
@@ -1359,8 +1361,8 @@ export class dataSource extends CraftDataSource {
     }
   };
 
-  createHyphenatedString =
-    ContentItem.dataSource.prototype.createHyphenatedString;
+  createHyphenatedString = ContentItem.dataSource.prototype
+    .createHyphenatedString;
 
   resolveType({ craftType, ...node }) {
     switch (craftType) {
