@@ -1,13 +1,12 @@
+/* eslint-disable no-await-in-loop */
 import ApollosConfig from '@apollosproject/config';
 import { isEmpty } from 'lodash';
 import moment from 'moment-timezone';
 import Redis from 'ioredis';
 import basicAuth from 'express-basic-auth';
-import {
-  resolver,
-  dataSource,
-  schema,
-} from '@apollosproject/data-connector-algolia-search';
+import * as Algolia from '@apollosproject/data-connector-algolia-search';
+
+const { schema, resolver } = Algolia;
 
 const { ROCK } = ApollosConfig;
 
@@ -35,6 +34,65 @@ if (REDIS_URL) {
       }
     },
   };
+}
+
+class dataSource extends Algolia.dataSource {
+  async deltaIndex({ datetime }) {
+    const { ContentItem } = this.context.dataSources;
+    let itemsLeft = true;
+    const args = { after: null, first: 100 };
+
+    while (itemsLeft) {
+      const { edges } = await ContentItem.paginate({
+        cursor: await ContentItem.byDateAndActive({ datetime }),
+        args,
+      });
+
+      const result = await edges;
+      const items = result.map(({ node }) => node);
+      itemsLeft = items.length === 100;
+
+      if (itemsLeft) args.after = result[result.length - 1].cursor;
+      const indexableItems = await Promise.all(
+        items.map((item) => this.mapItemToAlgolia(item))
+      );
+
+      await this.addObjects(indexableItems);
+    }
+  }
+
+  async indexAll() {
+    await new Promise((resolve, reject) =>
+      this.index.clearIndex((err, result) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      })
+    );
+    const { ContentItem } = this.context.dataSources;
+    let itemsLeft = true;
+    const args = { after: null, first: 100 };
+
+    while (itemsLeft) {
+      const { edges } = await ContentItem.paginate({
+        cursor: ContentItem.byActive(),
+        args,
+      });
+
+      const result = await edges;
+      const items = result.map(({ node }) => node);
+      itemsLeft = items.length === 100;
+
+      if (itemsLeft) args.after = result[result.length - 1].cursor;
+
+      const indexableItems = await Promise.all(
+        items.map((item) => this.mapItemToAlgolia(item))
+      );
+
+      await this.addObjects(indexableItems);
+    }
+  }
 }
 
 const jobs = ({ getContext, queues, app }) => {
