@@ -237,7 +237,7 @@ TABS:
           id: { typeId: 41, source: 'EntryList' }
           name: News
   CONNECT:
-    - type: ActionBar
+    # - type: ActionBar
     - type: ActionTable
       title: Connect with LCBC
       actions:

@@ -20,6 +20,7 @@ import {
 } from '@apollosproject/ui-connected';
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
 import CampusCard from './ui/CampusCard';
+import ActionBar from './ui/ActionBar';
 
 const HeaderLogo = () => {
   const theme = useTheme();
@@ -100,6 +101,7 @@ const ReadTab = createFeatureFeedTab({
 const ConnectTabComponent = ({ feedName, ...props }) => (
   <>
     <CampusCard />
+    <ActionBar />
     <FeatureFeedTabConnected tab={feedName} {...props} />
   </>
 );
