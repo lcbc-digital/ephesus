@@ -351,13 +351,13 @@
     formik "1.5.1"
     yup "^0.27.0"
 
-"@apollosproject/ui-connected@^2.42.0":
-  version "2.42.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-connected/-/ui-connected-2.42.0.tgz#e18d9a72f55936348c25a342ffea85ff3e29a51a"
-  integrity sha512-E2UuwkVp4ZEXwqHdzIPNtD21Egk0sct7OgUJhqPMhtBmFmMUsRChv78Iu/28DtgUm9tRe5O4FRTImL67JLHjgg==
+"@apollosproject/ui-connected@^2.42.1-canary.16":
+  version "2.42.1-canary.16"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-connected/-/ui-connected-2.42.1-canary.16.tgz#6654c8d078ba71bd5624d433690effe9b05cd215"
+  integrity sha512-46PDBiPcZSPgspU85bIC7DUfTWm08AyWLfZ9ZS85MoE/y5ZPUxBmYfIy8U5t+CL0KuKET6UDwT/3DYZ+INlrcg==
   dependencies:
     "@gorhom/bottom-sheet" "3.4.1"
-    apollo-upload-client "14.1.3"
+    apollo-upload-client "^17.0.0"
     graphql-tag "2.9.2"
     lodash "^4.17.11"
     moment "^2.29.1"
@@ -5943,6 +5943,13 @@ apollo-upload-client@14.1.3:
     "@babel/runtime" "^7.12.5"
     extract-files "^9.0.0"
 
+apollo-upload-client@^17.0.0:
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/apollo-upload-client/-/apollo-upload-client-17.0.0.tgz#d9baaff8d14e54510de9f2855b487e75ca63b392"
+  integrity sha512-pue33bWVbdlXAGFPkgz53TTmxVMrKeQr0mdRcftNY+PoHIdbGZD0hoaXHvO6OePJAkFz7OiCFUf98p1G/9+Ykw==
+  dependencies:
+    extract-files "^11.0.0"
+
 apollo-utilities@^1.0.1, apollo-utilities@^1.3.0:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/apollo-utilities/-/apollo-utilities-1.3.3.tgz#f1854715a7be80cd810bc3ac95df085815c0787c"
@@ -9380,6 +9387,11 @@ extglob@^2.0.4:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
+
+extract-files@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/extract-files/-/extract-files-11.0.0.tgz#b72d428712f787eef1f5193aff8ab5351ca8469a"
+  integrity sha512-FuoE1qtbJ4bBVvv94CC7s0oTnKUGvQs+Rjf1L2SJFfS+HTVVjhPFtehPdQ0JiGPqVNfSSZvL5yzHHQq2Z4WNhQ==
 
 extract-files@^9.0.0:
   version "9.0.0"
