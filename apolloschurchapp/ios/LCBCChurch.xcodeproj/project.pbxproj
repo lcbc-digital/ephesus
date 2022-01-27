@@ -25,8 +25,6 @@
 		7550056AC76E46ACA1B43064 /* Avenir-HeavyOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 84A14AD330A24F7F9029F235 /* Avenir-HeavyOblique.otf */; };
 		7A0AE8C2E27F4BC78FBF92B7 /* Avenir-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 51BC81D8F9CF4D2696A8B98A /* Avenir-Light.otf */; };
 		7FBC6BC3CE8D48298F9850A9 /* Inter-UI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5157D807E164356ADE87867 /* Inter-UI-Bold.otf */; };
-		82AAE52E24187BB500D1EEC7 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AAE52D24187BB500D1EEC7 /* BootSplash.storyboard */; };
-		82AAE52F24187BB500D1EEC7 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AAE52D24187BB500D1EEC7 /* BootSplash.storyboard */; };
 		82AAE537241888D100D1EEC7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		894732A70B4740678E85B593 /* Inter-UI-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F5410F239E9477B9C2E86BD /* Inter-UI-BoldItalic.otf */; };
 		90743C40BF544F10A810C43C /* DroidSerif-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC3D2DB245545ADB1CAB3FE /* DroidSerif-Italic.ttf */; };
@@ -38,6 +36,7 @@
 		B02F194A3F6A4FE29AC799B4 /* DroidSerif-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A93F9D112A034626A9421759 /* DroidSerif-BoldItalic.ttf */; };
 		B8C41D67042E4568B3E5F617 /* Avenir-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA300B776EB14A73A06BED17 /* Avenir-Oblique.otf */; };
 		BFE08EA0265D2906000D123D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE08E9F265D2906000D123D /* File.swift */; };
+		D3CEBBC127A32BCC005DE58C /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3CEBBC027A32BCC005DE58C /* BootSplash.storyboard */; };
 		E4B2A883601F69741A189DCE /* libPods-LCBCChurch-LCBCChurchTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA39BAAEC242D03900B2E5AF /* libPods-LCBCChurch-LCBCChurchTests.a */; };
 		E875558F3FB8FA2024EF7DC2 /* libPods-LCBCChurch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB6B5B7B6A0D1ECB68CF0DD /* libPods-LCBCChurch.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
@@ -111,7 +110,6 @@
 		6C4014C122E3187D88B5A6DF /* Pods-LCBCChurch-LCBCChurchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCBCChurch-LCBCChurchTests.debug.xcconfig"; path = "Target Support Files/Pods-LCBCChurch-LCBCChurchTests/Pods-LCBCChurch-LCBCChurchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		77C653A2660841A4A4310C91 /* Avenir-MediumOblique.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-MediumOblique.otf"; path = "../assets/fonts/Avenir-MediumOblique.otf"; sourceTree = "<group>"; };
 		7C453E7B9AB10A6864A6B3F0 /* libPods-OneSignalNotificationServiceExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OneSignalNotificationServiceExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		82AAE52D24187BB500D1EEC7 /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = LCBCChurch/BootSplash.storyboard; sourceTree = "<group>"; };
 		84A14AD330A24F7F9029F235 /* Avenir-HeavyOblique.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-HeavyOblique.otf"; path = "../assets/fonts/Avenir-HeavyOblique.otf"; sourceTree = "<group>"; };
 		9B97BA424EE045148FDEFA43 /* Avenir-Heavy.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-Heavy.otf"; path = "../assets/fonts/Avenir-Heavy.otf"; sourceTree = "<group>"; };
 		A460FD7884FD4574A818005A /* Inter-UI-MediumItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-MediumItalic.otf"; path = "../assets/fonts/Inter-UI-MediumItalic.otf"; sourceTree = "<group>"; };
@@ -124,6 +122,7 @@
 		BFE08E9E265D2905000D123D /* LCBCChurch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LCBCChurch-Bridging-Header.h"; sourceTree = "<group>"; };
 		BFE08E9F265D2906000D123D /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		CF362FD4475D4652830D25CC /* Avenir-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-Medium.otf"; path = "../assets/fonts/Avenir-Medium.otf"; sourceTree = "<group>"; };
+		D3CEBBC027A32BCC005DE58C /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BootSplash.storyboard; sourceTree = "<group>"; };
 		D5157D807E164356ADE87867 /* Inter-UI-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-Bold.otf"; path = "../assets/fonts/Inter-UI-Bold.otf"; sourceTree = "<group>"; };
 		DC74A378C1CC40E4B6192D7F /* Inter-UI-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-Medium.otf"; path = "../assets/fonts/Inter-UI-Medium.otf"; sourceTree = "<group>"; };
 		DCB1270C2429347200079762 /* LCBCChurch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = LCBCChurch.entitlements; path = LCBCChurch/LCBCChurch.entitlements; sourceTree = "<group>"; };
@@ -191,9 +190,9 @@
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
-				82AAE52D24187BB500D1EEC7 /* BootSplash.storyboard */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				D3CEBBC027A32BCC005DE58C /* BootSplash.storyboard */,
 				BFE08E9F265D2906000D123D /* File.swift */,
 				BFE08E9E265D2905000D123D /* LCBCChurch-Bridging-Header.h */,
 			);
@@ -429,7 +428,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				82AAE537241888D100D1EEC7 /* Images.xcassets in Resources */,
-				82AAE52F24187BB500D1EEC7 /* BootSplash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +435,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3CEBBC127A32BCC005DE58C /* BootSplash.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				08CE105F17284254AD54AF84 /* DroidSerif-Bold.ttf in Resources */,
 				B02F194A3F6A4FE29AC799B4 /* DroidSerif-BoldItalic.ttf in Resources */,
@@ -450,7 +449,6 @@
 				1C48DCDE11AC47C48E918489 /* Inter-UI-Medium.otf in Resources */,
 				FCB3069DB5DD4170B2CAEFC4 /* Inter-UI-MediumItalic.otf in Resources */,
 				AB3BD177B8A14193A5EEDDF8 /* Inter-UI-Regular.otf in Resources */,
-				82AAE52E24187BB500D1EEC7 /* BootSplash.storyboard in Resources */,
 				16264350553548FCB3B12750 /* Avenir-BlackOblique.otf in Resources */,
 				06EA292BBFB84833942525DC /* Avenir-Book.otf in Resources */,
 				9BDFC286605B46EEB9895215 /* Avenir-BookOblique.otf in Resources */,
