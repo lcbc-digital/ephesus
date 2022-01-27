@@ -115,8 +115,11 @@ ROCK_MAPPINGS:
     WeekendContentItem:
       ContentChannelId: [5]
       EntityType: Craft
+    # this is set to Rock type to fix liking
+    # hoping they don't have any other downstream effects
     ContentItem:
-      EntityType: Craft
+      EntityType: ContentChannelItem
+
 
   DATAVIEW_CATEGORIES:
     # Id of the category used to store all persona dataviews

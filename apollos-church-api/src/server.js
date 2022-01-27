@@ -42,6 +42,7 @@ const { ROCK, APP } = ApollosConfig;
 const apolloServer = new ApolloServer({
   typeDefs: schema,
   resolvers,
+  persistedQueries: !isDev,
   dataSources,
   context,
   introspection: true,
