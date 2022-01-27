@@ -1,5 +1,5 @@
 import { get } from 'lodash';
-import { Text } from 'react-native';
+import { Text, Linking } from 'react-native';
 import {
   AddPrayerScreenConnected,
   ConfirmationDialogScreen,
@@ -17,6 +17,7 @@ import {
   HorizontalHighlightCard,
   PaddedView,
 } from '@apollosproject/ui-kit';
+import InAppBrowser from 'react-native-inappbrowser-reborn';
 import ImageCard from '../ui/ImageCard';
 import ShareableImageFeature from '../ui/ShareableImageFeature';
 
@@ -240,6 +241,28 @@ export const overrides = {
   }),
   'ui-prayer.PrayerCard.StyledCard': {
     cardColor: colors.darkSecondary,
+  },
+  HTMLView: {
+    onPressAnchor: async function safeHandleUrl(
+      url,
+      { external = false, browserFunc } = {}
+    ) {
+      try {
+        if (url.startsWith('http') && !external && !url.includes('#external')) {
+          // safe enough to use InAppBrowser
+          return browserFunc(url) || InAppBrowser.open(url);
+        }
+
+        const canWeOpenUrl = await Linking.canOpenURL(url);
+
+        if (canWeOpenUrl) {
+          return Linking.openURL(url);
+        }
+      } catch (e) {
+        console.warn(e);
+      }
+      return false;
+    },
   },
 };
 

@@ -369,10 +369,10 @@
   dependencies:
     "@apollo/client" "3.3.20"
 
-"@apollosproject/ui-htmlview@^2.42.0":
-  version "2.42.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-htmlview/-/ui-htmlview-2.42.0.tgz#a20569af8c5ccb346441611c198e3389b6ced58f"
-  integrity sha512-yP/KSRZhyUdht/Kret8nwMdyxkdzMq47O/C8fZVnYMTDuz0tFAdCR/id5/NnrICvtyq3r4+04L1nz23i9pj+zw==
+"@apollosproject/ui-htmlview@^2.42.1-canary.17":
+  version "2.42.1-canary.17"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-htmlview/-/ui-htmlview-2.42.1-canary.17.tgz#18a71152e5c11b6e9df24c22d2b931709c249a22"
+  integrity sha512-8fg2psqb/Qrr1pG7Qv05FkMOlAF9EeDEVNnesFfIZAvnyJKgrjDQzzLoiBLJIijgoMlGXzCFyt/ljrhBJvwEHg==
   dependencies:
     entities "^1.1.2"
     htmlparser2 "3.9.2"
