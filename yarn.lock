@@ -295,10 +295,10 @@
     apollo-datasource "^0.2.0"
     twilio "^3.28.0"
 
-"@apollosproject/data-schema@^2.43.2-canary.6":
-  version "2.43.2-canary.6"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-2.43.2-canary.6.tgz#e85ac95c56e265040a9ba8fcd8a61645b3a67213"
-  integrity sha512-ycGMMQ+xuyhUeC+z/WZuuzARjvYIkbJ5uuj0Vh8Cjb4Qr69WsxVn9LCsTUQ/MTo4ogamBGBIdgdCk0Vs9YOorw==
+"@apollosproject/data-schema@^2.42.0":
+  version "2.42.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-2.42.0.tgz#3843140aeaae87ee031a7fee3ef1395deca97b42"
+  integrity sha512-6kGhWxOvI6EmUy0USfIef6WKPrmSuocRtGVeZ/zrampiyDc5uw+HjD7yVvAeX7dCdjkKMMXgPt+TDVrqVsxxCQ==
   dependencies:
     "@apollo/client" "3.3.20"
 

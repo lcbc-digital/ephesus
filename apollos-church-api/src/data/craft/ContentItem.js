@@ -1085,6 +1085,80 @@ export class dataSource extends CraftDataSource {
     return itemParent || categoryParent;
   };
 
+  async getAppBarActions() {
+    const query = `
+      {
+        entries(section: "appActionBar") {
+          id
+          title
+          ... on appActionBar_appActionBar_Entry {
+            actionBarIcon
+            actionBarURL
+            actionBarLabel
+            usePersonId
+          }
+        }
+      }
+    `;
+
+    const result = await this.query(query);
+    const results = result?.data?.entries;
+
+    return results.map(async (r) => {
+      let url = r.actionBarURL;
+      try {
+        if (r.usePersonId) {
+          const token = await this.context.dataSources.Auth.getAuthToken();
+          if (!url.includes('http')) {
+            url = `https://${url}`;
+          }
+          url = new URL(url);
+          url.searchParams.append('rckipid', token);
+          url = url.toString();
+        }
+      } catch (e) {
+        console.log(e);
+        // move on...
+      }
+      return {
+        id: r.id,
+        label: r.actionBarLabel,
+        url,
+        icon: kebabCase(r.actionBarIcon),
+      };
+    });
+  }
+
+  // Broken right now due to a craft bug!
+  //   getSiblings = async (id, { after: cursor }) => {
+  //     let after = 0;
+  //     if (cursor) {
+  //       after = parseCursor(cursor);
+  //     }
+  //
+  //     const query = `query ($id: [QueryArgument], $first: Int, $after: Int) {
+  //      node: entry(id: $id) {
+  //        parent {
+  //          children(limit: $first, offset: $after) {
+  //            ${this.entryFragment}
+  //          }
+  //        }
+  //      }
+  //     }`;
+  //
+  //     const result = await this.query(query, {
+  //       id: [id],
+  //       first: 20,
+  //       after,
+  //     });
+  //
+  //     if (result?.error)
+  //       throw new ApolloError(result?.error?.message, result?.error?.code);
+  //
+  //     const results = result?.data?.node?.parent?.children || [];
+  //     return mapToEdgeNode(results, after + 1);
+  //   };
+
   getMostRecentSermon = async () => {
     const query = `query {
       entries(section:"series", hasDescendants:true, limit:2) {

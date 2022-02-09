@@ -158,27 +158,6 @@ ROCK_MAPPINGS:
 TABS:
   HOME:
     - type: ActionBar
-      actions:
-        [
-          {
-            title: Check-in,
-            icon: badge,
-            action: OPEN_AUTHENTICATED_URL,
-            relatedNode: { __typename: Url, url: 'https://app.lcbcchurch.com/AppCheckin' },
-          },
-          {
-            title: Give,
-            icon: give,
-            action: OPEN_URL_EXTERNALLY,
-            relatedNode: { __typename: Url, url: 'https://pushpay.com/g/lcbcchurch?src=app' },
-          },
-          {
-            title: Baptism,
-            icon: like,
-            action: OPEN_AUTHENTICATED_URL,
-            relatedNode: { __typename: Url, url: 'https://lcbcchurch.com/next-steps/baptism' },
-          },
-        ]
     - algorithms: [MOST_RECENT_SERMON]
       type: VerticalCardList
       isFeatured: true
@@ -258,28 +237,6 @@ TABS:
           id: { typeId: 41, source: 'EntryList' }
           name: News
   CONNECT:
-    - type: ActionBar
-      actions:
-        [
-          {
-            title: Check-in,
-            icon: badge,
-            action: OPEN_AUTHENTICATED_URL,
-            relatedNode: { __typename: Url, url: 'https://app.lcbcchurch.com/AppCheckin' },
-          },
-          {
-            title: Give,
-            icon: give,
-            action: OPEN_URL_EXTERNALLY,
-            relatedNode: { __typename: Url, url: 'https://pushpay.com/g/lcbcchurch?src=app' },
-          },
-          {
-            title: Pray,
-            icon: pray,
-            action: OPEN_AUTHENTICATED_URL,
-            relatedNode: { __typename: Url, url: 'https://my.lcbcchurch.com/prayer' },
-          },
-        ]
     - type: ActionTable
       title: Connect with LCBC
       actions:
