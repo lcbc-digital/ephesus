@@ -98,29 +98,6 @@ const colors = {
   primary: '#008CD0',
   secondary: '#008CD0', // '#004F71',
   tertiary: '#313131',
-
-  screen: '#F8FAFB',
-  paper: '#FFFFFF',
-  alert: '#C64F55',
-
-  // Dark shades
-  darkPrimary: '#313131',
-  darkSecondary: '#505050',
-  darkTertiary: '#B5C0C6',
-
-  // Light shades
-  lightPrimary: '#ECEFF0',
-  lightSecondary: '#D5DCDF',
-  lightTertiary: '#B5C0C6',
-
-  // Statics
-  wordOfChrist: '#8b0000', // only used in Scripture.
-  action: {
-    secondary: '#008CD0',
-  },
-  text: {
-    link: '#008CD0',
-  },
 };
 
 /* Base Typography sizing and fonts.
