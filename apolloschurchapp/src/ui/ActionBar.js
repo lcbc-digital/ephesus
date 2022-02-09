@@ -8,18 +8,20 @@ const Toolbar = () => (
     {(openUrl) => (
       <ActionBar>
         <ActionBarItem
-          onPress={() => openUrl('https://www.chaseoaks.org/groups')}
+          onPress={() => openUrl('https://app.lcbcchurch.com/AppCheckin')}
           icon="badge"
           label="Check In"
         />
         <ActionBarItem
-          onPress={() => Linking.openURL('https://www.chaseoaks.org/givenow')}
+          onPress={() =>
+            Linking.openURL('https://pushpay.com/g/lcbcchurch?src=app')
+          }
           icon="give"
           label="Give"
         />
 
         <ActionBarItem
-          onPress={() => openUrl('https://www.chaseoaks.org/serve')}
+          onPress={() => openUrl('https://my.lcbcchurch.com/prayer')}
           icon="pray"
           label="Prayer"
         />
