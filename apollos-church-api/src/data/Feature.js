@@ -21,16 +21,6 @@ const resolver = {
     ...baseResolver.ActionListAction,
     subtitle: ({ subtitle, summary }) => subtitle || summary,
   },
-  ActionBarAction: {
-    ...baseResolver.ActionListAction,
-    title: ({ label }) => label,
-    relatedNode: ({ url }) => ({
-      __typename: 'Url',
-      url,
-      id: createGlobalId(url, 'Url'),
-    }),
-    action: () => 'OPEN_URL',
-  },
   ShareableImageFeature: {
     id: ({ id }) => createGlobalId(id, 'ShareableImageFeature'),
   },
@@ -40,10 +30,6 @@ const resolver = {
       item?.relatedNode?.craftType === 'media_mediaWallpaper_Entry'
         ? 'Wallpaper'
         : startCase(item.relatedNode.labelText) || item.labelText,
-    // action: (item) =>
-    //   item?.relatedNode?.craftType === 'media_mediaWallpaper_Entry'
-    //     ? 'SHARE_IMAGE'
-    //     : item.action,
     title: (item) =>
       item?.relatedNode?.craftType === 'media_mediaWallpaper_Entry'
         ? ''
@@ -58,21 +44,12 @@ const schema = gql`
     userFeedFeaturesWithCampus(campusId: ID): [Feature] @cacheControl(maxAge: 0)
   }
 
-  extend enum ACTION_FEATURE_ACTION {
-    SHARE_IMAGE
-  }
-
   type ShareableImageFeature implements Feature & Node {
     id: ID!
     order: Int
 
     image: ImageMedia
     title: String
-  }
-
-  extend type ActionBarAction {
-    url: String
-    label: String
   }
 `;
 
@@ -127,26 +104,6 @@ class dataSource extends Feature.dataSource {
         }
       })
     );
-  }
-
-  async createActionBarFeature({ title }) {
-    // Generate a list of horizontal cards.
-    // const cards = () => this.runAlgorithms({ algorithms });
-    this.setCacheHint({ maxAge: 0, scope: 'PRIVATE' });
-    const actions = await this.context.dataSources.ContentItem.getAppBarActions();
-    return {
-      // The Feature ID is based on all of the action ids, added together.
-      // This is naive, and could be improved.
-      id: this.createFeatureId({
-        args: {
-          title,
-        },
-      }),
-      actions,
-      title,
-      // Typename is required so GQL knows specifically what Feature is being created
-      __typename: 'ActionBarFeature',
-    };
   }
 }
 

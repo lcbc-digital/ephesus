@@ -29,7 +29,7 @@
     "@apollosproject/data-connector-redis-cache": "^2.42.0",
     "@apollosproject/data-connector-rock": "^2.42.0",
     "@apollosproject/data-connector-twilio": "^2.42.0",
-    "@apollosproject/data-schema": "^2.42.0",
+    "@apollosproject/data-schema": "^2.43.2-canary.6",
     "@apollosproject/rock-apollo-data-source": "^2.42.0",
     "@apollosproject/server-core": "^2.42.0",
     "@newrelic/apollo-server-plugin": "^0.2.0",
@@ -41,8 +41,8 @@
     "dotenv": "6.0.0",
     "express": "^4.17.0",
     "graphql": "14.6.0",
-    "newrelic": "^7.5.1",
     "ioredis": "^4.27.2",
+    "newrelic": "^7.5.1",
     "randomcolor": "0.5.3"
   },
   "devDependencies": {

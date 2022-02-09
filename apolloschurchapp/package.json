@@ -7,7 +7,7 @@
   },
   "scripts": {
     "android": "SIM=\"$($HOME/Library/Android/sdk/emulator/emulator -list-avds | sed -n 1p)\" && $HOME/Library/Android/sdk/emulator/emulator -avd \"${SIM}\" & react-native run-android --appId com.bluebridgechurches.lcbc",
-    "ios": "react-native run-ios --simulator=\"iPhone 11\"",
+    "ios": "react-native run-ios",
     "lint": "eslint .",
     "postinstall": "jetify && yarn pods",
     "bump": "yarn version --patch",
