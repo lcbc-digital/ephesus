@@ -79,7 +79,7 @@ const CurrentCampus = withIsLoading(
       }
     };
     return (
-      <ThemeMixin>
+      <ThemeMixin mixin={{ type: 'light' }}>
         <PaddedView vertical={false}>
           <SideBySideView>
             <H4 padded>{sectionTitle}</H4>
