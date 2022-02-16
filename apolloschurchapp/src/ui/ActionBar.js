@@ -8,7 +8,13 @@ const Toolbar = () => (
     {(openUrl) => (
       <ActionBar>
         <ActionBarItem
-          onPress={() => openUrl('https://app.lcbcchurch.com/AppCheckin')}
+          onPress={() =>
+            openUrl(
+              'https://app.lcbcchurch.com/AppCheckin',
+              {},
+              { useRockToken: true }
+            )
+          }
           icon="badge"
           label="Check In"
         />
@@ -21,7 +27,13 @@ const Toolbar = () => (
         />
 
         <ActionBarItem
-          onPress={() => openUrl('https://my.lcbcchurch.com/prayer')}
+          onPress={() =>
+            openUrl(
+              'https://my.lcbcchurch.com/prayer',
+              {},
+              { useRockToken: true }
+            )
+          }
           icon="pray"
           label="Prayer"
         />
