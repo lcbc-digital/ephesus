@@ -1,5 +1,5 @@
 import { get } from 'lodash';
-import { Text, Linking } from 'react-native';
+import { Text, Linking, Platform } from 'react-native';
 import {
   AddPrayerScreenConnected,
   ConfirmationDialogScreen,
@@ -25,13 +25,15 @@ import fontStack from './fontStack';
 
 const safeHandleUrl = async (url) => {
   try {
-    if (url.startsWith('http') && !url.includes('#external')) {
+    if (
+      url.startsWith('http') &&
+      (!url.includes('#external') || Platform.OS === 'android')
+    ) {
       // safe enough to use InAppBrowser
       return InAppBrowser.open(url);
     }
 
     const canWeOpenUrl = await Linking.canOpenURL(url);
-
     if (canWeOpenUrl) {
       return Linking.openURL(url);
     }
@@ -244,7 +246,6 @@ export const overrides = {
   },
   'ui-connected.ActionBarFeatureConnected.ActionBarFeature': {
     onPressItem: () => (item) => {
-      console.log(item);
       safeHandleUrl(item?.relatedNode?.url);
     },
   },
