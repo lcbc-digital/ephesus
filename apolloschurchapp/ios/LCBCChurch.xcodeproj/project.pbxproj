@@ -20,6 +20,7 @@
 		3B6981DBCC134BD6A34056FA /* Avenir-MediumOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77C653A2660841A4A4310C91 /* Avenir-MediumOblique.otf */; };
 		4C583A86279260D000A71F29 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C583A85279260D000A71F29 /* NotificationService.swift */; };
 		4C583A8A279260D000A71F29 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4C583A83279260D000A71F29 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4CA2B88827CECC06004C29BC /* LinkPresentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA2B88727CECC06004C29BC /* LinkPresentation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		578FFEC1D7D54C9B871A9E5B /* Inter-UI-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A5A2BC2998547F4816B82E4 /* Inter-UI-BlackItalic.otf */; };
 		68D1351E80AA4A2C96288FD9 /* Inter-UI-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC21254B449443F99016EBFD /* Inter-UI-Black.otf */; };
 		7550056AC76E46ACA1B43064 /* Avenir-HeavyOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 84A14AD330A24F7F9029F235 /* Avenir-HeavyOblique.otf */; };
@@ -102,6 +103,7 @@
 		4C583A83279260D000A71F29 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C583A85279260D000A71F29 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		4C583A87279260D000A71F29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CA2B88727CECC06004C29BC /* LinkPresentation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LinkPresentation.framework; path = System/Library/Frameworks/LinkPresentation.framework; sourceTree = SDKROOT; };
 		4E007B33EDD74B82AEF02C24 /* DroidSerif-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidSerif-Regular.ttf"; path = "../assets/fonts/DroidSerif-Regular.ttf"; sourceTree = "<group>"; };
 		51BC81D8F9CF4D2696A8B98A /* Avenir-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Avenir-Light.otf"; path = "../assets/fonts/Avenir-Light.otf"; sourceTree = "<group>"; };
 		54F271B8EB67A4997A2C7D96 /* Pods-LCBCChurch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCBCChurch.debug.xcconfig"; path = "Target Support Files/Pods-LCBCChurch/Pods-LCBCChurch.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CA2B88827CECC06004C29BC /* LinkPresentation.framework in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				E875558F3FB8FA2024EF7DC2 /* libPods-LCBCChurch.a in Frameworks */,
 			);
@@ -202,6 +205,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CA2B88727CECC06004C29BC /* LinkPresentation.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
