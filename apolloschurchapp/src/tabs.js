@@ -57,11 +57,13 @@ const SearchButton = () => {
         navigation.navigate('Search');
       }}
     >
-      <Icon
-        name="search"
-        size={theme.sizing.baseUnit * 1.5}
-        fill={theme.colors.primary}
-      />
+      <View>
+        <Icon
+          name="search"
+          size={theme.sizing.baseUnit * 1.5}
+          fill={theme.colors.primary}
+        />
+      </View>
     </Touchable>
   );
 };
