@@ -599,7 +599,7 @@ export class dataSource extends CraftDataSource {
       after = parseCursor(cursor);
     }
 
-    const query = `query ($first: Int, $after: Int, $categories: [Int]) {
+    const query = `query ($first: Int, $after: Int, $categories: [QueryArgument]) {
         nodes: entries(
           limit: $first
           offset: $after
