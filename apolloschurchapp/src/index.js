@@ -44,7 +44,7 @@ import Providers from './Providers';
 import Tabs from './tabs';
 import customTheme, { customIcons } from './theme';
 
-import AboutCampus from './ui/AboutCampus';
+import AboutCampus from './ui/YourCampus/AboutCampus';
 
 enableScreens(); // improves performance for react-navigation
 

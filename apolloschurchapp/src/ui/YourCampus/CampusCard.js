@@ -11,7 +11,7 @@ const CampusCard = () => {
       cardTitle={campus.name}
       coverImage={campus.image}
       headerActionText={'Change'}
-      itemId={campus.id}
+      campusId={campus.id}
       sectionTitle={'Your Campus'}
       isLoading={loading}
     />

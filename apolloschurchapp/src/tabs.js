@@ -19,7 +19,7 @@ import {
   FeatureFeedTabConnected,
 } from '@apollosproject/ui-connected';
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
-import CampusCard from './ui/CampusCard';
+import CampusCard from './ui/YourCampus/CampusCard';
 import ActionBar from './ui/ActionBar';
 
 const HeaderLogo = () => {
