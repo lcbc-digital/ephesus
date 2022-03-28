@@ -60,13 +60,13 @@ const openMaps = ({ street1, street2, city, state, postalCode }) => {
 };
 
 const AboutCampus = ({ route, navigation }) => {
-  const itemId = route.params.itemId;
+  const campusId = route.params.campusId;
   return (
     <ModalView navigation={navigation} onClose={() => navigation.goBack()}>
       <BackgroundView>
         <Query
           query={GET_ABOUT_CAMPUS}
-          variables={{ itemId }}
+          variables={{ itemId: campusId }}
           fetchPolicy="cache-and-network"
         >
           {({
