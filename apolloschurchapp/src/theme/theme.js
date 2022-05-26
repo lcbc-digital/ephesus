@@ -1,5 +1,5 @@
 import { get } from 'lodash';
-import { Text, Linking } from 'react-native';
+import { Text, Linking, Platform } from 'react-native';
 import {
   AddPrayerScreenConnected,
   ConfirmationDialogScreen,
@@ -30,11 +30,10 @@ const safeHandleUrl = async (url) => {
       return InAppBrowser.open(url);
     }
 
-    const canWeOpenUrl = await Linking.canOpenURL(url);
-    if (
-      canWeOpenUrl ||
-      (url.startsWith('https') && url.includes('#external'))
-    ) {
+    const canWeOpenUrl =
+      (await Linking.canOpenURL(url)) ||
+      (url.startsWith('https') && Platform.OS === 'android');
+    if (canWeOpenUrl) {
       return Linking.openURL(url);
     }
   } catch (e) {
