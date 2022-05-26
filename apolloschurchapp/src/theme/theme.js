@@ -31,7 +31,10 @@ const safeHandleUrl = async (url) => {
     }
 
     const canWeOpenUrl = await Linking.canOpenURL(url);
-    if (canWeOpenUrl || url.startsWith('https://pushpay')) {
+    if (
+      canWeOpenUrl ||
+      (url.startsWith('https') && url.includes('#external'))
+    ) {
       return Linking.openURL(url);
     }
   } catch (e) {
