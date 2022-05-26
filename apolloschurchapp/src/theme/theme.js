@@ -1,5 +1,5 @@
 import { get } from 'lodash';
-import { Text, Linking, Platform } from 'react-native';
+import { Text, Linking } from 'react-native';
 import {
   AddPrayerScreenConnected,
   ConfirmationDialogScreen,
@@ -25,16 +25,13 @@ import fontStack from './fontStack';
 
 const safeHandleUrl = async (url) => {
   try {
-    if (
-      url.startsWith('http') &&
-      (!url.includes('#external') || Platform.OS === 'android')
-    ) {
+    if (url.startsWith('http') && !url.includes('#external')) {
       // safe enough to use InAppBrowser
       return InAppBrowser.open(url);
     }
 
     const canWeOpenUrl = await Linking.canOpenURL(url);
-    if (canWeOpenUrl) {
+    if (canWeOpenUrl || url.startsWith('https://pushpay')) {
       return Linking.openURL(url);
     }
   } catch (e) {
