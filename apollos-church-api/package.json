@@ -4,51 +4,67 @@
   "private": true,
   "main": "lib/index.js",
   "scripts": {
-    "start": "NODE_ENV=production node  --max-old-space-size=1536 ./lib/index.js",
-    "start:dev": "linkemon ./src/index.js --exec babel-node --delay 2 -e js,yaml,json,yml",
+    "migrator": "node ./lib/migrator.js",
+    "start": "NODE_ENV=production node ./lib/index.js",
+    "start:dev": "linkemon ./src/index.js --exec babel-node --delay 2",
     "postinstall": "yarn build",
     "build": "NODE_ENV=production rm -rf ./lib && mkdir -p lib && babel ./src -d ./lib",
     "test": "echo \"No tests in apollos-church-api, all tested code is located in @apollosproject npm modules\"",
-    "lint": "eslint ./src --ext .js",
-    "translate": "node scripts/translate.js"
+    "lint": "eslint ./src --ext .js"
   },
   "engines": {
-    "node": ">=14.x.x"
+    "node": ">=14"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
+      "<rootDir>/src/**/?(*.)(spec|test|tests).{js,jsx,mjs}"
+    ],
+    "testEnvironment": "node",
+    "reporters": [
+      "<rootDir>/../../scripts/fingers-crossed-reporter.js"
+    ]
   },
   "dependencies": {
     "@apollosproject/bugsnag": "^1.6.0",
-    "@apollosproject/config": "^2.42.0",
-    "@apollosproject/data-connector-algolia-search": "^2.42.0",
-    "@apollosproject/data-connector-analytics": "^2.42.0",
-    "@apollosproject/data-connector-bible": "^2.42.0",
-    "@apollosproject/data-connector-church-online": "^2.42.0",
-    "@apollosproject/data-connector-cloudinary": "^2.42.0",
-    "@apollosproject/data-connector-onesignal": "^2.42.0",
-    "@apollosproject/data-connector-passes": "^2.42.0",
-    "@apollosproject/data-connector-postgres": "^2.42.0",
-    "@apollosproject/data-connector-redis-cache": "^2.42.0",
-    "@apollosproject/data-connector-rock": "^2.42.0",
-    "@apollosproject/data-connector-twilio": "^2.42.0",
-    "@apollosproject/data-schema": "^2.42.0",
-    "@apollosproject/rock-apollo-data-source": "^2.42.0",
-    "@apollosproject/server-core": "^2.42.0",
-    "@newrelic/apollo-server-plugin": "^0.2.0",
+    "@apollosproject/config": "v2",
+    "@apollosproject/data-connector-algolia-search": "v2",
+    "@apollosproject/data-connector-analytics": "v2",
+    "@apollosproject/data-connector-bible": "v2",
+    "@apollosproject/data-connector-church-online": "v2",
+    "@apollosproject/data-connector-cloudinary": "v2",
+    "@apollosproject/data-connector-onesignal": "v2",
+    "@apollosproject/data-connector-passes": "v2",
+    "@apollosproject/data-connector-postgres": "v2",
+    "@apollosproject/data-connector-redis-cache": "v2",
+    "@apollosproject/data-connector-rock": "v2",
+    "@apollosproject/data-connector-twilio": "v2",
+    "@apollosproject/data-schema": "v2",
+    "@apollosproject/rock-apollo-data-source": "v2",
+    "@apollosproject/server-core": "v2",
+    "@bugsnag/js": "^6.4.3",
     "apollo-server": "^2.24.1",
-    "apollo-server-cache-redis": "^1.5.0",
     "apollo-server-express": "2.14.2",
-    "apollo-server-plugin-response-cache": "^0.8.0",
     "color": "3.0.0",
+    "date-fns": "^2.28.0",
     "dotenv": "6.0.0",
     "express": "^4.17.0",
     "graphql": "14.6.0",
+    "@newrelic/apollo-server-plugin": "^0.2.0",
+    "apollo-server-cache-redis": "^1.5.0",
+    "apollo-server-plugin-response-cache": "^0.8.0",
     "newrelic": "^7.5.1",
     "ioredis": "^4.27.2",
     "randomcolor": "0.5.3"
   },
   "devDependencies": {
-    "@apollosproject/apollo-server-env-mock": "^2.42.0",
-    "@apollosproject/babel-preset-apollos": "^2.42.0",
-    "@apollosproject/eslint-config": "^2.42.0",
+    "@apollosproject/apollo-server-env-mock": "v2",
+    "@apollosproject/babel-preset-apollos": "v2",
+    "@apollosproject/eslint-config": "v2",
     "@babel/cli": "^7.4.5",
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.7.4",
