@@ -104,5 +104,8 @@ jobs:
         env:
           APP_DATA_URL: ${{ secrets.APP_DATA_URL }}
 
+      - name: List Diff
+        run: git --no-pager diff
+
       - name: Fastlane Deploy
         run: bundle exec fastlane android deploy
