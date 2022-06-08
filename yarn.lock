@@ -217,9 +217,9 @@
     lodash "^4.17.11"
 
 "@apollosproject/data-connector-church-online@^2.42.0":
-  version "2.42.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-church-online/-/data-connector-church-online-2.42.0.tgz#6fca03a08a831bebc0c55534b100039d664c8083"
-  integrity sha512-eoJborTqBNygdYfGhfhO8qw/DJG86mT3FyIZS/PoDjeGkf2brZDJ4ojVHL+i2zFD8uwT1OYJz4L5yc4JJdrt5Q==
+  version "2.43.1"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-church-online/-/data-connector-church-online-2.43.1.tgz#14e16fef666d977a83514826c8c2ecae2e48f537"
+  integrity sha512-mbuZLCymkHDsDJe3G8FjZJl9lGvirMRZ2lv4Jt9j1jwQgz2j9eQP5FjFHJgbPYcry2w7ejM5z6e5ZXYwanedUg==
   dependencies:
     apollo-datasource-rest "^0.6.4"
 
@@ -351,7 +351,7 @@
     formik "1.5.1"
     yup "^0.27.0"
 
-"@apollosproject/ui-connected@v2":
+"@apollosproject/ui-connected@^2.43.2-canary.6":
   version "2.47.3"
   resolved "https://registry.yarnpkg.com/@apollosproject/ui-connected/-/ui-connected-2.47.3.tgz#8a3007f15a85fb87d041fdfa9086903af001cfa1"
   integrity sha512-+nJuZ1O6woP8glUL1AVgdyGv8ARD/DF/aV0zz4FoE4AV6VPAvwKDDFxVsAFjsGwlcO3ihjqc89aRaC3n7IXwJw==
@@ -362,7 +362,7 @@
     lodash "^4.17.11"
     moment "^2.29.1"
 
-"@apollosproject/ui-fragments@v2":
+"@apollosproject/ui-fragments@^2.43.2-canary.4":
   version "2.47.3"
   resolved "https://registry.yarnpkg.com/@apollosproject/ui-fragments/-/ui-fragments-2.47.3.tgz#cc5d38ff4c9aef90c525618b73f7bf659638abc2"
   integrity sha512-e3gN+2k2uUwhPQvTBBVo2AZwDTNjZz9NNFCMd2GH6fh+N4TlrqzBSrCpuOSe5aGSJwKXfCuWZhmTxvJwCJw5nA==
@@ -402,7 +402,7 @@
   dependencies:
     "@apollo/client" "3.3.20"
 
-"@apollosproject/ui-media-player@v2":
+"@apollosproject/ui-media-player@^2.43.2-canary.6":
   version "2.47.3"
   resolved "https://registry.yarnpkg.com/@apollosproject/ui-media-player/-/ui-media-player-2.47.3.tgz#26a1fdf913ce687e12ec27c6ef0ea609a50cd900"
   integrity sha512-dQc5XLO/z1cf+lKb/qy7EIwquFe2vogMVnen2XxezzOp7WKFUkOpcaP59LKF9fFbkRMZc+k10A2jgEQpFvVmZw==
