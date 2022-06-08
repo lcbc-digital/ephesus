@@ -1004,16 +1004,6 @@ export class dataSource extends CraftDataSource {
         : null;
     const { Vimeo, Wistia } = this.context.dataSources;
 
-    if (resi) {
-      return [
-        {
-          __typename: 'VideoMedia',
-          name: title,
-          embedHtml: resi,
-          sources: [{ uri }],
-        },
-      ];
-    }
     if (streamingVideoUrl) {
       return [
         {
@@ -1038,7 +1028,7 @@ export class dataSource extends CraftDataSource {
         {
           __typename: 'VideoMedia',
           name: title,
-          embedHtml: null,
+          embedHtml: resi,
           sources: [{ uri: finalUri }],
         },
       ];
