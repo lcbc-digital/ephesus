@@ -48,7 +48,7 @@ ONE_SIGNAL:
   REST_KEY: ${ONE_SIGNAL_REST_KEY}
 CHURCH_ONLINE:
   URL: https://lcbc.online.church/
-  MEDIA_URLS: ["https://resi.media/lcbc-ma-pa/Manifest.m3u8,https://control.resi.io/webplayer/video.html?id=a9f889d6-ce03-473c-9d12-e8f8335f2052"]
+  MEDIA_URLS: ["https://resi.media/lcbc-ma-pa/Manifest.m3u8","https://control.resi.io/webplayer/video.html?id=a9f889d6-ce03-473c-9d12-e8f8335f2052"]
   WEB_VIEW_URL: https://lcbc.online.church/
 ALGOLIA:
   APPLICATION_ID: ${ALGOLIA_APP_ID}
