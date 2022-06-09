@@ -167,6 +167,34 @@ export const typography = {
   ...fontStack,
 };
 
+const AddPrayerComponent = (props) => (
+  <AddPrayerScreenConnected
+    {...props}
+    AddedPrayerComponent={(props) => (
+      <ConfirmationDialogScreen
+        {...props}
+        title={
+          'Thanks for giving our community the opportunity to pray for you!'
+        }
+        body={
+          <Text>
+            <BodyText>
+              In addition to our prayer community here on the LCBC App, your
+              request has also been sent to the LCBC Ministry Team and a
+              small trusted team of volunteers.
+            </BodyText>
+            {'\n\n'}
+            <BodyText>
+              We hope you feel encouraged by God’s presence in your life and
+              his love for you today!
+            </BodyText>
+          </Text>
+        }
+      />
+    )}
+  />
+)
+
 export const overrides = {
   'ui-onboarding.Landing.BrandIcon': {
     size: 120,
@@ -207,33 +235,7 @@ export const overrides = {
     fontFamily: typography.sans.black.default,
   },
   'ui-prayer.PrayerExperience': () => ({
-    AddPrayerComponent: (props) => (
-      <AddPrayerScreenConnected
-        {...props}
-        AddedPrayerComponent={(props) => (
-          <ConfirmationDialogScreen
-            {...props}
-            title={
-              'Thanks for giving our community the opportunity to pray for you!'
-            }
-            body={
-              <Text>
-                <BodyText>
-                  In addition to our prayer community here on the LCBC App, your
-                  request has also been sent to the LCBC Ministry Team and a
-                  small trusted team of volunteers.
-                </BodyText>
-                {'\n\n'}
-                <BodyText>
-                  We hope you feel encouraged by God’s presence in your life and
-                  his love for you today!
-                </BodyText>
-              </Text>
-            }
-          />
-        )}
-      />
-    ),
+    AddPrayerComponent,
   }),
   'ui-prayer.PrayerCard.StyledCard': {
     cardColor: colors.darkSecondary,
