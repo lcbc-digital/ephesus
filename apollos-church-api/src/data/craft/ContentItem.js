@@ -992,14 +992,23 @@ export class dataSource extends CraftDataSource {
         newsUri = `https://lcbcchurch.wistia.com/medias/${matches[1]}`;
       }
     }
+
+    const webViewUrl = [videoEmbed, streamingVideoUrl].find(
+      (src) => !src?.includes('.m3u8')
+    );
+
+    const makeEmbedHtml = (selectedSource) =>
+      `<div style="position:relative;overflow:hidden;padding-top:56.25%;"><iframe allow="autoplay; fullscreen" allowfullscreen="true" src="${selectedSource}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe></div>`;
+
     const uri = videoEmbed || storyVideo || newsUri;
     const { Vimeo, Wistia } = this.context.dataSources;
+
     if (streamingVideoUrl) {
       return [
         {
           __typename: 'VideoMedia',
           name: title,
-          embedHtml: null,
+          embedHtml: webViewUrl ? makeEmbedHtml(webViewUrl) : null,
           sources: [{ uri: streamingVideoUrl }],
         },
       ];
@@ -1013,7 +1022,7 @@ export class dataSource extends CraftDataSource {
         {
           __typename: 'VideoMedia',
           name: title,
-          embedHtml: null,
+          embedHtml: webViewUrl ? makeEmbedHtml(webViewUrl) : null,
           sources: [{ uri: finalUri }],
         },
       ];
