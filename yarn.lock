@@ -332,10 +332,10 @@
     formik "1.5.1"
     yup "^0.27.0"
 
-"@apollosproject/ui-connected@v2":
-  version "2.47.3"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-connected/-/ui-connected-2.47.3.tgz#8a3007f15a85fb87d041fdfa9086903af001cfa1"
-  integrity sha512-+nJuZ1O6woP8glUL1AVgdyGv8ARD/DF/aV0zz4FoE4AV6VPAvwKDDFxVsAFjsGwlcO3ihjqc89aRaC3n7IXwJw==
+"@apollosproject/ui-connected@^2.47.5":
+  version "2.47.5"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-connected/-/ui-connected-2.47.5.tgz#3b2b35b5b430ed3935ef9bc34ffc3d5a943cbca3"
+  integrity sha512-hl+0v7QXsF/qILTZNz2Qyje16ZEsh6CuuszmGMiJtCci8EYMw9bM2LPCDGYBWSheEmTpkl9DM6HuI36QNPANRA==
   dependencies:
     "@gorhom/bottom-sheet" "3.4.1"
     apollo-upload-client "^17.0.0"
@@ -383,10 +383,10 @@
   dependencies:
     "@apollo/client" "3.3.20"
 
-"@apollosproject/ui-media-player@v2":
-  version "2.47.3"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-media-player/-/ui-media-player-2.47.3.tgz#26a1fdf913ce687e12ec27c6ef0ea609a50cd900"
-  integrity sha512-dQc5XLO/z1cf+lKb/qy7EIwquFe2vogMVnen2XxezzOp7WKFUkOpcaP59LKF9fFbkRMZc+k10A2jgEQpFvVmZw==
+"@apollosproject/ui-media-player@^2.47.5":
+  version "2.47.5"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-media-player/-/ui-media-player-2.47.5.tgz#b68197c2e49e9aafb7489b8bddf433d181274ead"
+  integrity sha512-zw487L39Gy3CIFBZOLZQ5O8qMc9bd/AUkOTY9sMQtp+kkGlzsVgFZ2bDp2kah9iM5jkKO/d8OdxB86wBjI33Jg==
   dependencies:
     "@types/color" "^3.0.1"
     color "^3.1.2"
