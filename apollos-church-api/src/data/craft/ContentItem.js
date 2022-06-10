@@ -993,15 +993,14 @@ export class dataSource extends CraftDataSource {
       }
     }
 
-    const makeEmbedHtml = (videoEmbed) =>
-      `<div style="position:relative;overflow:hidden;padding-top:56.25%;"><iframe allow="autoplay; fullscreen" allowfullscreen="true" src="${videoEmbed}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe></div>`;
+    const webViewUrl = [videoEmbed, streamingVideoUrl].find(
+      (src) => !src?.includes('.m3u8')
+    );
+
+    const makeEmbedHtml = (selectedSource) =>
+      `<div style="position:relative;overflow:hidden;padding-top:56.25%;"><iframe allow="autoplay; fullscreen" allowfullscreen="true" src="${selectedSource}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe></div>`;
 
     const uri = videoEmbed || storyVideo || newsUri;
-    const resi =
-      (videoEmbed?.includes('resi') || videoEmbed?.includes('.com')) &&
-      !videoEmbed?.includes('.m3u8')
-        ? makeEmbedHtml(videoEmbed)
-        : null;
     const { Vimeo, Wistia } = this.context.dataSources;
 
     if (streamingVideoUrl) {
@@ -1009,12 +1008,7 @@ export class dataSource extends CraftDataSource {
         {
           __typename: 'VideoMedia',
           name: title,
-          embedHtml:
-            (streamingVideoUrl?.includes('resi') ||
-              streamingVideoUrl.includes('.com')) &&
-            !streamingVideoUrl?.includes('.m3u8')
-              ? makeEmbedHtml(streamingVideoUrl)
-              : resi,
+          embedHtml: webViewUrl ? makeEmbedHtml(webViewUrl) : null,
           sources: [{ uri: streamingVideoUrl }],
         },
       ];
@@ -1028,7 +1022,7 @@ export class dataSource extends CraftDataSource {
         {
           __typename: 'VideoMedia',
           name: title,
-          embedHtml: resi,
+          embedHtml: webViewUrl ? makeEmbedHtml(webViewUrl) : null,
           sources: [{ uri: finalUri }],
         },
       ];
