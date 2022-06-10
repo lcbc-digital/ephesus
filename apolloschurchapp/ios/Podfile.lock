@@ -723,18 +723,18 @@ SPEC CHECKSUMS:
   Permission-Notifications: c9eb3a2da68dc0f37a8dc67d37bd28d150c5041d
   Permission-PhotoLibrary: e59a7a687e002e8c8c46946c26520934ba85a688
   RCT-Folly: a21c126816d8025b547704b777a2ba552f3d9fa9
-  RCTRequired: 3cc065b52aa18db729268b9bd78a2feffb4d0f91
-  RCTTypeSafety: 3c4fc37d5dea452d2ef17324db5504ec2f05083a
-  React: 4a00720816c52a213424442954acb7e4b724804a
-  React-callinvoker: 911fc6570538f3bb5c61edf9dc907c1beb4355bf
-  React-Core: e134d3a5d7b2a1a731589be776e20dbb14868f27
-  React-CoreModules: 2f8588b2aa47e7fef27125c8eaaabda963b3ac62
-  React-cxxreact: 8f1382538cad0cc8b8eafca6d66268828e353bea
-  React-hermes: 503642bd7704c60dcd1385c2da9607eac5260077
-  React-jsi: 9fe1854d2c0486216acebd5db3c38b4ccb23ca0b
-  React-jsiexecutor: db2f6e22a534d466fc0e34e622df47d9d20bab2f
-  React-jsinspector: 8c0517dee5e8c70cd6c3066f20213ff7ce54f176
-  React-logger: bfddd3418dc1d45b77b822958f3e31422e2c179b
+  RCTRequired: 59d2b744d8c2bf2d9bc7032a9f654809adcf7d50
+  RCTTypeSafety: d0aaf7ccae5c70a4aaa3a5c3e9e0db97efae760e
+  React: fbe655dd1d12c052299b61abdc576720098d80fc
+  React-callinvoker: a535746608d9bc8b1dea7095ed4d8d3d7aae9a05
+  React-Core: 008d2638c4f80b189c8e170ff2d241027ec517fd
+  React-CoreModules: 91c9a03f4e1b74494c087d9c9a29e89a3145c228
+  React-cxxreact: 9c462fb6d59f865855e2dee2097c7d87b3d2de49
+  React-hermes: 79103a3907b81b7eeb394b37612b991076d27472
+  React-jsi: 4de8b8d70ba4ed841eb9b772bdb719f176387e21
+  React-jsiexecutor: 433a691aee158533a6a6ee9c86cb4a1684fa2853
+  React-jsinspector: d9c8eb0b53f0da206fed56612b289fec84991157
+  React-logger: e522e76fa3e9ec3e7d7115b49485cc065cf4ae06
   react-native-apollos-player: c4d517ee30077aafbce9a31386128817350478b4
   react-native-config: 55548054279d92e0e4566ea15a8b9b81028ec342
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
