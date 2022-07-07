@@ -393,10 +393,10 @@
     react-native-youtube-iframe "~2.2.2"
     use-debounce "5.1.0"
 
-"@apollosproject/ui-notifications@^2.42.0":
-  version "2.42.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-notifications/-/ui-notifications-2.42.0.tgz#f592f8ad8fc3b569452e25ae63db8cb41c506214"
-  integrity sha512-0GdqekpDog2Nvky/bavHWO/yLtVTvH/fRXCsocLEdJbUjh+DeBGpdYblooQLEYWCJD50SYXMKGdhBHONDjrjDw==
+"@apollosproject/ui-notifications@^v2":
+  version "2.47.6"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-notifications/-/ui-notifications-2.47.6.tgz#392cae5f9939a89d641b2eee6c4cfdcaafccaf85"
+  integrity sha512-V/Qm0KY7F4ZMObZFVsb5bpoUaXeHL+3nXIrbymffxNIBN7s9mTxR8WIrn1Hvx+cFhxLmQYSWsxGK+UX9ppVlAg==
   dependencies:
     lodash "^4.17.11"
     react-native-permissions "^2.0.5"
