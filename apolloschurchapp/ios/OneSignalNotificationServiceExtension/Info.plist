@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>20210000000000.3.4</string>
+	<string>20210000000000.4.1</string>
 	<key>CFBundleVersion</key>
 	<string>670</string>
 	<key>NSExtension</key>
