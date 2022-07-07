@@ -49,7 +49,7 @@
     "@apollosproject/ui-kit": "^2.42.0",
     "@apollosproject/ui-mapview": "^2.42.0",
     "@apollosproject/ui-media-player": "^2.47.5",
-    "@apollosproject/ui-notifications": "^2.42.0",
+    "@apollosproject/ui-notifications": "^v2",
     "@apollosproject/ui-onboarding": "^2.42.0",
     "@apollosproject/ui-passes": "^2.42.0",
     "@apollosproject/ui-prayer": "^2.42.0",
