@@ -1,6 +1,6 @@
 {
   "name": "LCBCChurch",
-  "version": "20210000000000.4.1",
+  "version": "20210000000000.4.2",
   "private": true,
   "engines": {
     "node": ">=14"
