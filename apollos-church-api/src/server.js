@@ -70,7 +70,17 @@ const apolloServer = new ApolloServer({
   ...(process.env.REDIS_URL
     ? {
         cache: new BaseRedisCache({
-          client: new Redis(process.env.REDIS_URL),
+          client: new Redis(process.env.REDIS_URL, {
+            keyPrefix: `apollo-server-cache-${process.env.NODE_ENV}`,
+            ...(process.env.REDIS_URL.includes('rediss')
+              ? {
+                  tls: {
+                    rejectUnauthorized: false,
+                  },
+                }
+              : {}),
+          }),
+
         }),
       }
     : {}),
