@@ -83,7 +83,7 @@
     "lodash": "^4.17.11",
     "memoize-one": "4.0.0",
     "moment": "2.22.2",
-    "node-fetch": "2.6.1",
+    "node-fetch": "2.6.7",
     "querystring": "^0.2.1",
     "react": "17.0.2",
     "react-native": "0.66.3",
